@@ -1,0 +1,1078 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="stockifydBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ContactDetails">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="500" />
+          <Property Name="PersonName" Type="varchar" MaxLength="200" />
+          <Property Name="ContactType" Type="char" MaxLength="30" />
+          <Property Name="Street" Type="varchar" MaxLength="200" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="Parish" Type="varchar" MaxLength="100" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="20" />
+          <Property Name="Telephone" Type="varchar" MaxLength="15" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="QuantityOrdered" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RetailerID" Type="int" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="Total" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="PaymentDetails">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+          <Property Name="TransactionDate" Type="datetime" />
+          <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductImages">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="char" MaxLength="500" />
+          <Property Name="Category" Type="char" MaxLength="200" />
+          <Property Name="Description" Type="char" MaxLength="1000" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="RateID" Type="int" />
+        </EntityType>
+        <EntityType Name="Rates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GCT" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Discount" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>
+        <EntityType Name="ShippingDetails">
+          <Key>
+            <PropertyRef Name="ShippingID" />
+          </Key>
+          <Property Name="ShippingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="ContactID" Type="int" />
+          <Property Name="ShippingDate" Type="datetime" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="TrackingNumber" Type="char" MaxLength="8" />
+          <Property Name="StatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Stocks">
+          <Key>
+            <PropertyRef Name="StockID" />
+          </Key>
+          <Property Name="StockID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="QuantityInStock" Type="int" />
+        </EntityType>
+        <EntityType Name="Supplies">
+          <Key>
+            <PropertyRef Name="SupplyID" />
+          </Key>
+          <Property Name="SupplyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="QuantityPurchased" Type="int" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SupplyDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="char" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="64" />
+          <Property Name="Role" Type="char" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK__ContactDe__UserI__267ABA7A">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="ContactDetails" Type="Self.ContactDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ContactDetails">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__Order__3C69FB99">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__Produ__3D5E1FD2">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Retailer__38996AB5">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="RetailerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__StatusID__398D8EEE">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PaymentDe__Order__403A8C7D">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="PaymentDetails" Type="Self.PaymentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="PaymentDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PaymentDe__Statu__412EB0B6">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="PaymentDetails" Type="Self.PaymentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="PaymentDetails">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductIm__Produ__300424B4">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductImages" Type="Self.ProductImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductImages">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__RateID__2D27B809">
+          <End Role="Rates" Type="Self.Rates" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rates">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="RateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShippingD__Conta__45F365D3">
+          <End Role="ContactDetails" Type="Self.ContactDetails" Multiplicity="0..1" />
+          <End Role="ShippingDetails" Type="Self.ShippingDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactDetails">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="ShippingDetails">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShippingD__Order__44FF419A">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="ShippingDetails" Type="Self.ShippingDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="ShippingDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShippingD__Statu__440B1D61">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="ShippingDetails" Type="Self.ShippingDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="ShippingDetails">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Stocks__ProductI__5165187F">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="Stocks" Type="Self.Stocks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Stocks">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplies__Produc__32E0915F">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="Supplies" Type="Self.Supplies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Supplies">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spCreateProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductName" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="Category" Type="varchar" Mode="In" />
+          <Parameter Name="ImageURL" Type="varchar" Mode="In" />
+          <Parameter Name="Price" Type="decimal" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="RateID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spCreateUserWithContactDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="char" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="Role" Type="char" Mode="In" />
+          <Parameter Name="CompanyName" Type="varchar" Mode="In" />
+          <Parameter Name="PersonName" Type="varchar" Mode="In" />
+          <Parameter Name="ContactType" Type="char" Mode="In" />
+          <Parameter Name="Street" Type="varchar" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+          <Parameter Name="Parish" Type="varchar" Mode="In" />
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+          <Parameter Name="Telephone" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spDeleteProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spDeleteUserWithContactDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spReadProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spReadUserWithContactDetailswithID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spUpdateProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+          <Parameter Name="ProductName" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="Category" Type="varchar" Mode="In" />
+          <Parameter Name="ImageURL" Type="varchar" Mode="In" />
+          <Parameter Name="Price" Type="decimal" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="RateID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spUpdateUserWithContactDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Username" Type="char" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="Role" Type="char" Mode="In" />
+          <Parameter Name="CompanyName" Type="varchar" Mode="In" />
+          <Parameter Name="PersonName" Type="varchar" Mode="In" />
+          <Parameter Name="ContactType" Type="char" Mode="In" />
+          <Parameter Name="Street" Type="varchar" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+          <Parameter Name="Parish" Type="varchar" Mode="In" />
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+          <Parameter Name="Telephone" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="stockifydBModelStoreContainer">
+          <EntitySet Name="ContactDetails" EntityType="Self.ContactDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentDetails" EntityType="Self.PaymentDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductImages" EntityType="Self.ProductImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rates" EntityType="Self.Rates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShippingDetails" EntityType="Self.ShippingDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplies" EntityType="Self.Supplies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ContactDe__UserI__267ABA7A" Association="Self.FK__ContactDe__UserI__267ABA7A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ContactDetails" EntitySet="ContactDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Order__3C69FB99" Association="Self.FK__OrderDeta__Order__3C69FB99">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Produ__3D5E1FD2" Association="Self.FK__OrderDeta__Produ__3D5E1FD2">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Retailer__38996AB5" Association="Self.FK__Orders__Retailer__38996AB5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__StatusID__398D8EEE" Association="Self.FK__Orders__StatusID__398D8EEE">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PaymentDe__Order__403A8C7D" Association="Self.FK__PaymentDe__Order__403A8C7D">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="PaymentDetails" EntitySet="PaymentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PaymentDe__Statu__412EB0B6" Association="Self.FK__PaymentDe__Statu__412EB0B6">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="PaymentDetails" EntitySet="PaymentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductIm__Produ__300424B4" Association="Self.FK__ProductIm__Produ__300424B4">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductImages" EntitySet="ProductImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__RateID__2D27B809" Association="Self.FK__Products__RateID__2D27B809">
+            <End Role="Rates" EntitySet="Rates" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShippingD__Conta__45F365D3" Association="Self.FK__ShippingD__Conta__45F365D3">
+            <End Role="ContactDetails" EntitySet="ContactDetails" />
+            <End Role="ShippingDetails" EntitySet="ShippingDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShippingD__Order__44FF419A" Association="Self.FK__ShippingD__Order__44FF419A">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="ShippingDetails" EntitySet="ShippingDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShippingD__Statu__440B1D61" Association="Self.FK__ShippingD__Statu__440B1D61">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="ShippingDetails" EntitySet="ShippingDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Stocks__ProductI__5165187F" Association="Self.FK__Stocks__ProductI__5165187F">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Stocks" EntitySet="Stocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplies__Produc__32E0915F" Association="Self.FK__Supplies__Produc__32E0915F">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Supplies" EntitySet="Supplies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="stockifydBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ContactDetail">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="CompanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PersonName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ContactType" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Street" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Parish" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__ContactDe__UserI__267ABA7A" FromRole="ContactDetails" ToRole="Users" />
+          <NavigationProperty Name="ShippingDetails" Relationship="Self.FK__ShippingD__Conta__45F365D3" FromRole="ContactDetails" ToRole="ShippingDetails" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="QuantityOrdered" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__OrderDeta__Order__3C69FB99" FromRole="OrderDetails" ToRole="Orders" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__OrderDeta__Produ__3D5E1FD2" FromRole="OrderDetails" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RetailerID" Type="Int32" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="Total" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Order__3C69FB99" FromRole="Orders" ToRole="OrderDetails" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Orders__Retailer__38996AB5" FromRole="Orders" ToRole="Users" />
+          <NavigationProperty Name="Status" Relationship="Self.FK__Orders__StatusID__398D8EEE" FromRole="Orders" ToRole="Status" />
+          <NavigationProperty Name="PaymentDetails" Relationship="Self.FK__PaymentDe__Order__403A8C7D" FromRole="Orders" ToRole="PaymentDetails" />
+          <NavigationProperty Name="ShippingDetails" Relationship="Self.FK__ShippingD__Order__44FF419A" FromRole="Orders" ToRole="ShippingDetails" />
+        </EntityType>
+        <EntityType Name="PaymentDetail">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__PaymentDe__Order__403A8C7D" FromRole="PaymentDetails" ToRole="Orders" />
+          <NavigationProperty Name="Status" Relationship="Self.FK__PaymentDe__Statu__412EB0B6" FromRole="PaymentDetails" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ImageURL" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__ProductIm__Produ__300424B4" FromRole="ProductImages" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="500" FixedLength="true" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="200" FixedLength="true" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="true" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="RateID" Type="Int32" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Produ__3D5E1FD2" FromRole="Products" ToRole="OrderDetails" />
+          <NavigationProperty Name="ProductImages" Relationship="Self.FK__ProductIm__Produ__300424B4" FromRole="Products" ToRole="ProductImages" />
+          <NavigationProperty Name="Rate" Relationship="Self.FK__Products__RateID__2D27B809" FromRole="Products" ToRole="Rates" />
+          <NavigationProperty Name="Stocks" Relationship="Self.FK__Stocks__ProductI__5165187F" FromRole="Products" ToRole="Stocks" />
+          <NavigationProperty Name="Supplies" Relationship="Self.FK__Supplies__Produc__32E0915F" FromRole="Products" ToRole="Supplies" />
+        </EntityType>
+        <EntityType Name="Rate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GCT" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Discount" Type="Decimal" Precision="4" Scale="2" />
+          <NavigationProperty Name="Products" Relationship="Self.FK__Products__RateID__2D27B809" FromRole="Rates" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="ShippingDetail">
+          <Key>
+            <PropertyRef Name="ShippingID" />
+          </Key>
+          <Property Name="ShippingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ContactID" Type="Int32" />
+          <Property Name="ShippingDate" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="TrackingNumber" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="StatusID" Type="Int32" />
+          <NavigationProperty Name="ContactDetail" Relationship="Self.FK__ShippingD__Conta__45F365D3" FromRole="ShippingDetails" ToRole="ContactDetails" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__ShippingD__Order__44FF419A" FromRole="ShippingDetails" ToRole="Orders" />
+          <NavigationProperty Name="Status" Relationship="Self.FK__ShippingD__Statu__440B1D61" FromRole="ShippingDetails" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__StatusID__398D8EEE" FromRole="Status" ToRole="Orders" />
+          <NavigationProperty Name="PaymentDetails" Relationship="Self.FK__PaymentDe__Statu__412EB0B6" FromRole="Status" ToRole="PaymentDetails" />
+          <NavigationProperty Name="ShippingDetails" Relationship="Self.FK__ShippingD__Statu__440B1D61" FromRole="Status" ToRole="ShippingDetails" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="StockID" />
+          </Key>
+          <Property Name="StockID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="QuantityInStock" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Stocks__ProductI__5165187F" FromRole="Stocks" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Supply">
+          <Key>
+            <PropertyRef Name="SupplyID" />
+          </Key>
+          <Property Name="SupplyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="QuantityPurchased" Type="Int32" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="SupplyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Supplies__Produc__32E0915F" FromRole="Supplies" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="ContactDetails" Relationship="Self.FK__ContactDe__UserI__267ABA7A" FromRole="Users" ToRole="ContactDetails" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Retailer__38996AB5" FromRole="Users" ToRole="Orders" />
+        </EntityType>
+        <Association Name="FK__ContactDe__UserI__267ABA7A">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ContactDetails" Type="Self.ContactDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ContactDetails">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShippingD__Conta__45F365D3">
+          <End Role="ContactDetails" Type="Self.ContactDetail" Multiplicity="0..1" />
+          <End Role="ShippingDetails" Type="Self.ShippingDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactDetails">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="ShippingDetails">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__Order__3C69FB99">
+          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__Produ__3D5E1FD2">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Retailer__38996AB5">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="RetailerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__StatusID__398D8EEE">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PaymentDe__Order__403A8C7D">
+          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="PaymentDetails" Type="Self.PaymentDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="PaymentDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShippingD__Order__44FF419A">
+          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="ShippingDetails" Type="Self.ShippingDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="ShippingDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PaymentDe__Statu__412EB0B6">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="PaymentDetails" Type="Self.PaymentDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="PaymentDetails">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductIm__Produ__300424B4">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductImages" Type="Self.ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductImages">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Products__RateID__2D27B809">
+          <End Role="Rates" Type="Self.Rate" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rates">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="RateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Stocks__ProductI__5165187F">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Stocks" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Stocks">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Supplies__Produc__32E0915F">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Supplies" Type="Self.Supply" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Supplies">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShippingD__Statu__440B1D61">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="ShippingDetails" Type="Self.ShippingDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="ShippingDetails">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="stockifydBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContactDetails" EntityType="Self.ContactDetail" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="PaymentDetails" EntityType="Self.PaymentDetail" />
+          <EntitySet Name="ProductImages" EntityType="Self.ProductImage" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Rates" EntityType="Self.Rate" />
+          <EntitySet Name="ShippingDetails" EntityType="Self.ShippingDetail" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <EntitySet Name="Supplies" EntityType="Self.Supply" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__ContactDe__UserI__267ABA7A" Association="Self.FK__ContactDe__UserI__267ABA7A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ContactDetails" EntitySet="ContactDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShippingD__Conta__45F365D3" Association="Self.FK__ShippingD__Conta__45F365D3">
+            <End Role="ContactDetails" EntitySet="ContactDetails" />
+            <End Role="ShippingDetails" EntitySet="ShippingDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Order__3C69FB99" Association="Self.FK__OrderDeta__Order__3C69FB99">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Produ__3D5E1FD2" Association="Self.FK__OrderDeta__Produ__3D5E1FD2">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Retailer__38996AB5" Association="Self.FK__Orders__Retailer__38996AB5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__StatusID__398D8EEE" Association="Self.FK__Orders__StatusID__398D8EEE">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PaymentDe__Order__403A8C7D" Association="Self.FK__PaymentDe__Order__403A8C7D">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="PaymentDetails" EntitySet="PaymentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShippingD__Order__44FF419A" Association="Self.FK__ShippingD__Order__44FF419A">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="ShippingDetails" EntitySet="ShippingDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PaymentDe__Statu__412EB0B6" Association="Self.FK__PaymentDe__Statu__412EB0B6">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="PaymentDetails" EntitySet="PaymentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductIm__Produ__300424B4" Association="Self.FK__ProductIm__Produ__300424B4">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductImages" EntitySet="ProductImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Products__RateID__2D27B809" Association="Self.FK__Products__RateID__2D27B809">
+            <End Role="Rates" EntitySet="Rates" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Stocks__ProductI__5165187F" Association="Self.FK__Stocks__ProductI__5165187F">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Stocks" EntitySet="Stocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Supplies__Produc__32E0915F" Association="Self.FK__Supplies__Produc__32E0915F">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Supplies" EntitySet="Supplies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShippingD__Statu__440B1D61" Association="Self.FK__ShippingD__Statu__440B1D61">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="ShippingDetails" EntitySet="ShippingDetails" />
+          </AssociationSet>
+          <FunctionImport Name="spCreateProduct">
+            <Parameter Name="ProductName" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="String" />
+            <Parameter Name="ImageURL" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Decimal" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="RateID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spCreateUserWithContactDetails">
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Role" Mode="In" Type="String" />
+            <Parameter Name="CompanyName" Mode="In" Type="String" />
+            <Parameter Name="PersonName" Mode="In" Type="String" />
+            <Parameter Name="ContactType" Mode="In" Type="String" />
+            <Parameter Name="Street" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Parish" Mode="In" Type="String" />
+            <Parameter Name="ZipCode" Mode="In" Type="String" />
+            <Parameter Name="Telephone" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spDeleteProduct">
+            <Parameter Name="ProductID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spDeleteUserWithContactDetails">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spReadProduct" ReturnType="Collection(stockifydBModel.spReadProduct_Result)">
+            <Parameter Name="ProductID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spReadUserWithContactDetailswithID" ReturnType="Collection(stockifydBModel.spReadUserWithContactDetailswithID_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateProduct">
+            <Parameter Name="ProductID" Mode="In" Type="Int32" />
+            <Parameter Name="ProductName" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Category" Mode="In" Type="String" />
+            <Parameter Name="ImageURL" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Decimal" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="RateID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spUpdateUserWithContactDetails">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Role" Mode="In" Type="String" />
+            <Parameter Name="CompanyName" Mode="In" Type="String" />
+            <Parameter Name="PersonName" Mode="In" Type="String" />
+            <Parameter Name="ContactType" Mode="In" Type="String" />
+            <Parameter Name="Street" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+            <Parameter Name="Parish" Mode="In" Type="String" />
+            <Parameter Name="ZipCode" Mode="In" Type="String" />
+            <Parameter Name="Telephone" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="spReadProduct_Result">
+          <Property Type="Int32" Name="ProductID" Nullable="false" />
+          <Property Type="String" Name="ProductName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spReadUserWithContactDetailswithID_Result">
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="Role" Nullable="true" MaxLength="30" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="stockifydBModelStoreContainer" CdmEntityContainer="stockifydBEntities">
+          <EntitySetMapping Name="ContactDetails">
+            <EntityTypeMapping TypeName="stockifydBModel.ContactDetail">
+              <MappingFragment StoreEntitySet="ContactDetails">
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Parish" ColumnName="Parish" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="stockifydBModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="QuantityOrdered" ColumnName="QuantityOrdered" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="stockifydBModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="RetailerID" ColumnName="RetailerID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentDetails">
+            <EntityTypeMapping TypeName="stockifydBModel.PaymentDetail">
+              <MappingFragment StoreEntitySet="PaymentDetails">
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductImages">
+            <EntityTypeMapping TypeName="stockifydBModel.ProductImage">
+              <MappingFragment StoreEntitySet="ProductImages">
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="stockifydBModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="RateID" ColumnName="RateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rates">
+            <EntityTypeMapping TypeName="stockifydBModel.Rate">
+              <MappingFragment StoreEntitySet="Rates">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GCT" ColumnName="GCT" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShippingDetails">
+            <EntityTypeMapping TypeName="stockifydBModel.ShippingDetail">
+              <MappingFragment StoreEntitySet="ShippingDetails">
+                <ScalarProperty Name="ShippingID" ColumnName="ShippingID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="ShippingDate" ColumnName="ShippingDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="TrackingNumber" ColumnName="TrackingNumber" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="stockifydBModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="stockifydBModel.Stock">
+              <MappingFragment StoreEntitySet="Stocks">
+                <ScalarProperty Name="StockID" ColumnName="StockID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="QuantityInStock" ColumnName="QuantityInStock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supplies">
+            <EntityTypeMapping TypeName="stockifydBModel.Supply">
+              <MappingFragment StoreEntitySet="Supplies">
+                <ScalarProperty Name="SupplyID" ColumnName="SupplyID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="QuantityPurchased" ColumnName="QuantityPurchased" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="SupplyDate" ColumnName="SupplyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="stockifydBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCreateProduct" FunctionName="stockifydBModel.Store.spCreateProduct" />
+          <FunctionImportMapping FunctionImportName="spCreateUserWithContactDetails" FunctionName="stockifydBModel.Store.spCreateUserWithContactDetails" />
+          <FunctionImportMapping FunctionImportName="spDeleteProduct" FunctionName="stockifydBModel.Store.spDeleteProduct" />
+          <FunctionImportMapping FunctionImportName="spDeleteUserWithContactDetails" FunctionName="stockifydBModel.Store.spDeleteUserWithContactDetails" />
+          <FunctionImportMapping FunctionImportName="spReadProduct" FunctionName="stockifydBModel.Store.spReadProduct">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="stockifydBModel.spReadProduct_Result">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spReadUserWithContactDetailswithID" FunctionName="stockifydBModel.Store.spReadUserWithContactDetailswithID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="stockifydBModel.spReadUserWithContactDetailswithID_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spUpdateProduct" FunctionName="stockifydBModel.Store.spUpdateProduct" />
+          <FunctionImportMapping FunctionImportName="spUpdateUserWithContactDetails" FunctionName="stockifydBModel.Store.spUpdateUserWithContactDetails" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
