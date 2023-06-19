@@ -50,7 +50,7 @@
             // picExit
             // 
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(618, 388);
+            this.picExit.Location = new System.Drawing.Point(727, 391);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(61, 47);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -61,7 +61,7 @@
             // picUserIcon
             // 
             this.picUserIcon.Image = ((System.Drawing.Image)(resources.GetObject("picUserIcon.Image")));
-            this.picUserIcon.Location = new System.Drawing.Point(291, 94);
+            this.picUserIcon.Location = new System.Drawing.Point(396, 88);
             this.picUserIcon.Name = "picUserIcon";
             this.picUserIcon.Size = new System.Drawing.Size(105, 95);
             this.picUserIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -70,7 +70,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(291, 359);
+            this.btnLogin.Location = new System.Drawing.Point(396, 377);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 29);
             this.btnLogin.TabIndex = 16;
@@ -80,7 +80,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(272, 281);
+            this.txtPassword.Location = new System.Drawing.Point(349, 299);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(184, 22);
             this.txtPassword.TabIndex = 15;
@@ -88,7 +88,7 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(272, 228);
+            this.txtUserName.Location = new System.Drawing.Point(349, 246);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(184, 22);
             this.txtUserName.TabIndex = 14;
@@ -98,7 +98,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(170, 287);
+            this.lblPassword.Location = new System.Drawing.Point(247, 305);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(75, 16);
             this.lblPassword.TabIndex = 13;
@@ -108,7 +108,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(170, 228);
+            this.lblUsername.Location = new System.Drawing.Point(247, 246);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(82, 16);
             this.lblUsername.TabIndex = 12;
@@ -119,11 +119,11 @@
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Georgia", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
-            this.lblLogin.Location = new System.Drawing.Point(277, 15);
+            this.lblLogin.Location = new System.Drawing.Point(389, 9);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(117, 38);
+            this.lblLogin.Size = new System.Drawing.Size(128, 38);
             this.lblLogin.TabIndex = 11;
-            this.lblLogin.Text = "Login";
+            this.lblLogin.Text = "Log In";
             // 
             // notifyLoginSuccess
             // 
@@ -137,7 +137,7 @@
             // picPassword
             // 
             this.picPassword.Image = ((System.Drawing.Image)(resources.GetObject("picPassword.Image")));
-            this.picPassword.Location = new System.Drawing.Point(122, 272);
+            this.picPassword.Location = new System.Drawing.Point(199, 290);
             this.picPassword.Name = "picPassword";
             this.picPassword.Size = new System.Drawing.Size(42, 45);
             this.picPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -147,7 +147,7 @@
             // picUsername
             // 
             this.picUsername.Image = ((System.Drawing.Image)(resources.GetObject("picUsername.Image")));
-            this.picUsername.Location = new System.Drawing.Point(122, 220);
+            this.picUsername.Location = new System.Drawing.Point(199, 238);
             this.picUsername.Name = "picUsername";
             this.picUsername.Size = new System.Drawing.Size(42, 30);
             this.picUsername.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -158,6 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.picExit);
             this.Controls.Add(this.picUserIcon);
@@ -169,8 +170,9 @@
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.picPassword);
             this.Controls.Add(this.picUsername);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogin";
-            this.Text = "FrmLogin";
+            this.Text = "Log In";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUserIcon)).EndInit();

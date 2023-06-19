@@ -206,6 +206,18 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProductDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductDetails.Designer.cs">
+      <DependentUpon>FrmProductDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmViewAllProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewAllProducts.Designer.cs">
+      <DependentUpon>FrmViewAllProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
@@ -259,6 +271,18 @@
     <Compile Include="Supply.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="UCProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCProduct.Designer.cs">
+      <DependentUpon>UCProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCProductDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCProductDetails.Designer.cs">
+      <DependentUpon>UCProductDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
@@ -277,6 +301,12 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductDetails.resx">
+      <DependentUpon>FrmProductDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewAllProducts.resx">
+      <DependentUpon>FrmViewAllProducts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -286,6 +316,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UCProduct.resx">
+      <DependentUpon>UCProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCProductDetails.resx">
+      <DependentUpon>UCProductDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
