@@ -170,11 +170,11 @@
     <Compile Include="ContactDetail.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmPlaceOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmPlaceOrder.Designer.cs">
+      <DependentUpon>FrmPlaceOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAdminChat.cs">
       <SubType>Form</SubType>
@@ -276,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPlaceOrder.resx">
+      <DependentUpon>FrmPlaceOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -77,7 +77,7 @@ namespace StockifyJa
 
         private void picExit_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
