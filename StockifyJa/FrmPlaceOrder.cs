@@ -7,21 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StockifyjaLib;
 
 namespace StockifyJa
 {
     public partial class FrmPlaceOrder : Form
     {
-
         private stockifydBEntities _db;
+
         public FrmPlaceOrder()
         {
             InitializeComponent();
             _db = new stockifydBEntities();
             _db.Database.CommandTimeout = 180;
             btnViewOrder.Enabled = false;
+
             var productList = _db.Products.ToList();
             productList.Insert(0, new Product { ProductName = "Select a product", ProductID = 0 });
+
             cbProduct.DataSource = productList;
             cbProduct.DisplayMember = "ProductName";
             cbProduct.ValueMember = "ProductID";
@@ -31,9 +34,7 @@ namespace StockifyJa
             nudQuantity.ValueChanged += nudQuantity_ValueChanged;
             nudQuantity.ReadOnly = true;
             nudQuantity.KeyPress += new KeyPressEventHandler(nudQuantity_KeyPress);
-
         }
-
 
         private void nudQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -47,81 +48,30 @@ namespace StockifyJa
 
             if (selectedProduct != null && selectedProduct.ProductID != 0)
             {
-                if (_db == null)
-                {
-                    // Handle the case when _db is not initialized
-                    throw new InvalidOperationException("_db is not initialized");
-                }
-
-                if (_db.Supplies == null)
-                {
-                    // Handle the case when Supplies is not initialized
-                    throw new InvalidOperationException("_db.Supplies is not initialized");
-                }
-
-                if (selectedProduct.ProductID == null)
-                {
-                    // Handle the case when ProductID is not initialized
-                    throw new InvalidOperationException("selectedProduct.ProductID is null");
-                }
-
-                // get the product ID before running the async task
                 int productId = selectedProduct.ProductID;
 
-                try
+                var stock = await Task.Run(() =>
                 {
-                    var supply = await Task.Run(() =>
+                    try
                     {
-                        try
-                        {
-                            return _db.Supplies.FirstOrDefault(s => s.ProductID == productId);
-                        }
-                        catch (System.Data.Entity.Core.EntityException ex)
-                        {
-                            // Log the exception (consider using a logging library like log4net, Serilog, NLog, etc.)
-                            Console.WriteLine(ex.ToString());
-
-                            // Show a user-friendly error message
-                            MessageBox.Show("Oops! An error occurred while communicating with the database.\n" +
-                                            "Please try to reconnect or refresh the database connection, or try again later.",
-                                            "Database Communication Error",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
-
-                            // TODO: You might want to attempt to reconnect to the database or take other corrective action here.
-
-                            return null; // return null or some default value
-                        }
-                        catch (NullReferenceException ex)
-                        {
-                            // Log the exception
-                            Console.WriteLine(ex.ToString());
-
-                            // Show a user-friendly error message
-                            MessageBox.Show("Oops! An unexpected error occurred.\n" +
-                                            "Please try again later.",
-                                            "Unexpected Error",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
-
-                            return null; // return null or some default value
-                        }
-                    });
-
-                    if (supply != null)
-                    {
-                        nudQuantity.Maximum = (decimal)supply.Quantity.GetValueOrDefault();
-                        nudQuantity.ReadOnly = false;
+                        return _db.Stocks.FirstOrDefault(s => s.ProductID == productId);
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        nudQuantity.ReadOnly = true;
+                        // Handle exception as necessary
+                        Console.WriteLine(ex.ToString());
+                        return null;
                     }
+                });
+
+                if (stock != null)
+                {
+                    nudQuantity.Maximum = (decimal)stock.QuantityInStock.GetValueOrDefault();
+                    nudQuantity.ReadOnly = false;
                 }
-                catch (Exception ex) // This will catch any other exceptions
+                else
                 {
-                    // Handle any other exceptions that could happen outside of the task
-                    Console.WriteLine(ex.ToString());
+                    nudQuantity.ReadOnly = true;
                 }
             }
         }
@@ -130,32 +80,28 @@ namespace StockifyJa
         {
             if (cbProduct.SelectedItem is Product selectedProduct && selectedProduct.ProductID != 0)
             {
-                var supply = _db.Supplies.FirstOrDefault(s => s.ProductID == selectedProduct.ProductID);
+                var stock = _db.Stocks.FirstOrDefault(s => s.ProductID == selectedProduct.ProductID);
 
-                if (supply != null && nudQuantity.Value > (decimal)supply.Quantity.GetValueOrDefault())
+                if (stock != null && nudQuantity.Value > (decimal)stock.QuantityInStock.GetValueOrDefault())
                 {
-                    MessageBox.Show($"You cannot select more than {supply.Quantity} of {selectedProduct.ProductName}");
-                    nudQuantity.Value = (decimal)supply.Quantity.GetValueOrDefault();
+                    MessageBox.Show($"You cannot select more than {stock.QuantityInStock} of {selectedProduct.ProductName}");
+                    nudQuantity.Value = (decimal)stock.QuantityInStock.GetValueOrDefault();
                 }
             }
         }
 
-        private void lbxCart_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             if (cbProduct.SelectedItem is Product selectedProduct && selectedProduct.ProductID != 0)
             {
-                var supply = _db.Supplies.FirstOrDefault(s => s.ProductID == selectedProduct.ProductID);
-                if (supply != null)
+                var stock = _db.Stocks.FirstOrDefault(s => s.ProductID == selectedProduct.ProductID);
+                if (stock != null)
                 {
-                    if (nudQuantity.Value > (decimal)supply.Quantity.GetValueOrDefault())
+                    if (nudQuantity.Value > (decimal)stock.QuantityInStock.GetValueOrDefault())
                     {
                         MessageBox.Show($"The selected quantity exceeds the available stock. \n\n" +
                                         $"Product: {selectedProduct.ProductName}\n" +
-                                        $"Maximum available quantity: {supply.Quantity}",
+                                        $"Maximum available quantity: {stock.QuantityInStock}",
                                         "Quantity Exceeds Stock",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
@@ -183,8 +129,8 @@ namespace StockifyJa
                         // Add the itemDetails object to the ListBox
                         lbxCart.Items.Add(itemDetails.ToString());
 
-                        // Deduct from supply
-                        supply.Quantity -= (int)nudQuantity.Value;
+                        // Deduct from stock
+                        stock.QuantityInStock -= (int)nudQuantity.Value;
                         // _db.SaveChanges();
 
                         // Enable View Order button after adding an item to the cart
@@ -217,7 +163,7 @@ namespace StockifyJa
 
         private void btnViewOrder_Click(object sender, EventArgs e)
         {
-
+            // Implement the functionality to view an order
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -226,6 +172,11 @@ namespace StockifyJa
         }
 
         private void FrmPlaceOrder_Load(object sender, EventArgs e)
+        {
+            // Code to execute when the form loads
+        }
+
+        private void lbxCart_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
