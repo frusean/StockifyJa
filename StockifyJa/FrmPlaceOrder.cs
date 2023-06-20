@@ -163,7 +163,9 @@ namespace StockifyJa
 
         private void btnViewOrder_Click(object sender, EventArgs e)
         {
-            // Implement the functionality to view an order
+            List<string> selectedItems = lbxCart.Items.Cast<string>().ToList();
+            FrmOrderSummary frmOrderSummary = new FrmOrderSummary(selectedItems);
+            frmOrderSummary.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

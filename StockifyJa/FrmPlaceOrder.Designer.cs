@@ -153,7 +153,7 @@
             this.Controls.Add(this.cbProduct);
             this.Controls.Add(this.lblPlaceOrder);
             this.Name = "FrmPlaceOrder";
-            this.Text = "Form1";
+            this.Text = "Place Order";
             this.Load += new System.EventHandler(this.FrmPlaceOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
