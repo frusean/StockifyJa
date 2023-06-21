@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,39 @@ namespace StockifyJa
             e.Handled = true;
         }
 
+        //private async void cbProduct_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    Product selectedProduct = cbProduct.SelectedItem as Product;
+
+        //    if (selectedProduct != null && selectedProduct.ProductID != 0)
+        //    {
+        //        int productId = selectedProduct.ProductID;
+
+        //        var stock = await Task.Run(() =>
+        //        {
+        //            try
+        //            {
+        //                return _db.Stocks.FirstOrDefault(s => s.ProductID == productId);
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                // Handle exception as necessary
+        //                Console.WriteLine(ex.ToString());
+        //                return null;
+        //            }
+        //        });
+
+        //        if (stock != null)
+        //        {
+        //            nudQuantity.Maximum = (decimal)stock.QuantityInStock.GetValueOrDefault();
+        //            nudQuantity.ReadOnly = false;
+        //        }
+        //        else
+        //        {
+        //            nudQuantity.ReadOnly = true;
+        //        }
+        //    }
+        //}
         private async void cbProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
             Product selectedProduct = cbProduct.SelectedItem as Product;
@@ -50,19 +84,16 @@ namespace StockifyJa
             {
                 int productId = selectedProduct.ProductID;
 
-                var stock = await Task.Run(() =>
+                Stock stock = null;
+                try
                 {
-                    try
-                    {
-                        return _db.Stocks.FirstOrDefault(s => s.ProductID == productId);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Handle exception as necessary
-                        Console.WriteLine(ex.ToString());
-                        return null;
-                    }
-                });
+                    stock = await _db.Stocks.FirstOrDefaultAsync(s => s.ProductID == productId);
+                }
+                catch (Exception ex)
+                {
+                    // Handle exception as necessary
+                    Console.WriteLine(ex.ToString());
+                }
 
                 if (stock != null)
                 {
@@ -75,6 +106,7 @@ namespace StockifyJa
                 }
             }
         }
+
 
         private void nudQuantity_ValueChanged(object sender, EventArgs e)
         {
