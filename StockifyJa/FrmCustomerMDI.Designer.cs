@@ -60,6 +60,7 @@
             this.placeOrderToolStripMenuItem.Name = "placeOrderToolStripMenuItem";
             this.placeOrderToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.placeOrderToolStripMenuItem.Text = "Place Order";
+            this.placeOrderToolStripMenuItem.Click += new System.EventHandler(this.placeOrderToolStripMenuItem_Click);
             // 
             // chatToolStripMenuItem
             // 

@@ -104,7 +104,7 @@ namespace StockifyJa
                 FrmAdminChat.frmAdminChatInstance = new FrmAdminChat();
             }
 
-            FrmAdminChat.frmAdminChatInstance.Show(); // Show the Admin Chat form
+         //   FrmAdminChat.frmAdminChatInstance.Show(); // Show the Admin Chat form
         }
 
 
