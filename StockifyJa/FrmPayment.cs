@@ -29,6 +29,20 @@ namespace StockifyJa
                 txtTotalPay.Text = $"Total: {_total:C}";
             }
         }
+        //private void FrmPayment_Load(object sender, EventArgs e)
+        //{
+        //    for (int month = 1; month <= 12; month++)
+        //    {
+        //        cmbExpMonth.Items.Add(month);
+        //    }
+
+        //    int currentYear = DateTime.Now.Year;
+        //    for (int year = currentYear; year <= currentYear + 10; year++)
+        //    {
+        //        cmbExpYear.Items.Add(year);
+        //    }
+
+        //}
         private void FrmPayment_Load(object sender, EventArgs e)
         {
             for (int month = 1; month <= 12; month++)
@@ -42,7 +56,17 @@ namespace StockifyJa
                 cmbExpYear.Items.Add(year);
             }
 
+            // disable the components initially
+            txtCardNumber.Enabled = false;
+            cmbExpMonth.Enabled = false;
+            cmbExpYear.Enabled = false;
+            txtCvc.Enabled = false;
+            btnPay.Enabled = false;
+
+            // disable the PayOnDropOff button initially
+            btnPayOnDropOff.Enabled = false;
         }
+
 
 
         private async void btnPay_Click(object sender, EventArgs e)
@@ -126,6 +150,47 @@ namespace StockifyJa
         }
 
         private void txtCardNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbPayNow_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isChecked = rdbPayNow.Checked;
+
+            // Enable/Disable the card info components
+            txtCardNumber.Enabled = isChecked;
+            cmbExpMonth.Enabled = isChecked;
+            cmbExpYear.Enabled = isChecked;
+            txtCvc.Enabled = isChecked;
+            btnPay.Enabled = isChecked;
+
+            // If PayNow is selected, disable the PayOnDropOff button
+            if (isChecked)
+            {
+                btnPayOnDropOff.Enabled = false;
+            }
+        }
+
+        private void rdbPayOnDropOff_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isChecked = rdbPayOnDropOff.Checked;
+
+            // Enable/Disable the PayOnDropOff button
+            btnPayOnDropOff.Enabled = isChecked;
+
+            // If PayOnDropOff is selected, disable the card info components
+            if (isChecked)
+            {
+                txtCardNumber.Enabled = false;
+                cmbExpMonth.Enabled = false;
+                cmbExpYear.Enabled = false;
+                txtCvc.Enabled = false;
+                btnPay.Enabled = false;
+            }
+        }
+
+        private void btnPayOnDropOff_Click(object sender, EventArgs e)
         {
 
         }

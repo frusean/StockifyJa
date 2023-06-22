@@ -39,6 +39,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.gbxPaymentPreference = new System.Windows.Forms.GroupBox();
+            this.rdbPayOnDropOff = new System.Windows.Forms.RadioButton();
+            this.rdbPayNow = new System.Windows.Forms.RadioButton();
+            this.btnPayOnDropOff = new System.Windows.Forms.Button();
+            this.gbxPaymentPreference.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPay
@@ -139,11 +144,58 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Card Number:";
             // 
+            // gbxPaymentPreference
+            // 
+            this.gbxPaymentPreference.Controls.Add(this.rdbPayOnDropOff);
+            this.gbxPaymentPreference.Controls.Add(this.rdbPayNow);
+            this.gbxPaymentPreference.Location = new System.Drawing.Point(885, 115);
+            this.gbxPaymentPreference.Name = "gbxPaymentPreference";
+            this.gbxPaymentPreference.Size = new System.Drawing.Size(330, 100);
+            this.gbxPaymentPreference.TabIndex = 39;
+            this.gbxPaymentPreference.TabStop = false;
+            this.gbxPaymentPreference.Text = "Payment  Preference";
+            // 
+            // rdbPayOnDropOff
+            // 
+            this.rdbPayOnDropOff.AutoSize = true;
+            this.rdbPayOnDropOff.Location = new System.Drawing.Point(172, 40);
+            this.rdbPayOnDropOff.Name = "rdbPayOnDropOff";
+            this.rdbPayOnDropOff.Size = new System.Drawing.Size(124, 20);
+            this.rdbPayOnDropOff.TabIndex = 1;
+            this.rdbPayOnDropOff.TabStop = true;
+            this.rdbPayOnDropOff.Text = "Pay On Drop Off";
+            this.rdbPayOnDropOff.UseVisualStyleBackColor = true;
+            this.rdbPayOnDropOff.CheckedChanged += new System.EventHandler(this.rdbPayOnDropOff_CheckedChanged);
+            // 
+            // rdbPayNow
+            // 
+            this.rdbPayNow.AutoSize = true;
+            this.rdbPayNow.Location = new System.Drawing.Point(21, 41);
+            this.rdbPayNow.Name = "rdbPayNow";
+            this.rdbPayNow.Size = new System.Drawing.Size(88, 20);
+            this.rdbPayNow.TabIndex = 0;
+            this.rdbPayNow.TabStop = true;
+            this.rdbPayNow.Text = "Pay Now !";
+            this.rdbPayNow.UseVisualStyleBackColor = true;
+            this.rdbPayNow.CheckedChanged += new System.EventHandler(this.rdbPayNow_CheckedChanged);
+            // 
+            // btnPayOnDropOff
+            // 
+            this.btnPayOnDropOff.Location = new System.Drawing.Point(1082, 302);
+            this.btnPayOnDropOff.Name = "btnPayOnDropOff";
+            this.btnPayOnDropOff.Size = new System.Drawing.Size(112, 29);
+            this.btnPayOnDropOff.TabIndex = 40;
+            this.btnPayOnDropOff.Text = "Pay on Drop Off";
+            this.btnPayOnDropOff.UseVisualStyleBackColor = true;
+            this.btnPayOnDropOff.Click += new System.EventHandler(this.btnPayOnDropOff_Click);
+            // 
             // FrmPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 556);
+            this.ClientSize = new System.Drawing.Size(1298, 636);
+            this.Controls.Add(this.btnPayOnDropOff);
+            this.Controls.Add(this.gbxPaymentPreference);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.lblPlaceOrder);
             this.Controls.Add(this.txtTotalPay);
@@ -158,6 +210,8 @@
             this.Name = "FrmPayment";
             this.Text = "Payment";
             this.Load += new System.EventHandler(this.FrmPayment_Load);
+            this.gbxPaymentPreference.ResumeLayout(false);
+            this.gbxPaymentPreference.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +230,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbxPaymentPreference;
+        private System.Windows.Forms.RadioButton rdbPayOnDropOff;
+        private System.Windows.Forms.RadioButton rdbPayNow;
+        private System.Windows.Forms.Button btnPayOnDropOff;
     }
 }
