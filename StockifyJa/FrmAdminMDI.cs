@@ -16,5 +16,12 @@ namespace StockifyJa
         {
             InitializeComponent();
         }
+
+        private void chatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAdminChat frmAdminChat = new FrmAdminChat();
+            frmAdminChat.MdiParent = this;
+            frmAdminChat.Show();
+        }
     }
 }

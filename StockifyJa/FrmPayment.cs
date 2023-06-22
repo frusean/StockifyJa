@@ -29,20 +29,7 @@ namespace StockifyJa
                 txtTotalPay.Text = $"Total: {_total:C}";
             }
         }
-        //private void FrmPayment_Load(object sender, EventArgs e)
-        //{
-        //    for (int month = 1; month <= 12; month++)
-        //    {
-        //        cmbExpMonth.Items.Add(month);
-        //    }
-
-        //    int currentYear = DateTime.Now.Year;
-        //    for (int year = currentYear; year <= currentYear + 10; year++)
-        //    {
-        //        cmbExpYear.Items.Add(year);
-        //    }
-
-        //}
+       
         private void FrmPayment_Load(object sender, EventArgs e)
         {
             for (int month = 1; month <= 12; month++)

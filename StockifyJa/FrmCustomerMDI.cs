@@ -31,5 +31,12 @@ namespace StockifyJa
             frmViewAllProducts.MdiParent = this;
             frmViewAllProducts.Show();
         }
+
+        private void placeOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPlaceOrder frmPlaceOrder = new FrmPlaceOrder();
+            frmPlaceOrder.MdiParent = this;
+            frmPlaceOrder.Show();
+        }
     }
 }
