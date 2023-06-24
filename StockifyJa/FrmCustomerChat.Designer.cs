@@ -41,7 +41,7 @@
             this.txtCustomerMessageInput.Name = "txtCustomerMessageInput";
             this.txtCustomerMessageInput.Size = new System.Drawing.Size(454, 53);
             this.txtCustomerMessageInput.TabIndex = 49;
-            this.txtCustomerMessageInput.TextChanged += new System.EventHandler(this.txtCustomerMessageInput_TextChanged);
+         //   this.txtCustomerMessageInput.TextChanged += new System.EventHandler(this.txtCustomerMessageInput_TextChanged);
             // 
             // lbxCustomerMessageView
             // 
@@ -51,7 +51,7 @@
             this.lbxCustomerMessageView.Name = "lbxCustomerMessageView";
             this.lbxCustomerMessageView.Size = new System.Drawing.Size(436, 372);
             this.lbxCustomerMessageView.TabIndex = 48;
-            this.lbxCustomerMessageView.SelectedIndexChanged += new System.EventHandler(this.lbxCustomerMessageView_SelectedIndexChanged);
+           // this.lbxCustomerMessageView.SelectedIndexChanged += new System.EventHandler(this.lbxCustomerMessageView_SelectedIndexChanged);
             // 
             // btnCustomerMessageSendButton
             // 
