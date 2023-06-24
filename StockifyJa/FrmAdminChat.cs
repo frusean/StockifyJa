@@ -95,7 +95,7 @@ namespace StockifyJa
                 FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
             }
 
-            FrmCustomerChat.frmCustomerChatInstance.Show(); // Show the Customer Chat form
+           // FrmCustomerChat.frmCustomerChatInstance.Show(); // Show the Customer Chat form
         }
         private void FrmAdminChat_Load(object sender, EventArgs e)
         {
