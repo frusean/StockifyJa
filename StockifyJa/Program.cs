@@ -19,4 +19,4 @@ namespace StockifyJa
             Application.Run(new FrmLogin());
         }
     }
-}
+}4
