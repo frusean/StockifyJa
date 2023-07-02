@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace StockifyjaLib
 {
-    public class Class1
+
+    public class Supply
     {
+        public int ProductID { get; set; }
+        public int Quantity { get; set; }
     }
 }
