@@ -23,5 +23,10 @@ namespace StockifyJa
             frmAdminChat.MdiParent = this;
             frmAdminChat.Show();
         }
+
+        private void FrmAdminMDI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
