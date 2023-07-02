@@ -84,6 +84,7 @@
             this.IsMdiContainer = true;
             this.Name = "FrmAdminMDI";
             this.Text = "Administrator ";
+            this.Load += new System.EventHandler(this.FrmAdminMDI_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
