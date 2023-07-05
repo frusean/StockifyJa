@@ -141,11 +141,11 @@ namespace StockifyJa
             //    FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
 
             //}
-
             if (FrmCustomerChat.frmCustomerChatInstance == null || FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
             {
                 FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
             }
+
         }
 
 
