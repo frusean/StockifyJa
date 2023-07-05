@@ -39,31 +39,53 @@ namespace StockifyJa
         private bool isFirstSnapshot = true;
         private void StartListening()
         {
-            Query query = collectionReference.OrderBy("Timestamp");
+            DateTime timeCutoff = DateTime.UtcNow.AddDays(-1); // Only show messages from the last 24 hours
+            Query query = collectionReference.WhereGreaterThanOrEqualTo("Timestamp", Timestamp.FromDateTime(timeCutoff)).OrderBy("Timestamp");
+
             listener = query.Listen(snapshot =>
             {
                 BeginInvoke((Action)(() =>
                 {
                     foreach (DocumentChange change in snapshot.Changes)
                     {
-                        // if (change.Type == DocumentChange.Type.Added)
-                        {
-                            Dictionary<string, object> data = change.Document.ToDictionary();
-                            string author = data["Author"].ToString();
-                            string message = data["Message"].ToString();
-                            DateTime timestamp = ((Timestamp)data["Timestamp"]).ToDateTime();
+                        Dictionary<string, object> data = change.Document.ToDictionary();
+                        string author = data["Author"].ToString();
+                        string message = data["Message"].ToString();
+                        DateTime timestamp = ((Timestamp)data["Timestamp"]).ToDateTime();
 
-                            if (timestamp.ToUniversalTime() <= chatOpenedAt)
-                            {
-                                continue;
-                            }
-
-                            lbxAdminMessageView.Items.Add($"[{timestamp.ToString("hh:mm tt")}] {author}: {message}");
-                        }
+                        lbxAdminMessageView.Items.Add($"[{timestamp.ToString("hh:mm tt")}] {author}: {message}");
                     }
                 }));
             });
         }
+
+        //private void StartListening()
+        //{
+        //    Query query = collectionReference.OrderBy("Timestamp");
+        //    listener = query.Listen(snapshot =>
+        //    {
+        //        BeginInvoke((Action)(() =>
+        //        {
+        //            foreach (DocumentChange change in snapshot.Changes)
+        //            {
+        //                // if (change.Type == DocumentChange.Type.Added)
+        //                {
+        //                    Dictionary<string, object> data = change.Document.ToDictionary();
+        //                    string author = data["Author"].ToString();
+        //                    string message = data["Message"].ToString();
+        //                    DateTime timestamp = ((Timestamp)data["Timestamp"]).ToDateTime();
+
+        //                    if (timestamp.ToUniversalTime() <= chatOpenedAt)
+        //                    {
+        //                        continue;
+        //                    }
+
+        //                    lbxAdminMessageView.Items.Add($"[{timestamp.ToString("hh:mm tt")}] {author}: {message}");
+        //                }
+        //            }
+        //        }));
+        //    });
+        //}
 
         private void lbxAdminMessageView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -114,10 +136,16 @@ namespace StockifyJa
 
             txtAdminMessageInput.Clear();
 
-            if (FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
+            //if (FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
+            //{
+            //    FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
+
+            //}
+            if (FrmCustomerChat.frmCustomerChatInstance == null || FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
             {
                 FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
             }
+
         }
 
 
