@@ -39,7 +39,8 @@ namespace StockifyJa
         private bool isFirstSnapshot = true;
         private void StartListening()
         {
-            DateTime timeCutoff = DateTime.UtcNow.AddDays(-1); // Only show messages from the last 24 hours
+            // Subtract 1 second from the current time to account for delay
+            DateTime timeCutoff = DateTime.UtcNow.AddSeconds(-1);
             Query query = collectionReference.WhereGreaterThanOrEqualTo("Timestamp", Timestamp.FromDateTime(timeCutoff)).OrderBy("Timestamp");
 
             listener = query.Listen(snapshot =>
