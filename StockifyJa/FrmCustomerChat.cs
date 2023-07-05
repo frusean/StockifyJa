@@ -82,7 +82,7 @@ namespace StockifyJa
 
         }
 
-       
+
 
 
         private async void btnCustomerMessageSendButton_Click(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace StockifyJa
                 FrmAdminChat.frmAdminChatInstance = new FrmAdminChat();
             }
 
-            FrmAdminChat.frmAdminChatInstance.Show(); // Show the Admin Chat form
+               FrmAdminChat.frmAdminChatInstance.Show(); // Show the Admin Chat form
         }
 
 
@@ -119,12 +119,12 @@ namespace StockifyJa
 
         }
     }
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
 

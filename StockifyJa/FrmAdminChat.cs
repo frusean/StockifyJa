@@ -27,7 +27,7 @@ namespace StockifyJa
             InitializeComponent();
             chatOpenedAt = DateTime.UtcNow;
 
-             string path = @"C:\Users\fruse\Downloads\StockifyJa\StockifyJa\stockify-34d8d-firebase-adminsdk-xrgx1-2368fde9a0.json";
+            string path = @"C:\Users\fruse\Downloads\StockifyJa\StockifyJa\stockify-34d8d-firebase-adminsdk-xrgx1-2368fde9a0.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             db = FirestoreDb.Create("stockify-34d8d");
             collectionReference = db.Collection("conversations");
@@ -75,17 +75,41 @@ namespace StockifyJa
 
         }
 
-       
+
+        //private async void btnAdminMessageSendButton_Click(object sender, EventArgs e)
+        //{
+        //    string message = txtAdminMessageInput.Text;
+
+        //    Dictionary<string, object> docData = new Dictionary<string, object>
+        //{
+        //    { "Author", "Admin" },
+        //    { "Message", message },
+        //    { "Timestamp", Timestamp.GetCurrentTimestamp() }
+        //};
+        //    await collectionReference.AddAsync(docData);
+
+        //    txtAdminMessageInput.Clear();
+
+        //    if (FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
+        //    {
+        //        FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
+        //    }
+
+        //   // FrmCustomerChat.frmCustomerChatInstance.Show(); // Show the Customer Chat form
+        //}
         private async void btnAdminMessageSendButton_Click(object sender, EventArgs e)
         {
             string message = txtAdminMessageInput.Text;
 
+            FirestoreDb db = FirestoreDb.Create("stockify-34d8d"); // create a new instance every time
+            CollectionReference collectionReference = db.Collection("conversations");
+
             Dictionary<string, object> docData = new Dictionary<string, object>
-        {
-            { "Author", "Admin" },
-            { "Message", message },
-            { "Timestamp", Timestamp.GetCurrentTimestamp() }
-        };
+    {
+        { "Author", "Admin" },
+        { "Message", message },
+        { "Timestamp", Timestamp.GetCurrentTimestamp() }
+    };
             await collectionReference.AddAsync(docData);
 
             txtAdminMessageInput.Clear();
@@ -94,9 +118,9 @@ namespace StockifyJa
             {
                 FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
             }
-
-            FrmCustomerChat.frmCustomerChatInstance.Show(); // Show the Customer Chat form
         }
+
+
         private void FrmAdminChat_Load(object sender, EventArgs e)
         {
             lbxAdminMessageView.Items.Clear();

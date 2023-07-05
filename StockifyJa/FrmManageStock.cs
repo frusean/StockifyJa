@@ -10,20 +10,11 @@ using System.Windows.Forms;
 
 namespace StockifyJa
 {
-    public partial class FrmAdminMDI : Form
+    public partial class FrmManageStock : Form
     {
-        public FrmAdminMDI()
+        public FrmManageStock()
         {
             InitializeComponent();
-        }
-
-
-        private void manageUsersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmManageUsers frmManageUsers = new FrmManageUsers();
-            frmManageUsers.ShowDialog();
-            
-
         }
     }
 }

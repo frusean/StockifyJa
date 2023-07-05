@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StockifyJa
 {
-    public partial class Form1 : Form
+    public partial class FrmManageProducts : Form
     {
-        public Form1()
+        public FrmManageProducts()
         {
             InitializeComponent();
         }
