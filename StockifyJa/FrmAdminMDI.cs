@@ -28,5 +28,12 @@ namespace StockifyJa
         {
 
         }
+
+        private void manageUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageUsers frmManageUsers = new FrmManageUsers();
+            frmManageUsers.MdiParent = this;
+            frmManageUsers.Show();
+        }
     }
 }
