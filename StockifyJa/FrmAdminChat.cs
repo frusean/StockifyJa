@@ -99,27 +99,35 @@ namespace StockifyJa
         }
 
 
-        //private async void btnAdminMessageSendButton_Click(object sender, EventArgs e)
-        //{
-        //    string message = txtAdminMessageInput.Text;
 
-        //    Dictionary<string, object> docData = new Dictionary<string, object>
+        //    private async void btnAdminMessageSendButton_Click(object sender, EventArgs e)
+        //    {
+        //        string message = txtAdminMessageInput.Text;
+
+        //        FirestoreDb db = FirestoreDb.Create("stockify-34d8d"); // create a new instance every time
+        //        CollectionReference collectionReference = db.Collection("conversations");
+
+        //        Dictionary<string, object> docData = new Dictionary<string, object>
         //{
         //    { "Author", "Admin" },
         //    { "Message", message },
         //    { "Timestamp", Timestamp.GetCurrentTimestamp() }
         //};
-        //    await collectionReference.AddAsync(docData);
+        //        await collectionReference.AddAsync(docData);
 
-        //    txtAdminMessageInput.Clear();
+        //        txtAdminMessageInput.Clear();
 
-        //    if (FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
-        //    {
-        //        FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
+        //        //if (FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
+        //        //{
+        //        //    FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
+
+        //        //}
+        //        if (FrmCustomerChat.frmCustomerChatInstance == null || FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
+        //        {
+        //            FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
+        //        }
+
         //    }
-
-        //   // FrmCustomerChat.frmCustomerChatInstance.Show(); // Show the Customer Chat form
-        //}
         private async void btnAdminMessageSendButton_Click(object sender, EventArgs e)
         {
             string message = txtAdminMessageInput.Text;
@@ -137,16 +145,12 @@ namespace StockifyJa
 
             txtAdminMessageInput.Clear();
 
-            //if (FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
-            //{
-            //    FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
-
-            //}
+            // Check the customer chat instance and re-create it if necessary
             if (FrmCustomerChat.frmCustomerChatInstance == null || FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
             {
                 FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
+                FrmCustomerChat.frmCustomerChatInstance.Show();
             }
-
         }
 
 
