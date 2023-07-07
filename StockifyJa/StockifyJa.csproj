@@ -116,7 +116,7 @@
     </Reference>
     <Reference Include="StockifyjaLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\StockifyjaLib\bin\Debug\StockifyjaLib.dll</HintPath>
+      <HintPath>..\StockifyjaLib\obj\Debug\StockifyjaLib.dll</HintPath>
     </Reference>
     <Reference Include="Stripe.net, Version=41.20.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Stripe.net.41.20.0\lib\net461\Stripe.net.dll</HintPath>
@@ -173,6 +173,12 @@
   <ItemGroup>
     <Compile Include="ContactDetail.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManageUsers.Designer.cs">
+      <DependentUpon>FrmManageUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmOrderSummary.cs">
       <SubType>Form</SubType>
@@ -335,7 +341,6 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="FrmManageProducts.resx">
       <DependentUpon>FrmManageProducts.cs</DependentUpon>
     </EmbeddedResource>
@@ -344,7 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManageSupplies.resx">
       <DependentUpon>FrmManageSupplies.cs</DependentUpon>
-
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManageUsers.resx">
+      <DependentUpon>FrmManageUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductDetails.resx">
       <DependentUpon>FrmProductDetails.cs</DependentUpon>
