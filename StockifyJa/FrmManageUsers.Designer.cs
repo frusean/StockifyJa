@@ -48,7 +48,6 @@
             this.lblUserPassword = new System.Windows.Forms.Label();
             this.lblContactDetails = new System.Windows.Forms.Label();
             this.lblUserRole = new System.Windows.Forms.Label();
-            this.cboxUserRole = new System.Windows.Forms.ComboBox();
             this.txtContactID = new System.Windows.Forms.TextBox();
             this.lblContactID = new System.Windows.Forms.Label();
             this.txtFkeyUserID = new System.Windows.Forms.TextBox();
@@ -65,7 +64,11 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtTelephone = new System.Windows.Forms.TextBox();
             this.lblTelephone = new System.Windows.Forms.Label();
+            this.rbuttonAdministrator = new System.Windows.Forms.RadioButton();
+            this.rbuttonCustomer = new System.Windows.Forms.RadioButton();
+            this.gboxRole = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.gboxRole.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblManageUsers
@@ -185,6 +188,7 @@
             this.btnCreate.TabIndex = 26;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnUpdate
             // 
@@ -236,7 +240,7 @@
             this.lblContactDetails.AutoSize = true;
             this.lblContactDetails.Font = new System.Drawing.Font("Georgia", 16.2F);
             this.lblContactDetails.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblContactDetails.Location = new System.Drawing.Point(152, 181);
+            this.lblContactDetails.Location = new System.Drawing.Point(152, 183);
             this.lblContactDetails.Name = "lblContactDetails";
             this.lblContactDetails.Size = new System.Drawing.Size(161, 27);
             this.lblContactDetails.TabIndex = 32;
@@ -245,23 +249,11 @@
             // lblUserRole
             // 
             this.lblUserRole.AutoSize = true;
-            this.lblUserRole.Location = new System.Drawing.Point(69, 146);
+            this.lblUserRole.Location = new System.Drawing.Point(69, 148);
             this.lblUserRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUserRole.Name = "lblUserRole";
-            this.lblUserRole.Size = new System.Drawing.Size(29, 13);
+            this.lblUserRole.Size = new System.Drawing.Size(0, 13);
             this.lblUserRole.TabIndex = 33;
-            this.lblUserRole.Text = "Role";
-            // 
-            // cboxUserRole
-            // 
-            this.cboxUserRole.FormattingEnabled = true;
-            this.cboxUserRole.Items.AddRange(new object[] {
-            "Administrator",
-            "Customer"});
-            this.cboxUserRole.Location = new System.Drawing.Point(219, 146);
-            this.cboxUserRole.Name = "cboxUserRole";
-            this.cboxUserRole.Size = new System.Drawing.Size(121, 21);
-            this.cboxUserRole.TabIndex = 34;
             // 
             // txtContactID
             // 
@@ -410,11 +402,45 @@
             this.lblTelephone.TabIndex = 49;
             this.lblTelephone.Text = "Telephone";
             // 
+            // rbuttonAdministrator
+            // 
+            this.rbuttonAdministrator.AutoSize = true;
+            this.rbuttonAdministrator.Location = new System.Drawing.Point(14, 19);
+            this.rbuttonAdministrator.Name = "rbuttonAdministrator";
+            this.rbuttonAdministrator.Size = new System.Drawing.Size(85, 17);
+            this.rbuttonAdministrator.TabIndex = 51;
+            this.rbuttonAdministrator.TabStop = true;
+            this.rbuttonAdministrator.Text = "Administrator";
+            this.rbuttonAdministrator.UseVisualStyleBackColor = true;
+            // 
+            // rbuttonCustomer
+            // 
+            this.rbuttonCustomer.AutoSize = true;
+            this.rbuttonCustomer.Location = new System.Drawing.Point(131, 19);
+            this.rbuttonCustomer.Name = "rbuttonCustomer";
+            this.rbuttonCustomer.Size = new System.Drawing.Size(69, 17);
+            this.rbuttonCustomer.TabIndex = 52;
+            this.rbuttonCustomer.TabStop = true;
+            this.rbuttonCustomer.Text = "Customer";
+            this.rbuttonCustomer.UseVisualStyleBackColor = true;
+            // 
+            // gboxRole
+            // 
+            this.gboxRole.Controls.Add(this.rbuttonCustomer);
+            this.gboxRole.Controls.Add(this.rbuttonAdministrator);
+            this.gboxRole.Location = new System.Drawing.Point(94, 142);
+            this.gboxRole.Name = "gboxRole";
+            this.gboxRole.Size = new System.Drawing.Size(219, 39);
+            this.gboxRole.TabIndex = 53;
+            this.gboxRole.TabStop = false;
+            this.gboxRole.Text = "Role";
+            // 
             // FrmManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 574);
+            this.Controls.Add(this.gboxRole);
             this.Controls.Add(this.txtTelephone);
             this.Controls.Add(this.lblTelephone);
             this.Controls.Add(this.txtEmail);
@@ -431,7 +457,6 @@
             this.Controls.Add(this.lblFkeyUserID);
             this.Controls.Add(this.txtContactID);
             this.Controls.Add(this.lblContactID);
-            this.Controls.Add(this.cboxUserRole);
             this.Controls.Add(this.lblUserRole);
             this.Controls.Add(this.lblContactDetails);
             this.Controls.Add(this.txtUserPassword);
@@ -454,7 +479,10 @@
             this.Controls.Add(this.lblManageUsers);
             this.Name = "FrmManageUsers";
             this.Text = "Manage Users";
+            this.Load += new System.EventHandler(this.FrmManageUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.gboxRole.ResumeLayout(false);
+            this.gboxRole.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,7 +510,6 @@
         private System.Windows.Forms.Label lblUserPassword;
         private System.Windows.Forms.Label lblContactDetails;
         private System.Windows.Forms.Label lblUserRole;
-        private System.Windows.Forms.ComboBox cboxUserRole;
         private System.Windows.Forms.TextBox txtContactID;
         private System.Windows.Forms.Label lblContactID;
         private System.Windows.Forms.TextBox txtFkeyUserID;
@@ -499,5 +526,8 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.Label lblTelephone;
+        private System.Windows.Forms.RadioButton rbuttonAdministrator;
+        private System.Windows.Forms.RadioButton rbuttonCustomer;
+        private System.Windows.Forms.GroupBox gboxRole;
     }
 }
