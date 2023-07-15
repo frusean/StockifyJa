@@ -107,7 +107,7 @@
             this.btnRemoveFromOrder.TabIndex = 32;
             this.btnRemoveFromOrder.Text = "Remove";
             this.btnRemoveFromOrder.UseVisualStyleBackColor = true;
-            this.btnRemoveFromOrder.Click += new System.EventHandler(this.btnRemoveFromOrder_Click);
+          //  this.btnRemoveFromOrder.Click += new System.EventHandler(this.btnRemoveFromOrder_Click);
             // 
             // btnAddToOrder
             // 

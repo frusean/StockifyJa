@@ -16,7 +16,7 @@ namespace StockifyJa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false); 
-            Application.Run(new FrmPlaceOrder());
+            Application.Run(new FrmLogin());
         }
     }
 }
