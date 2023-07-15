@@ -16,5 +16,35 @@ namespace StockifyJa
         {
             InitializeComponent();
         }
+
+        private void picSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picRefresh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmManageProducts_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

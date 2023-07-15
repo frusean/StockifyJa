@@ -40,19 +40,29 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.gboxRateID = new System.Windows.Forms.GroupBox();
+            this.cboRates = new System.Windows.Forms.ComboBox();
             this.gboxImageID = new System.Windows.Forms.GroupBox();
             this.txtImageID = new System.Windows.Forms.TextBox();
             this.txtImageURL = new System.Windows.Forms.TextBox();
             this.lblImageURL = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.picExit = new System.Windows.Forms.PictureBox();
-            this.cboRates = new System.Windows.Forms.ComboBox();
             this.lblManageProducts = new System.Windows.Forms.Label();
+            this.picAdd = new System.Windows.Forms.PictureBox();
+            this.picUpdate = new System.Windows.Forms.PictureBox();
+            this.picDelete = new System.Windows.Forms.PictureBox();
+            this.picRefresh = new System.Windows.Forms.PictureBox();
+            this.picSave = new System.Windows.Forms.PictureBox();
             this.gboxProductID.SuspendLayout();
             this.gboxRateID.SuspendLayout();
             this.gboxImageID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
             this.SuspendLayout();
             // 
             // txtProductName
@@ -148,6 +158,14 @@
             this.gboxRateID.TabStop = false;
             this.gboxRateID.Text = "Rate ID";
             // 
+            // cboRates
+            // 
+            this.cboRates.FormattingEnabled = true;
+            this.cboRates.Location = new System.Drawing.Point(194, 21);
+            this.cboRates.Name = "cboRates";
+            this.cboRates.Size = new System.Drawing.Size(279, 24);
+            this.cboRates.TabIndex = 1;
+            // 
             // gboxImageID
             // 
             this.gboxImageID.Controls.Add(this.txtImageID);
@@ -186,7 +204,7 @@
             // dgvProducts
             // 
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(123, 509);
+            this.dgvProducts.Location = new System.Drawing.Point(116, 582);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowHeadersWidth = 51;
             this.dgvProducts.RowTemplate.Height = 24;
@@ -197,20 +215,12 @@
             // 
             this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(1158, 605);
+            this.picExit.Location = new System.Drawing.Point(1167, 678);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(53, 47);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picExit.TabIndex = 15;
             this.picExit.TabStop = false;
-            // 
-            // cboRates
-            // 
-            this.cboRates.FormattingEnabled = true;
-            this.cboRates.Location = new System.Drawing.Point(194, 21);
-            this.cboRates.Name = "cboRates";
-            this.cboRates.Size = new System.Drawing.Size(279, 24);
-            this.cboRates.TabIndex = 1;
             // 
             // lblManageProducts
             // 
@@ -219,18 +229,78 @@
             this.lblManageProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblManageProducts.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManageProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
-            this.lblManageProducts.Location = new System.Drawing.Point(437, 37);
+            this.lblManageProducts.Location = new System.Drawing.Point(446, 37);
             this.lblManageProducts.Name = "lblManageProducts";
             this.lblManageProducts.Size = new System.Drawing.Size(231, 32);
             this.lblManageProducts.TabIndex = 16;
             this.lblManageProducts.Text = "Manage Products";
             this.lblManageProducts.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // picAdd
+            // 
+            this.picAdd.Image = ((System.Drawing.Image)(resources.GetObject("picAdd.Image")));
+            this.picAdd.Location = new System.Drawing.Point(544, 534);
+            this.picAdd.Name = "picAdd";
+            this.picAdd.Size = new System.Drawing.Size(43, 42);
+            this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAdd.TabIndex = 17;
+            this.picAdd.TabStop = false;
+            this.picAdd.Click += new System.EventHandler(this.picAdd_Click);
+            // 
+            // picUpdate
+            // 
+            this.picUpdate.Image = ((System.Drawing.Image)(resources.GetObject("picUpdate.Image")));
+            this.picUpdate.Location = new System.Drawing.Point(603, 534);
+            this.picUpdate.Name = "picUpdate";
+            this.picUpdate.Size = new System.Drawing.Size(43, 42);
+            this.picUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUpdate.TabIndex = 18;
+            this.picUpdate.TabStop = false;
+            this.picUpdate.Click += new System.EventHandler(this.picUpdate_Click);
+            // 
+            // picDelete
+            // 
+            this.picDelete.Image = ((System.Drawing.Image)(resources.GetObject("picDelete.Image")));
+            this.picDelete.Location = new System.Drawing.Point(663, 534);
+            this.picDelete.Name = "picDelete";
+            this.picDelete.Size = new System.Drawing.Size(43, 42);
+            this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDelete.TabIndex = 19;
+            this.picDelete.TabStop = false;
+            this.picDelete.Click += new System.EventHandler(this.picDelete_Click);
+            // 
+            // picRefresh
+            // 
+            this.picRefresh.Image = ((System.Drawing.Image)(resources.GetObject("picRefresh.Image")));
+            this.picRefresh.Location = new System.Drawing.Point(727, 534);
+            this.picRefresh.Name = "picRefresh";
+            this.picRefresh.Size = new System.Drawing.Size(43, 42);
+            this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picRefresh.TabIndex = 20;
+            this.picRefresh.TabStop = false;
+            this.picRefresh.Click += new System.EventHandler(this.picRefresh_Click);
+            // 
+            // picSave
+            // 
+            this.picSave.Image = ((System.Drawing.Image)(resources.GetObject("picSave.Image")));
+            this.picSave.Location = new System.Drawing.Point(789, 534);
+            this.picSave.Name = "picSave";
+            this.picSave.Size = new System.Drawing.Size(43, 42);
+            this.picSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSave.TabIndex = 21;
+            this.picSave.TabStop = false;
+            this.picSave.Click += new System.EventHandler(this.picSave_Click);
+            // 
             // FrmManageProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1223, 705);
+            this.ClientSize = new System.Drawing.Size(1241, 778);
+            this.Controls.Add(this.picSave);
+            this.Controls.Add(this.picRefresh);
+            this.Controls.Add(this.picDelete);
+            this.Controls.Add(this.picUpdate);
+            this.Controls.Add(this.picAdd);
             this.Controls.Add(this.lblManageProducts);
             this.Controls.Add(this.picExit);
             this.Controls.Add(this.dgvProducts);
@@ -249,6 +319,7 @@
             this.Controls.Add(this.gboxProductID);
             this.Name = "FrmManageProducts";
             this.Text = "Manage Products";
+            this.Load += new System.EventHandler(this.FrmManageProducts_Load);
             this.gboxProductID.ResumeLayout(false);
             this.gboxProductID.PerformLayout();
             this.gboxRateID.ResumeLayout(false);
@@ -256,6 +327,11 @@
             this.gboxImageID.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSave)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,5 +358,10 @@
         private System.Windows.Forms.PictureBox picExit;
         private System.Windows.Forms.ComboBox cboRates;
         private System.Windows.Forms.Label lblManageProducts;
+        private System.Windows.Forms.PictureBox picAdd;
+        private System.Windows.Forms.PictureBox picUpdate;
+        private System.Windows.Forms.PictureBox picDelete;
+        private System.Windows.Forms.PictureBox picRefresh;
+        private System.Windows.Forms.PictureBox picSave;
     }
 }
