@@ -252,6 +252,7 @@
     <Compile Include="FrmViewAllProducts.Designer.cs">
       <DependentUpon>FrmViewAllProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Microsoft\VisualBasic\Interaction.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
@@ -335,7 +336,6 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="FrmManageProducts.resx">
       <DependentUpon>FrmManageProducts.cs</DependentUpon>
     </EmbeddedResource>
@@ -344,7 +344,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManageSupplies.resx">
       <DependentUpon>FrmManageSupplies.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductDetails.resx">
       <DependentUpon>FrmProductDetails.cs</DependentUpon>

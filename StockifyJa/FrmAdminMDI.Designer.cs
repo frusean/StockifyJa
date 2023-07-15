@@ -33,6 +33,8 @@
             this.manageUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mangeOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageSuppliesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,9 +42,11 @@
             // 
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manageProductsToolStripMenuItem,
             this.manageUsersToolStripMenuItem,
             this.mangeOrdersToolStripMenuItem,
+            this.manageProductsToolStripMenuItem,
+            this.manageSuppliesToolStripMenuItem,
+            this.manageStockToolStripMenuItem,
             this.chatToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
@@ -55,6 +59,7 @@
             this.manageProductsToolStripMenuItem.Name = "manageProductsToolStripMenuItem";
             this.manageProductsToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.manageProductsToolStripMenuItem.Text = "Manage Products";
+            this.manageProductsToolStripMenuItem.Click += new System.EventHandler(this.manageProductsToolStripMenuItem_Click);
             // 
             // manageUsersToolStripMenuItem
             // 
@@ -74,6 +79,20 @@
             this.chatToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.chatToolStripMenuItem.Text = "Chat";
             this.chatToolStripMenuItem.Click += new System.EventHandler(this.chatToolStripMenuItem_Click);
+            // 
+            // manageSuppliesToolStripMenuItem
+            // 
+            this.manageSuppliesToolStripMenuItem.Name = "manageSuppliesToolStripMenuItem";
+            this.manageSuppliesToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.manageSuppliesToolStripMenuItem.Text = "Manage Supplies";
+            this.manageSuppliesToolStripMenuItem.Click += new System.EventHandler(this.manageSuppliesToolStripMenuItem_Click);
+            // 
+            // manageStockToolStripMenuItem
+            // 
+            this.manageStockToolStripMenuItem.Name = "manageStockToolStripMenuItem";
+            this.manageStockToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
+            this.manageStockToolStripMenuItem.Text = "Manage Stock";
+            this.manageStockToolStripMenuItem.Click += new System.EventHandler(this.manageStockToolStripMenuItem_Click);
             // 
             // FrmAdminMDI
             // 
@@ -98,5 +117,7 @@
         private System.Windows.Forms.ToolStripMenuItem manageUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mangeOrdersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageSuppliesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageStockToolStripMenuItem;
     }
 }
