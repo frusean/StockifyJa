@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.lblManageUsers = new System.Windows.Forms.Label();
-            this.txtUserEmail = new System.Windows.Forms.TextBox();
-            this.lblUserEmail = new System.Windows.Forms.Label();
-            this.lblUserTelephone = new System.Windows.Forms.Label();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.lblStreet = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.txtUsersName = new System.Windows.Forms.TextBox();
-            this.lblUsersName = new System.Windows.Forms.Label();
+            this.txtCompanyName = new System.Windows.Forms.TextBox();
+            this.lblCompanyName = new System.Windows.Forms.Label();
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.lblUserID = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtStreet = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -49,10 +49,16 @@
             this.lblContactDetails = new System.Windows.Forms.Label();
             this.lblUserRole = new System.Windows.Forms.Label();
             this.cboxUserRole = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtContactID = new System.Windows.Forms.TextBox();
             this.lblContactID = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txtFkeyUserID = new System.Windows.Forms.TextBox();
+            this.lblFkeyUserID = new System.Windows.Forms.Label();
+            this.txtPersonName = new System.Windows.Forms.TextBox();
+            this.txtContactType = new System.Windows.Forms.TextBox();
+            this.lblContactType = new System.Windows.Forms.Label();
+            this.lblPersonName = new System.Windows.Forms.Label();
+            this.txtParish = new System.Windows.Forms.TextBox();
+            this.lblParish = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,33 +73,33 @@
             this.lblManageUsers.TabIndex = 0;
             this.lblManageUsers.Text = "Manage Users";
             // 
-            // txtUserEmail
+            // txtCity
             // 
-            this.txtUserEmail.Location = new System.Drawing.Point(219, 370);
-            this.txtUserEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.txtUserEmail.Name = "txtUserEmail";
-            this.txtUserEmail.Size = new System.Drawing.Size(215, 20);
-            this.txtUserEmail.TabIndex = 21;
+            this.txtCity.Location = new System.Drawing.Point(219, 415);
+            this.txtCity.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(215, 20);
+            this.txtCity.TabIndex = 21;
             // 
-            // lblUserEmail
+            // lblCity
             // 
-            this.lblUserEmail.AutoSize = true;
-            this.lblUserEmail.Location = new System.Drawing.Point(72, 370);
-            this.lblUserEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUserEmail.Name = "lblUserEmail";
-            this.lblUserEmail.Size = new System.Drawing.Size(32, 13);
-            this.lblUserEmail.TabIndex = 20;
-            this.lblUserEmail.Text = "Email";
+            this.lblCity.AutoSize = true;
+            this.lblCity.Location = new System.Drawing.Point(69, 413);
+            this.lblCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(24, 13);
+            this.lblCity.TabIndex = 20;
+            this.lblCity.Text = "City";
             // 
-            // lblUserTelephone
+            // lblStreet
             // 
-            this.lblUserTelephone.AutoSize = true;
-            this.lblUserTelephone.Location = new System.Drawing.Point(69, 339);
-            this.lblUserTelephone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUserTelephone.Name = "lblUserTelephone";
-            this.lblUserTelephone.Size = new System.Drawing.Size(58, 13);
-            this.lblUserTelephone.TabIndex = 18;
-            this.lblUserTelephone.Text = "Telephone";
+            this.lblStreet.AutoSize = true;
+            this.lblStreet.Location = new System.Drawing.Point(69, 382);
+            this.lblStreet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStreet.Name = "lblStreet";
+            this.lblStreet.Size = new System.Drawing.Size(35, 13);
+            this.lblStreet.TabIndex = 18;
+            this.lblStreet.Text = "Street";
             // 
             // txtUsername
             // 
@@ -113,23 +119,23 @@
             this.lblUsername.TabIndex = 16;
             this.lblUsername.Text = "Username";
             // 
-            // txtUsersName
+            // txtCompanyName
             // 
-            this.txtUsersName.Location = new System.Drawing.Point(219, 301);
-            this.txtUsersName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtUsersName.Name = "txtUsersName";
-            this.txtUsersName.Size = new System.Drawing.Size(215, 20);
-            this.txtUsersName.TabIndex = 15;
+            this.txtCompanyName.Location = new System.Drawing.Point(219, 283);
+            this.txtCompanyName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCompanyName.Name = "txtCompanyName";
+            this.txtCompanyName.Size = new System.Drawing.Size(215, 20);
+            this.txtCompanyName.TabIndex = 15;
             // 
-            // lblUsersName
+            // lblCompanyName
             // 
-            this.lblUsersName.AutoSize = true;
-            this.lblUsersName.Location = new System.Drawing.Point(69, 301);
-            this.lblUsersName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUsersName.Name = "lblUsersName";
-            this.lblUsersName.Size = new System.Drawing.Size(35, 13);
-            this.lblUsersName.TabIndex = 14;
-            this.lblUsersName.Text = "Name";
+            this.lblCompanyName.AutoSize = true;
+            this.lblCompanyName.Location = new System.Drawing.Point(69, 287);
+            this.lblCompanyName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCompanyName.Name = "lblCompanyName";
+            this.lblCompanyName.Size = new System.Drawing.Size(82, 13);
+            this.lblCompanyName.TabIndex = 14;
+            this.lblCompanyName.Text = "Company Name";
             // 
             // txtUserID
             // 
@@ -149,13 +155,13 @@
             this.lblUserID.TabIndex = 22;
             this.lblUserID.Text = "User ID";
             // 
-            // textBox1
+            // txtStreet
             // 
-            this.textBox1.Location = new System.Drawing.Point(219, 335);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 20);
-            this.textBox1.TabIndex = 24;
+            this.txtStreet.Location = new System.Drawing.Point(219, 383);
+            this.txtStreet.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStreet.Name = "txtStreet";
+            this.txtStreet.Size = new System.Drawing.Size(215, 20);
+            this.txtStreet.TabIndex = 24;
             // 
             // dataGridView1
             // 
@@ -251,51 +257,111 @@
             this.cboxUserRole.Size = new System.Drawing.Size(121, 21);
             this.cboxUserRole.TabIndex = 34;
             // 
-            // textBox2
+            // txtContactID
             // 
-            this.textBox2.Location = new System.Drawing.Point(219, 242);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(215, 20);
-            this.textBox2.TabIndex = 36;
+            this.txtContactID.Location = new System.Drawing.Point(219, 224);
+            this.txtContactID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtContactID.Name = "txtContactID";
+            this.txtContactID.Size = new System.Drawing.Size(215, 20);
+            this.txtContactID.TabIndex = 36;
             // 
             // lblContactID
             // 
             this.lblContactID.AutoSize = true;
-            this.lblContactID.Location = new System.Drawing.Point(69, 245);
+            this.lblContactID.Location = new System.Drawing.Point(69, 228);
             this.lblContactID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblContactID.Name = "lblContactID";
             this.lblContactID.Size = new System.Drawing.Size(58, 13);
             this.lblContactID.TabIndex = 35;
             this.lblContactID.Text = "Contact ID";
             // 
-            // textBox3
+            // txtFkeyUserID
             // 
-            this.textBox3.Location = new System.Drawing.Point(219, 271);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(215, 20);
-            this.textBox3.TabIndex = 38;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtFkeyUserID.Location = new System.Drawing.Point(219, 253);
+            this.txtFkeyUserID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFkeyUserID.Name = "txtFkeyUserID";
+            this.txtFkeyUserID.Size = new System.Drawing.Size(215, 20);
+            this.txtFkeyUserID.TabIndex = 38;
+            this.txtFkeyUserID.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // label2
+            // lblFkeyUserID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 271);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "User ID";
+            this.lblFkeyUserID.AutoSize = true;
+            this.lblFkeyUserID.Location = new System.Drawing.Point(69, 257);
+            this.lblFkeyUserID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFkeyUserID.Name = "lblFkeyUserID";
+            this.lblFkeyUserID.Size = new System.Drawing.Size(43, 13);
+            this.lblFkeyUserID.TabIndex = 37;
+            this.lblFkeyUserID.Text = "User ID";
+            // 
+            // txtPersonName
+            // 
+            this.txtPersonName.Location = new System.Drawing.Point(219, 315);
+            this.txtPersonName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPersonName.Name = "txtPersonName";
+            this.txtPersonName.Size = new System.Drawing.Size(215, 20);
+            this.txtPersonName.TabIndex = 42;
+            // 
+            // txtContactType
+            // 
+            this.txtContactType.Location = new System.Drawing.Point(219, 350);
+            this.txtContactType.Margin = new System.Windows.Forms.Padding(2);
+            this.txtContactType.Name = "txtContactType";
+            this.txtContactType.Size = new System.Drawing.Size(215, 20);
+            this.txtContactType.TabIndex = 41;
+            // 
+            // lblContactType
+            // 
+            this.lblContactType.AutoSize = true;
+            this.lblContactType.Location = new System.Drawing.Point(69, 351);
+            this.lblContactType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblContactType.Name = "lblContactType";
+            this.lblContactType.Size = new System.Drawing.Size(71, 13);
+            this.lblContactType.TabIndex = 40;
+            this.lblContactType.Text = "Contact Type";
+            // 
+            // lblPersonName
+            // 
+            this.lblPersonName.AutoSize = true;
+            this.lblPersonName.Location = new System.Drawing.Point(69, 321);
+            this.lblPersonName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPersonName.Name = "lblPersonName";
+            this.lblPersonName.Size = new System.Drawing.Size(35, 13);
+            this.lblPersonName.TabIndex = 39;
+            this.lblPersonName.Text = "Name";
+            // 
+            // txtParish
+            // 
+            this.txtParish.Location = new System.Drawing.Point(219, 448);
+            this.txtParish.Margin = new System.Windows.Forms.Padding(2);
+            this.txtParish.Name = "txtParish";
+            this.txtParish.Size = new System.Drawing.Size(215, 20);
+            this.txtParish.TabIndex = 44;
+            // 
+            // lblParish
+            // 
+            this.lblParish.AutoSize = true;
+            this.lblParish.Location = new System.Drawing.Point(69, 446);
+            this.lblParish.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblParish.Name = "lblParish";
+            this.lblParish.Size = new System.Drawing.Size(36, 13);
+            this.lblParish.TabIndex = 43;
+            this.lblParish.Text = "Parish";
             // 
             // FrmManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 503);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtParish);
+            this.Controls.Add(this.lblParish);
+            this.Controls.Add(this.txtPersonName);
+            this.Controls.Add(this.txtContactType);
+            this.Controls.Add(this.lblContactType);
+            this.Controls.Add(this.lblPersonName);
+            this.Controls.Add(this.txtFkeyUserID);
+            this.Controls.Add(this.lblFkeyUserID);
+            this.Controls.Add(this.txtContactID);
             this.Controls.Add(this.lblContactID);
             this.Controls.Add(this.cboxUserRole);
             this.Controls.Add(this.lblUserRole);
@@ -307,16 +373,16 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtStreet);
             this.Controls.Add(this.txtUserID);
             this.Controls.Add(this.lblUserID);
-            this.Controls.Add(this.txtUserEmail);
-            this.Controls.Add(this.lblUserEmail);
-            this.Controls.Add(this.lblUserTelephone);
+            this.Controls.Add(this.txtCity);
+            this.Controls.Add(this.lblCity);
+            this.Controls.Add(this.lblStreet);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.txtUsersName);
-            this.Controls.Add(this.lblUsersName);
+            this.Controls.Add(this.txtCompanyName);
+            this.Controls.Add(this.lblCompanyName);
             this.Controls.Add(this.lblManageUsers);
             this.Name = "FrmManageUsers";
             this.Text = "Manage Users";
@@ -329,16 +395,16 @@
         #endregion
 
         private System.Windows.Forms.Label lblManageUsers;
-        private System.Windows.Forms.TextBox txtUserEmail;
-        private System.Windows.Forms.Label lblUserEmail;
-        private System.Windows.Forms.Label lblUserTelephone;
+        private System.Windows.Forms.TextBox txtCity;
+        private System.Windows.Forms.Label lblCity;
+        private System.Windows.Forms.Label lblStreet;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TextBox txtUsersName;
-        private System.Windows.Forms.Label lblUsersName;
+        private System.Windows.Forms.TextBox txtCompanyName;
+        private System.Windows.Forms.Label lblCompanyName;
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.Label lblUserID;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtStreet;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnUpdate;
@@ -349,9 +415,15 @@
         private System.Windows.Forms.Label lblContactDetails;
         private System.Windows.Forms.Label lblUserRole;
         private System.Windows.Forms.ComboBox cboxUserRole;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtContactID;
         private System.Windows.Forms.Label lblContactID;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFkeyUserID;
+        private System.Windows.Forms.Label lblFkeyUserID;
+        private System.Windows.Forms.TextBox txtPersonName;
+        private System.Windows.Forms.TextBox txtContactType;
+        private System.Windows.Forms.Label lblContactType;
+        private System.Windows.Forms.Label lblPersonName;
+        private System.Windows.Forms.TextBox txtParish;
+        private System.Windows.Forms.Label lblParish;
     }
 }
