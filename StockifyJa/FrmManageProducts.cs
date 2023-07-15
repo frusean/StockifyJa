@@ -88,7 +88,7 @@ namespace StockifyJa
         private void picUpdate_Click(object sender, EventArgs e)
         {
 
-
+            /*
 
             var productID = Microsoft.VisualBasic.Interaction.InputBox("Enter product ID", "Update Product");
 
@@ -124,8 +124,34 @@ namespace StockifyJa
                     MessageBox.Show("Please enter a valid Product ID!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+*/
+            if (dgvProducts.SelectedRows.Count > 0)  // Check if a row is selected
+            {
+                int productID = Convert.ToInt32(dgvProducts.SelectedRows[0].Cells["ProductID"].Value);  // Fetch the ProductID of the selected row
 
+                var productToUpdate = StockifydBEntities.Products.Find(productID);
+                if (productToUpdate != null)
+                {
+                    var productImage = StockifydBEntities.ProductImages.FirstOrDefault(i => i.ProductID == productToUpdate.ProductID);
 
+                    txtProductID.Text = productToUpdate.ProductID.ToString();
+                    txtCategory.Text = productToUpdate.Category;
+                    txtProductName.Text = productToUpdate.ProductName;
+                    txtDescription.Text = productToUpdate.Description;
+                    txtPrice.Text = productToUpdate.Price.ToString();
+                    cboRates.SelectedItem = productToUpdate.RateID.ToString();
+                    txtImageID.Text = productImage?.ImageID.ToString();
+                    txtImageURL.Text = productImage?.ImageURL;
+                }
+                else
+                {
+                    MessageBox.Show("Product ID was NOT FOUND!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a product from the grid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void picSave_Click(object sender, EventArgs e)
         {
@@ -272,14 +298,23 @@ namespace StockifyJa
         private void picRefresh_Click(object sender, EventArgs e)
         {
             // Refresh DataGridView
-            RefreshDataGridView();
+           // RefreshDataGridView();
+            // Clear the text fields
+            txtProductID.Text = string.Empty;
+            txtCategory.Text = string.Empty;
+            txtProductName.Text = string.Empty;
+            txtDescription.Text = string.Empty;
+            txtPrice.Text = string.Empty;
+            cboRates.SelectedItem = null;
+            txtImageID.Text = string.Empty;
+            txtImageURL.Text = string.Empty;
         }
 
 
         private void picDelete_Click(object sender, EventArgs e)
 
         {
-            
+            /*
                 string productIDInput = Microsoft.VisualBasic.Interaction.InputBox("Enter Product ID to delete", "Delete Product", "", -1, -1);
 
                 if (!string.IsNullOrEmpty(productIDInput))
@@ -331,15 +366,83 @@ namespace StockifyJa
                         MessageBox.Show("Please enter a valid Product ID!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 
+            }*/
+
+
+           
+            
+            
+            //Another way 
+            
+           if (dgvProducts.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No product selected!", "Error");
+                return;
+            }
+
+            // Get product ID from the selected row. Replace "ProductID" with the name of the column holding the product ID.
+            var selectedProductID = (int)dgvProducts.SelectedRows[0].Cells["ProductID"].Value;
+
+            try
+            {
+                var productToDelete = StockifydBEntities.Products.Find(selectedProductID);
+                if (productToDelete == null)
+                {
+                    MessageBox.Show("Product not found!", "Error");
+                    return;
+                }
+
+                var confirmResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Deletion!", MessageBoxButtons.YesNo);
+                if (confirmResult != DialogResult.Yes) return;
+
+                DeleteProductWithImages(productToDelete);
+
+                this.Invoke(new Action(() =>
+                {
+                    RefreshDataGridView();
+                    MessageBox.Show("Product deleted successfully!", "Success");
+                }));
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details as per your logging strategy
+                MessageBox.Show("An error occurred while deleting the product.", "Error");
             }
 
 
         }
-        private void FrmManageProducts_Load(object sender, EventArgs e)
+
+        private void DeleteProductWithImages(Product productToDelete)
+        {
+            // This should be run in a transaction so that the operation is atomic.
+            using (var dbContextTransaction = StockifydBEntities.Database.BeginTransaction())
+            {
+                try
+                {
+                    foreach (var image in productToDelete.ProductImages.ToList())
+                    {
+                        StockifydBEntities.ProductImages.Remove(image);
+                    }
+
+                    StockifydBEntities.Products.Remove(productToDelete);
+
+                    StockifydBEntities.SaveChanges();
+
+                    dbContextTransaction.Commit();
+                }
+                catch (Exception)
+                {
+                    dbContextTransaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
+            private void FrmManageProducts_Load(object sender, EventArgs e)
         {
 
              // Populate the DataGridView with the current list of products
-    // RefreshDataGridView();
+     RefreshDataGridView();
 
     // Populate the rates ComboBox with the current list of rates
     var rates = StockifydBEntities.Rates
@@ -360,5 +463,9 @@ namespace StockifyJa
 
     cboRates.SelectedIndex = 0; // Set "" as the default selected item
         }
+
+
+
+
     }
     }
