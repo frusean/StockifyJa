@@ -91,7 +91,7 @@
             this.lbxOrderSummary.Name = "lbxOrderSummary";
             this.lbxOrderSummary.Size = new System.Drawing.Size(1238, 676);
             this.lbxOrderSummary.TabIndex = 6;
-            this.lbxOrderSummary.SelectedIndexChanged += new System.EventHandler(this.lbxOrderSummary_SelectedIndexChanged);
+          //  this.lbxOrderSummary.SelectedIndexChanged += new System.EventHandler(this.lbxOrderSummary_SelectedIndexChanged);
             // 
             // FrmOrderSummary
             // 
@@ -106,7 +106,7 @@
             this.Controls.Add(this.lbxOrderSummary);
             this.Name = "FrmOrderSummary";
             this.Text = "OrderSummary";
-            this.Load += new System.EventHandler(this.FrmOrderSummary_Load);
+          //  this.Load += new System.EventHandler(this.FrmOrderSummary_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxContinueToPayment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

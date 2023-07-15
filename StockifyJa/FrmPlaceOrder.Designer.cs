@@ -93,9 +93,9 @@
             // 
             this.lbxCart.FormattingEnabled = true;
             this.lbxCart.ItemHeight = 16;
-            this.lbxCart.Location = new System.Drawing.Point(50, 240);
+            this.lbxCart.Location = new System.Drawing.Point(0, 240);
             this.lbxCart.Name = "lbxCart";
-            this.lbxCart.Size = new System.Drawing.Size(596, 276);
+            this.lbxCart.Size = new System.Drawing.Size(797, 276);
             this.lbxCart.TabIndex = 33;
             this.lbxCart.SelectedIndexChanged += new System.EventHandler(this.lbxCart_SelectedIndexChanged);
             // 

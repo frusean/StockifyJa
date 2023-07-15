@@ -1,10 +1,12 @@
-﻿using Stripe;
+﻿using StockifyjaLib;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,10 +16,15 @@ namespace StockifyJa
     public partial class FrmPayment : Form
     {
         private decimal _total;
-        public FrmPayment()
+        private List<ItemDetails> _cartItems;
+        private stockifydBEntities _db;
+
+        public FrmPayment(List<ItemDetails> cartItems)
         {
             InitializeComponent();
-            //  _total = total;
+            _cartItems = cartItems;
+            _db = new stockifydBEntities();
+            _db.Database.CommandTimeout = 180;
             StripeConfiguration.ApiKey = "sk_test_51NDiUAH4zO9awdaeS7UqsirCvNEBr42gC4oZTRD0V9Idd2djlMcv17M256OIjwlSpGSbcB6r9YJ8P8nfIHEAwJvY00A4N70Joa"; // Your Stripe API Key here
         }
 
@@ -29,7 +36,7 @@ namespace StockifyJa
                 txtTotalPay.Text = $"Total: {_total:C}";
             }
         }
-       
+
         private void FrmPayment_Load(object sender, EventArgs e)
         {
             for (int month = 1; month <= 12; month++)
@@ -53,8 +60,6 @@ namespace StockifyJa
             // disable the PayOnDropOff button initially
             btnPayOnDropOff.Enabled = false;
         }
-
-
 
         private async void btnPay_Click(object sender, EventArgs e)
         {
@@ -118,6 +123,17 @@ namespace StockifyJa
 
                 if (charge.Paid)
                 {
+                    foreach (var item in _cartItems)
+                    {
+                        var stock = _db.Stocks.FirstOrDefault(s => s.ProductID == item.ProductID);
+                        if (stock != null)
+                        {
+                            stock.QuantityInStock -= item.Quantity;
+                        }
+                    }
+
+                    await _db.SaveChangesAsync();
+
                     MessageBox.Show("Payment processed successfully");
                 }
                 else
