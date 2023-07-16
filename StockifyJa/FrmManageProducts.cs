@@ -464,8 +464,9 @@ namespace StockifyJa
     cboRates.SelectedIndex = 0; // Set "" as the default selected item
         }
 
-
-
-
+        private void picExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
     }

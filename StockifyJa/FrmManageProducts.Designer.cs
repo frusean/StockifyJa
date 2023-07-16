@@ -49,13 +49,6 @@
             this.txtImageURL = new System.Windows.Forms.TextBox();
             this.lblImageURL = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.picExit = new System.Windows.Forms.PictureBox();
-            this.lblManageProducts = new System.Windows.Forms.Label();
-            this.picAdd = new System.Windows.Forms.PictureBox();
-            this.picUpdate = new System.Windows.Forms.PictureBox();
-            this.picDelete = new System.Windows.Forms.PictureBox();
-            this.picRefresh = new System.Windows.Forms.PictureBox();
-            this.picSave = new System.Windows.Forms.PictureBox();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +57,13 @@
             this.ImageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImageURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picExit = new System.Windows.Forms.PictureBox();
+            this.lblManageProducts = new System.Windows.Forms.Label();
+            this.picAdd = new System.Windows.Forms.PictureBox();
+            this.picUpdate = new System.Windows.Forms.PictureBox();
+            this.picDelete = new System.Windows.Forms.PictureBox();
+            this.picRefresh = new System.Windows.Forms.PictureBox();
+            this.picSave = new System.Windows.Forms.PictureBox();
             this.gboxProductID.SuspendLayout();
             this.gboxRateID.SuspendLayout();
             this.gboxImageID.SuspendLayout();
@@ -111,6 +111,7 @@
             this.txtProductID.ReadOnly = true;
             this.txtProductID.Size = new System.Drawing.Size(59, 24);
             this.txtProductID.TabIndex = 0;
+            this.txtProductID.TabStop = false;
             // 
             // txtCategory
             // 
@@ -182,6 +183,7 @@
             this.cboRates.Name = "cboRates";
             this.cboRates.Size = new System.Drawing.Size(279, 26);
             this.cboRates.TabIndex = 1;
+            this.cboRates.TabStop = false;
             // 
             // gboxImageID
             // 
@@ -201,6 +203,7 @@
             this.txtImageID.ReadOnly = true;
             this.txtImageID.Size = new System.Drawing.Size(59, 24);
             this.txtImageID.TabIndex = 0;
+            this.txtImageID.TabStop = false;
             // 
             // txtImageURL
             // 
@@ -248,7 +251,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProducts.Location = new System.Drawing.Point(53, 582);
+            this.dgvProducts.Location = new System.Drawing.Point(50, 592);
             this.dgvProducts.Name = "dgvProducts";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -263,6 +266,62 @@
             this.dgvProducts.Size = new System.Drawing.Size(1055, 184);
             this.dgvProducts.TabIndex = 14;
             // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "Product ID";
+            this.ProductID.MinimumWidth = 6;
+            this.ProductID.Name = "ProductID";
+            this.ProductID.Width = 125;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "Product Name";
+            this.ProductName.MinimumWidth = 6;
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Width = 125;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 6;
+            this.Category.Name = "Category";
+            this.Category.Width = 125;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 6;
+            this.Description.Name = "Description";
+            this.Description.Width = 125;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.Width = 125;
+            // 
+            // ImageID
+            // 
+            this.ImageID.HeaderText = "Image ID";
+            this.ImageID.MinimumWidth = 6;
+            this.ImageID.Name = "ImageID";
+            this.ImageID.Width = 125;
+            // 
+            // ImageURL
+            // 
+            this.ImageURL.HeaderText = "Image URL";
+            this.ImageURL.MinimumWidth = 6;
+            this.ImageURL.Name = "ImageURL";
+            this.ImageURL.Width = 125;
+            // 
+            // RateID
+            // 
+            this.RateID.HeaderText = "Rate";
+            this.RateID.MinimumWidth = 6;
+            this.RateID.Name = "RateID";
+            this.RateID.Width = 125;
+            // 
             // picExit
             // 
             this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -273,6 +332,7 @@
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picExit.TabIndex = 15;
             this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // lblManageProducts
             // 
@@ -342,62 +402,6 @@
             this.picSave.TabIndex = 21;
             this.picSave.TabStop = false;
             this.picSave.Click += new System.EventHandler(this.picSave_Click);
-            // 
-            // ProductID
-            // 
-            this.ProductID.HeaderText = "Product ID";
-            this.ProductID.MinimumWidth = 6;
-            this.ProductID.Name = "ProductID";
-            this.ProductID.Width = 125;
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "Product Name";
-            this.ProductName.MinimumWidth = 6;
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Width = 125;
-            // 
-            // Category
-            // 
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 6;
-            this.Category.Name = "Category";
-            this.Category.Width = 125;
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "Description";
-            this.Description.MinimumWidth = 6;
-            this.Description.Name = "Description";
-            this.Description.Width = 125;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.Width = 125;
-            // 
-            // ImageID
-            // 
-            this.ImageID.HeaderText = "Image ID";
-            this.ImageID.MinimumWidth = 6;
-            this.ImageID.Name = "ImageID";
-            this.ImageID.Width = 125;
-            // 
-            // ImageURL
-            // 
-            this.ImageURL.HeaderText = "Image URL";
-            this.ImageURL.MinimumWidth = 6;
-            this.ImageURL.Name = "ImageURL";
-            this.ImageURL.Width = 125;
-            // 
-            // RateID
-            // 
-            this.RateID.HeaderText = "Rate";
-            this.RateID.MinimumWidth = 6;
-            this.RateID.Name = "RateID";
-            this.RateID.Width = 125;
             // 
             // FrmManageProducts
             // 
