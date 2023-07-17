@@ -40,6 +40,7 @@ namespace StockifyJa
             nudQuantity.ValueChanged += nudQuantity_ValueChanged;
             nudQuantity.ReadOnly = true;
             nudQuantity.KeyPress += new KeyPressEventHandler(nudQuantity_KeyPress);
+            btnRemoveFromOrder.Click += new System.EventHandler(this.btnRemoveFromOrder_Click);
 
             // Load AppState.CartItems into the lbxCart ListBox
             foreach (var item in AppState.CartItems)
@@ -100,7 +101,7 @@ namespace StockifyJa
             }
         }
 
-   
+
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             if (cbProduct.SelectedItem is Product selectedProduct && selectedProduct.ProductID != 0)
@@ -142,13 +143,16 @@ namespace StockifyJa
 
                         Cart newCartItem = new Cart
                         {
-                            UserID = AppState.CurrentUserID, // use the UserID from the AppState
+                            UserID = AppState.CurrentUserID,
                             ProductID = selectedProduct.ProductID,
                             Quantity = (int)nudQuantity.Value
                         };
 
                         _db.Carts.Add(newCartItem);
                         _db.SaveChanges();
+
+                        // After saving, set the CartItemID
+                        itemDetails.CartItemID = newCartItem.CartID;
                     }
                 }
             }
@@ -162,19 +166,9 @@ namespace StockifyJa
         }
 
 
-        private void btnRemoveFromOrder_Click(object sender, EventArgs e)
-        {
-            if (lbxCart.SelectedItem != null)
-            {
-                lbxCart.Items.Remove(lbxCart.SelectedItem);
 
-                // If cart is empty, disable View Order button
-                if (lbxCart.Items.Count == 0)
-                {
-                    btnViewOrder.Enabled = false;
-                }
-            }
-        }
+
+
 
 
 
@@ -204,5 +198,40 @@ namespace StockifyJa
         {
 
         }
+
+        private void btnRemoveFromOrder_Click(object sender, EventArgs e)
+        {
+            if (lbxCart.SelectedItem != null)
+            {
+                string selectedItemString = lbxCart.SelectedItem.ToString();
+
+                // Find the corresponding CartItem in AppState.CartItems
+                ItemDetails selectedItem = AppState.CartItems.FirstOrDefault(ci => ci.ToString() == selectedItemString);
+
+                if (selectedItem != null)
+                {
+                    // Remove from AppState.CartItems
+                    AppState.CartItems.Remove(selectedItem);
+
+                    // Remove from database
+                    var cartItem = _db.Carts.FirstOrDefault(ci => ci.CartID == selectedItem.CartItemID);
+                    if (cartItem != null)
+                    {
+                        _db.Carts.Remove(cartItem);
+                        _db.SaveChanges();
+                    }
+                }
+
+                // Remove from ListBox
+                lbxCart.Items.Remove(lbxCart.SelectedItem);
+
+                // If cart is empty, disable View Order button
+                if (lbxCart.Items.Count == 0)
+                {
+                    btnViewOrder.Enabled = false;
+                }
+            }
+
+    }
     }
 }
