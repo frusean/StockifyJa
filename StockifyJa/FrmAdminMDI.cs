@@ -37,5 +37,19 @@ namespace StockifyJa
             frmManageUsers.Show();
 
         }
+
+        private void manageSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageSupplies frmManageSupplies = new FrmManageSupplies();
+            frmManageSupplies.MdiParent = this;
+            frmManageSupplies.Show();
+        }
+
+        private void manageProductsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageProducts frmManageProducts = new FrmManageProducts();
+            frmManageProducts.MdiParent = this;
+            frmManageProducts.Show();
+        }
     }
 }
