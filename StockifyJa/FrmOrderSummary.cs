@@ -52,6 +52,11 @@ namespace StockifyJa
                 MessageBox.Show("Could not parse the total amount.");
             }
         }
+
+        private void FrmOrderSummary_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 

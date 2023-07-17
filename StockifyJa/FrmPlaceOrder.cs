@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ using StockifyjaLib;
 
 namespace StockifyJa
 {
+
+
     public partial class FrmPlaceOrder : Form
     {
         private stockifydBEntities _db;
@@ -37,6 +40,12 @@ namespace StockifyJa
             nudQuantity.ValueChanged += nudQuantity_ValueChanged;
             nudQuantity.ReadOnly = true;
             nudQuantity.KeyPress += new KeyPressEventHandler(nudQuantity_KeyPress);
+
+            // Load AppState.CartItems into the lbxCart ListBox
+            foreach (var item in AppState.CartItems)
+            {
+                lbxCart.Items.Add(item.ToString());
+            }
         }
 
         private void nudQuantity_KeyPress(object sender, KeyPressEventArgs e)
@@ -91,62 +100,7 @@ namespace StockifyJa
             }
         }
 
-        //private void btnAddToOrder_Click(object sender, EventArgs e)
-        //{
-        //    if (cbProduct.SelectedItem is Product selectedProduct && selectedProduct.ProductID != 0)
-        //    {
-        //        var stock = _db.Stocks.FirstOrDefault(s => s.ProductID == selectedProduct.ProductID);
-        //        if (stock != null)
-        //        {
-        //            if (nudQuantity.Value > (decimal)stock.QuantityInStock.GetValueOrDefault())
-        //            {
-        //                MessageBox.Show($"The selected quantity exceeds the available stock. \n\n" +
-        //                                $"Product: {selectedProduct.ProductName}\n" +
-        //                                $"Maximum available quantity: {stock.QuantityInStock}",
-        //                                "Quantity Exceeds Stock",
-        //                                MessageBoxButtons.OK,
-        //                                MessageBoxIcon.Warning);
-        //                return;
-        //            }
-        //            else
-        //            {
-        //                // Create an instance of ItemDetails and populate it with the captured information
-        //                ItemDetails itemDetails = new ItemDetails
-        //                {
-        //                    ProductName = selectedProduct.ProductName,
-        //                    Quantity = (int)nudQuantity.Value,
-        //                    Price = selectedProduct.Price.GetValueOrDefault(),
-        //                    ProductID = selectedProduct.ProductID // Add ProductID to your ItemDetails
-        //                };
-
-        //                _cartItems.Add(itemDetails); // Add the itemDetails object to the _cartItems
-
-        //                // Add the itemDetails object to the ListBox
-        //                lbxCart.Items.Add(itemDetails);
-
-        //                // Display the captured information in a MessageBox
-        //                MessageBox.Show($"The product has been successfully added to your cart. \n\n" +
-        //                                $"Product: {itemDetails.ProductName}\n" +
-        //                                $"Quantity: {itemDetails.Quantity}\n" +
-        //                                $"Price per unit: {itemDetails.Price:C}",
-        //                                "Product Added to Cart",
-        //                                MessageBoxButtons.OK,
-        //                                MessageBoxIcon.Information);
-
-        //                // Enable View Order button after adding an item to the cart
-        //                btnViewOrder.Enabled = true;
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Please select a product before proceeding.",
-        //                        "No Product Selected",
-        //                        MessageBoxButtons.OK,
-        //                        MessageBoxIcon.Warning);
-        //    }
-        //}
-
+   
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             if (cbProduct.SelectedItem is Product selectedProduct && selectedProduct.ProductID != 0)
@@ -166,18 +120,17 @@ namespace StockifyJa
                     }
                     else
                     {
-                        // Create an instance of ItemDetails and populate it with the captured information
                         ItemDetails itemDetails = new ItemDetails
                         {
                             ProductName = selectedProduct.ProductName,
                             Quantity = (int)nudQuantity.Value,
                             Price = selectedProduct.Price.GetValueOrDefault(),
-                            ProductID = selectedProduct.ProductID // Add ProductID to your ItemDetails
+                            ProductID = selectedProduct.ProductID
                         };
 
-                        _cartItems.Add(itemDetails); // Add the itemDetails object to the _cartItems
+                        AppState.CartItems.Add(itemDetails);
+                        lbxCart.Items.Add(itemDetails.ToString());
 
-                        // Display the captured information in a MessageBox
                         MessageBox.Show($"The product has been successfully added to your cart. \n\n" +
                                         $"Product: {itemDetails.ProductName}\n" +
                                         $"Quantity: {itemDetails.Quantity}\n" +
@@ -185,11 +138,17 @@ namespace StockifyJa
                                         "Product Added to Cart",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
-
-                        lbxCart.Items.Add(itemDetails.ToString()); // Add the itemDetails string to the ListBox
-
-                        // Enable View Order button after adding an item to the cart
                         btnViewOrder.Enabled = true;
+
+                        Cart newCartItem = new Cart
+                        {
+                            UserID = AppState.CurrentUserID, // use the UserID from the AppState
+                            ProductID = selectedProduct.ProductID,
+                            Quantity = (int)nudQuantity.Value
+                        };
+
+                        _db.Carts.Add(newCartItem);
+                        _db.SaveChanges();
                     }
                 }
             }
@@ -203,19 +162,28 @@ namespace StockifyJa
         }
 
 
-
-        //private void btnViewOrder_Click(object sender, EventArgs e)
-        //{
-        //    List<string> selectedItems = lbxCart.Items.Cast<string>().ToList();
-        //    FrmOrderSummary frmOrderSummary = new FrmOrderSummary(selectedItems);
-        //    frmOrderSummary.Show();
-        //}
-        private void btnViewOrder_Click(object sender, EventArgs e)
+        private void btnRemoveFromOrder_Click(object sender, EventArgs e)
         {
-            FrmOrderSummary frmOrderSummary = new FrmOrderSummary(_cartItems);
-            frmOrderSummary.Show();
+            if (lbxCart.SelectedItem != null)
+            {
+                lbxCart.Items.Remove(lbxCart.SelectedItem);
+
+                // If cart is empty, disable View Order button
+                if (lbxCart.Items.Count == 0)
+                {
+                    btnViewOrder.Enabled = false;
+                }
+            }
         }
 
+
+
+
+        private void btnViewOrder_Click(object sender, EventArgs e)
+        {
+            FrmOrderSummary frmOrderSummary = new FrmOrderSummary(AppState.CartItems);
+            frmOrderSummary.Show();
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -228,6 +196,11 @@ namespace StockifyJa
         }
 
         private void lbxCart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmPlaceOrder_Load_1(object sender, EventArgs e)
         {
 
         }

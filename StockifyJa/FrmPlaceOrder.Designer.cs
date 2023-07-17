@@ -49,11 +49,10 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnViewOrder
             // 
-            this.btnViewOrder.Location = new System.Drawing.Point(803, 410);
+            this.btnViewOrder.Location = new System.Drawing.Point(878, 406);
             this.btnViewOrder.Name = "btnViewOrder";
             this.btnViewOrder.Size = new System.Drawing.Size(106, 23);
             this.btnViewOrder.TabIndex = 36;
@@ -97,7 +96,6 @@
             this.lbxCart.Name = "lbxCart";
             this.lbxCart.Size = new System.Drawing.Size(797, 276);
             this.lbxCart.TabIndex = 33;
-            this.lbxCart.SelectedIndexChanged += new System.EventHandler(this.lbxCart_SelectedIndexChanged);
             // 
             // btnRemoveFromOrder
             // 
@@ -107,7 +105,6 @@
             this.btnRemoveFromOrder.TabIndex = 32;
             this.btnRemoveFromOrder.Text = "Remove";
             this.btnRemoveFromOrder.UseVisualStyleBackColor = true;
-          //  this.btnRemoveFromOrder.Click += new System.EventHandler(this.btnRemoveFromOrder_Click);
             // 
             // btnAddToOrder
             // 
@@ -154,7 +151,7 @@
             this.Controls.Add(this.lblPlaceOrder);
             this.Name = "FrmPlaceOrder";
             this.Text = "Place Order";
-            this.Load += new System.EventHandler(this.FrmPlaceOrder_Load);
+            this.Load += new System.EventHandler(this.FrmPlaceOrder_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
             this.ResumeLayout(false);

@@ -39,6 +39,7 @@ namespace StockifyJa
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<Supply> Supplies { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
     
         public virtual int spCreateProduct(string productName, string description, string category, string imageURL, Nullable<decimal> price, Nullable<int> quantity, Nullable<int> rateID)
         {

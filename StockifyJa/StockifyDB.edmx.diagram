@@ -31,6 +31,9 @@
         <AssociationConnector Association="stockifydBModel.FK__Stocks__ProductI__5165187F" ManuallyRouted="false" />
         <AssociationConnector Association="stockifydBModel.FK__Supplies__Produc__32E0915F" ManuallyRouted="false" />
         <AssociationConnector Association="stockifydBModel.FK__ShippingD__Statu__440B1D61" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="stockifydBModel.Cart" Width="1.5" PointX="8.25" PointY="9" />
+        <AssociationConnector Association="stockifydBModel.FK__Cart__ProductID__5535A963" />
+        <AssociationConnector Association="stockifydBModel.FK__Cart__UserID__5441852A" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
