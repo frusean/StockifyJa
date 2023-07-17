@@ -39,31 +39,54 @@ namespace StockifyJa
         private bool isFirstSnapshot = true;
         private void StartListening()
         {
-            Query query = collectionReference.OrderBy("Timestamp");
+            // Subtract 1 second from the current time to account for delay
+            DateTime timeCutoff = DateTime.UtcNow.AddSeconds(-1);
+            Query query = collectionReference.WhereGreaterThanOrEqualTo("Timestamp", Timestamp.FromDateTime(timeCutoff)).OrderBy("Timestamp");
+
             listener = query.Listen(snapshot =>
             {
                 BeginInvoke((Action)(() =>
                 {
                     foreach (DocumentChange change in snapshot.Changes)
                     {
-                        // if (change.Type == DocumentChange.Type.Added)
-                        {
-                            Dictionary<string, object> data = change.Document.ToDictionary();
-                            string author = data["Author"].ToString();
-                            string message = data["Message"].ToString();
-                            DateTime timestamp = ((Timestamp)data["Timestamp"]).ToDateTime();
+                        Dictionary<string, object> data = change.Document.ToDictionary();
+                        string author = data["Author"].ToString();
+                        string message = data["Message"].ToString();
+                        DateTime timestamp = ((Timestamp)data["Timestamp"]).ToDateTime();
 
-                            if (timestamp.ToUniversalTime() <= chatOpenedAt)
-                            {
-                                continue;
-                            }
-
-                            lbxAdminMessageView.Items.Add($"[{timestamp.ToString("hh:mm tt")}] {author}: {message}");
-                        }
+                        lbxAdminMessageView.Items.Add($"[{timestamp.ToString("hh:mm tt")}] {author}: {message}");
                     }
                 }));
             });
         }
+
+        //private void StartListening()
+        //{
+        //    Query query = collectionReference.OrderBy("Timestamp");
+        //    listener = query.Listen(snapshot =>
+        //    {
+        //        BeginInvoke((Action)(() =>
+        //        {
+        //            foreach (DocumentChange change in snapshot.Changes)
+        //            {
+        //                // if (change.Type == DocumentChange.Type.Added)
+        //                {
+        //                    Dictionary<string, object> data = change.Document.ToDictionary();
+        //                    string author = data["Author"].ToString();
+        //                    string message = data["Message"].ToString();
+        //                    DateTime timestamp = ((Timestamp)data["Timestamp"]).ToDateTime();
+
+        //                    if (timestamp.ToUniversalTime() <= chatOpenedAt)
+        //                    {
+        //                        continue;
+        //                    }
+
+        //                    lbxAdminMessageView.Items.Add($"[{timestamp.ToString("hh:mm tt")}] {author}: {message}");
+        //                }
+        //            }
+        //        }));
+        //    });
+        //}
 
         private void lbxAdminMessageView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -76,27 +99,61 @@ namespace StockifyJa
         }
 
 
+
+        //    private async void btnAdminMessageSendButton_Click(object sender, EventArgs e)
+        //    {
+        //        string message = txtAdminMessageInput.Text;
+
+        //        FirestoreDb db = FirestoreDb.Create("stockify-34d8d"); // create a new instance every time
+        //        CollectionReference collectionReference = db.Collection("conversations");
+
+        //        Dictionary<string, object> docData = new Dictionary<string, object>
+        //{
+        //    { "Author", "Admin" },
+        //    { "Message", message },
+        //    { "Timestamp", Timestamp.GetCurrentTimestamp() }
+        //};
+        //        await collectionReference.AddAsync(docData);
+
+        //        txtAdminMessageInput.Clear();
+
+        //        //if (FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
+        //        //{
+        //        //    FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
+
+        //        //}
+        //        if (FrmCustomerChat.frmCustomerChatInstance == null || FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
+        //        {
+        //            FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
+        //        }
+
+        //    }
         private async void btnAdminMessageSendButton_Click(object sender, EventArgs e)
         {
             string message = txtAdminMessageInput.Text;
 
+            FirestoreDb db = FirestoreDb.Create("stockify-34d8d"); // create a new instance every time
+            CollectionReference collectionReference = db.Collection("conversations");
+
             Dictionary<string, object> docData = new Dictionary<string, object>
-        {
-            { "Author", "Admin" },
-            { "Message", message },
-            { "Timestamp", Timestamp.GetCurrentTimestamp() }
-        };
+    {
+        { "Author", "Admin" },
+        { "Message", message },
+        { "Timestamp", Timestamp.GetCurrentTimestamp() }
+    };
             await collectionReference.AddAsync(docData);
 
             txtAdminMessageInput.Clear();
 
-            if (FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
+            // Check the customer chat instance and re-create it if necessary
+            if (FrmCustomerChat.frmCustomerChatInstance == null || FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
             {
                 FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
+                FrmCustomerChat.frmCustomerChatInstance.Show();
             }
-
-           // FrmCustomerChat.frmCustomerChatInstance.Show(); // Show the Customer Chat form
         }
+
+
         private void FrmAdminChat_Load(object sender, EventArgs e)
         {
             lbxAdminMessageView.Items.Clear();

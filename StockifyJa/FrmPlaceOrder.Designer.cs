@@ -33,10 +33,10 @@
             this.lblQuantity = new System.Windows.Forms.Label();
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
             this.lbxCart = new System.Windows.Forms.ListBox();
-            this.btnRemoveFromOrder = new System.Windows.Forms.Button();
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.cbProduct = new System.Windows.Forms.ComboBox();
             this.lblPlaceOrder = new System.Windows.Forms.Label();
+            this.btnRemoveFromOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             this.SuspendLayout();
@@ -49,11 +49,10 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnViewOrder
             // 
-            this.btnViewOrder.Location = new System.Drawing.Point(803, 410);
+            this.btnViewOrder.Location = new System.Drawing.Point(878, 406);
             this.btnViewOrder.Name = "btnViewOrder";
             this.btnViewOrder.Size = new System.Drawing.Size(106, 23);
             this.btnViewOrder.TabIndex = 36;
@@ -93,21 +92,10 @@
             // 
             this.lbxCart.FormattingEnabled = true;
             this.lbxCart.ItemHeight = 16;
-            this.lbxCart.Location = new System.Drawing.Point(50, 240);
+            this.lbxCart.Location = new System.Drawing.Point(0, 240);
             this.lbxCart.Name = "lbxCart";
-            this.lbxCart.Size = new System.Drawing.Size(596, 276);
+            this.lbxCart.Size = new System.Drawing.Size(797, 276);
             this.lbxCart.TabIndex = 33;
-            this.lbxCart.SelectedIndexChanged += new System.EventHandler(this.lbxCart_SelectedIndexChanged);
-            // 
-            // btnRemoveFromOrder
-            // 
-            this.btnRemoveFromOrder.Location = new System.Drawing.Point(571, 144);
-            this.btnRemoveFromOrder.Name = "btnRemoveFromOrder";
-            this.btnRemoveFromOrder.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveFromOrder.TabIndex = 32;
-            this.btnRemoveFromOrder.Text = "Remove";
-            this.btnRemoveFromOrder.UseVisualStyleBackColor = true;
-            this.btnRemoveFromOrder.Click += new System.EventHandler(this.btnRemoveFromOrder_Click);
             // 
             // btnAddToOrder
             // 
@@ -138,23 +126,33 @@
             this.lblPlaceOrder.TabIndex = 29;
             this.lblPlaceOrder.Text = "Place Order";
             // 
+            // btnRemoveFromOrder
+            // 
+            this.btnRemoveFromOrder.Location = new System.Drawing.Point(571, 154);
+            this.btnRemoveFromOrder.Name = "btnRemoveFromOrder";
+            this.btnRemoveFromOrder.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveFromOrder.TabIndex = 38;
+            this.btnRemoveFromOrder.Text = "Remove";
+            this.btnRemoveFromOrder.UseVisualStyleBackColor = true;
+            this.btnRemoveFromOrder.Click += new System.EventHandler(this.btnRemoveFromOrder_Click);
+            // 
             // FrmPlaceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 526);
+            this.Controls.Add(this.btnRemoveFromOrder);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnViewOrder);
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.nudQuantity);
             this.Controls.Add(this.lbxCart);
-            this.Controls.Add(this.btnRemoveFromOrder);
             this.Controls.Add(this.btnAddToOrder);
             this.Controls.Add(this.cbProduct);
             this.Controls.Add(this.lblPlaceOrder);
             this.Name = "FrmPlaceOrder";
             this.Text = "Place Order";
-            this.Load += new System.EventHandler(this.FrmPlaceOrder_Load);
+            this.Load += new System.EventHandler(this.FrmPlaceOrder_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
             this.ResumeLayout(false);
@@ -169,10 +167,10 @@
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.NumericUpDown nudQuantity;
         private System.Windows.Forms.ListBox lbxCart;
-        private System.Windows.Forms.Button btnRemoveFromOrder;
         private System.Windows.Forms.Button btnAddToOrder;
         private System.Windows.Forms.ComboBox cbProduct;
         private System.Windows.Forms.Label lblPlaceOrder;
+        private System.Windows.Forms.Button btnRemoveFromOrder;
     }
 }
 

@@ -21,6 +21,7 @@ namespace StockifyJa
             this.ProductImages = new HashSet<ProductImage>();
             this.Stocks = new HashSet<Stock>();
             this.Supplies = new HashSet<Supply>();
+            this.Carts = new HashSet<Cart>();
         }
     
         public int ProductID { get; set; }
@@ -39,5 +40,7 @@ namespace StockifyJa
         public virtual ICollection<Stock> Stocks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Supply> Supplies { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Carts { get; set; }
     }
 }

@@ -4,7 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="stockifydBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="stockifydBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
         <EntityType Name="ContactDetails">
           <Key>
             <PropertyRef Name="ContactID" />
@@ -125,6 +134,30 @@
           <Property Name="Password" Type="varchar" MaxLength="64" />
           <Property Name="Role" Type="char" MaxLength="30" />
         </EntityType>
+        <Association Name="FK__Cart__ProductID__5535A963">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__UserID__5441852A">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__ContactDe__UserI__267ABA7A">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="ContactDetails" Type="Self.ContactDetails" Multiplicity="*" />
@@ -354,6 +387,7 @@
           <Parameter Name="Email" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="stockifydBModelStoreContainer">
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContactDetails" EntityType="Self.ContactDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
@@ -366,6 +400,14 @@
           <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplies" EntityType="Self.Supplies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cart__ProductID__5535A963" Association="Self.FK__Cart__ProductID__5535A963">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__UserID__5441852A" Association="Self.FK__Cart__UserID__5441852A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
           <AssociationSet Name="FK__ContactDe__UserI__267ABA7A" Association="Self.FK__ContactDe__UserI__267ABA7A">
             <End Role="Users" EntitySet="Users" />
             <End Role="ContactDetails" EntitySet="ContactDetails" />
@@ -423,8 +465,7 @@
             <End Role="Supplies" EntitySet="Supplies" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="stockifydBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -510,6 +551,7 @@
           <NavigationProperty Name="Rate" Relationship="Self.FK__Products__RateID__2D27B809" FromRole="Products" ToRole="Rates" />
           <NavigationProperty Name="Stocks" Relationship="Self.FK__Stocks__ProductI__5165187F" FromRole="Products" ToRole="Stocks" />
           <NavigationProperty Name="Supplies" Relationship="Self.FK__Supplies__Produc__32E0915F" FromRole="Products" ToRole="Supplies" />
+          <NavigationProperty Name="Carts" Relationship="stockifydBModel.FK__Cart__ProductID__5535A963" FromRole="Product" ToRole="Cart" />
         </EntityType>
         <EntityType Name="Rate">
           <Key>
@@ -575,6 +617,7 @@
           <Property Name="Role" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="ContactDetails" Relationship="Self.FK__ContactDe__UserI__267ABA7A" FromRole="Users" ToRole="ContactDetails" />
           <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Retailer__38996AB5" FromRole="Users" ToRole="Orders" />
+          <NavigationProperty Name="Carts" Relationship="stockifydBModel.FK__Cart__UserID__5441852A" FromRole="User" ToRole="Cart" />
         </EntityType>
         <Association Name="FK__ContactDe__UserI__267ABA7A">
           <End Role="Users" Type="Self.User" Multiplicity="0..1" />
@@ -837,16 +880,16 @@
             <Parameter Name="Email" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spDeleteProduct">
-            <Parameter Name="ProductID" Mode="In" Type="Int32" />
+          <Parameter Name="ProductID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spDeleteUserWithContactDetails">
-            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          <Parameter Name="UserID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spReadProduct" ReturnType="Collection(stockifydBModel.spReadProduct_Result)">
-            <Parameter Name="ProductID" Mode="In" Type="Int32" />
+          <Parameter Name="ProductID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spReadUserWithContactDetailswithID" ReturnType="Collection(stockifydBModel.spReadUserWithContactDetailswithID_Result)">
-            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          <Parameter Name="UserID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spUpdateProduct">
             <Parameter Name="ProductID" Mode="In" Type="Int32" />
@@ -873,6 +916,15 @@
             <Parameter Name="Telephone" Mode="In" Type="String" />
             <Parameter Name="Email" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Carts" EntityType="stockifydBModel.Cart" />
+          <AssociationSet Name="FK__Cart__ProductID__5535A963" Association="stockifydBModel.FK__Cart__ProductID__5535A963">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__UserID__5441852A" Association="stockifydBModel.FK__Cart__UserID__5441852A">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="spReadProduct_Result">
           <Property Type="Int32" Name="ProductID" Nullable="false" />
@@ -887,6 +939,41 @@
           <Property Type="String" Name="Password" Nullable="true" MaxLength="64" />
           <Property Type="String" Name="Role" Nullable="true" MaxLength="30" />
         </ComplexType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="stockifydBModel.FK__Cart__ProductID__5535A963" FromRole="Cart" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="stockifydBModel.FK__Cart__UserID__5441852A" FromRole="Cart" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__Cart__ProductID__5535A963">
+          <End Type="stockifydBModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="stockifydBModel.Cart" Role="Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__UserID__5441852A">
+          <End Type="stockifydBModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="stockifydBModel.Cart" Role="Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1052,6 +1139,16 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spUpdateProduct" FunctionName="stockifydBModel.Store.spUpdateProduct" />
           <FunctionImportMapping FunctionImportName="spUpdateUserWithContactDetails" FunctionName="stockifydBModel.Store.spUpdateUserWithContactDetails" />
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="stockifydBModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CartID" ColumnName="CartID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
