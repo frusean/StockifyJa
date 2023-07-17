@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockifyjaLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,56 +25,133 @@ namespace StockifyJa
 
         }
 
+        //private void btnLogin_Click(object sender, EventArgs e)
+        //{
+        //    string username = txtUserName.Text;
+        //    string password = txtPassword.Text;
+
+        //    if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+        //    {
+        //        //MessageBox.Show("Please enter both username and password.");
+        //        MessageBox.Show("Please enter BOTH Username and Password!)", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        txtUserName.Focus();
+        //        return;
+        //    }
+
+        //    var user = _db.Users.SingleOrDefault(u => u.Username == username && u.Password == password);
+
+        //    if (user == null)
+        //    {
+        //        MessageBox.Show("Invalid username or password!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        txtUserName.Focus();
+        //        return;
+        //    }
+
+        //    // check the role and open the appropriate form
+        //    string role = user.Role.Trim();
+        //    if (role == "administrator")
+        //    {
+        //        var notifyLoginSuccess = new NotifyIcon();
+        //        notifyLoginSuccess.Icon = SystemIcons.Information;
+        //        notifyLoginSuccess.Visible = true;
+        //        notifyLoginSuccess.ShowBalloonTip(5000, "Admininstrator Login Success", "You have successfully logged in as an Administrator!", ToolTipIcon.Info);
+        //        FrmAdminMDI adminForm = new FrmAdminMDI();
+        //        adminForm.Show();
+        //    }
+        //    else if (role == "customer")
+        //    {
+        //        var notifyLoginSuccess = new NotifyIcon();
+        //        notifyLoginSuccess.Icon = SystemIcons.Information;
+        //        notifyLoginSuccess.Visible = true;
+        //        notifyLoginSuccess.ShowBalloonTip(5000, " Customer Login Success", "You have successfully logged in Customer!", ToolTipIcon.Info);
+        //        FrmCustomerMDI customerForm = new FrmCustomerMDI();
+        //        customerForm.Show();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show($"Invalid user role: {role}!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+
+
+        //    this.Hide(); // Hide the login form
+        //}
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUserName.Text;
-            string password = txtPassword.Text;
-
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            try
             {
-                //MessageBox.Show("Please enter both username and password.");
-                MessageBox.Show("Please enter BOTH Username and Password!)", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUserName.Focus();
-                return;
+                string username = txtUserName.Text;
+                string password = txtPassword.Text;
+
+                if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+                {
+                    MessageBox.Show("Please enter BOTH Username and Password!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUserName.Focus();
+                    return;
+                }
+
+                var user = _db.Users.SingleOrDefault(u => u.Username == username && u.Password == password);
+
+                if (user == null)
+                {
+                    MessageBox.Show("Invalid username or password!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUserName.Focus();
+                    return;
+                }
+
+                AppState.CurrentUserID = user.UserID; // set current user ID
+
+                var cartItems = _db.Carts.Where(c => c.UserID == AppState.CurrentUserID).ToList();
+
+                foreach (var cartItem in cartItems)
+                {
+                    var product = _db.Products.FirstOrDefault(p => p.ProductID == cartItem.ProductID);
+
+                    if (product != null)
+                    {
+                        ItemDetails itemDetails = new ItemDetails
+                        {
+                            ProductName = product.ProductName,
+                            Quantity = cartItem.Quantity.GetValueOrDefault(),
+                            Price = product.Price.GetValueOrDefault(),
+                            ProductID = product.ProductID
+                        };
+
+                        AppState.CartItems.Add(itemDetails);
+                    }
+                }
+
+                string role = user.Role.Trim();
+                if (role == "administrator")
+                {
+                    var notifyLoginSuccess = new NotifyIcon();
+                    notifyLoginSuccess.Icon = SystemIcons.Information;
+                    notifyLoginSuccess.Visible = true;
+                    notifyLoginSuccess.ShowBalloonTip(5000, "Admininstrator Login Success", "You have successfully logged in as an Administrator!", ToolTipIcon.Info);
+                    FrmAdminMDI adminForm = new FrmAdminMDI();
+                    adminForm.Show();
+                }
+                else if (role == "customer")
+                {
+                    var notifyLoginSuccess = new NotifyIcon();
+                    notifyLoginSuccess.Icon = SystemIcons.Information;
+                    notifyLoginSuccess.Visible = true;
+                    notifyLoginSuccess.ShowBalloonTip(5000, " Customer Login Success", "You have successfully logged in Customer!", ToolTipIcon.Info);
+                    FrmCustomerMDI customerForm = new FrmCustomerMDI();
+                    customerForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show($"Invalid user role: {role}!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                this.Hide(); // Hide the login form
             }
-
-            var user = _db.Users.SingleOrDefault(u => u.Username == username && u.Password == password);
-
-            if (user == null)
+            catch (Exception ex)
             {
-                MessageBox.Show("Invalid username or password!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUserName.Focus();
-                return;
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
-
-            // check the role and open the appropriate form
-            string role = user.Role.Trim();
-            if (role == "administrator")
-            {
-                var notifyLoginSuccess = new NotifyIcon();
-                notifyLoginSuccess.Icon = SystemIcons.Information;
-                notifyLoginSuccess.Visible = true;
-                notifyLoginSuccess.ShowBalloonTip(5000, "Admininstrator Login Success", "You have successfully logged in as an Administrator!", ToolTipIcon.Info);
-                FrmAdminMDI adminForm = new FrmAdminMDI();
-                adminForm.Show();
-            }
-            else if (role == "customer")
-            {
-                var notifyLoginSuccess = new NotifyIcon();
-                notifyLoginSuccess.Icon = SystemIcons.Information;
-                notifyLoginSuccess.Visible = true;
-                notifyLoginSuccess.ShowBalloonTip(5000, " Customer Login Success", "You have successfully logged in Customer!", ToolTipIcon.Info);
-                FrmCustomerMDI customerForm = new FrmCustomerMDI();
-                customerForm.Show();
-            }
-            else
-            {
-                MessageBox.Show($"Invalid user role: {role}!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-            this.Hide(); // Hide the login form
         }
+
 
         private void picExit_Click(object sender, EventArgs e)
         {

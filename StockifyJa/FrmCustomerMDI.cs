@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockifyjaLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +38,18 @@ namespace StockifyJa
             FrmPlaceOrder frmPlaceOrder = new FrmPlaceOrder();
             frmPlaceOrder.MdiParent = this;
             frmPlaceOrder.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+            FrmLogin frmLogin = new FrmLogin();
+          //  AppState.CartItems.Clear();
+            frmLogin.Show();
+
+
+
         }
     }
 }
