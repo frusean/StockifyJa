@@ -49,7 +49,7 @@ namespace StockifyJa
         {
             FrmManageProducts frmManageProducts = new FrmManageProducts();
             frmManageProducts.MdiParent = this;
-            frmManag
-                     }
+            frmManageProducts.Show();
+        }
     }
 }
