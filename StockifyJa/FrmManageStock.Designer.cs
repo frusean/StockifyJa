@@ -38,6 +38,9 @@
             this.dgvStock = new System.Windows.Forms.DataGridView();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.lblManageStocks = new System.Windows.Forms.Label();
+            this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gboxStockID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
@@ -62,9 +65,9 @@
             // gboxStockID
             // 
             this.gboxStockID.Controls.Add(this.txtStockID);
-            this.gboxStockID.Location = new System.Drawing.Point(351, 80);
+            this.gboxStockID.Location = new System.Drawing.Point(393, 82);
             this.gboxStockID.Name = "gboxStockID";
-            this.gboxStockID.Size = new System.Drawing.Size(100, 50);
+            this.gboxStockID.Size = new System.Drawing.Size(86, 50);
             this.gboxStockID.TabIndex = 5;
             this.gboxStockID.TabStop = false;
             this.gboxStockID.Text = "Stock ID";
@@ -76,6 +79,7 @@
             this.txtStockID.ReadOnly = true;
             this.txtStockID.Size = new System.Drawing.Size(59, 22);
             this.txtStockID.TabIndex = 0;
+            this.txtStockID.TabStop = false;
             // 
             // txtQuantityInStock
             // 
@@ -96,11 +100,15 @@
             // dgvStock
             // 
             this.dgvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStock.Location = new System.Drawing.Point(64, 293);
+            this.dgvStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StockID,
+            this.ProductID,
+            this.QuantityInStock});
+            this.dgvStock.Location = new System.Drawing.Point(169, 302);
             this.dgvStock.Name = "dgvStock";
             this.dgvStock.RowHeadersWidth = 51;
             this.dgvStock.RowTemplate.Height = 24;
-            this.dgvStock.Size = new System.Drawing.Size(621, 136);
+            this.dgvStock.Size = new System.Drawing.Size(508, 136);
             this.dgvStock.TabIndex = 15;
             // 
             // picExit
@@ -113,6 +121,7 @@
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picExit.TabIndex = 16;
             this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // lblManageStocks
             // 
@@ -128,10 +137,32 @@
             this.lblManageStocks.Text = "Manage Stocks";
             this.lblManageStocks.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // StockID
+            // 
+            this.StockID.HeaderText = "Stock ID";
+            this.StockID.MinimumWidth = 6;
+            this.StockID.Name = "StockID";
+            this.StockID.Width = 125;
+            // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "Product ID";
+            this.ProductID.MinimumWidth = 6;
+            this.ProductID.Name = "ProductID";
+            this.ProductID.Width = 125;
+            // 
+            // QuantityInStock
+            // 
+            this.QuantityInStock.HeaderText = "Quantity In Stock";
+            this.QuantityInStock.MinimumWidth = 6;
+            this.QuantityInStock.Name = "QuantityInStock";
+            this.QuantityInStock.Width = 125;
+            // 
             // FrmManageStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblManageStocks);
             this.Controls.Add(this.picExit);
@@ -163,5 +194,8 @@
         private System.Windows.Forms.DataGridView dgvStock;
         private System.Windows.Forms.PictureBox picExit;
         private System.Windows.Forms.Label lblManageStocks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityInStock;
     }
 }

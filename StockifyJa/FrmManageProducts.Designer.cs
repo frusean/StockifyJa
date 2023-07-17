@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmManageProducts));
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.lblProductName = new System.Windows.Forms.Label();
@@ -46,6 +49,14 @@
             this.txtImageURL = new System.Windows.Forms.TextBox();
             this.lblImageURL = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImageURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.lblManageProducts = new System.Windows.Forms.Label();
             this.picAdd = new System.Windows.Forms.PictureBox();
@@ -75,18 +86,20 @@
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
+            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductName.Location = new System.Drawing.Point(169, 187);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(96, 16);
+            this.lblProductName.Size = new System.Drawing.Size(108, 18);
             this.lblProductName.TabIndex = 4;
             this.lblProductName.Text = "Product  Name";
             // 
             // gboxProductID
             // 
             this.gboxProductID.Controls.Add(this.txtProductID);
-            this.gboxProductID.Location = new System.Drawing.Point(424, 109);
+            this.gboxProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxProductID.Location = new System.Drawing.Point(457, 109);
             this.gboxProductID.Name = "gboxProductID";
-            this.gboxProductID.Size = new System.Drawing.Size(100, 50);
+            this.gboxProductID.Size = new System.Drawing.Size(86, 50);
             this.gboxProductID.TabIndex = 3;
             this.gboxProductID.TabStop = false;
             this.gboxProductID.Text = "Product ID";
@@ -96,8 +109,9 @@
             this.txtProductID.Location = new System.Drawing.Point(9, 22);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.ReadOnly = true;
-            this.txtProductID.Size = new System.Drawing.Size(59, 22);
+            this.txtProductID.Size = new System.Drawing.Size(59, 24);
             this.txtProductID.TabIndex = 0;
+            this.txtProductID.TabStop = false;
             // 
             // txtCategory
             // 
@@ -109,9 +123,10 @@
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.Location = new System.Drawing.Point(169, 240);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(62, 16);
+            this.lblCategory.Size = new System.Drawing.Size(68, 18);
             this.lblCategory.TabIndex = 6;
             this.lblCategory.Text = "Category";
             // 
@@ -126,9 +141,10 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.Location = new System.Drawing.Point(169, 305);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(75, 16);
+            this.lblDescription.Size = new System.Drawing.Size(83, 18);
             this.lblDescription.TabIndex = 8;
             this.lblDescription.Text = "Description";
             // 
@@ -142,15 +158,17 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.Location = new System.Drawing.Point(169, 364);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(38, 16);
+            this.lblPrice.Size = new System.Drawing.Size(42, 18);
             this.lblPrice.TabIndex = 10;
             this.lblPrice.Text = "Price";
             // 
             // gboxRateID
             // 
             this.gboxRateID.Controls.Add(this.cboRates);
+            this.gboxRateID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxRateID.Location = new System.Drawing.Point(172, 425);
             this.gboxRateID.Name = "gboxRateID";
             this.gboxRateID.Size = new System.Drawing.Size(479, 62);
@@ -163,15 +181,17 @@
             this.cboRates.FormattingEnabled = true;
             this.cboRates.Location = new System.Drawing.Point(194, 21);
             this.cboRates.Name = "cboRates";
-            this.cboRates.Size = new System.Drawing.Size(279, 24);
+            this.cboRates.Size = new System.Drawing.Size(279, 26);
             this.cboRates.TabIndex = 1;
+            this.cboRates.TabStop = false;
             // 
             // gboxImageID
             // 
             this.gboxImageID.Controls.Add(this.txtImageID);
-            this.gboxImageID.Location = new System.Drawing.Point(907, 109);
+            this.gboxImageID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxImageID.Location = new System.Drawing.Point(972, 109);
             this.gboxImageID.Name = "gboxImageID";
-            this.gboxImageID.Size = new System.Drawing.Size(100, 50);
+            this.gboxImageID.Size = new System.Drawing.Size(87, 50);
             this.gboxImageID.TabIndex = 4;
             this.gboxImageID.TabStop = false;
             this.gboxImageID.Text = "Image ID";
@@ -181,8 +201,9 @@
             this.txtImageID.Location = new System.Drawing.Point(9, 22);
             this.txtImageID.Name = "txtImageID";
             this.txtImageID.ReadOnly = true;
-            this.txtImageID.Size = new System.Drawing.Size(59, 22);
+            this.txtImageID.Size = new System.Drawing.Size(59, 24);
             this.txtImageID.TabIndex = 0;
+            this.txtImageID.TabStop = false;
             // 
             // txtImageURL
             // 
@@ -195,21 +216,111 @@
             // lblImageURL
             // 
             this.lblImageURL.AutoSize = true;
-            this.lblImageURL.Location = new System.Drawing.Point(714, 234);
+            this.lblImageURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImageURL.Location = new System.Drawing.Point(776, 224);
             this.lblImageURL.Name = "lblImageURL";
-            this.lblImageURL.Size = new System.Drawing.Size(75, 16);
+            this.lblImageURL.Size = new System.Drawing.Size(82, 18);
             this.lblImageURL.TabIndex = 12;
             this.lblImageURL.Text = "Image URL";
             // 
             // dgvProducts
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Location = new System.Drawing.Point(116, 582);
+            this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductID,
+            this.ProductName,
+            this.Category,
+            this.Description,
+            this.Price,
+            this.ImageID,
+            this.ImageURL,
+            this.RateID});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProducts.Location = new System.Drawing.Point(50, 592);
             this.dgvProducts.Name = "dgvProducts";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProducts.RowHeadersWidth = 51;
             this.dgvProducts.RowTemplate.Height = 24;
-            this.dgvProducts.Size = new System.Drawing.Size(949, 184);
+            this.dgvProducts.Size = new System.Drawing.Size(1055, 184);
             this.dgvProducts.TabIndex = 14;
+            // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "Product ID";
+            this.ProductID.MinimumWidth = 6;
+            this.ProductID.Name = "ProductID";
+            this.ProductID.Width = 125;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "Product Name";
+            this.ProductName.MinimumWidth = 6;
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Width = 125;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 6;
+            this.Category.Name = "Category";
+            this.Category.Width = 125;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 6;
+            this.Description.Name = "Description";
+            this.Description.Width = 125;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.Width = 125;
+            // 
+            // ImageID
+            // 
+            this.ImageID.HeaderText = "Image ID";
+            this.ImageID.MinimumWidth = 6;
+            this.ImageID.Name = "ImageID";
+            this.ImageID.Width = 125;
+            // 
+            // ImageURL
+            // 
+            this.ImageURL.HeaderText = "Image URL";
+            this.ImageURL.MinimumWidth = 6;
+            this.ImageURL.Name = "ImageURL";
+            this.ImageURL.Width = 125;
+            // 
+            // RateID
+            // 
+            this.RateID.HeaderText = "Rate";
+            this.RateID.MinimumWidth = 6;
+            this.RateID.Name = "RateID";
+            this.RateID.Width = 125;
             // 
             // picExit
             // 
@@ -221,6 +332,7 @@
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picExit.TabIndex = 15;
             this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // lblManageProducts
             // 
@@ -229,7 +341,7 @@
             this.lblManageProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblManageProducts.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManageProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
-            this.lblManageProducts.Location = new System.Drawing.Point(446, 37);
+            this.lblManageProducts.Location = new System.Drawing.Point(517, 30);
             this.lblManageProducts.Name = "lblManageProducts";
             this.lblManageProducts.Size = new System.Drawing.Size(231, 32);
             this.lblManageProducts.TabIndex = 16;
@@ -295,6 +407,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1241, 778);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picRefresh);
@@ -317,6 +430,8 @@
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.gboxProductID);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManageProducts";
             this.Text = "Manage Products";
             this.Load += new System.EventHandler(this.FrmManageProducts_Load);
@@ -363,5 +478,13 @@
         private System.Windows.Forms.PictureBox picDelete;
         private System.Windows.Forms.PictureBox picRefresh;
         private System.Windows.Forms.PictureBox picSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImageID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImageURL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RateID;
     }
 }

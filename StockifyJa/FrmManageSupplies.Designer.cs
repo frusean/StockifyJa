@@ -46,17 +46,34 @@
             this.dgvSupplies = new System.Windows.Forms.DataGridView();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.lblManageSupplies = new System.Windows.Forms.Label();
+            this.SupplyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityPurchased = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picSave = new System.Windows.Forms.PictureBox();
+            this.picRefresh = new System.Windows.Forms.PictureBox();
+            this.picDelete = new System.Windows.Forms.PictureBox();
+            this.picUpdate = new System.Windows.Forms.PictureBox();
+            this.picAdd = new System.Windows.Forms.PictureBox();
             this.gboxSupplyID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantityPurchased)).BeginInit();
             this.gboxStockID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // gboxSupplyID
             // 
             this.gboxSupplyID.Controls.Add(this.txtSupplyID);
-            this.gboxSupplyID.Location = new System.Drawing.Point(342, 100);
+            this.gboxSupplyID.Location = new System.Drawing.Point(378, 100);
             this.gboxSupplyID.Name = "gboxSupplyID";
             this.gboxSupplyID.Size = new System.Drawing.Size(100, 50);
             this.gboxSupplyID.TabIndex = 0;
@@ -70,6 +87,7 @@
             this.txtSupplyID.ReadOnly = true;
             this.txtSupplyID.Size = new System.Drawing.Size(59, 22);
             this.txtSupplyID.TabIndex = 0;
+            this.txtSupplyID.TabStop = false;
             // 
             // lblProductID
             // 
@@ -169,27 +187,37 @@
             this.txtStockID.ReadOnly = true;
             this.txtStockID.Size = new System.Drawing.Size(59, 22);
             this.txtStockID.TabIndex = 0;
+            this.txtStockID.TabStop = false;
             // 
             // dgvSupplies
             // 
             this.dgvSupplies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSupplies.Location = new System.Drawing.Point(97, 457);
+            this.dgvSupplies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SupplyID,
+            this.ProductID,
+            this.QuantityPurchased,
+            this.Cost,
+            this.SupplyDate,
+            this.StockID,
+            this.QuantityInStock});
+            this.dgvSupplies.Location = new System.Drawing.Point(33, 507);
             this.dgvSupplies.Name = "dgvSupplies";
             this.dgvSupplies.RowHeadersWidth = 51;
             this.dgvSupplies.RowTemplate.Height = 24;
-            this.dgvSupplies.Size = new System.Drawing.Size(833, 154);
+            this.dgvSupplies.Size = new System.Drawing.Size(933, 154);
             this.dgvSupplies.TabIndex = 15;
             // 
             // picExit
             // 
             this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(993, 564);
+            this.picExit.Location = new System.Drawing.Point(1000, 597);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(53, 47);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picExit.TabIndex = 16;
             this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // lblManageSupplies
             // 
@@ -198,18 +226,123 @@
             this.lblManageSupplies.BackColor = System.Drawing.Color.Transparent;
             this.lblManageSupplies.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManageSupplies.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
-            this.lblManageSupplies.Location = new System.Drawing.Point(387, 26);
+            this.lblManageSupplies.Location = new System.Drawing.Point(467, 26);
             this.lblManageSupplies.Name = "lblManageSupplies";
             this.lblManageSupplies.Size = new System.Drawing.Size(227, 32);
             this.lblManageSupplies.TabIndex = 17;
             this.lblManageSupplies.Text = "Manage Supplies";
             this.lblManageSupplies.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // SupplyID
+            // 
+            this.SupplyID.HeaderText = "Supply ID";
+            this.SupplyID.MinimumWidth = 6;
+            this.SupplyID.Name = "SupplyID";
+            this.SupplyID.Width = 125;
+            // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "Product ID";
+            this.ProductID.MinimumWidth = 6;
+            this.ProductID.Name = "ProductID";
+            this.ProductID.Width = 125;
+            // 
+            // QuantityPurchased
+            // 
+            this.QuantityPurchased.HeaderText = "Quantity Purchased";
+            this.QuantityPurchased.MinimumWidth = 6;
+            this.QuantityPurchased.Name = "QuantityPurchased";
+            this.QuantityPurchased.Width = 125;
+            // 
+            // Cost
+            // 
+            this.Cost.HeaderText = "Cost";
+            this.Cost.MinimumWidth = 6;
+            this.Cost.Name = "Cost";
+            this.Cost.Width = 125;
+            // 
+            // SupplyDate
+            // 
+            this.SupplyDate.HeaderText = "Supply Date";
+            this.SupplyDate.MinimumWidth = 6;
+            this.SupplyDate.Name = "SupplyDate";
+            this.SupplyDate.Width = 125;
+            // 
+            // StockID
+            // 
+            this.StockID.HeaderText = "StockID";
+            this.StockID.MinimumWidth = 6;
+            this.StockID.Name = "StockID";
+            this.StockID.Width = 125;
+            // 
+            // QuantityInStock
+            // 
+            this.QuantityInStock.HeaderText = "Quantity In Stock";
+            this.QuantityInStock.MinimumWidth = 6;
+            this.QuantityInStock.Name = "QuantityInStock";
+            this.QuantityInStock.Width = 125;
+            // 
+            // picSave
+            // 
+            this.picSave.Image = ((System.Drawing.Image)(resources.GetObject("picSave.Image")));
+            this.picSave.Location = new System.Drawing.Point(900, 459);
+            this.picSave.Name = "picSave";
+            this.picSave.Size = new System.Drawing.Size(43, 42);
+            this.picSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSave.TabIndex = 26;
+            this.picSave.TabStop = false;
+            // 
+            // picRefresh
+            // 
+            this.picRefresh.Image = ((System.Drawing.Image)(resources.GetObject("picRefresh.Image")));
+            this.picRefresh.Location = new System.Drawing.Point(838, 459);
+            this.picRefresh.Name = "picRefresh";
+            this.picRefresh.Size = new System.Drawing.Size(43, 42);
+            this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picRefresh.TabIndex = 25;
+            this.picRefresh.TabStop = false;
+            // 
+            // picDelete
+            // 
+            this.picDelete.Image = ((System.Drawing.Image)(resources.GetObject("picDelete.Image")));
+            this.picDelete.Location = new System.Drawing.Point(774, 459);
+            this.picDelete.Name = "picDelete";
+            this.picDelete.Size = new System.Drawing.Size(43, 42);
+            this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDelete.TabIndex = 24;
+            this.picDelete.TabStop = false;
+            // 
+            // picUpdate
+            // 
+            this.picUpdate.Image = ((System.Drawing.Image)(resources.GetObject("picUpdate.Image")));
+            this.picUpdate.Location = new System.Drawing.Point(714, 459);
+            this.picUpdate.Name = "picUpdate";
+            this.picUpdate.Size = new System.Drawing.Size(43, 42);
+            this.picUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUpdate.TabIndex = 23;
+            this.picUpdate.TabStop = false;
+            // 
+            // picAdd
+            // 
+            this.picAdd.Image = ((System.Drawing.Image)(resources.GetObject("picAdd.Image")));
+            this.picAdd.Location = new System.Drawing.Point(655, 459);
+            this.picAdd.Name = "picAdd";
+            this.picAdd.Size = new System.Drawing.Size(43, 42);
+            this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAdd.TabIndex = 22;
+            this.picAdd.TabStop = false;
+            // 
             // FrmManageSupplies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 640);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
+            this.ClientSize = new System.Drawing.Size(1072, 673);
+            this.Controls.Add(this.picSave);
+            this.Controls.Add(this.picRefresh);
+            this.Controls.Add(this.picDelete);
+            this.Controls.Add(this.picUpdate);
+            this.Controls.Add(this.picAdd);
             this.Controls.Add(this.lblManageSupplies);
             this.Controls.Add(this.picExit);
             this.Controls.Add(this.dgvSupplies);
@@ -225,6 +358,7 @@
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.gboxSupplyID);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManageSupplies";
             this.Text = "Manage Supplies";
             this.gboxSupplyID.ResumeLayout(false);
@@ -234,6 +368,11 @@
             this.gboxStockID.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,5 +397,17 @@
         private System.Windows.Forms.DataGridView dgvSupplies;
         private System.Windows.Forms.PictureBox picExit;
         private System.Windows.Forms.Label lblManageSupplies;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplyID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityPurchased;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplyDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityInStock;
+        private System.Windows.Forms.PictureBox picSave;
+        private System.Windows.Forms.PictureBox picRefresh;
+        private System.Windows.Forms.PictureBox picDelete;
+        private System.Windows.Forms.PictureBox picUpdate;
+        private System.Windows.Forms.PictureBox picAdd;
     }
 }
