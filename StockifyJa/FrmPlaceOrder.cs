@@ -170,34 +170,19 @@ namespace StockifyJa
 
 
 
-
-
-
         private void btnViewOrder_Click(object sender, EventArgs e)
         {
             FrmOrderSummary frmOrderSummary = new FrmOrderSummary(AppState.CartItems);
             frmOrderSummary.Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+       
         private void FrmPlaceOrder_Load(object sender, EventArgs e)
         {
             // Code to execute when the form loads
         }
 
-        private void lbxCart_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmPlaceOrder_Load_1(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnRemoveFromOrder_Click(object sender, EventArgs e)
         {
@@ -233,5 +218,104 @@ namespace StockifyJa
             }
 
     }
+
+        private void picAdd_Click(object sender, EventArgs e)
+        {
+            if (cbProduct.SelectedItem is Product selectedProduct && selectedProduct.ProductID != 0)
+            {
+                var stock = _db.Stocks.FirstOrDefault(s => s.ProductID == selectedProduct.ProductID);
+                if (stock != null)
+                {
+                    if (nudQuantity.Value > (decimal)stock.QuantityInStock.GetValueOrDefault())
+                    {
+                        MessageBox.Show($"The selected quantity exceeds the available stock. \n\n" +
+                                        $"Product: {selectedProduct.ProductName}\n" +
+                                        $"Maximum available quantity: {stock.QuantityInStock}",
+                                        "Quantity Exceeds Stock",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        ItemDetails itemDetails = new ItemDetails
+                        {
+                            ProductName = selectedProduct.ProductName,
+                            Quantity = (int)nudQuantity.Value,
+                            Price = selectedProduct.Price.GetValueOrDefault(),
+                            ProductID = selectedProduct.ProductID
+                        };
+
+                        AppState.CartItems.Add(itemDetails);
+                        lbxCart.Items.Add(itemDetails.ToString());
+
+                        MessageBox.Show($"The product has been successfully added to your cart. \n\n" +
+                                        $"Product: {itemDetails.ProductName}\n" +
+                                        $"Quantity: {itemDetails.Quantity}\n" +
+                                        $"Price per unit: {itemDetails.Price:C}",
+                                        "Product Added to Cart",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+                        btnViewOrder.Enabled = true;
+
+                        Cart newCartItem = new Cart
+                        {
+                            UserID = AppState.CurrentUserID,
+                            ProductID = selectedProduct.ProductID,
+                            Quantity = (int)nudQuantity.Value
+                        };
+
+                        _db.Carts.Add(newCartItem);
+                        _db.SaveChanges();
+
+                        // After saving, set the CartItemID
+                        itemDetails.CartItemID = newCartItem.CartID;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a product before proceeding.",
+                                "No Product Selected",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+        }
+
+        private void picRemove_Click(object sender, EventArgs e)
+        {
+            if (lbxCart.SelectedItem != null)
+            {
+                string selectedItemString = lbxCart.SelectedItem.ToString();
+
+                // Find the corresponding CartItem in AppState.CartItems
+                ItemDetails selectedItem = AppState.CartItems.FirstOrDefault(ci => ci.ToString() == selectedItemString);
+
+                if (selectedItem != null)
+                {
+                    // Remove from AppState.CartItems
+                    AppState.CartItems.Remove(selectedItem);
+
+                    // Remove from database
+                    var cartItem = _db.Carts.FirstOrDefault(ci => ci.CartID == selectedItem.CartItemID);
+                    if (cartItem != null)
+                    {
+                        _db.Carts.Remove(cartItem);
+                        _db.SaveChanges();
+                    }
+                }
+
+                // Remove from ListBox
+                lbxCart.Items.Remove(lbxCart.SelectedItem);
+
+                // If cart is empty, disable View Order button
+                if (lbxCart.Items.Count == 0)
+                {
+                    btnViewOrder.Enabled = false;
+                }
+            }
+        }
+
+       
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPayment));
             this.btnPay = new System.Windows.Forms.Button();
             this.lblPlaceOrder = new System.Windows.Forms.Label();
             this.txtTotalPay = new System.Windows.Forms.TextBox();
@@ -48,7 +49,7 @@
             // 
             // btnPay
             // 
-            this.btnPay.Location = new System.Drawing.Point(302, 355);
+            this.btnPay.Location = new System.Drawing.Point(346, 359);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(75, 23);
             this.btnPay.TabIndex = 38;
@@ -59,16 +60,17 @@
             // lblPlaceOrder
             // 
             this.lblPlaceOrder.AutoSize = true;
-            this.lblPlaceOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaceOrder.Location = new System.Drawing.Point(399, 28);
+            this.lblPlaceOrder.Font = new System.Drawing.Font("Georgia", 16.2F);
+            this.lblPlaceOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
+            this.lblPlaceOrder.Location = new System.Drawing.Point(603, 20);
             this.lblPlaceOrder.Name = "lblPlaceOrder";
-            this.lblPlaceOrder.Size = new System.Drawing.Size(153, 38);
+            this.lblPlaceOrder.Size = new System.Drawing.Size(125, 32);
             this.lblPlaceOrder.TabIndex = 37;
             this.lblPlaceOrder.Text = "Payment";
             // 
             // txtTotalPay
             // 
-            this.txtTotalPay.Location = new System.Drawing.Point(172, 468);
+            this.txtTotalPay.Location = new System.Drawing.Point(589, 471);
             this.txtTotalPay.Name = "txtTotalPay";
             this.txtTotalPay.ReadOnly = true;
             this.txtTotalPay.Size = new System.Drawing.Size(139, 22);
@@ -78,15 +80,16 @@
             // lbltotalpay
             // 
             this.lbltotalpay.AutoSize = true;
-            this.lbltotalpay.Location = new System.Drawing.Point(91, 474);
+            this.lbltotalpay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotalpay.Location = new System.Drawing.Point(502, 471);
             this.lbltotalpay.Name = "lbltotalpay";
-            this.lbltotalpay.Size = new System.Drawing.Size(41, 16);
+            this.lbltotalpay.Size = new System.Drawing.Size(62, 22);
             this.lbltotalpay.TabIndex = 35;
             this.lbltotalpay.Text = "Total:";
             // 
             // txtCvc
             // 
-            this.txtCvc.Location = new System.Drawing.Point(265, 271);
+            this.txtCvc.Location = new System.Drawing.Point(320, 271);
             this.txtCvc.Name = "txtCvc";
             this.txtCvc.Size = new System.Drawing.Size(62, 22);
             this.txtCvc.TabIndex = 34;
@@ -111,7 +114,7 @@
             // 
             // txtCardNumber
             // 
-            this.txtCardNumber.Location = new System.Drawing.Point(329, 115);
+            this.txtCardNumber.Location = new System.Drawing.Point(320, 115);
             this.txtCardNumber.Name = "txtCardNumber";
             this.txtCardNumber.Size = new System.Drawing.Size(223, 22);
             this.txtCardNumber.TabIndex = 31;
@@ -120,27 +123,30 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(151, 274);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 16);
+            this.label3.Size = new System.Drawing.Size(45, 18);
             this.label3.TabIndex = 30;
             this.label3.Text = "CVV:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(139, 188);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 16);
+            this.label2.Size = new System.Drawing.Size(81, 18);
             this.label2.TabIndex = 29;
             this.label2.Text = "Exp Date:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(139, 115);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 16);
+            this.label1.Size = new System.Drawing.Size(113, 18);
             this.label1.TabIndex = 28;
             this.label1.Text = "Card Number:";
             // 
@@ -148,6 +154,7 @@
             // 
             this.gbxPaymentPreference.Controls.Add(this.rdbPayOnDropOff);
             this.gbxPaymentPreference.Controls.Add(this.rdbPayNow);
+            this.gbxPaymentPreference.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxPaymentPreference.Location = new System.Drawing.Point(885, 115);
             this.gbxPaymentPreference.Name = "gbxPaymentPreference";
             this.gbxPaymentPreference.Size = new System.Drawing.Size(330, 100);
@@ -160,7 +167,7 @@
             this.rdbPayOnDropOff.AutoSize = true;
             this.rdbPayOnDropOff.Location = new System.Drawing.Point(172, 40);
             this.rdbPayOnDropOff.Name = "rdbPayOnDropOff";
-            this.rdbPayOnDropOff.Size = new System.Drawing.Size(124, 20);
+            this.rdbPayOnDropOff.Size = new System.Drawing.Size(154, 22);
             this.rdbPayOnDropOff.TabIndex = 1;
             this.rdbPayOnDropOff.TabStop = true;
             this.rdbPayOnDropOff.Text = "Pay On Drop Off";
@@ -172,7 +179,7 @@
             this.rdbPayNow.AutoSize = true;
             this.rdbPayNow.Location = new System.Drawing.Point(21, 41);
             this.rdbPayNow.Name = "rdbPayNow";
-            this.rdbPayNow.Size = new System.Drawing.Size(88, 20);
+            this.rdbPayNow.Size = new System.Drawing.Size(105, 22);
             this.rdbPayNow.TabIndex = 0;
             this.rdbPayNow.TabStop = true;
             this.rdbPayNow.Text = "Pay Now !";
@@ -181,7 +188,7 @@
             // 
             // btnPayOnDropOff
             // 
-            this.btnPayOnDropOff.Location = new System.Drawing.Point(1082, 302);
+            this.btnPayOnDropOff.Location = new System.Drawing.Point(1001, 286);
             this.btnPayOnDropOff.Name = "btnPayOnDropOff";
             this.btnPayOnDropOff.Size = new System.Drawing.Size(112, 29);
             this.btnPayOnDropOff.TabIndex = 40;
@@ -193,6 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1298, 636);
             this.Controls.Add(this.btnPayOnDropOff);
             this.Controls.Add(this.gbxPaymentPreference);
@@ -207,6 +215,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPayment";
             this.Text = "Payment";
             this.Load += new System.EventHandler(this.FrmPayment_Load);
