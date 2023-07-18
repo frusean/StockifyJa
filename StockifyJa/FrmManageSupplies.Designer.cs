@@ -38,14 +38,12 @@
             this.txtCost = new System.Windows.Forms.TextBox();
             this.lblCost = new System.Windows.Forms.Label();
             this.lblSupplyDate = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpSupplyDate = new System.Windows.Forms.DateTimePicker();
             this.txtQuantityInStock = new System.Windows.Forms.TextBox();
             this.lblQuantityInStock = new System.Windows.Forms.Label();
             this.gboxStockID = new System.Windows.Forms.GroupBox();
             this.txtStockID = new System.Windows.Forms.TextBox();
             this.dgvSupplies = new System.Windows.Forms.DataGridView();
-            this.picExit = new System.Windows.Forms.PictureBox();
-            this.lblManageSupplies = new System.Windows.Forms.Label();
             this.SupplyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityPurchased = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +51,8 @@
             this.SupplyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picExit = new System.Windows.Forms.PictureBox();
+            this.lblManageSupplies = new System.Windows.Forms.Label();
             this.picSave = new System.Windows.Forms.PictureBox();
             this.picRefresh = new System.Windows.Forms.PictureBox();
             this.picDelete = new System.Windows.Forms.PictureBox();
@@ -146,12 +146,12 @@
             this.lblSupplyDate.TabIndex = 7;
             this.lblSupplyDate.Text = "Supply Date";
             // 
-            // dateTimePicker1
+            // dtpSupplyDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(304, 399);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(247, 22);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dtpSupplyDate.Location = new System.Drawing.Point(304, 399);
+            this.dtpSupplyDate.Name = "dtpSupplyDate";
+            this.dtpSupplyDate.Size = new System.Drawing.Size(247, 22);
+            this.dtpSupplyDate.TabIndex = 8;
             // 
             // txtQuantityInStock
             // 
@@ -200,38 +200,12 @@
             this.SupplyDate,
             this.StockID,
             this.QuantityInStock});
-            this.dgvSupplies.Location = new System.Drawing.Point(33, 507);
+            this.dgvSupplies.Location = new System.Drawing.Point(2, 507);
             this.dgvSupplies.Name = "dgvSupplies";
             this.dgvSupplies.RowHeadersWidth = 51;
             this.dgvSupplies.RowTemplate.Height = 24;
-            this.dgvSupplies.Size = new System.Drawing.Size(933, 154);
+            this.dgvSupplies.Size = new System.Drawing.Size(964, 209);
             this.dgvSupplies.TabIndex = 15;
-            // 
-            // picExit
-            // 
-            this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(1000, 597);
-            this.picExit.Name = "picExit";
-            this.picExit.Size = new System.Drawing.Size(53, 47);
-            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picExit.TabIndex = 16;
-            this.picExit.TabStop = false;
-            this.picExit.Click += new System.EventHandler(this.picExit_Click);
-            // 
-            // lblManageSupplies
-            // 
-            this.lblManageSupplies.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblManageSupplies.AutoSize = true;
-            this.lblManageSupplies.BackColor = System.Drawing.Color.Transparent;
-            this.lblManageSupplies.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManageSupplies.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
-            this.lblManageSupplies.Location = new System.Drawing.Point(467, 26);
-            this.lblManageSupplies.Name = "lblManageSupplies";
-            this.lblManageSupplies.Size = new System.Drawing.Size(227, 32);
-            this.lblManageSupplies.TabIndex = 17;
-            this.lblManageSupplies.Text = "Manage Supplies";
-            this.lblManageSupplies.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // SupplyID
             // 
@@ -282,6 +256,32 @@
             this.QuantityInStock.Name = "QuantityInStock";
             this.QuantityInStock.Width = 125;
             // 
+            // picExit
+            // 
+            this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(1014, 681);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(53, 47);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 16;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
+            // 
+            // lblManageSupplies
+            // 
+            this.lblManageSupplies.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblManageSupplies.AutoSize = true;
+            this.lblManageSupplies.BackColor = System.Drawing.Color.Transparent;
+            this.lblManageSupplies.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManageSupplies.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
+            this.lblManageSupplies.Location = new System.Drawing.Point(481, 26);
+            this.lblManageSupplies.Name = "lblManageSupplies";
+            this.lblManageSupplies.Size = new System.Drawing.Size(227, 32);
+            this.lblManageSupplies.TabIndex = 17;
+            this.lblManageSupplies.Text = "Manage Supplies";
+            this.lblManageSupplies.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // picSave
             // 
             this.picSave.Image = ((System.Drawing.Image)(resources.GetObject("picSave.Image")));
@@ -291,6 +291,7 @@
             this.picSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSave.TabIndex = 26;
             this.picSave.TabStop = false;
+            this.picSave.Click += new System.EventHandler(this.picSave_Click);
             // 
             // picRefresh
             // 
@@ -301,6 +302,7 @@
             this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picRefresh.TabIndex = 25;
             this.picRefresh.TabStop = false;
+            this.picRefresh.Click += new System.EventHandler(this.picRefresh_Click);
             // 
             // picDelete
             // 
@@ -311,6 +313,7 @@
             this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picDelete.TabIndex = 24;
             this.picDelete.TabStop = false;
+            this.picDelete.Click += new System.EventHandler(this.picDelete_Click);
             // 
             // picUpdate
             // 
@@ -321,6 +324,7 @@
             this.picUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picUpdate.TabIndex = 23;
             this.picUpdate.TabStop = false;
+            this.picUpdate.Click += new System.EventHandler(this.picUpdate_Click);
             // 
             // picAdd
             // 
@@ -331,13 +335,14 @@
             this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAdd.TabIndex = 22;
             this.picAdd.TabStop = false;
+            this.picAdd.Click += new System.EventHandler(this.picAdd_Click);
             // 
             // FrmManageSupplies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
-            this.ClientSize = new System.Drawing.Size(1072, 673);
+            this.ClientSize = new System.Drawing.Size(1100, 757);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picRefresh);
             this.Controls.Add(this.picDelete);
@@ -349,7 +354,7 @@
             this.Controls.Add(this.txtQuantityInStock);
             this.Controls.Add(this.lblQuantityInStock);
             this.Controls.Add(this.gboxStockID);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpSupplyDate);
             this.Controls.Add(this.lblSupplyDate);
             this.Controls.Add(this.txtCost);
             this.Controls.Add(this.lblCost);
@@ -361,6 +366,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManageSupplies";
             this.Text = "Manage Supplies";
+            this.Load += new System.EventHandler(this.FrmManageSupplies_Load);
             this.gboxSupplyID.ResumeLayout(false);
             this.gboxSupplyID.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantityPurchased)).EndInit();
@@ -389,7 +395,7 @@
         private System.Windows.Forms.TextBox txtCost;
         private System.Windows.Forms.Label lblCost;
         private System.Windows.Forms.Label lblSupplyDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpSupplyDate;
         private System.Windows.Forms.TextBox txtQuantityInStock;
         private System.Windows.Forms.Label lblQuantityInStock;
         private System.Windows.Forms.GroupBox gboxStockID;
