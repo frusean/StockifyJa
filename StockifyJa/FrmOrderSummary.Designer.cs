@@ -40,11 +40,12 @@
             // 
             // pbxContinueToPayment
             // 
+            this.pbxContinueToPayment.BackColor = System.Drawing.Color.Transparent;
             this.pbxContinueToPayment.Image = ((System.Drawing.Image)(resources.GetObject("pbxContinueToPayment.Image")));
-            this.pbxContinueToPayment.Location = new System.Drawing.Point(990, 479);
+            this.pbxContinueToPayment.Location = new System.Drawing.Point(1079, 479);
             this.pbxContinueToPayment.Name = "pbxContinueToPayment";
-            this.pbxContinueToPayment.Size = new System.Drawing.Size(165, 52);
-            this.pbxContinueToPayment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxContinueToPayment.Size = new System.Drawing.Size(76, 53);
+            this.pbxContinueToPayment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxContinueToPayment.TabIndex = 11;
             this.pbxContinueToPayment.TabStop = false;
             this.pbxContinueToPayment.Click += new System.EventHandler(this.pbxContinueToPayment_Click);
@@ -52,18 +53,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(82, 214);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 16);
+            this.label2.Size = new System.Drawing.Size(51, 18);
             this.label2.TabIndex = 10;
             this.label2.Text = "Total:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(79, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 16);
+            this.label1.Size = new System.Drawing.Size(48, 18);
             this.label1.TabIndex = 9;
             this.label1.Text = "GCT:";
             // 
@@ -85,6 +88,7 @@
             // 
             // lbxOrderSummary
             // 
+            this.lbxOrderSummary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.lbxOrderSummary.FormattingEnabled = true;
             this.lbxOrderSummary.ItemHeight = 16;
             this.lbxOrderSummary.Location = new System.Drawing.Point(1, 1);
@@ -96,6 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1241, 572);
             this.Controls.Add(this.pbxContinueToPayment);
             this.Controls.Add(this.label2);
@@ -103,6 +108,7 @@
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblGCT);
             this.Controls.Add(this.lbxOrderSummary);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmOrderSummary";
             this.Text = "OrderSummary";
             this.Load += new System.EventHandler(this.FrmOrderSummary_Load);
