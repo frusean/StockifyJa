@@ -159,7 +159,7 @@
             // picRemove
             // 
             this.picRemove.Image = ((System.Drawing.Image)(resources.GetObject("picRemove.Image")));
-            this.picRemove.Location = new System.Drawing.Point(962, 90);
+            this.picRemove.Location = new System.Drawing.Point(992, 90);
             this.picRemove.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.picRemove.Name = "picRemove";
             this.picRemove.Size = new System.Drawing.Size(32, 26);
