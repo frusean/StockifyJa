@@ -353,11 +353,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManageSupplies.resx">
       <DependentUpon>FrmManageSupplies.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManageUsers.resx">
       <DependentUpon>FrmManageUsers.cs</DependentUpon>
-
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPlaceOrder.resx">
+      <DependentUpon>FrmPlaceOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductDetails.resx">
       <DependentUpon>FrmProductDetails.cs</DependentUpon>
