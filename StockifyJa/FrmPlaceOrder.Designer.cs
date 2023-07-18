@@ -37,9 +37,9 @@
             this.cbProduct = new System.Windows.Forms.ComboBox();
             this.lblPlaceOrder = new System.Windows.Forms.Label();
             this.btnRemoveFromOrder = new System.Windows.Forms.Button();
+            this.lblItems = new System.Windows.Forms.Label();
             this.picAdd = new System.Windows.Forms.PictureBox();
             this.picRemove = new System.Windows.Forms.PictureBox();
-            this.lblItems = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRemove)).BeginInit();
@@ -144,30 +144,6 @@
             this.btnRemoveFromOrder.UseVisualStyleBackColor = true;
             this.btnRemoveFromOrder.Click += new System.EventHandler(this.btnRemoveFromOrder_Click);
             // 
-            // picAdd
-            // 
-            this.picAdd.Image = ((System.Drawing.Image)(resources.GetObject("picAdd.Image")));
-            this.picAdd.Location = new System.Drawing.Point(890, 90);
-            this.picAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picAdd.Name = "picAdd";
-            this.picAdd.Size = new System.Drawing.Size(35, 26);
-            this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picAdd.TabIndex = 39;
-            this.picAdd.TabStop = false;
-            this.picAdd.Click += new System.EventHandler(this.picAdd_Click);
-            // 
-            // picRemove
-            // 
-            this.picRemove.Image = ((System.Drawing.Image)(resources.GetObject("picRemove.Image")));
-            this.picRemove.Location = new System.Drawing.Point(992, 90);
-            this.picRemove.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.picRemove.Name = "picRemove";
-            this.picRemove.Size = new System.Drawing.Size(32, 26);
-            this.picRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picRemove.TabIndex = 40;
-            this.picRemove.TabStop = false;
-            this.picRemove.Click += new System.EventHandler(this.picRemove_Click);
-            // 
             // lblItems
             // 
             this.lblItems.AutoSize = true;
@@ -179,15 +155,37 @@
             this.lblItems.TabIndex = 41;
             this.lblItems.Text = "Items";
             // 
+            // picAdd
+            // 
+            this.picAdd.Image = ((System.Drawing.Image)(resources.GetObject("picAdd.Image")));
+            this.picAdd.Location = new System.Drawing.Point(872, 90);
+            this.picAdd.Name = "picAdd";
+            this.picAdd.Size = new System.Drawing.Size(48, 37);
+            this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAdd.TabIndex = 42;
+            this.picAdd.TabStop = false;
+            this.picAdd.Click += new System.EventHandler(this.picAdd_Click);
+            // 
+            // picRemove
+            // 
+            this.picRemove.Image = ((System.Drawing.Image)(resources.GetObject("picRemove.Image")));
+            this.picRemove.Location = new System.Drawing.Point(980, 90);
+            this.picRemove.Name = "picRemove";
+            this.picRemove.Size = new System.Drawing.Size(49, 37);
+            this.picRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picRemove.TabIndex = 43;
+            this.picRemove.TabStop = false;
+            this.picRemove.Click += new System.EventHandler(this.picRemove_Click);
+            // 
             // FrmPlaceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1381, 673);
-            this.Controls.Add(this.lblItems);
             this.Controls.Add(this.picRemove);
             this.Controls.Add(this.picAdd);
+            this.Controls.Add(this.lblItems);
             this.Controls.Add(this.btnRemoveFromOrder);
             this.Controls.Add(this.btnViewOrder);
             this.Controls.Add(this.lblQuantity);
@@ -197,7 +195,6 @@
             this.Controls.Add(this.cbProduct);
             this.Controls.Add(this.lblPlaceOrder);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FrmPlaceOrder";
             this.Text = "Place Order";
@@ -219,9 +216,9 @@
         private System.Windows.Forms.ComboBox cbProduct;
         private System.Windows.Forms.Label lblPlaceOrder;
         private System.Windows.Forms.Button btnRemoveFromOrder;
+        private System.Windows.Forms.Label lblItems;
         private System.Windows.Forms.PictureBox picAdd;
         private System.Windows.Forms.PictureBox picRemove;
-        private System.Windows.Forms.Label lblItems;
     }
 }
 

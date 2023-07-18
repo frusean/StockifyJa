@@ -280,6 +280,8 @@ namespace StockifyJa
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
             }
+
+
         }
 
         private void picRemove_Click(object sender, EventArgs e)
@@ -315,7 +317,5 @@ namespace StockifyJa
                 }
             }
         }
-
-       
     }
 }
