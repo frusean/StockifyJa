@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmViewAllProducts));
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.gboxSearch = new System.Windows.Forms.GroupBox();
@@ -36,6 +37,7 @@
             this.flpProducts = new System.Windows.Forms.FlowLayoutPanel();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.lblProductCatalog = new System.Windows.Forms.Label();
+            this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlSearch.SuspendLayout();
             this.gboxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
@@ -116,6 +118,11 @@
             this.lblProductCatalog.Text = "Product Catalogue";
             this.lblProductCatalog.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // refreshTimer
+            // 
+            this.refreshTimer.Interval = 5000;
+            this.refreshTimer.Tick += new System.EventHandler(this.refreshTimer_Tick);
+            // 
             // FrmViewAllProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -150,5 +157,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpProducts;
         private System.Windows.Forms.PictureBox picExit;
         private System.Windows.Forms.Label lblProductCatalog;
+        private System.Windows.Forms.Timer refreshTimer;
     }
 }

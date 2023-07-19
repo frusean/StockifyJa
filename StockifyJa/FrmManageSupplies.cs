@@ -63,54 +63,62 @@ namespace StockifyJa
 
         private void picUpdate_Click(object sender, EventArgs e)
         {
-              try
-              {
-                  // Enable or disable fields as needed
-                  txtProductID.ReadOnly = false;
-                  nudQuantityPurchased.Enabled = true;
-                  txtCost.ReadOnly = false;
-                  dtpSupplyDate.Enabled = true;
+            try
+            {
+                // Enable or disable fields as needed
+                txtProductID.ReadOnly = false;
+                nudQuantityPurchased.Enabled = true;
+                txtCost.ReadOnly = false;
+                dtpSupplyDate.Enabled = true;
 
-                  // Disable StockID and QuantityInStock fields
-                  txtStockID.ReadOnly = true;
-                  txtQuantityInStock.ReadOnly = true;
+                // Disable StockID and QuantityInStock fields
+                txtStockID.ReadOnly = true;
+                txtQuantityInStock.ReadOnly = true;
 
-                  if (dgvSupplies.SelectedCells.Count > 0)
-                  {
-                      int selectedRowIndex = dgvSupplies.SelectedCells[0].RowIndex;
-                      DataGridViewRow selectedRow = dgvSupplies.Rows[selectedRowIndex];
-                      int supplyID = Convert.ToInt32(selectedRow.Cells["SupplyID"].Value);
+                if (dgvSupplies.SelectedCells.Count > 0)
+                {
+                    int selectedRowIndex = dgvSupplies.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dgvSupplies.Rows[selectedRowIndex];
+                    int supplyID = Convert.ToInt32(selectedRow.Cells["SupplyID"].Value);
 
-                      currentSupply = StockifydBEntities.Supplies.FirstOrDefault(s => s.SupplyID == supplyID);
+                    currentSupply = StockifydBEntities.Supplies.FirstOrDefault(s => s.SupplyID == supplyID);
 
-                      if (currentSupply != null)
-                      {
-                          txtProductID.Text = currentSupply.ProductID.ToString();
-                          nudQuantityPurchased.Value = (decimal)currentSupply.QuantityPurchased;
-                          txtCost.Text = currentSupply.Cost.ToString();
-                          dtpSupplyDate.Value = (DateTime)currentSupply.SupplyDate;
+                    if (currentSupply != null)
+                    {
+                        txtSupplyID.Text = currentSupply.SupplyID.ToString(); // Display SupplyID
+                        txtProductID.Text = currentSupply.ProductID.ToString();
+                        nudQuantityPurchased.Value = (decimal)currentSupply.QuantityPurchased;
+                        txtCost.Text = currentSupply.Cost.ToString();
+                        dtpSupplyDate.Value = (DateTime)currentSupply.SupplyDate;
 
-                          // get the associated stock
-                          var stock = StockifydBEntities.Stocks.FirstOrDefault(s => s.ProductID == currentSupply.ProductID);
-                          if (stock != null)
-                          {
-                              txtStockID.Text = stock.StockID.ToString();
-                              txtQuantityInStock.Text = stock.QuantityInStock.ToString();
-                          }
-                          else
-                          {
-                              txtStockID.Text = string.Empty;
-                              txtQuantityInStock.Text = string.Empty;
-                          }
-                      }
-                  }
-              }
-              catch (Exception ex)
-              {
-                  MessageBox.Show($"An error occurred: {ex.Message}");
-              }
-            
-      }
+                        // get the associated stock
+                        var stock = StockifydBEntities.Stocks.FirstOrDefault(s => s.ProductID == currentSupply.ProductID);
+                        if (stock != null)
+                        {
+                            txtStockID.Text = stock.StockID.ToString();
+                            txtQuantityInStock.Text = stock.QuantityInStock.ToString();
+                        }
+                        else
+                        {
+                            txtStockID.Text = string.Empty;
+                            txtQuantityInStock.Text = string.Empty;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Supply not found.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a supply.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
 
     private void picDelete_Click(object sender, EventArgs e)
         {

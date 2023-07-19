@@ -19,10 +19,12 @@ namespace StockifyJa
         {
             InitializeComponent();
             originalProductControls = new List<UCProduct>();
+             refreshTimer.Start();
         }
 
         private async void FrmViewAllProducts_Load(object sender, EventArgs e)
         {
+            /*
             using (var context = new stockifydBEntities())
             {
                 var products = from p in context.Products
@@ -53,9 +55,68 @@ namespace StockifyJa
                     flpProducts.Controls.Add(productControl);
                     originalProductControls.Add(productControl);
                 }
+            }*/
+            try
+            {
+                // Stop the timer while refreshing the data
+                refreshTimer.Stop();
+
+                using (var context = new stockifydBEntities())
+                {
+                    // Clear originalProductControls list
+                    originalProductControls.Clear();
+                    flpProducts.Controls.Clear(); // Clear the existing controls
+
+                    var products = from p in context.Products
+                                   join i in context.ProductImages on p.ProductID equals i.ProductID
+                                   join s in context.Stocks on p.ProductID equals s.ProductID
+                                   join r in context.Rates on p.RateID equals r.ID
+                                   select new
+                                   {
+                                       ProductId = p.ProductID,
+                                       ProductName = p.ProductName,
+                                       ImageUrl = i.ImageURL,
+                                       Price = p.Price,
+                                       Stock = s.QuantityInStock,
+                                       Discount = r.Discount
+                                   };
+
+                    // Force all tracked entities to be reloaded from the database
+                    foreach (var entity in context.ChangeTracker.Entries())
+                    {
+                        entity.Reload();
+                    }
+
+                    foreach (var product in products)
+                    {
+                        UCProduct productControl = new UCProduct();
+                        productControl.ProductId = product.ProductId;
+                        productControl.ProductName = product.ProductName;
+                        productControl.ProductPrice = (decimal)product.Price;
+                        productControl.Stock = product.Stock.HasValue ? product.Stock.Value : 0;
+                        productControl.Discount = (decimal)product.Discount;
+                        productControl.Width = flpProducts.Width / 4;
+
+                        productControl.ProductImage = await LoadImageAsync(product.ImageUrl);
+                        flpProducts.Controls.Add(productControl);
+
+                        // Add newly created UCProduct to originalProductControls list
+                        originalProductControls.Add(productControl);
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Restart the timer
+                refreshTimer.Start();
+            }
+
         }
-        
+
 
         public async Task<Image> LoadImageAsync(string imageUrl)
         {
@@ -160,6 +221,10 @@ namespace StockifyJa
             this.Close();
         }
 
-        
+        private void refreshTimer_Tick(object sender, EventArgs e)
+        {
+            // Call the Load method to refresh the data
+            FrmViewAllProducts_Load(sender, e);
+        }
     }
 }

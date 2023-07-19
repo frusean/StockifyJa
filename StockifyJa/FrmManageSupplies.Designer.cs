@@ -204,7 +204,7 @@
             this.dgvSupplies.Name = "dgvSupplies";
             this.dgvSupplies.RowHeadersWidth = 51;
             this.dgvSupplies.RowTemplate.Height = 24;
-            this.dgvSupplies.Size = new System.Drawing.Size(964, 209);
+            this.dgvSupplies.Size = new System.Drawing.Size(1025, 209);
             this.dgvSupplies.TabIndex = 15;
             // 
             // SupplyID
@@ -260,7 +260,7 @@
             // 
             this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(1014, 681);
+            this.picExit.Location = new System.Drawing.Point(1033, 684);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(53, 47);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
