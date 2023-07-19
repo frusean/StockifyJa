@@ -237,11 +237,11 @@
     <Compile Include="FrmManageProducts.Designer.cs">
       <DependentUpon>FrmManageProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmManageStock.cs">
+    <Compile Include="FrmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmManageStock.Designer.cs">
-      <DependentUpon>FrmManageStock.cs</DependentUpon>
+    <Compile Include="FrmSettings.Designer.cs">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmManageSupplies.cs">
       <SubType>Form</SubType>
@@ -348,16 +348,14 @@
     <EmbeddedResource Include="FrmManageProducts.resx">
       <DependentUpon>FrmManageProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmManageStock.resx">
-      <DependentUpon>FrmManageStock.cs</DependentUpon>
+    <EmbeddedResource Include="FrmSettings.resx">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManageSupplies.resx">
       <DependentUpon>FrmManageSupplies.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManageUsers.resx">
       <DependentUpon>FrmManageUsers.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductDetails.resx">
       <DependentUpon>FrmProductDetails.cs</DependentUpon>

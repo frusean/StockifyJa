@@ -157,7 +157,6 @@
             // 
             this.txtQuantityInStock.Location = new System.Drawing.Point(838, 199);
             this.txtQuantityInStock.Name = "txtQuantityInStock";
-            this.txtQuantityInStock.ReadOnly = true;
             this.txtQuantityInStock.Size = new System.Drawing.Size(128, 22);
             this.txtQuantityInStock.TabIndex = 13;
             // 
@@ -202,6 +201,7 @@
             this.QuantityInStock});
             this.dgvSupplies.Location = new System.Drawing.Point(2, 507);
             this.dgvSupplies.Name = "dgvSupplies";
+            this.dgvSupplies.ReadOnly = true;
             this.dgvSupplies.RowHeadersWidth = 51;
             this.dgvSupplies.RowTemplate.Height = 24;
             this.dgvSupplies.Size = new System.Drawing.Size(1025, 209);

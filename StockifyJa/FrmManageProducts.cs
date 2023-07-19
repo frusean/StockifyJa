@@ -34,7 +34,8 @@ namespace StockifyJa
             string description = txtDescription.Text;
             string price = txtPrice.Text;
             string imageURL = txtImageURL.Text;
-            int rateID = int.Parse(cboRates.SelectedItem.ToString());
+
+            int rateID = cboRates.SelectedValue == null ? 0 : (int)cboRates.SelectedValue;
 
             var isValid = true;
 
@@ -106,7 +107,7 @@ namespace StockifyJa
                     // Display the new IDs in the textboxes
                     txtProductID.Text = product.ProductID.ToString();
                     txtImageID.Text = productImage.ImageID.ToString();
-
+                    UpdateImage();
                     // Refresh DataGridView
                     RefreshDataGridView();
 
@@ -123,7 +124,6 @@ namespace StockifyJa
                     }
                 }
             }
-
 
         }
         private void picUpdate_Click(object sender, EventArgs e)

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StockifyJa
 {
-    public partial class FrmManageStock : Form
+    public partial class FrmSettings : Form
     {
-        public FrmManageStock()
+        public FrmSettings()
         {
             InitializeComponent();
         }
@@ -21,5 +21,12 @@ namespace StockifyJa
         {
             this.Close();
         }
+
+        private void FrmSettings_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
