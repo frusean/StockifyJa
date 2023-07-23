@@ -112,7 +112,7 @@ namespace StockifyJa
             finally
             {
                 // Restart the timer
-                refreshTimer.Start();
+               refreshTimer.Start();
             }
 
         }
@@ -224,7 +224,14 @@ namespace StockifyJa
         private void refreshTimer_Tick(object sender, EventArgs e)
         {
             // Call the Load method to refresh the data
-            FrmViewAllProducts_Load(sender, e);
+           FrmViewAllProducts_Load(sender, e);
+        }
+
+        private void picRefresh_Click(object sender, EventArgs e)
+        {
+            {
+              //  await LoadProducts();
+            }
         }
     }
 }

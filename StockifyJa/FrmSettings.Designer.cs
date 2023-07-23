@@ -58,7 +58,7 @@
             // 
             // txtDiscount
             // 
-            this.txtDiscount.Location = new System.Drawing.Point(251, 189);
+            this.txtDiscount.Location = new System.Drawing.Point(267, 194);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(128, 22);
             this.txtDiscount.TabIndex = 4;
@@ -67,7 +67,7 @@
             // 
             this.lblDiscount.AutoSize = true;
             this.lblDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.Location = new System.Drawing.Point(116, 189);
+            this.lblDiscount.Location = new System.Drawing.Point(132, 194);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(75, 18);
             this.lblDiscount.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             this.gboxRateID.Controls.Add(this.txtRateID);
             this.gboxRateID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxRateID.Location = new System.Drawing.Point(251, 104);
+            this.gboxRateID.Location = new System.Drawing.Point(267, 109);
             this.gboxRateID.Name = "gboxRateID";
             this.gboxRateID.Size = new System.Drawing.Size(86, 50);
             this.gboxRateID.TabIndex = 5;
@@ -95,7 +95,7 @@
             // 
             // txtGCT
             // 
-            this.txtGCT.Location = new System.Drawing.Point(251, 238);
+            this.txtGCT.Location = new System.Drawing.Point(267, 243);
             this.txtGCT.Name = "txtGCT";
             this.txtGCT.Size = new System.Drawing.Size(128, 22);
             this.txtGCT.TabIndex = 7;
@@ -104,7 +104,7 @@
             // 
             this.lblGCT.AutoSize = true;
             this.lblGCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGCT.Location = new System.Drawing.Point(116, 238);
+            this.lblGCT.Location = new System.Drawing.Point(132, 243);
             this.lblGCT.Name = "lblGCT";
             this.lblGCT.Size = new System.Drawing.Size(43, 18);
             this.lblGCT.TabIndex = 6;
@@ -180,6 +180,7 @@
             this.picSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSave.TabIndex = 26;
             this.picSave.TabStop = false;
+            this.picSave.Click += new System.EventHandler(this.picSave_Click);
             // 
             // picRefresh
             // 
@@ -190,6 +191,7 @@
             this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picRefresh.TabIndex = 25;
             this.picRefresh.TabStop = false;
+            this.picRefresh.Click += new System.EventHandler(this.picRefresh_Click);
             // 
             // picDelete
             // 
@@ -200,6 +202,7 @@
             this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picDelete.TabIndex = 24;
             this.picDelete.TabStop = false;
+            this.picDelete.Click += new System.EventHandler(this.picDelete_Click);
             // 
             // picUpdate
             // 
@@ -210,6 +213,7 @@
             this.picUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picUpdate.TabIndex = 23;
             this.picUpdate.TabStop = false;
+            this.picUpdate.Click += new System.EventHandler(this.picUpdate_Click);
             // 
             // picAdd
             // 
@@ -220,6 +224,7 @@
             this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAdd.TabIndex = 22;
             this.picAdd.TabStop = false;
+            this.picAdd.Click += new System.EventHandler(this.picAdd_Click);
             // 
             // FrmSettings
             // 
