@@ -39,7 +39,7 @@ namespace StockifyJa
                     nudQuantityPurchased.Value <= 0 ||
                     string.IsNullOrWhiteSpace(txtCost.Text))
                 {
-                    MessageBox.Show("Please ensure all fields are properly filled in.");
+                    MessageBox.Show("Please ensure all fields are properly filled in.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -48,69 +48,89 @@ namespace StockifyJa
 
                 if (!StockifydBEntities.Products.Any(p => p.ProductID == productID))
                 {
-                    MessageBox.Show("Invalid Product ID. Please make sure the Product ID exists.");
+                    MessageBox.Show("Invalid Product ID. Please make sure the Product ID exists.","Invalid Product ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                AddSupplyAndUpdateStock(productID, (int)nudQuantityPurchased.Value, cost);
+                var addedSupply = AddSupplyAndUpdateStock(productID, (int)nudQuantityPurchased.Value, cost); // Capture the added supply
+
+                // Update the associated stock
+                var associatedStock = StockifydBEntities.Stocks.FirstOrDefault(s => s.ProductID == addedSupply.ProductID);
+                if (associatedStock != null)
+                {
+                    txtSupplyID.Text = addedSupply.SupplyID.ToString();
+                    txtStockID.Text = associatedStock.StockID.ToString();
+                    txtQuantityInStock.Text = associatedStock.QuantityInStock.ToString();
+                }
+
                 RefreshDataGridView();
+                MessageBox.Show("Product successfully added!","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
-         }
+
+        }
 
         private void picUpdate_Click(object sender, EventArgs e)
         {
-              try
-              {
-                  // Enable or disable fields as needed
-                  txtProductID.ReadOnly = false;
-                  nudQuantityPurchased.Enabled = true;
-                  txtCost.ReadOnly = false;
-                  dtpSupplyDate.Enabled = true;
+            try
+            {
+                // Enable or disable fields as needed
+                txtProductID.ReadOnly = false;
+                nudQuantityPurchased.Enabled = true;
+                txtCost.ReadOnly = false;
+                dtpSupplyDate.Enabled = true;
 
-                  // Disable StockID and QuantityInStock fields
-                  txtStockID.ReadOnly = true;
-                  txtQuantityInStock.ReadOnly = true;
+                // Disable StockID and QuantityInStock fields
+                txtStockID.ReadOnly = true;
+                txtQuantityInStock.ReadOnly = true;
 
-                  if (dgvSupplies.SelectedCells.Count > 0)
-                  {
-                      int selectedRowIndex = dgvSupplies.SelectedCells[0].RowIndex;
-                      DataGridViewRow selectedRow = dgvSupplies.Rows[selectedRowIndex];
-                      int supplyID = Convert.ToInt32(selectedRow.Cells["SupplyID"].Value);
+                if (dgvSupplies.SelectedCells.Count > 0)
+                {
+                    int selectedRowIndex = dgvSupplies.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dgvSupplies.Rows[selectedRowIndex];
+                    int supplyID = Convert.ToInt32(selectedRow.Cells["SupplyID"].Value);
 
-                      currentSupply = StockifydBEntities.Supplies.FirstOrDefault(s => s.SupplyID == supplyID);
+                    currentSupply = StockifydBEntities.Supplies.FirstOrDefault(s => s.SupplyID == supplyID);
 
-                      if (currentSupply != null)
-                      {
-                          txtProductID.Text = currentSupply.ProductID.ToString();
-                          nudQuantityPurchased.Value = (decimal)currentSupply.QuantityPurchased;
-                          txtCost.Text = currentSupply.Cost.ToString();
-                          dtpSupplyDate.Value = (DateTime)currentSupply.SupplyDate;
+                    if (currentSupply != null)
+                    {
+                        txtSupplyID.Text = currentSupply.SupplyID.ToString(); // Display SupplyID
+                        txtProductID.Text = currentSupply.ProductID.ToString();
+                        nudQuantityPurchased.Value = (decimal)currentSupply.QuantityPurchased;
+                        txtCost.Text = currentSupply.Cost.ToString();
+                        dtpSupplyDate.Value = (DateTime)currentSupply.SupplyDate;
 
-                          // get the associated stock
-                          var stock = StockifydBEntities.Stocks.FirstOrDefault(s => s.ProductID == currentSupply.ProductID);
-                          if (stock != null)
-                          {
-                              txtStockID.Text = stock.StockID.ToString();
-                              txtQuantityInStock.Text = stock.QuantityInStock.ToString();
-                          }
-                          else
-                          {
-                              txtStockID.Text = string.Empty;
-                              txtQuantityInStock.Text = string.Empty;
-                          }
-                      }
-                  }
-              }
-              catch (Exception ex)
-              {
-                  MessageBox.Show($"An error occurred: {ex.Message}");
-              }
-            
-      }
+                        // get the associated stock
+                        var stock = StockifydBEntities.Stocks.FirstOrDefault(s => s.ProductID == currentSupply.ProductID);
+                        if (stock != null)
+                        {
+                            txtStockID.Text = stock.StockID.ToString();
+                            txtQuantityInStock.Text = stock.QuantityInStock.ToString();
+                        }
+                        else
+                        {
+                            txtStockID.Text = string.Empty;
+                            txtQuantityInStock.Text = string.Empty;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Supply not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a supply.", "Invalid Supply", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
 
     private void picDelete_Click(object sender, EventArgs e)
         {
@@ -138,7 +158,7 @@ namespace StockifyJa
                                              $"Quantity In Stock: {relatedStock.QuantityInStock}\n" +
                                              $"Are you sure you want to delete Supply ID: {currentSupply.SupplyID}?";
 
-                            var result = MessageBox.Show(message, "Confirm Deletion", MessageBoxButtons.YesNo);
+                            var result = MessageBox.Show(message, "Confirm Deletion", MessageBoxButtons.YesNo,  MessageBoxIcon.Warning);
 
                             if (result == DialogResult.Yes)
                             {
@@ -157,17 +177,17 @@ namespace StockifyJa
                         }
                         else
                         {
-                            MessageBox.Show("Related stock not found.");
+                            MessageBox.Show("Stock not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Supply not found.");
+                        MessageBox.Show("Supply not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please select a supply.");
+                    MessageBox.Show("Please select a supply.","Invalid Supply", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception ex)
@@ -198,7 +218,7 @@ namespace StockifyJa
                     nudQuantityPurchased.Value <= 0 ||
                     string.IsNullOrWhiteSpace(txtCost.Text))
                 {
-                    MessageBox.Show("Please ensure all fields are properly filled in.");
+                    MessageBox.Show("Please ensure all fields are filled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -207,7 +227,7 @@ namespace StockifyJa
 
                 if (!StockifydBEntities.Products.Any(p => p.ProductID == productID))
                 {
-                    MessageBox.Show("Invalid Product ID. Please make sure the Product ID exists.");
+                    MessageBox.Show("Invalid Product ID. Please make sure the Product ID exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -237,8 +257,9 @@ namespace StockifyJa
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
-        private void AddSupplyAndUpdateStock(int productId, int quantity, decimal cost)
+        private Supply AddSupplyAndUpdateStock(int productId, int quantity, decimal cost)
         {
+
             // Add supply
             var supply = new Supply()
             {
@@ -266,6 +287,9 @@ namespace StockifyJa
                 stock.QuantityInStock += quantity;
             }
             StockifydBEntities.SaveChanges();
+
+            return supply; // Return added supply
+                       
         }
 
         private void RefreshDataGridView()

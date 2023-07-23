@@ -157,7 +157,6 @@
             // 
             this.txtQuantityInStock.Location = new System.Drawing.Point(838, 199);
             this.txtQuantityInStock.Name = "txtQuantityInStock";
-            this.txtQuantityInStock.ReadOnly = true;
             this.txtQuantityInStock.Size = new System.Drawing.Size(128, 22);
             this.txtQuantityInStock.TabIndex = 13;
             // 
@@ -202,9 +201,10 @@
             this.QuantityInStock});
             this.dgvSupplies.Location = new System.Drawing.Point(2, 507);
             this.dgvSupplies.Name = "dgvSupplies";
+            this.dgvSupplies.ReadOnly = true;
             this.dgvSupplies.RowHeadersWidth = 51;
             this.dgvSupplies.RowTemplate.Height = 24;
-            this.dgvSupplies.Size = new System.Drawing.Size(964, 209);
+            this.dgvSupplies.Size = new System.Drawing.Size(1025, 209);
             this.dgvSupplies.TabIndex = 15;
             // 
             // SupplyID
@@ -260,7 +260,7 @@
             // 
             this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(1014, 681);
+            this.picExit.Location = new System.Drawing.Point(1033, 684);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(53, 47);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

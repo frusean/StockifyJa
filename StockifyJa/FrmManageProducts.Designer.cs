@@ -64,6 +64,7 @@
             this.picDelete = new System.Windows.Forms.PictureBox();
             this.picRefresh = new System.Windows.Forms.PictureBox();
             this.picSave = new System.Windows.Forms.PictureBox();
+            this.picImage = new System.Windows.Forms.PictureBox();
             this.gboxProductID.SuspendLayout();
             this.gboxRateID.SuspendLayout();
             this.gboxImageID.SuspendLayout();
@@ -74,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
             // 
             // txtProductName
@@ -253,6 +255,7 @@
             this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProducts.Location = new System.Drawing.Point(50, 592);
             this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -271,6 +274,7 @@
             this.ProductID.HeaderText = "Product ID";
             this.ProductID.MinimumWidth = 6;
             this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
             this.ProductID.Width = 125;
             // 
             // ProductName
@@ -278,6 +282,7 @@
             this.ProductName.HeaderText = "Product Name";
             this.ProductName.MinimumWidth = 6;
             this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
             this.ProductName.Width = 125;
             // 
             // Category
@@ -285,6 +290,7 @@
             this.Category.HeaderText = "Category";
             this.Category.MinimumWidth = 6;
             this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
             this.Category.Width = 125;
             // 
             // Description
@@ -292,6 +298,7 @@
             this.Description.HeaderText = "Description";
             this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
             this.Description.Width = 125;
             // 
             // Price
@@ -299,6 +306,7 @@
             this.Price.HeaderText = "Price";
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             this.Price.Width = 125;
             // 
             // ImageID
@@ -306,6 +314,7 @@
             this.ImageID.HeaderText = "Image ID";
             this.ImageID.MinimumWidth = 6;
             this.ImageID.Name = "ImageID";
+            this.ImageID.ReadOnly = true;
             this.ImageID.Width = 125;
             // 
             // ImageURL
@@ -313,6 +322,7 @@
             this.ImageURL.HeaderText = "Image URL";
             this.ImageURL.MinimumWidth = 6;
             this.ImageURL.Name = "ImageURL";
+            this.ImageURL.ReadOnly = true;
             this.ImageURL.Width = 125;
             // 
             // RateID
@@ -320,6 +330,7 @@
             this.RateID.HeaderText = "Rate";
             this.RateID.MinimumWidth = 6;
             this.RateID.Name = "RateID";
+            this.RateID.ReadOnly = true;
             this.RateID.Width = 125;
             // 
             // picExit
@@ -403,12 +414,22 @@
             this.picSave.TabStop = false;
             this.picSave.Click += new System.EventHandler(this.picSave_Click);
             // 
+            // picImage
+            // 
+            this.picImage.Location = new System.Drawing.Point(972, 335);
+            this.picImage.Name = "picImage";
+            this.picImage.Size = new System.Drawing.Size(152, 166);
+            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImage.TabIndex = 22;
+            this.picImage.TabStop = false;
+            // 
             // FrmManageProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1241, 778);
+            this.Controls.Add(this.picImage);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picRefresh);
             this.Controls.Add(this.picDelete);
@@ -447,6 +468,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,5 +508,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ImageID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImageURL;
         private System.Windows.Forms.DataGridViewTextBoxColumn RateID;
+        private System.Windows.Forms.PictureBox picImage;
     }
 }

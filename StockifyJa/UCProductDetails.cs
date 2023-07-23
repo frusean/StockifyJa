@@ -31,8 +31,31 @@ namespace StockifyJa
 
         public decimal Discount
         {
-            get { return decimal.Parse(lblDiscount.Text); } // Assumes lblDiscount is a label that will display the Discount
-            set { lblDiscount.Text = value.ToString() + "% off"; } // Set the text of lblDiscount to show the discount percentage
+            /* get { return decimal.Parse(lblDiscount.Text); } // Assumes lblDiscount is a label that will display the Discount
+             set { lblDiscount.Text = value.ToString() + "% off"; } // Set the text of lblDiscount to show the discount percentage*/
+            get
+            {
+                // Attempt to parse the discount from the label text
+                if (decimal.TryParse(lblDiscount.Text.Replace("% off", ""), out decimal discount))
+                {
+                    return discount;
+                }
+                // Default to 0 if the label text cannot be parsed
+                return 0;
+            }
+            set
+            {
+                // Only show the discount if it is not zero
+                if (value != 0)
+                {
+                    // Format the discount as a percentage and update the label text
+                    lblDiscount.Text = (value * 100).ToString() + "% off";
+                }
+                else
+                {
+                    lblDiscount.Text = "";
+                }
+            }
         }
 
         public Image ProductImage

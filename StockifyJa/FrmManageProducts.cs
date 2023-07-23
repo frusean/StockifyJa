@@ -5,9 +5,15 @@ using System.Data;
 using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Google.Rpc;
+using Google.Type;
+using static Google.Rpc.Context.AttributeContext.Types;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace StockifyJa
 {
@@ -23,15 +29,50 @@ namespace StockifyJa
 
         private void picAdd_Click(object sender, EventArgs e)
         {
-
             string category = txtCategory.Text;
             string productName = txtProductName.Text;
             string description = txtDescription.Text;
             string price = txtPrice.Text;
             string imageURL = txtImageURL.Text;
-            int rateID = int.Parse(cboRates.SelectedItem.ToString());
+
+            int rateID = cboRates.SelectedValue == null ? 0 : (int)cboRates.SelectedValue;
 
             var isValid = true;
+
+            if (string.IsNullOrWhiteSpace(productName))
+            {
+                isValid = false;
+                MessageBox.Show("Enter valid Product Name!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtProductName.Focus();
+            }
+
+            if (string.IsNullOrWhiteSpace(category))
+            {
+                isValid = false;
+                MessageBox.Show("Enter valid Product Category!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCategory.Focus();
+            }
+
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                isValid = false;
+                MessageBox.Show("Enter valid Product Description!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDescription.Focus();
+            }
+
+            if (string.IsNullOrWhiteSpace(price))
+            {
+                isValid = false;
+                MessageBox.Show("Enter valid Product Price!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPrice.Focus();
+            }
+
+            if (string.IsNullOrWhiteSpace(imageURL))
+            {
+                isValid = false;
+                MessageBox.Show("Enter valid Image URL!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtImageURL.Focus();
+            }
 
             if (isValid)
             {
@@ -66,7 +107,7 @@ namespace StockifyJa
                     // Display the new IDs in the textboxes
                     txtProductID.Text = product.ProductID.ToString();
                     txtImageID.Text = productImage.ImageID.ToString();
-
+                    UpdateImage();
                     // Refresh DataGridView
                     RefreshDataGridView();
 
@@ -87,44 +128,7 @@ namespace StockifyJa
         }
         private void picUpdate_Click(object sender, EventArgs e)
         {
-
-            /*
-
-            var productID = Microsoft.VisualBasic.Interaction.InputBox("Enter product ID", "Update Product");
-
-            if (!string.IsNullOrEmpty(productID))
-            {
-                int parsedProductID;
-                if (int.TryParse(productID, out parsedProductID))
-                {
-                    // Fetch the product from the database
-                    var productToUpdate = StockifydBEntities.Products.Find(parsedProductID);
-                    if (productToUpdate != null)
-                    {
-                        // Fetch associated image
-                        var productImage = StockifydBEntities.ProductImages.FirstOrDefault(i => i.ProductID == productToUpdate.ProductID);
-
-                        // Fill the textboxes with the current values
-                        txtProductID.Text = productToUpdate.ProductID.ToString();
-                        txtCategory.Text = productToUpdate.Category;
-                        txtProductName.Text = productToUpdate.ProductName;
-                        txtDescription.Text = productToUpdate.Description;
-                        txtPrice.Text = productToUpdate.Price.ToString();
-                        cboRates.SelectedItem = productToUpdate.RateID.ToString();
-                        txtImageID.Text = productImage?.ImageID.ToString();
-                        txtImageURL.Text = productImage?.ImageURL;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Product ID was NOT FOUND!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Please enter a valid Product ID!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-*/
+                      
             if (dgvProducts.SelectedRows.Count > 0)  // Check if a row is selected
             {
                 int productID = Convert.ToInt32(dgvProducts.SelectedRows[0].Cells["ProductID"].Value);  // Fetch the ProductID of the selected row
@@ -139,9 +143,13 @@ namespace StockifyJa
                     txtProductName.Text = productToUpdate.ProductName;
                     txtDescription.Text = productToUpdate.Description;
                     txtPrice.Text = productToUpdate.Price.ToString();
-                    cboRates.SelectedItem = productToUpdate.RateID.ToString();
+
+                    // Set SelectedValue for the ComboBox, not SelectedItem
+                    cboRates.SelectedValue = productToUpdate.RateID;
+
                     txtImageID.Text = productImage?.ImageID.ToString();
                     txtImageURL.Text = productImage?.ImageURL;
+                    UpdateImage();
                 }
                 else
                 {
@@ -152,7 +160,39 @@ namespace StockifyJa
             {
                 MessageBox.Show("Please select a product from the grid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
+
+
+
+
+       
+        private void UpdateImage()
+        {
+            string imageUrl = txtImageURL.Text; // This is the URL of the image you want to display
+
+            try
+            {
+                var request = WebRequest.Create(imageUrl); // Create a web request to fetch the image
+
+                using (var response = request.GetResponse()) // Send the web request and get the response
+                using (var stream = response.GetResponseStream()) // Get a stream to read the image data from the response
+                {
+                    picImage.Image = Bitmap.FromStream(stream); // Create an image from the stream and display it in the PictureBox
+                }
+            }
+            catch (Exception ex) // Catch any exceptions that might occur (invalid URL, server error, etc.)
+            {
+                MessageBox.Show("Could not load image: " + ex.Message); // Display an error message
+            }
+        }
+
+
+
+
+
+
+
         private void picSave_Click(object sender, EventArgs e)
         {
             string category = txtCategory.Text;
@@ -162,10 +202,42 @@ namespace StockifyJa
             string imageURL = txtImageURL.Text;
             int rateID = int.Parse(cboRates.SelectedValue.ToString());
 
-
             var isValid = true;
 
+            if (string.IsNullOrWhiteSpace(productName))
+            {
+                isValid = false;
+                MessageBox.Show("Enter valid Product Name!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtProductName.Focus();
+            }
 
+            if (string.IsNullOrWhiteSpace(category))
+            {
+                isValid = false;
+                MessageBox.Show("Enter valid Product Category!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCategory.Focus();
+            }
+
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                isValid = false;
+                MessageBox.Show("Enter valid Product Description!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDescription.Focus();
+            }
+
+            if (string.IsNullOrWhiteSpace(price))
+            {
+                isValid = false;
+                MessageBox.Show("Enter valid Product Price!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPrice.Focus();
+            }
+
+            if (string.IsNullOrWhiteSpace(imageURL))
+            {
+                isValid = false;
+                MessageBox.Show("Enter valid Image URL!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtImageURL.Focus();
+            }
 
             if (isValid)
             {
@@ -213,39 +285,7 @@ namespace StockifyJa
                     productImage.ImageURL = imageURL;
 
                     StockifydBEntities.SaveChanges();
-                    if (string.IsNullOrWhiteSpace(productName))
-                    {
-                        isValid = false;
-                        MessageBox.Show("Enter valid Product Name!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtProductName.Focus();
-                    }
 
-                    if (string.IsNullOrWhiteSpace(category))
-                    {
-                        isValid = false;
-                        MessageBox.Show("Enter valid Product Category!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtCategory.Focus();
-                    }
-
-                    if (string.IsNullOrWhiteSpace(description))
-                    {
-                        isValid = false;
-                        MessageBox.Show("Enter valid Product Description!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtDescription.Focus();
-                    }
-
-                    if (string.IsNullOrWhiteSpace(price))
-                    {
-                        isValid = false;
-                        MessageBox.Show("Enter valid Product Price!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtPrice.Focus();
-                    }
-                    if (string.IsNullOrWhiteSpace(imageURL))
-                    {
-                        isValid = false;
-                        MessageBox.Show("Enter valid Image URL!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtDescription.Focus();
-                    }
                     // Refresh DataGridView
                     RefreshDataGridView();
 
@@ -286,6 +326,7 @@ namespace StockifyJa
                         productImage?.ImageURL,
                         product.RateID
                     );
+                    //UpdateImage();
                 }
             }
             else
@@ -308,105 +349,112 @@ namespace StockifyJa
             cboRates.SelectedItem = null;
             txtImageID.Text = string.Empty;
             txtImageURL.Text = string.Empty;
+            picImage.Image = null;
         }
 
 
         private void picDelete_Click(object sender, EventArgs e)
 
         {
-            /*
-                string productIDInput = Microsoft.VisualBasic.Interaction.InputBox("Enter Product ID to delete", "Delete Product", "", -1, -1);
 
-                if (!string.IsNullOrEmpty(productIDInput))
-                {
-                    int parsedProductID;
-                    if (int.TryParse(productIDInput, out parsedProductID))
-                    {
-                        var productToDelete = StockifydBEntities.Products.Find(parsedProductID);
-                        if (productToDelete != null)
-                        {
-                            // Fetch associated image
-                            var productImage = StockifydBEntities.ProductImages.FirstOrDefault(i => i.ProductID == productToDelete.ProductID);
+            /* if (dgvProducts.SelectedRows.Count == 0)
+              {
+                  MessageBox.Show("No product selected!", "Error");
+                  return;
+              }
 
-                            // Display the product details and ask for confirmation to delete
-                            var confirmResult = MessageBox.Show($"Are you sure you want to delete this product?\n\n" +
-                                $"Product ID: {productToDelete.ProductID}\n" +
-                                $"Product Name: {productToDelete.ProductName}\n" +
-                                $"Category: {productToDelete.Category}\n" +
-                                $"Description: {productToDelete.Description}\n" +
-                                $"Price: {productToDelete.Price}\n" +
-                                $"Rate ID: {productToDelete.RateID}\n" +
-                                $"Image ID: {productImage?.ImageID}\n" +
-                                $"Image URL: {productImage?.ImageURL}",
-                                "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+              // Get product ID from the selected row. Replace "ProductID" with the name of the column holding the product ID.
+              var selectedProductID = (int)dgvProducts.SelectedRows[0].Cells["ProductID"].Value;
 
-                            if (confirmResult == DialogResult.Yes)
-                            {
-                                // Remove the product and its associated image from the database
-                                StockifydBEntities.Products.Remove(productToDelete);
-                                if (productImage != null)
-                                {
-                                    StockifydBEntities.ProductImages.Remove(productImage);
-                                }
-                                StockifydBEntities.SaveChanges();
+              try
+              {
+                  var productToDelete = StockifydBEntities.Products.Find(selectedProductID);
+                  UpdateImage();
+                  if (productToDelete == null)
+                  {
+                      MessageBox.Show("Product not found!", "Error");
+                      return;
+                  }
 
-                                // Refresh the DataGridView
-                                RefreshDataGridView();
+                  var confirmResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Deletion!", MessageBoxButtons.YesNo);
+                  if (confirmResult != DialogResult.Yes) return;
 
-                                MessageBox.Show("Product successfully deleted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Product ID was NOT FOUND!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please enter a valid Product ID!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                
-            }*/
+                  DeleteProductWithImages(productToDelete);
 
-
-           
-            
-            
-            //Another way 
-            
-           if (dgvProducts.SelectedRows.Count == 0)
+                  this.Invoke(new Action(() =>
+                  {
+                      RefreshDataGridView();
+                      MessageBox.Show("Product deleted successfully!", "Success");
+                  }));
+              }
+              catch (Exception ex)
+              {
+                  // Log the exception details as per your logging strategy
+                  MessageBox.Show("An error occurred while deleting the product.", "Error");
+              }*/
+            if (dgvProducts.SelectedRows.Count == 0)
             {
-                MessageBox.Show("No product selected!", "Error");
+                MessageBox.Show("No product selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             // Get product ID from the selected row. Replace "ProductID" with the name of the column holding the product ID.
             var selectedProductID = (int)dgvProducts.SelectedRows[0].Cells["ProductID"].Value;
 
+            // Fetch the product and its associated image from the database
+            var productToDelete = StockifydBEntities.Products.Find(selectedProductID);
+            var productImage = StockifydBEntities.ProductImages.FirstOrDefault(i => i.ProductID == productToDelete.ProductID);
+
+            if (productToDelete == null)
+            {
+                MessageBox.Show("Product not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Populate the form fields with the product data
+            txtProductID.Text = productToDelete.ProductID.ToString();
+            txtCategory.Text = productToDelete.Category;
+            txtProductName.Text = productToDelete.ProductName;
+            txtDescription.Text = productToDelete.Description;
+            txtPrice.Text = productToDelete.Price.ToString();
+            cboRates.SelectedValue = productToDelete.RateID;
+
+            if (productImage != null)
+            {
+                txtImageID.Text = productImage.ImageID.ToString();
+                txtImageURL.Text = productImage.ImageURL;
+                try
+                {
+                    var request = WebRequest.Create(productImage.ImageURL);
+                    using (var response = request.GetResponse())
+                    using (var stream = response.GetResponseStream())
+                    {
+                        picImage.Image = Bitmap.FromStream(stream);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not load image: " + ex.Message);
+                }
+            }
+
+            // Ask for deletion confirmation
+            var confirmResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Deletion!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (confirmResult != DialogResult.Yes) return;
+
             try
             {
-                var productToDelete = StockifydBEntities.Products.Find(selectedProductID);
-                if (productToDelete == null)
-                {
-                    MessageBox.Show("Product not found!", "Error");
-                    return;
-                }
-
-                var confirmResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Deletion!", MessageBoxButtons.YesNo);
-                if (confirmResult != DialogResult.Yes) return;
-
                 DeleteProductWithImages(productToDelete);
 
                 this.Invoke(new Action(() =>
                 {
                     RefreshDataGridView();
-                    MessageBox.Show("Product deleted successfully!", "Success");
+                    MessageBox.Show("Product deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }));
             }
             catch (Exception ex)
             {
-                // Log the exception details as per your logging strategy
-                MessageBox.Show("An error occurred while deleting the product.", "Error");
+                MessageBox.Show("An error occurred while deleting the product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
