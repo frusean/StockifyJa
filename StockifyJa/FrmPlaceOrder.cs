@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -187,37 +188,84 @@ namespace StockifyJa
         private void btnRemoveFromOrder_Click(object sender, EventArgs e)
         {
             if (lbxCart.SelectedItem != null)
-            {
-                string selectedItemString = lbxCart.SelectedItem.ToString();
+                //{
+                //    string selectedItemString = lbxCart.SelectedItem.ToString();
 
-                // Find the corresponding CartItem in AppState.CartItems
-                ItemDetails selectedItem = AppState.CartItems.FirstOrDefault(ci => ci.ToString() == selectedItemString);
+                //    // Find the corresponding CartItem in AppState.CartItems
+                //    ItemDetails selectedItem = AppState.CartItems.FirstOrDefault(ci => ci.ToString() == selectedItemString);
 
-                if (selectedItem != null)
+                //    if (selectedItem != null)
+                //    {
+                //        // Remove from AppState.CartItems
+                //        AppState.CartItems.Remove(selectedItem);
+
+                //        // Remove from database
+                //        var cartItem = _db.Carts.FirstOrDefault(ci => ci.CartID == selectedItem.CartItemID);
+                //        if (cartItem != null)
+                //        {
+                //            _db.Carts.Remove(cartItem);
+                //            _db.SaveChanges();
+                //        }
+                //    }
+
+                //    // Remove from ListBox
+                //    lbxCart.Items.Remove(lbxCart.SelectedItem);
+
+                //    // If cart is empty, disable View Order button
+                //    if (lbxCart.Items.Count == 0)
+                //    {
+                //        btnViewOrder.Enabled = false;
+                //    }
+                //}
+
+                if (lbxCart.SelectedItem != null)
                 {
-                    // Remove from AppState.CartItems
-                    AppState.CartItems.Remove(selectedItem);
+                    string selectedItemString = lbxCart.SelectedItem.ToString();
 
-                    // Remove from database
-                    var cartItem = _db.Carts.FirstOrDefault(ci => ci.CartID == selectedItem.CartItemID);
-                    if (cartItem != null)
+                    // Find the corresponding CartItem in AppState.CartItems
+                    ItemDetails selectedItem = AppState.CartItems.FirstOrDefault(ci => ci.ToString() == selectedItemString);
+
+                    if (selectedItem != null)
                     {
-                        _db.Carts.Remove(cartItem);
-                        _db.SaveChanges();
+                        // Remove from AppState.CartItems
+                        AppState.CartItems.Remove(selectedItem);
+
+                        // Remove from ListBox
+                        lbxCart.Items.Remove(lbxCart.SelectedItem);
+
+                        // If cart is empty, disable View Order button
+                        if (lbxCart.Items.Count == 0)
+                        {
+                            btnViewOrder.Enabled = false;
+                        }
+
+                        // Try to remove the item from the database
+                        try
+                        {
+                            var cartItem = _db.Carts.FirstOrDefault(c => c.CartID == selectedItem.CartItemID);
+
+                            if (cartItem != null)
+                            {
+                                _db.Entry(cartItem).State = EntityState.Deleted;
+                                _db.SaveChanges();
+                            }
+                        }
+                        catch (DbUpdateConcurrencyException)
+                        {
+                            // A concurrency error occurred. Reload the context and retry the save.
+                            _db = new stockifydBEntities();
+
+                            var cartItem = _db.Carts.FirstOrDefault(c => c.CartID == selectedItem.CartItemID);
+
+                            if (cartItem != null)
+                            {
+                                _db.Entry(cartItem).State = EntityState.Deleted;
+                                _db.SaveChanges();
+                            }
+                        }
                     }
                 }
-
-                // Remove from ListBox
-                lbxCart.Items.Remove(lbxCart.SelectedItem);
-
-                // If cart is empty, disable View Order button
-                if (lbxCart.Items.Count == 0)
-                {
-                    btnViewOrder.Enabled = false;
-                }
-            }
-
-    }
+        }
 
         private void picAdd_Click(object sender, EventArgs e)
         {
@@ -286,6 +334,81 @@ namespace StockifyJa
 
         private void picRemove_Click(object sender, EventArgs e)
         {
+            //if (lbxCart.SelectedItem != null)
+            //{
+            //    string selectedItemString = lbxCart.SelectedItem.ToString();
+
+            //    // Find the corresponding CartItem in AppState.CartItems
+            //    ItemDetails selectedItem = AppState.CartItems.FirstOrDefault(ci => ci.ToString() == selectedItemString);
+
+            //    if (selectedItem != null)
+            //    {
+            //        // Remove from AppState.CartItems
+            //        AppState.CartItems.Remove(selectedItem);
+
+            //        // Remove from database
+            //        var cartItem = _db.Carts.FirstOrDefault(ci => ci.CartID == selectedItem.CartItemID);
+
+            //        if (cartItem != null)
+            //        {
+            //            _db.Carts.Attach(cartItem);
+            //            _db.Carts.Remove(cartItem);
+
+            //            try
+            //            {
+            //                _db.SaveChanges();
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                Console.WriteLine(ex.Message);
+            //                // Handle any errors that might have occurred when saving changes
+            //            }
+            //        }
+
+            //        // Remove from ListBox
+            //        lbxCart.Items.Remove(lbxCart.SelectedItem);
+
+            //        // If cart is empty, disable View Order button
+            //        if (lbxCart.Items.Count == 0)
+            //        {
+            //            btnViewOrder.Enabled = false;
+            //        }
+            //    }
+            //}
+            //if (lbxCart.SelectedItem != null)
+            //{
+            //    string selectedItemString = lbxCart.SelectedItem.ToString();
+
+            //    // Find the corresponding CartItem in AppState.CartItems
+            //    ItemDetails selectedItem = AppState.CartItems.FirstOrDefault(ci => ci.ToString() == selectedItemString);
+
+            //    if (selectedItem != null)
+            //    {
+            //        // Remove from AppState.CartItems
+            //        AppState.CartItems.Remove(selectedItem);
+
+            //        // Remove from database
+            //        try
+            //        {
+            //            _db.Database.ExecuteSqlCommand($"DELETE FROM Cart WHERE CartID = {selectedItem.CartItemID}");
+            //            _db.SaveChanges();  // Save changes after removing item
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            // Log exception or show a message to the user
+            //            Console.WriteLine(ex.Message);
+            //        }
+
+            //        // Remove from ListBox
+            //        lbxCart.Items.Remove(lbxCart.SelectedItem);
+
+            //        // If cart is empty, disable View Order button
+            //        if (lbxCart.Items.Count == 0)
+            //        {
+            //            btnViewOrder.Enabled = false;
+            //        }
+            //    }
+            //}
             if (lbxCart.SelectedItem != null)
             {
                 string selectedItemString = lbxCart.SelectedItem.ToString();
@@ -299,23 +422,103 @@ namespace StockifyJa
                     AppState.CartItems.Remove(selectedItem);
 
                     // Remove from database
-                    var cartItem = _db.Carts.FirstOrDefault(ci => ci.CartID == selectedItem.CartItemID);
-                    if (cartItem != null)
+                    try
                     {
-                        _db.Carts.Remove(cartItem);
+                        string commandText = $"DELETE FROM Cart WHERE CartID = {selectedItem.CartItemID}";
+                        int result = _db.Database.ExecuteSqlCommand(commandText);
+
+                        if (result > 0)
+                        {
+                            // Successfully deleted
+                            Console.WriteLine("Item successfully deleted from the database");
+                        }
+                        else
+                        {
+                            // Not deleted
+                            Console.WriteLine("Failed to delete item from the database");
+                        }
+
                         _db.SaveChanges();
                     }
-                }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        // Handle any errors that might have occurred when saving changes
+                    }
 
-                // Remove from ListBox
-                lbxCart.Items.Remove(lbxCart.SelectedItem);
+                    // Remove from ListBox
+                    lbxCart.Items.Remove(lbxCart.SelectedItem);
 
-                // If cart is empty, disable View Order button
-                if (lbxCart.Items.Count == 0)
-                {
-                    btnViewOrder.Enabled = false;
+                    // If cart is empty, disable View Order button
+                    if (lbxCart.Items.Count == 0)
+                    {
+                        btnViewOrder.Enabled = false;
+                    }
                 }
             }
+        }
+
+        //private void lbxCart_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (lbxCart.SelectedItem != null)
+        //    {
+        //        string selectedItemString = lbxCart.SelectedItem.ToString();
+
+        //        // Show a confirmation dialog
+        //        DialogResult dialogResult = MessageBox.Show($"Are you sure you want to remove '{selectedItemString}' from your cart?", "Remove Item", MessageBoxButtons.YesNo);
+        //        if (dialogResult == DialogResult.Yes)
+        //        {
+        //            // If 'Yes' is clicked, remove the item
+
+        //            // Find the corresponding CartItem in AppState.CartItems
+        //            ItemDetails selectedItem = AppState.CartItems.FirstOrDefault(ci => ci.ToString() == selectedItemString);
+
+        //            if (selectedItem != null)
+        //            {
+        //                // Remove from AppState.CartItems
+        //                AppState.CartItems.Remove(selectedItem);
+
+        //                // Remove from database
+        //                var cartItem = _db.Carts.FirstOrDefault(ci => ci.CartID == selectedItem.CartItemID);
+        //                if (cartItem != null)
+        //                {
+        //                    _db.Carts.Remove(cartItem);
+        //                    _db.SaveChanges();
+        //                }
+
+        //                // Remove from ListBox
+        //                lbxCart.Items.Remove(lbxCart.SelectedItem);
+
+        //                // If cart is empty, disable View Order button
+        //                if (lbxCart.Items.Count == 0)
+        //                {
+        //                    btnViewOrder.Enabled = false;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+        private void lbxCart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbxCart.SelectedItem != null)
+            {
+                string selectedItemString = lbxCart.SelectedItem.ToString();
+
+                // Find the corresponding CartItem in AppState.CartItems
+                ItemDetails selectedItem = AppState.CartItems.FirstOrDefault(ci => ci.ToString() == selectedItemString);
+
+                if (selectedItem != null)
+                {
+                    // Display CartID in TxtCartID
+                    TxtCartID.Text = selectedItem.CartItemID.ToString();
+                }
+            }
+        }
+
+
+        private void TxtCartID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
