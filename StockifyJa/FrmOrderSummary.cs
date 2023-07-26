@@ -57,6 +57,11 @@ namespace StockifyJa
         {
 
         }
+
+        private void lbxOrderSummary_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 

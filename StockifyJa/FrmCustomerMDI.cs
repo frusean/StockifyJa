@@ -42,14 +42,17 @@ namespace StockifyJa
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            // Clear the AppState.CartItems and lbxCart.Items
+            AppState.CartItems.Clear();
+         
+
+            // Close the current form
             this.Close();
-            
+
+            // Show the login form
             FrmLogin frmLogin = new FrmLogin();
-          //  AppState.CartItems.Clear();
             frmLogin.Show();
-
-
-
         }
+
     }
 }

@@ -61,6 +61,91 @@ namespace StockifyJa
             btnPayOnDropOff.Enabled = false;
         }
 
+        //private async void btnPay_Click(object sender, EventArgs e)
+        //{
+        //    string cardNumber = txtCardNumber.Text;
+        //    string expMonth = cmbExpMonth.Text;
+        //    string expYear = cmbExpYear.Text;
+        //    string cvc = txtCvc.Text;
+
+        //    if (string.IsNullOrEmpty(cardNumber) || cardNumber.Length != 16)
+        //    {
+        //        MessageBox.Show("Invalid card number.");
+        //        return;
+        //    }
+
+        //    if (!long.TryParse(expMonth, out long expMonthLong) || expMonthLong < 1 || expMonthLong > 12)
+        //    {
+        //        MessageBox.Show("Invalid expiry month.");
+        //        return;
+        //    }
+
+        //    if (!long.TryParse(expYear, out long expYearLong) || expYearLong < DateTime.Now.Year)
+        //    {
+        //        MessageBox.Show("Invalid expiry year.");
+        //        return;
+        //    }
+
+        //    if (string.IsNullOrEmpty(cvc) || cvc.Length != 3)
+        //    {
+        //        MessageBox.Show("Invalid CVC.");
+        //        return;
+        //    }
+
+        //    try
+        //    {
+        //        var tokenOptions = new TokenCreateOptions
+        //        {
+        //            Card = new TokenCardOptions
+        //            {
+        //                Number = cardNumber,
+        //                ExpMonth = expMonthLong.ToString(),
+        //                ExpYear = expYearLong.ToString(),
+        //                Cvc = cvc
+        //            }
+        //        };
+
+        //        var tokenService = new TokenService();
+        //        Token stripeToken = await tokenService.CreateAsync(tokenOptions);
+
+        //        decimal amount = _total;
+
+        //        var chargeOptions = new ChargeCreateOptions
+        //        {
+        //            Amount = (long)(amount * 100),
+        //            Currency = "usd",
+        //            Description = "Stock purchase",
+        //            Source = stripeToken.Id
+        //        };
+
+        //        var chargeService = new ChargeService();
+        //        Charge charge = await chargeService.CreateAsync(chargeOptions);
+
+        //        if (charge.Paid)
+        //        {
+        //            foreach (var item in _cartItems)
+        //            {
+        //                var stock = _db.Stocks.FirstOrDefault(s => s.ProductID == item.ProductID);
+        //                if (stock != null)
+        //                {
+        //                    stock.QuantityInStock -= item.Quantity;
+        //                }
+        //            }
+
+        //            await _db.SaveChangesAsync();
+
+        //            MessageBox.Show("Payment processed successfully");
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Payment failed. Please check your card details and try again.");
+        //        }
+        //    }
+        //    catch (StripeException ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
         private async void btnPay_Click(object sender, EventArgs e)
         {
             string cardNumber = txtCardNumber.Text;
@@ -130,9 +215,20 @@ namespace StockifyJa
                         {
                             stock.QuantityInStock -= item.Quantity;
                         }
+
+                        // Remove the corresponding entry from the Cart table
+                        var cartItem = _db.Carts.FirstOrDefault(c => c.CartID == item.CartItemID);
+                        if (cartItem != null)
+                        {
+                            _db.Carts.Remove(cartItem);
+                        }
                     }
 
+                    // Save changes to database
                     await _db.SaveChangesAsync();
+
+                    // Clear the AppState.CartItems
+                    AppState.CartItems.Clear();
 
                     MessageBox.Show("Payment processed successfully");
                 }
@@ -146,6 +242,7 @@ namespace StockifyJa
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         private void txtTotalPay_TextChanged(object sender, EventArgs e)
         {

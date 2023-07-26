@@ -40,6 +40,8 @@
             this.lblItems = new System.Windows.Forms.Label();
             this.picAdd = new System.Windows.Forms.PictureBox();
             this.picRemove = new System.Windows.Forms.PictureBox();
+            this.TxtCartID = new System.Windows.Forms.TextBox();
+            this.BtnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRemove)).BeginInit();
@@ -97,6 +99,7 @@
             this.lbxCart.Name = "lbxCart";
             this.lbxCart.Size = new System.Drawing.Size(995, 310);
             this.lbxCart.TabIndex = 33;
+            this.lbxCart.SelectedIndexChanged += new System.EventHandler(this.lbxCart_SelectedIndexChanged);
             // 
             // btnAddToOrder
             // 
@@ -177,12 +180,32 @@
             this.picRemove.TabStop = false;
             this.picRemove.Click += new System.EventHandler(this.picRemove_Click);
             // 
+            // TxtCartID
+            // 
+            this.TxtCartID.Location = new System.Drawing.Point(1100, 37);
+            this.TxtCartID.Name = "TxtCartID";
+            this.TxtCartID.Size = new System.Drawing.Size(115, 24);
+            this.TxtCartID.TabIndex = 44;
+            this.TxtCartID.TextChanged += new System.EventHandler(this.TxtCartID_TextChanged);
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.Location = new System.Drawing.Point(1038, 230);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelete.TabIndex = 45;
+            this.BtnDelete.Text = "button1";
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
             // FrmPlaceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1381, 673);
+            this.Controls.Add(this.BtnDelete);
+            this.Controls.Add(this.TxtCartID);
             this.Controls.Add(this.picRemove);
             this.Controls.Add(this.picAdd);
             this.Controls.Add(this.lblItems);
@@ -219,6 +242,8 @@
         private System.Windows.Forms.Label lblItems;
         private System.Windows.Forms.PictureBox picAdd;
         private System.Windows.Forms.PictureBox picRemove;
+        private System.Windows.Forms.TextBox TxtCartID;
+        private System.Windows.Forms.Button BtnDelete;
     }
 }
 

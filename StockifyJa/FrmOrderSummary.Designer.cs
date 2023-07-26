@@ -95,6 +95,7 @@
             this.lbxOrderSummary.Name = "lbxOrderSummary";
             this.lbxOrderSummary.Size = new System.Drawing.Size(1238, 676);
             this.lbxOrderSummary.TabIndex = 6;
+            this.lbxOrderSummary.SelectedIndexChanged += new System.EventHandler(this.lbxOrderSummary_SelectedIndexChanged);
             // 
             // FrmOrderSummary
             // 
