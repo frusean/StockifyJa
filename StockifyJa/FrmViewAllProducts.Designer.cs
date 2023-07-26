@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmViewAllProducts));
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.gboxSearch = new System.Windows.Forms.GroupBox();
@@ -36,10 +37,13 @@
             this.flpProducts = new System.Windows.Forms.FlowLayoutPanel();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.lblProductCatalog = new System.Windows.Forms.Label();
+            this.refreshTimer = new System.Windows.Forms.Timer(this.components);
+            this.picRefresh = new System.Windows.Forms.PictureBox();
             this.pnlSearch.SuspendLayout();
             this.gboxSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSearch
@@ -116,6 +120,22 @@
             this.lblProductCatalog.Text = "Product Catalogue";
             this.lblProductCatalog.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // refreshTimer
+            // 
+            this.refreshTimer.Interval = 50000;
+            this.refreshTimer.Tick += new System.EventHandler(this.refreshTimer_Tick);
+            // 
+            // picRefresh
+            // 
+            this.picRefresh.Image = ((System.Drawing.Image)(resources.GetObject("picRefresh.Image")));
+            this.picRefresh.Location = new System.Drawing.Point(356, 40);
+            this.picRefresh.Name = "picRefresh";
+            this.picRefresh.Size = new System.Drawing.Size(44, 41);
+            this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picRefresh.TabIndex = 7;
+            this.picRefresh.TabStop = false;
+            this.picRefresh.Click += new System.EventHandler(this.picRefresh_Click);
+            // 
             // FrmViewAllProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -123,6 +143,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1040, 723);
+            this.Controls.Add(this.picRefresh);
             this.Controls.Add(this.pnlSearch);
             this.Controls.Add(this.flpProducts);
             this.Controls.Add(this.picExit);
@@ -136,6 +157,7 @@
             this.gboxSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +172,7 @@
         private System.Windows.Forms.FlowLayoutPanel flpProducts;
         private System.Windows.Forms.PictureBox picExit;
         private System.Windows.Forms.Label lblProductCatalog;
+        private System.Windows.Forms.Timer refreshTimer;
+        private System.Windows.Forms.PictureBox picRefresh;
     }
 }

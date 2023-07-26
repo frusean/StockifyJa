@@ -24,9 +24,39 @@ namespace StockifyJa
             frmAdminChat.Show();
         }
 
+
         private void FrmAdminMDI_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void manageUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageUsers frmManageUsers = new FrmManageUsers();
+            frmManageUsers.MdiParent = this;
+            frmManageUsers.Show();
+
+        }
+
+        private void manageSuppliesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageSupplies frmManageSupplies = new FrmManageSupplies();
+            frmManageSupplies.MdiParent = this;
+            frmManageSupplies.Show();
+        }
+
+        private void manageProductsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageProducts frmManageProducts = new FrmManageProducts();
+            frmManageProducts.MdiParent = this;
+            frmManageProducts.Show();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSettings frmSettings = new FrmSettings();
+            frmSettings.MdiParent = this;
+            frmSettings.Show();
         }
     }
 }
