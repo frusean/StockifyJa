@@ -67,6 +67,7 @@
             this.mangeOrdersToolStripMenuItem.Name = "mangeOrdersToolStripMenuItem";
             this.mangeOrdersToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
             this.mangeOrdersToolStripMenuItem.Text = "Mange Orders";
+            this.mangeOrdersToolStripMenuItem.Click += new System.EventHandler(this.mangeOrdersToolStripMenuItem_Click);
             // 
             // manageProductsToolStripMenuItem
             // 

@@ -201,6 +201,12 @@
     <Compile Include="ContactDetail.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="FrmManageOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManageOrders.Designer.cs">
+      <DependentUpon>FrmManageOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,7 +297,6 @@
     <Compile Include="FrmViewAllProducts.Designer.cs">
       <DependentUpon>FrmViewAllProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Microsoft\VisualBasic\Interaction.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
@@ -321,7 +326,6 @@
     <Compile Include="spReadUserWithContactDetailswithID_Result.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Status.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
@@ -376,6 +380,9 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmManageOrders.resx">
+      <DependentUpon>FrmManageOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmManageProducts.resx">
       <DependentUpon>FrmManageProducts.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,8 +394,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManageUsers.resx">
       <DependentUpon>FrmManageUsers.cs</DependentUpon>
-
-
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductDetails.resx">
       <DependentUpon>FrmProductDetails.cs</DependentUpon>
@@ -437,19 +442,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="StockifyDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>StockifyDB.edmx</DependentUpon>
