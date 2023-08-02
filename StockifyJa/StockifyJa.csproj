@@ -309,7 +309,6 @@
     <Compile Include="FrmViewAllProducts.Designer.cs">
       <DependentUpon>FrmViewAllProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Microsoft\VisualBasic\Interaction.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
@@ -339,7 +338,6 @@
     <Compile Include="spReadUserWithContactDetailswithID_Result.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Status.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
@@ -457,19 +455,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sales Report.mp4" />
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="StockifyDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>StockifyDB.edmx</DependentUpon>
