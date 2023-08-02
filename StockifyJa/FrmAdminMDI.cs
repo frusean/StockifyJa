@@ -59,11 +59,19 @@ namespace StockifyJa
             frmSettings.Show();
         }
 
+
         private void mangeOrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmManageOrders frmManageOrders = new FrmManageOrders();
             frmManageOrders.MdiParent = this;
             frmManageOrders.Show();
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReports frmReports = new FrmReports();
+            frmReports.MdiParent = this;
+            frmReports.Show();
+
         }
     }
 }
