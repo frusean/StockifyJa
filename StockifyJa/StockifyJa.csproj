@@ -463,9 +463,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-
     <Content Include="Sales Report.mp4" />
-
     <Content Include="StockifyDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>StockifyDB.edmx</DependentUpon>
