@@ -58,5 +58,12 @@ namespace StockifyJa
             frmSettings.MdiParent = this;
             frmSettings.Show();
         }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReports frmReports = new FrmReports();
+            frmReports.MdiParent = this;
+            frmReports.Show();
+        }
     }
 }
