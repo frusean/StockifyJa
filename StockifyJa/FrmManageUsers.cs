@@ -109,7 +109,7 @@ namespace StockifyJa
                 if (string.IsNullOrWhiteSpace(Email))
                 {
                     isValid = false;
-                    MessageBox.Show("Enter valid Restaurant Email!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Enter valid Email!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
 
                     try
