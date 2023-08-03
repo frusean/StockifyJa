@@ -108,9 +108,9 @@ namespace StockifyJa
 
                 if (string.IsNullOrWhiteSpace(Email))
                 {
-                    isValid = false;
-                    MessageBox.Show("Enter valid Email!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtEmail.Focus();
+                    //isValid = false;
+                    //MessageBox.Show("Enter valid Email!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //txtEmail.Focus();
 
                     try
                     {
@@ -121,12 +121,8 @@ namespace StockifyJa
                         MessageBox.Show("Error in email pattern: " + ex.Message);
                         return;
                     }
-                    if (!IsEmailValid)
-                    {
-                        MessageBox.Show("Invalid Email");
-                        txtEmail.Focus();
-                    }
                 }
+         
             }
         }
     }
