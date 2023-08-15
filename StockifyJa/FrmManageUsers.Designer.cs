@@ -39,7 +39,7 @@
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.lblUserID = new System.Windows.Forms.Label();
             this.txtStreet = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -67,7 +67,7 @@
             this.rbuttonAdministrator = new System.Windows.Forms.RadioButton();
             this.rbuttonCustomer = new System.Windows.Forms.RadioButton();
             this.gboxRole = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.gboxRole.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +89,7 @@
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(215, 20);
             this.txtCity.TabIndex = 21;
+            this.txtCity.TextChanged += new System.EventHandler(this.txtCity_TextChanged);
             // 
             // lblCity
             // 
@@ -135,6 +136,7 @@
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(215, 20);
             this.txtCompanyName.TabIndex = 15;
+            this.txtCompanyName.TextChanged += new System.EventHandler(this.txtCompanyName_TextChanged);
             // 
             // lblCompanyName
             // 
@@ -171,14 +173,16 @@
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(215, 20);
             this.txtStreet.TabIndex = 24;
+            this.txtStreet.TextChanged += new System.EventHandler(this.txtStreet_TextChanged);
             // 
-            // dataGridView1
+            // dgvUsers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(474, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(437, 243);
-            this.dataGridView1.TabIndex = 25;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Location = new System.Drawing.Point(474, 55);
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.Size = new System.Drawing.Size(437, 243);
+            this.dgvUsers.TabIndex = 25;
+            this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             // 
             // btnCreate
             // 
@@ -198,6 +202,7 @@
             this.btnUpdate.TabIndex = 27;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -207,6 +212,7 @@
             this.btnDelete.TabIndex = 28;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnView
             // 
@@ -216,6 +222,7 @@
             this.btnView.TabIndex = 29;
             this.btnView.Text = "View";
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // txtUserPassword
             // 
@@ -262,6 +269,7 @@
             this.txtContactID.Name = "txtContactID";
             this.txtContactID.Size = new System.Drawing.Size(215, 20);
             this.txtContactID.TabIndex = 36;
+            this.txtContactID.TextChanged += new System.EventHandler(this.txtContactID_TextChanged);
             // 
             // lblContactID
             // 
@@ -280,7 +288,7 @@
             this.txtFkeyUserID.Name = "txtFkeyUserID";
             this.txtFkeyUserID.Size = new System.Drawing.Size(215, 20);
             this.txtFkeyUserID.TabIndex = 38;
-            this.txtFkeyUserID.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtFkeyUserID.TextChanged += new System.EventHandler(this.txtFkeyUserID_TextChanged);
             // 
             // lblFkeyUserID
             // 
@@ -299,6 +307,7 @@
             this.txtPersonName.Name = "txtPersonName";
             this.txtPersonName.Size = new System.Drawing.Size(215, 20);
             this.txtPersonName.TabIndex = 42;
+            this.txtPersonName.TextChanged += new System.EventHandler(this.txtPersonName_TextChanged);
             // 
             // txtContactType
             // 
@@ -307,6 +316,7 @@
             this.txtContactType.Name = "txtContactType";
             this.txtContactType.Size = new System.Drawing.Size(215, 20);
             this.txtContactType.TabIndex = 41;
+            this.txtContactType.TextChanged += new System.EventHandler(this.txtContactType_TextChanged);
             // 
             // lblContactType
             // 
@@ -335,6 +345,7 @@
             this.txtParish.Name = "txtParish";
             this.txtParish.Size = new System.Drawing.Size(215, 20);
             this.txtParish.TabIndex = 44;
+            this.txtParish.TextChanged += new System.EventHandler(this.txtParish_TextChanged);
             // 
             // lblParish
             // 
@@ -353,6 +364,7 @@
             this.txtZipCode.Name = "txtZipCode";
             this.txtZipCode.Size = new System.Drawing.Size(215, 20);
             this.txtZipCode.TabIndex = 46;
+            this.txtZipCode.TextChanged += new System.EventHandler(this.txtZipCode_TextChanged);
             // 
             // lblZipCode
             // 
@@ -371,7 +383,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(215, 20);
             this.txtEmail.TabIndex = 48;
-            this.txtEmail.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // lblEmail
             // 
@@ -382,7 +394,6 @@
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 47;
             this.lblEmail.Text = "Email";
-            this.lblEmail.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtTelephone
             // 
@@ -391,6 +402,7 @@
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(215, 20);
             this.txtTelephone.TabIndex = 50;
+            this.txtTelephone.TextChanged += new System.EventHandler(this.txtTelephone_TextChanged);
             // 
             // lblTelephone
             // 
@@ -439,7 +451,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 574);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
+            this.ClientSize = new System.Drawing.Size(924, 574);
             this.Controls.Add(this.gboxRole);
             this.Controls.Add(this.txtTelephone);
             this.Controls.Add(this.lblTelephone);
@@ -465,7 +478,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.txtStreet);
             this.Controls.Add(this.txtUserID);
             this.Controls.Add(this.lblUserID);
@@ -480,7 +493,7 @@
             this.Name = "FrmManageUsers";
             this.Text = "Manage Users";
             this.Load += new System.EventHandler(this.FrmManageUsers_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.gboxRole.ResumeLayout(false);
             this.gboxRole.PerformLayout();
             this.ResumeLayout(false);
@@ -501,7 +514,7 @@
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.TextBox txtStreet;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
