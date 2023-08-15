@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Google.Api.Gax.ResourceNames;
+using StockifyjaLib;
+using Stripe;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +13,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace StockifyJa
 {
@@ -23,107 +30,232 @@ namespace StockifyJa
             StockifyEntities = new stockifydBEntities();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmManageUsers_Load(object sender, EventArgs e)
         {
-            // var role = StockifyEntities.Users.ToList();
+            PopulateUsersGridView();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-
-            string Username = txtUsername.Text;
-            string Password = txtUserPassword.Text;
-            string CompanyName = txtCompanyName.Text;
-            string Name = txtPersonName.Text;
-            string ContactType = txtContactType.Text;
-            string Street = txtStreet.Text;
-            string City = txtCity.Text;
-            string Parish = txtParish.Text;
-            string ZipCode = txtZipCode.Text;
-            string Telephone = txtTelephone.Text;
-            string Email = txtEmail.Text;
-
-
-            //var Role = rbuttonAdministrator.Checked;
-            //  string Role = gboxRole.Text;
-            var isValid = true;
-
-            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+            if (ValidateUserData())
             {
-                isValid = false;
-
-            }
-
-            if (string.IsNullOrEmpty(CompanyName) || string.IsNullOrEmpty(Name))
-            {
-                isValid = false;
-
-            }
-
-            if (string.IsNullOrEmpty(ContactType) || string.IsNullOrEmpty(Street))
-            {
-                isValid = false;
-
-            }
-
-            if (string.IsNullOrEmpty(City) || string.IsNullOrEmpty(Parish))
-            {
-                isValid = false;
-            }
-
-            if (string.IsNullOrEmpty(ZipCode) || string.IsNullOrEmpty(Telephone))
-            {
-                isValid = false;
-            }
-
-            if (string.IsNullOrEmpty(Email))
-            {
-                isValid = false;
-            }
-
-            if (isValid == false)
-            {
-                MessageBox.Show("Enter All Required Data", "Missing Info",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            {
-                string EmailPattern = @"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$";
-                bool IsEmailValid = false;
-
-                if (string.IsNullOrWhiteSpace(Email))
+                var newUser = new User
                 {
-                    //isValid = false;
-                    //MessageBox.Show("Enter valid Email!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //txtEmail.Focus();
+                    Username = txtUsername.Text.Trim(),
+                    Password = txtUserPassword.Text.Trim(),
+                    Role = rbuttonAdministrator.Checked ? "Administrator" : "Customer"
+                };
 
-                    try
-                    {
-                        IsEmailValid = Regex.IsMatch(txtEmail.Text, EmailPattern);
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        MessageBox.Show("Error in email pattern: " + ex.Message);
-                        return;
-                    }
-                }
-         
+                StockifyEntities.Users.Add(newUser);
+                StockifyEntities.SaveChanges();
+
+                var newContactDetails = new ContactDetail
+                {
+                    UserID = newUser.UserID,
+                    CompanyName = txtCompanyName.Text.Trim(),
+                    PersonName = txtPersonName.Text.Trim(),
+                    ContactType = txtContactType.Text.Trim(),
+                    Street = txtStreet.Text.Trim(),
+                    City = txtCity.Text.Trim(),
+                    Parish = txtParish.Text.Trim(),
+                    ZipCode = txtZipCode.Text.Trim(),
+                    Telephone = txtTelephone.Text.Trim(),
+                    Email = txtEmail.Text.Trim()
+                };
+
+                StockifyEntities.ContactDetails.Add(newContactDetails);
+                StockifyEntities.SaveChanges();
+
+                PopulateUsersGridView();
             }
         }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            if (dgvUsers.SelectedRows.Count > 0)
+            {
+                var userId = Convert.ToInt32(dgvUsers.SelectedRows[0].Cells["UserID"].Value);
+                var user = StockifyEntities.Users.FirstOrDefault(u => u.UserID == userId);
+                var contact = StockifyEntities.ContactDetails.FirstOrDefault(c => c.UserID == userId);
+
+                if (user != null)
+                {
+                    txtUserID.Text = user.UserID.ToString();
+                    txtUsername.Text = user.Username;
+                    txtUserPassword.Text = user.Password;
+                    rbuttonAdministrator.Checked = user.Role == "Administrator";
+                    rbuttonCustomer.Checked = user.Role == "Customer";
+                }
+
+                if (contact != null)
+                {
+                    txtContactID.Text = contact.ContactID.ToString();
+                    txtFkeyUserID.Text = contact.UserID.ToString();
+                    txtCompanyName.Text = contact.CompanyName;
+                    txtPersonName.Text = contact.PersonName;
+                    txtContactType.Text = contact.ContactType;
+                    txtStreet.Text = contact.Street;
+                    txtCity.Text = contact.City;
+                    txtParish.Text = contact.Parish;
+                    txtZipCode.Text = contact.ZipCode;
+                    txtTelephone.Text = contact.Telephone;
+                    txtEmail.Text = contact.Email;
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvUsers.SelectedRows.Count > 0 && ValidateUserData())
+            {
+                var userId = Convert.ToInt32(dgvUsers.SelectedRows[0].Cells["UserID"].Value);
+                var user = StockifyEntities.Users.FirstOrDefault(u => u.UserID == userId);
+                var contact = StockifyEntities.ContactDetails.FirstOrDefault(c => c.UserID == userId);
+
+                if (user != null)
+                {
+                    user.Username = txtUsername.Text.Trim();
+                    user.Password = txtUserPassword.Text.Trim();
+                    user.Role = rbuttonAdministrator.Checked ? "Administrator" : "Customer";
+                }
+
+                if (contact != null)
+                {
+                    contact.CompanyName = txtCompanyName.Text.Trim();
+                    contact.PersonName = txtPersonName.Text.Trim();
+                    contact.ContactType = txtContactType.Text.Trim();
+                    contact.Street = txtStreet.Text.Trim();
+                    contact.City = txtCity.Text.Trim();
+                    contact.Parish = txtParish.Text.Trim();
+                    contact.ZipCode = txtZipCode.Text.Trim();
+                    contact.Telephone = txtTelephone.Text.Trim();
+                    contact.Email = txtEmail.Text.Trim();
+                }
+
+                StockifyEntities.SaveChanges();
+                PopulateUsersGridView();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvUsers.SelectedRows.Count > 0)
+            {
+                var result = MessageBox.Show("Are you sure you want to delete this user?", "Confirmation", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    var userId = Convert.ToInt32(dgvUsers.SelectedRows[0].Cells["UserID"].Value);
+                    var user = StockifyEntities.Users.FirstOrDefault(u => u.UserID == userId);
+                    var contact = StockifyEntities.ContactDetails.FirstOrDefault(c => c.UserID == userId);
+
+                    if (contact != null)
+                    {
+                        StockifyEntities.ContactDetails.Remove(contact);
+                    }
+
+                    if (user != null)
+                    {
+                        StockifyEntities.Users.Remove(user);
+                    }
+
+                    StockifyEntities.SaveChanges();
+                    PopulateUsersGridView();
+                }
+            }
+        }
+
+        private bool ValidateUserData()
+        {
+            // Add validations for contact details here...
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtUserPassword.Text))
+            {
+                MessageBox.Show("Username and password are required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        private void PopulateUsersGridView()
+        {
+            dgvUsers.DataSource = (from u in StockifyEntities.Users
+                                   join cd in StockifyEntities.ContactDetails on u.UserID equals cd.UserID into details
+                                   from d in details.DefaultIfEmpty()
+                                   select new
+                                   {
+                                       u.UserID,
+                                       u.Username,
+                                       u.Password,
+                                       u.Role,
+                                       CompanyName = d != null ? d.CompanyName : string.Empty,
+                                       PersonName = d != null ? d.PersonName : string.Empty,
+                                       ContactType = d != null ? d.ContactType : string.Empty,
+                                       Street = d != null ? d.Street : string.Empty,
+                                       City = d != null ? d.City : string.Empty,
+                                       Parish = d != null ? d.Parish : string.Empty,
+                                       ZipCode = d != null ? d.ZipCode : string.Empty,
+                                       Telephone = d != null ? d.Telephone : string.Empty,
+                                       Email = d != null ? d.Email : string.Empty
+                                   }).ToList();
+        }
+        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtContactID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFkeyUserID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCompanyName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPersonName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContactType_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStreet_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCity_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtParish_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtZipCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelephone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-}   
+}
