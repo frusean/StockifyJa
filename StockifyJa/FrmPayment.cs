@@ -61,6 +61,7 @@ namespace StockifyJa
             btnPayOnDropOff.Enabled = false;
         }
 
+
         //private async void btnPay_Click(object sender, EventArgs e)
         //{
         //    string cardNumber = txtCardNumber.Text;
@@ -130,12 +131,24 @@ namespace StockifyJa
         //                {
         //                    stock.QuantityInStock -= item.Quantity;
         //                }
+
+        //                // Remove the corresponding entry from the Cart table
+        //                var cartItem = _db.Carts.FirstOrDefault(c => c.CartID == item.CartItemID);
+        //                if (cartItem != null)
+        //                {
+        //                    _db.Carts.Remove(cartItem);
+        //                }
         //            }
 
+        //            // Save changes to database
         //            await _db.SaveChangesAsync();
+
+        //            // Clear the AppState.CartItems
+        //            AppState.CartItems.Clear();
 
         //            MessageBox.Show("Payment processed successfully");
         //        }
+
         //        else
         //        {
         //            MessageBox.Show("Payment failed. Please check your card details and try again.");
@@ -208,8 +221,29 @@ namespace StockifyJa
 
                 if (charge.Paid)
                 {
+                    // 1. Add entry to Orders table
+                    Order newOrder = new Order
+                    {
+                        RetailerID = AppState.CurrentUserID,
+                        OrderDate = DateTime.Now,
+                        Total = _total
+                    };
+                    _db.Orders.Add(newOrder);
+                    await _db.SaveChangesAsync();
+
                     foreach (var item in _cartItems)
                     {
+                        // 2. Add entry for each item in the OrderDetails table
+                        OrderDetail orderDetail = new OrderDetail
+                        {
+                            OrderID = newOrder.OrderID,
+                            ProductID = item.ProductID,
+                            QuantityOrdered = item.Quantity,
+                            Price = item.Price
+                        };
+                        _db.OrderDetails.Add(orderDetail);
+
+                        // Adjust stock quantities
                         var stock = _db.Stocks.FirstOrDefault(s => s.ProductID == item.ProductID);
                         if (stock != null)
                         {
@@ -230,7 +264,7 @@ namespace StockifyJa
                     // Clear the AppState.CartItems
                     AppState.CartItems.Clear();
 
-                    MessageBox.Show("Payment processed successfully");
+                    MessageBox.Show("Payment and Order processed successfully");
                 }
                 else
                 {
@@ -242,6 +276,7 @@ namespace StockifyJa
                 MessageBox.Show(ex.Message);
             }
         }
+
 
 
         private void txtTotalPay_TextChanged(object sender, EventArgs e)

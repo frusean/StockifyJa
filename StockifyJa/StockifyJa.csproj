@@ -303,6 +303,12 @@
     <Compile Include="FrmProductDetails.Designer.cs">
       <DependentUpon>FrmProductDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmShippingDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShippingDetails.Designer.cs">
+      <DependentUpon>FrmShippingDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -404,6 +410,15 @@
     <EmbeddedResource Include="FrmManageProducts.resx">
       <DependentUpon>FrmManageProducts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderSummary.resx">
+      <DependentUpon>FrmOrderSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPayment.resx">
+      <DependentUpon>FrmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPlaceOrder.resx">
+      <DependentUpon>FrmPlaceOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReports.resx">
       <DependentUpon>FrmReports.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductDetails.resx">
       <DependentUpon>FrmProductDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShippingDetails.resx">
+      <DependentUpon>FrmShippingDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSplashScreen.resx">
       <DependentUpon>FrmSplashScreen.cs</DependentUpon>

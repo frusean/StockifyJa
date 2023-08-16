@@ -109,7 +109,6 @@
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblGCT);
             this.Controls.Add(this.lbxOrderSummary);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmOrderSummary";
             this.Text = "OrderSummary";
             this.Load += new System.EventHandler(this.FrmOrderSummary_Load);
