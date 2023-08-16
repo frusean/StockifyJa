@@ -58,7 +58,7 @@ namespace StockifyJa
             btnPay.Enabled = false;
 
             // disable the PayOnDropOff button initially
-            btnPayOnDropOff.Enabled = false;
+            btnPayOnDelivery.Enabled = false;
         }
 
 
@@ -303,16 +303,16 @@ namespace StockifyJa
             // If PayNow is selected, disable the PayOnDropOff button
             if (isChecked)
             {
-                btnPayOnDropOff.Enabled = false;
+                btnPayOnDelivery.Enabled = false;
             }
         }
 
         private void rdbPayOnDropOff_CheckedChanged(object sender, EventArgs e)
         {
-            bool isChecked = rdbPayOnDropOff.Checked;
+            bool isChecked = rdbCashOnDelivery.Checked;
 
             // Enable/Disable the PayOnDropOff button
-            btnPayOnDropOff.Enabled = isChecked;
+            btnPayOnDelivery.Enabled = isChecked;
 
             // If PayOnDropOff is selected, disable the card info components
             if (isChecked)
@@ -325,7 +325,194 @@ namespace StockifyJa
             }
         }
 
+        //private void btnPayOnDropOff_Click(object sender, EventArgs e)
+        //{
+        //    // Step 1: Ask for the payment method
+        //    string[] paymentMethods = { "Debit Card", "Credit Card", "Cash", "Cheque" };
+        //    string chosenMethod = "";
+
+        //    using (Form methodForm = new Form())
+        //    {
+        //        methodForm.StartPosition = FormStartPosition.CenterParent;
+        //        methodForm.Size = new Size(300, 150);
+        //        methodForm.Text = "Choose Payment Method";
+
+        //        ComboBox cmbMethods = new ComboBox
+        //        {
+        //            DataSource = paymentMethods,
+        //            Location = new Point(50, 30),
+        //            DropDownStyle = ComboBoxStyle.DropDownList
+        //        };
+        //        methodForm.Controls.Add(cmbMethods);
+
+        //        Button btnConfirmMethod = new Button
+        //        {
+        //            Text = "Confirm",
+        //            Location = new Point(110, 70)
+        //        };
+        //        btnConfirmMethod.Click += (s, ea) =>
+        //        {
+        //            chosenMethod = cmbMethods.SelectedItem.ToString();
+        //            methodForm.Close();
+        //        };
+        //        methodForm.Controls.Add(btnConfirmMethod);
+
+        //        methodForm.ShowDialog();
+        //    }
+
+        //    if (string.IsNullOrEmpty(chosenMethod)) return;
+
+        //    // Step 2: Confirm the chosen method
+        //    DialogResult confirmation = MessageBox.Show($"Are you sure you would like to pay with {chosenMethod}?", "Confirm Payment Method", MessageBoxButtons.YesNo);
+
+        //    if (confirmation == DialogResult.No) return;
+
+        //    // Step 3: Save the payment details
+        //    PaymentDetail paymentDetail = new PaymentDetail
+        //    {
+        //        PaymentMethod = chosenMethod,
+        //        TransactionDate = DateTime.Now,
+        //        Amount = _total
+        //    };
+
+        //    _db.PaymentDetails.Add(paymentDetail);
+        //    _db.SaveChanges();
+
+        //    // Step 4: Add the order to Orders and OrderDetails tables
+        //    Order newOrder = new Order
+        //    {
+        //        RetailerID = AppState.CurrentUserID,
+        //        OrderDate = DateTime.Now,
+        //        Total = _total
+        //    };
+
+        //    _db.Orders.Add(newOrder);
+        //    _db.SaveChanges();
+
+        //    foreach (var item in _cartItems)
+        //    {
+        //        OrderDetail orderDetail = new OrderDetail
+        //        {
+        //            OrderID = newOrder.OrderID,
+        //            ProductID = item.ProductID,
+        //            QuantityOrdered = item.Quantity,
+        //            Price = item.Price
+        //        };
+
+        //        _db.OrderDetails.Add(orderDetail);
+
+        //        // Remove the corresponding entry from the Cart table
+        //        var cartItem = _db.Carts.FirstOrDefault(c => c.CartID == item.CartItemID);
+        //        if (cartItem != null)
+        //        {
+        //            _db.Carts.Remove(cartItem);
+        //        }
+        //    }
+
+        //    _db.SaveChanges();
+
+        //    // Clear the AppState.CartItems
+        //    AppState.CartItems.Clear();
+
+        //    MessageBox.Show("Order placed successfully with Pay On Delivery method.");
+        //}
         private void btnPayOnDropOff_Click(object sender, EventArgs e)
+{
+    // Step 1: Ask for the payment method
+    string[] paymentMethods = { "Debit Card", "Credit Card", "Cash", "Cheque" };
+    string chosenMethod = "";
+
+    using (Form methodForm = new Form())
+    {
+        methodForm.StartPosition = FormStartPosition.CenterParent;
+        methodForm.Size = new Size(300, 150);
+        methodForm.Text = "Choose Payment Method";
+
+        ComboBox cmbMethods = new ComboBox
+        {
+            DataSource = paymentMethods,
+            Location = new Point(50, 30),
+            DropDownStyle = ComboBoxStyle.DropDownList
+        };
+        methodForm.Controls.Add(cmbMethods);
+
+        Button btnConfirmMethod = new Button
+        {
+            Text = "Confirm",
+            Location = new Point(110, 70)
+        };
+        btnConfirmMethod.Click += (s, ea) =>
+        {
+            chosenMethod = cmbMethods.SelectedItem.ToString();
+            methodForm.Close();
+        };
+        methodForm.Controls.Add(btnConfirmMethod);
+
+        methodForm.ShowDialog();
+    }
+
+    if (string.IsNullOrEmpty(chosenMethod)) return;
+
+    // Step 2: Confirm the chosen method
+    DialogResult confirmation = MessageBox.Show($"Are you sure you would like to pay with {chosenMethod}?", "Confirm Payment Method", MessageBoxButtons.YesNo);
+
+    if (confirmation == DialogResult.No) return;
+
+    // Step 3: Save the payment details
+    PaymentDetail paymentDetail = new PaymentDetail
+    {
+        PaymentMethod = chosenMethod,
+        TransactionDate = DateTime.Now,
+        Amount = _total,
+        StatusID = 1 // Assuming 1 is the default status. Adjust as needed.
+    };
+
+    _db.PaymentDetails.Add(paymentDetail);
+    _db.SaveChanges();
+
+    // Step 4: Add the order to Orders and OrderDetails tables
+    Order newOrder = new Order
+    {
+        RetailerID = AppState.CurrentUserID,
+        OrderDate = DateTime.Now,
+        Total = _total,
+        StatusID = 1 // Assuming 1 is the default status. Adjust as needed.
+    };
+
+    _db.Orders.Add(newOrder);
+    _db.SaveChanges();
+
+    foreach (var item in _cartItems)
+    {
+        OrderDetail orderDetail = new OrderDetail
+        {
+            OrderID = newOrder.OrderID,
+            ProductID = item.ProductID,
+            QuantityOrdered = item.Quantity,
+            Price = item.Price
+        };
+
+        _db.OrderDetails.Add(orderDetail);
+
+        // Remove the corresponding entry from the Cart table
+        var cartItem = _db.Carts.FirstOrDefault(c => c.CartID == item.CartItemID);
+        if (cartItem != null)
+        {
+            _db.Carts.Remove(cartItem);
+        }
+    }
+
+    _db.SaveChanges();
+
+    // Clear the AppState.CartItems
+    AppState.CartItems.Clear();
+
+    MessageBox.Show("Order placed successfully with Pay On Delivery method.");
+}
+
+
+
+        private void btnInStorePickUp_Click(object sender, EventArgs e)
         {
 
         }
