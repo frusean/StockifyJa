@@ -120,7 +120,6 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="picAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
         AAAk40lEQVR4Xu3dB7SsZX3v8U2Xar0mVI1oEGWpsWHBgok9JkaxRMUECyreaNQsNRq9xIjX3HVTjCVX
@@ -281,12 +280,11 @@
         x2DsHZIkLWx1JHp9nfCIqE8O/iz+IT4aZ8SP4rpovXl2WW1zbftXom5L3aZXRd3Gh0fd5j1DkiQNqD7y
         vmUcEofHY+Lp8aKoAcMb4l3x/qivHT4V9Vd1rUN/blwUNQHSZq1THetny3+n/k3927qMuqy6zLrsuo66
         rtdHXXdtQ32yUdtU21Zv7LWtPqaXOt3S0v8HbnWKezN8/5UAAAAASUVORK5CYII=
-
 </value>
   </data>
   <data name="picRemove.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-   iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
         AAAgPUlEQVR4Xu3dd7Sld13v8ZNOKvWiqSABIcCiQyihBKWLIoQiTQEJ7QoCLkAQjQiId1kuUrwgXBFQ
         AUGaKBA6IUpbQCC0kNAkhJAOpE2Sez/fgYwnM9/JnDmzzz77eZ7Xe63XP3v27PqUffZ+nt9vSdLCt2vs
@@ -426,7 +424,6 @@
         jtrJvynqtXlM1DEY+4ckSaOtjkSvnxPuG/XNwZ/E38f74oT4flwS3c5zkdVjrsf+hajnUs/pBVHP8T5R
         z3nfkCRJW6m+8r523DSOjAfG4+KZUR8YXh5vjLdF/ezwsai/qmse+pPjjKgBkC7XnepYly2/Tv2f+r91
         G3VbdZt123UfdV8vi7rvegz1zUY9pnpstWOvx+premmhW1r6/5k0NTsGJfiKAAAAAElFTkSuQmCC
-
 </value>
   </data>
 </root>
