@@ -437,7 +437,7 @@ namespace StockifyJa
             {
                 methodForm.StartPosition = FormStartPosition.CenterParent;
                 methodForm.Size = new Size(300, 150);
-                methodForm.Text = "Choose which mehtod you intend to pay with in store";
+                methodForm.Text = "Choose which method you intend to pay with in store";
 
                 ComboBox cmbMethods = new ComboBox
                 {
