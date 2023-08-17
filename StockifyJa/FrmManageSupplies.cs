@@ -26,9 +26,55 @@ namespace StockifyJa
             this.Close();
         }
 
+        public List<Stock> CheckLowStock()
+        {
+            using (var context = new stockifydBEntities())
+            {
+                // Get all stocks that have 10 or less quantity.
+                var lowStocks = context.Stocks.Where(s => s.QuantityInStock <= 10).ToList();
+
+                return lowStocks;
+            }
+        }
+
+        //private void FrmManageSupplies_Load(object sender, EventArgs e)
+        //{
+        //    RefreshDataGridView();
+        //    var lowStocks = CheckLowStock();
+
+        //    if (lowStocks.Count > 0)
+        //    {
+        //        // Show a message box.
+        //        MessageBox.Show("Warning: Some products have low stock!", "Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        //        // Show a notify icon.
+        //        NotifyIcon notifyIcon = new NotifyIcon();
+        //        notifyIcon.Visible = true;
+        //        notifyIcon.Icon = SystemIcons.Warning;
+        //        notifyIcon.BalloonTipTitle = "Stock Warning";
+        //        notifyIcon.BalloonTipText = "Some products have low stock!";
+        //        notifyIcon.ShowBalloonTip(3000);
+        //    }
+        //}
         private void FrmManageSupplies_Load(object sender, EventArgs e)
         {
             RefreshDataGridView();
+            var lowStocks = CheckLowStock();
+
+            if (lowStocks.Count > 0)
+            {
+                StringBuilder lowStockMessage = new StringBuilder("Warning: The following products have low stock:\n\n");
+
+                foreach (var stock in lowStocks)
+                {
+                    lowStockMessage.AppendLine($"Product ID: {stock.ProductID}, Quantity: {stock.QuantityInStock}");
+                }
+
+                // Show the modified message box.
+                MessageBox.Show(lowStockMessage.ToString(), "Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // The notify icon is removed as per your request.
+            }
         }
 
         private void picAdd_Click(object sender, EventArgs e)
