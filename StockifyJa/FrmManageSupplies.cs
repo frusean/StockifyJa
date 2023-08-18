@@ -67,16 +67,18 @@ namespace StockifyJa
 
                 foreach (var stock in lowStocks)
                 {
-                    lowStockMessage.AppendLine($"Product ID: {stock.ProductID}, Quantity: {stock.QuantityInStock}");
+                    string productName = stock.ProductID.HasValue ? GetProductNameById(stock.ProductID.Value) : "Unknown Product";
+
+                    lowStockMessage.AppendLine($"Product Name: {productName} Quantity: {stock.QuantityInStock}");
                 }
 
-                // Show the modified message box.
                 MessageBox.Show(lowStockMessage.ToString(), "Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                // The notify icon is removed as per your request.
             }
         }
-
+        private string GetProductNameById(int productId)
+        {
+            return StockifydBEntities.Products.Where(p => p.ProductID == productId).Select(p => p.ProductName).FirstOrDefault();
+        }
         private void picAdd_Click(object sender, EventArgs e)
         {
             try
