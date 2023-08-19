@@ -65,6 +65,10 @@
             this.picRefresh = new System.Windows.Forms.PictureBox();
             this.picSave = new System.Windows.Forms.PictureBox();
             this.picImage = new System.Windows.Forms.PictureBox();
+            this.lblModifiedDate = new System.Windows.Forms.Label();
+            this.dtpModifiedDate = new System.Windows.Forms.DateTimePicker();
+            this.txtModifiedBy = new System.Windows.Forms.TextBox();
+            this.lblModifiedBy = new System.Windows.Forms.Label();
             this.gboxProductID.SuspendLayout();
             this.gboxRateID.SuspendLayout();
             this.gboxImageID.SuspendLayout();
@@ -88,30 +92,30 @@
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
-            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductName.Location = new System.Drawing.Point(169, 187);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(108, 18);
+            this.lblProductName.Size = new System.Drawing.Size(109, 16);
             this.lblProductName.TabIndex = 4;
             this.lblProductName.Text = "Product  Name";
             // 
             // gboxProductID
             // 
             this.gboxProductID.Controls.Add(this.txtProductID);
-            this.gboxProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxProductID.Location = new System.Drawing.Point(457, 109);
+            this.gboxProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxProductID.Location = new System.Drawing.Point(439, 109);
             this.gboxProductID.Name = "gboxProductID";
-            this.gboxProductID.Size = new System.Drawing.Size(86, 50);
+            this.gboxProductID.Size = new System.Drawing.Size(104, 50);
             this.gboxProductID.TabIndex = 3;
             this.gboxProductID.TabStop = false;
             this.gboxProductID.Text = "Product ID";
             // 
             // txtProductID
             // 
-            this.txtProductID.Location = new System.Drawing.Point(9, 22);
+            this.txtProductID.Location = new System.Drawing.Point(19, 22);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.ReadOnly = true;
-            this.txtProductID.Size = new System.Drawing.Size(59, 24);
+            this.txtProductID.Size = new System.Drawing.Size(59, 22);
             this.txtProductID.TabIndex = 0;
             this.txtProductID.TabStop = false;
             // 
@@ -125,10 +129,10 @@
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.Location = new System.Drawing.Point(169, 240);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(68, 18);
+            this.lblCategory.Size = new System.Drawing.Size(70, 16);
             this.lblCategory.TabIndex = 6;
             this.lblCategory.Text = "Category";
             // 
@@ -143,10 +147,10 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.Location = new System.Drawing.Point(169, 305);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(83, 18);
+            this.lblDescription.Size = new System.Drawing.Size(86, 16);
             this.lblDescription.TabIndex = 8;
             this.lblDescription.Text = "Description";
             // 
@@ -160,17 +164,17 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.Location = new System.Drawing.Point(169, 364);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(42, 18);
+            this.lblPrice.Size = new System.Drawing.Size(43, 16);
             this.lblPrice.TabIndex = 10;
             this.lblPrice.Text = "Price";
             // 
             // gboxRateID
             // 
             this.gboxRateID.Controls.Add(this.cboRates);
-            this.gboxRateID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxRateID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxRateID.Location = new System.Drawing.Point(172, 425);
             this.gboxRateID.Name = "gboxRateID";
             this.gboxRateID.Size = new System.Drawing.Size(479, 62);
@@ -183,33 +187,33 @@
             this.cboRates.FormattingEnabled = true;
             this.cboRates.Location = new System.Drawing.Point(194, 21);
             this.cboRates.Name = "cboRates";
-            this.cboRates.Size = new System.Drawing.Size(279, 26);
+            this.cboRates.Size = new System.Drawing.Size(279, 24);
             this.cboRates.TabIndex = 1;
             this.cboRates.TabStop = false;
             // 
             // gboxImageID
             // 
             this.gboxImageID.Controls.Add(this.txtImageID);
-            this.gboxImageID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxImageID.Location = new System.Drawing.Point(972, 109);
+            this.gboxImageID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxImageID.Location = new System.Drawing.Point(955, 109);
             this.gboxImageID.Name = "gboxImageID";
-            this.gboxImageID.Size = new System.Drawing.Size(87, 50);
+            this.gboxImageID.Size = new System.Drawing.Size(104, 50);
             this.gboxImageID.TabIndex = 4;
             this.gboxImageID.TabStop = false;
             this.gboxImageID.Text = "Image ID";
             // 
             // txtImageID
             // 
-            this.txtImageID.Location = new System.Drawing.Point(9, 22);
+            this.txtImageID.Location = new System.Drawing.Point(17, 22);
             this.txtImageID.Name = "txtImageID";
             this.txtImageID.ReadOnly = true;
-            this.txtImageID.Size = new System.Drawing.Size(59, 24);
+            this.txtImageID.Size = new System.Drawing.Size(59, 22);
             this.txtImageID.TabIndex = 0;
             this.txtImageID.TabStop = false;
             // 
             // txtImageURL
             // 
-            this.txtImageURL.Location = new System.Drawing.Point(890, 200);
+            this.txtImageURL.Location = new System.Drawing.Point(894, 186);
             this.txtImageURL.Multiline = true;
             this.txtImageURL.Name = "txtImageURL";
             this.txtImageURL.Size = new System.Drawing.Size(285, 63);
@@ -218,10 +222,10 @@
             // lblImageURL
             // 
             this.lblImageURL.AutoSize = true;
-            this.lblImageURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImageURL.Location = new System.Drawing.Point(776, 224);
+            this.lblImageURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImageURL.Location = new System.Drawing.Point(780, 210);
             this.lblImageURL.Name = "lblImageURL";
-            this.lblImageURL.Size = new System.Drawing.Size(82, 18);
+            this.lblImageURL.Size = new System.Drawing.Size(84, 16);
             this.lblImageURL.TabIndex = 12;
             this.lblImageURL.Text = "Image URL";
             // 
@@ -416,12 +420,47 @@
             // 
             // picImage
             // 
-            this.picImage.Location = new System.Drawing.Point(972, 335);
+            this.picImage.Location = new System.Drawing.Point(972, 398);
             this.picImage.Name = "picImage";
             this.picImage.Size = new System.Drawing.Size(152, 166);
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picImage.TabIndex = 22;
             this.picImage.TabStop = false;
+            // 
+            // lblModifiedDate
+            // 
+            this.lblModifiedDate.AutoSize = true;
+            this.lblModifiedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModifiedDate.Location = new System.Drawing.Point(776, 354);
+            this.lblModifiedDate.Name = "lblModifiedDate";
+            this.lblModifiedDate.Size = new System.Drawing.Size(112, 18);
+            this.lblModifiedDate.TabIndex = 74;
+            this.lblModifiedDate.Text = "Modified Date";
+            // 
+            // dtpModifiedDate
+            // 
+            this.dtpModifiedDate.Location = new System.Drawing.Point(894, 350);
+            this.dtpModifiedDate.Name = "dtpModifiedDate";
+            this.dtpModifiedDate.Size = new System.Drawing.Size(245, 22);
+            this.dtpModifiedDate.TabIndex = 73;
+            // 
+            // txtModifiedBy
+            // 
+            this.txtModifiedBy.Location = new System.Drawing.Point(894, 283);
+            this.txtModifiedBy.Name = "txtModifiedBy";
+            this.txtModifiedBy.ReadOnly = true;
+            this.txtModifiedBy.Size = new System.Drawing.Size(128, 22);
+            this.txtModifiedBy.TabIndex = 72;
+            // 
+            // lblModifiedBy
+            // 
+            this.lblModifiedBy.AutoSize = true;
+            this.lblModifiedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModifiedBy.Location = new System.Drawing.Point(776, 283);
+            this.lblModifiedBy.Name = "lblModifiedBy";
+            this.lblModifiedBy.Size = new System.Drawing.Size(96, 18);
+            this.lblModifiedBy.TabIndex = 71;
+            this.lblModifiedBy.Text = "Modified By";
             // 
             // FrmManageProducts
             // 
@@ -429,6 +468,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1241, 778);
+            this.Controls.Add(this.lblModifiedDate);
+            this.Controls.Add(this.dtpModifiedDate);
+            this.Controls.Add(this.txtModifiedBy);
+            this.Controls.Add(this.lblModifiedBy);
             this.Controls.Add(this.picImage);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picRefresh);
@@ -509,5 +552,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ImageURL;
         private System.Windows.Forms.DataGridViewTextBoxColumn RateID;
         private System.Windows.Forms.PictureBox picImage;
+        private System.Windows.Forms.Label lblModifiedDate;
+        private System.Windows.Forms.DateTimePicker dtpModifiedDate;
+        private System.Windows.Forms.TextBox txtModifiedBy;
+        private System.Windows.Forms.Label lblModifiedBy;
     }
 }

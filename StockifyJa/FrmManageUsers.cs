@@ -14,10 +14,6 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-using System;
-using System.Linq;
-using System.Windows.Forms;
-
 namespace StockifyJa
 {
     public partial class FrmManageUsers : Form
@@ -198,62 +194,27 @@ namespace StockifyJa
                                        Email = d != null ? d.Email : string.Empty
                                    }).ToList();
         }
-        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void picAddUser_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtContactID_TextChanged(object sender, EventArgs e)
+        private void picUpdateUser_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtFkeyUserID_TextChanged(object sender, EventArgs e)
+        private void picDeleteUser_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtCompanyName_TextChanged(object sender, EventArgs e)
+        private void picViewUser_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtPersonName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtContactType_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtStreet_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCity_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtParish_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtZipCode_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTelephone_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
+        private void picRefresh_Click(object sender, EventArgs e)
         {
 
         }

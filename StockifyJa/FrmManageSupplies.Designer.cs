@@ -58,6 +58,10 @@
             this.picDelete = new System.Windows.Forms.PictureBox();
             this.picUpdate = new System.Windows.Forms.PictureBox();
             this.picAdd = new System.Windows.Forms.PictureBox();
+            this.lblModifiedDate = new System.Windows.Forms.Label();
+            this.dtpModifiedDate = new System.Windows.Forms.DateTimePicker();
+            this.txtModifiedBy = new System.Windows.Forms.TextBox();
+            this.lblModifiedBy = new System.Windows.Forms.Label();
             this.gboxSupplyID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantityPurchased)).BeginInit();
             this.gboxStockID.SuspendLayout();
@@ -73,16 +77,17 @@
             // gboxSupplyID
             // 
             this.gboxSupplyID.Controls.Add(this.txtSupplyID);
+            this.gboxSupplyID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxSupplyID.Location = new System.Drawing.Point(378, 100);
             this.gboxSupplyID.Name = "gboxSupplyID";
-            this.gboxSupplyID.Size = new System.Drawing.Size(100, 50);
+            this.gboxSupplyID.Size = new System.Drawing.Size(124, 50);
             this.gboxSupplyID.TabIndex = 0;
             this.gboxSupplyID.TabStop = false;
             this.gboxSupplyID.Text = "Supply ID";
             // 
             // txtSupplyID
             // 
-            this.txtSupplyID.Location = new System.Drawing.Point(9, 22);
+            this.txtSupplyID.Location = new System.Drawing.Point(26, 22);
             this.txtSupplyID.Name = "txtSupplyID";
             this.txtSupplyID.ReadOnly = true;
             this.txtSupplyID.Size = new System.Drawing.Size(59, 22);
@@ -92,9 +97,10 @@
             // lblProductID
             // 
             this.lblProductID.AutoSize = true;
+            this.lblProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductID.Location = new System.Drawing.Point(169, 189);
             this.lblProductID.Name = "lblProductID";
-            this.lblProductID.Size = new System.Drawing.Size(69, 16);
+            this.lblProductID.Size = new System.Drawing.Size(79, 16);
             this.lblProductID.TabIndex = 1;
             this.lblProductID.Text = "Product ID";
             // 
@@ -108,9 +114,10 @@
             // lblQuantityPurchased
             // 
             this.lblQuantityPurchased.AutoSize = true;
+            this.lblQuantityPurchased.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantityPurchased.Location = new System.Drawing.Point(169, 258);
             this.lblQuantityPurchased.Name = "lblQuantityPurchased";
-            this.lblQuantityPurchased.Size = new System.Drawing.Size(123, 16);
+            this.lblQuantityPurchased.Size = new System.Drawing.Size(141, 16);
             this.lblQuantityPurchased.TabIndex = 3;
             this.lblQuantityPurchased.Text = "Quantity Purchased";
             // 
@@ -131,18 +138,20 @@
             // lblCost
             // 
             this.lblCost.AutoSize = true;
+            this.lblCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCost.Location = new System.Drawing.Point(169, 333);
             this.lblCost.Name = "lblCost";
-            this.lblCost.Size = new System.Drawing.Size(34, 16);
+            this.lblCost.Size = new System.Drawing.Size(38, 16);
             this.lblCost.TabIndex = 5;
             this.lblCost.Text = "Cost";
             // 
             // lblSupplyDate
             // 
             this.lblSupplyDate.AutoSize = true;
+            this.lblSupplyDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupplyDate.Location = new System.Drawing.Point(169, 399);
             this.lblSupplyDate.Name = "lblSupplyDate";
-            this.lblSupplyDate.Size = new System.Drawing.Size(81, 16);
+            this.lblSupplyDate.Size = new System.Drawing.Size(92, 16);
             this.lblSupplyDate.TabIndex = 7;
             this.lblSupplyDate.Text = "Supply Date";
             // 
@@ -163,25 +172,27 @@
             // lblQuantityInStock
             // 
             this.lblQuantityInStock.AutoSize = true;
+            this.lblQuantityInStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantityInStock.Location = new System.Drawing.Point(642, 202);
             this.lblQuantityInStock.Name = "lblQuantityInStock";
-            this.lblQuantityInStock.Size = new System.Drawing.Size(105, 16);
+            this.lblQuantityInStock.Size = new System.Drawing.Size(122, 16);
             this.lblQuantityInStock.TabIndex = 12;
             this.lblQuantityInStock.Text = "Quantity In Stock";
             // 
             // gboxStockID
             // 
             this.gboxStockID.Controls.Add(this.txtStockID);
+            this.gboxStockID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxStockID.Location = new System.Drawing.Point(818, 100);
             this.gboxStockID.Name = "gboxStockID";
-            this.gboxStockID.Size = new System.Drawing.Size(100, 50);
+            this.gboxStockID.Size = new System.Drawing.Size(125, 50);
             this.gboxStockID.TabIndex = 11;
             this.gboxStockID.TabStop = false;
             this.gboxStockID.Text = "Stock ID";
             // 
             // txtStockID
             // 
-            this.txtStockID.Location = new System.Drawing.Point(9, 22);
+            this.txtStockID.Location = new System.Drawing.Point(33, 22);
             this.txtStockID.Name = "txtStockID";
             this.txtStockID.ReadOnly = true;
             this.txtStockID.Size = new System.Drawing.Size(59, 22);
@@ -199,7 +210,7 @@
             this.SupplyDate,
             this.StockID,
             this.QuantityInStock});
-            this.dgvSupplies.Location = new System.Drawing.Point(2, 507);
+            this.dgvSupplies.Location = new System.Drawing.Point(2, 522);
             this.dgvSupplies.Name = "dgvSupplies";
             this.dgvSupplies.ReadOnly = true;
             this.dgvSupplies.RowHeadersWidth = 51;
@@ -212,6 +223,7 @@
             this.SupplyID.HeaderText = "Supply ID";
             this.SupplyID.MinimumWidth = 6;
             this.SupplyID.Name = "SupplyID";
+            this.SupplyID.ReadOnly = true;
             this.SupplyID.Width = 125;
             // 
             // ProductID
@@ -219,6 +231,7 @@
             this.ProductID.HeaderText = "Product ID";
             this.ProductID.MinimumWidth = 6;
             this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
             this.ProductID.Width = 125;
             // 
             // QuantityPurchased
@@ -226,6 +239,7 @@
             this.QuantityPurchased.HeaderText = "Quantity Purchased";
             this.QuantityPurchased.MinimumWidth = 6;
             this.QuantityPurchased.Name = "QuantityPurchased";
+            this.QuantityPurchased.ReadOnly = true;
             this.QuantityPurchased.Width = 125;
             // 
             // Cost
@@ -233,6 +247,7 @@
             this.Cost.HeaderText = "Cost";
             this.Cost.MinimumWidth = 6;
             this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
             this.Cost.Width = 125;
             // 
             // SupplyDate
@@ -240,6 +255,7 @@
             this.SupplyDate.HeaderText = "Supply Date";
             this.SupplyDate.MinimumWidth = 6;
             this.SupplyDate.Name = "SupplyDate";
+            this.SupplyDate.ReadOnly = true;
             this.SupplyDate.Width = 125;
             // 
             // StockID
@@ -247,6 +263,7 @@
             this.StockID.HeaderText = "StockID";
             this.StockID.MinimumWidth = 6;
             this.StockID.Name = "StockID";
+            this.StockID.ReadOnly = true;
             this.StockID.Width = 125;
             // 
             // QuantityInStock
@@ -254,6 +271,7 @@
             this.QuantityInStock.HeaderText = "Quantity In Stock";
             this.QuantityInStock.MinimumWidth = 6;
             this.QuantityInStock.Name = "QuantityInStock";
+            this.QuantityInStock.ReadOnly = true;
             this.QuantityInStock.Width = 125;
             // 
             // picExit
@@ -337,12 +355,51 @@
             this.picAdd.TabStop = false;
             this.picAdd.Click += new System.EventHandler(this.picAdd_Click);
             // 
+            // lblModifiedDate
+            // 
+            this.lblModifiedDate.AutoSize = true;
+            this.lblModifiedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModifiedDate.Location = new System.Drawing.Point(640, 309);
+            this.lblModifiedDate.Name = "lblModifiedDate";
+            this.lblModifiedDate.Size = new System.Drawing.Size(108, 17);
+            this.lblModifiedDate.TabIndex = 74;
+            this.lblModifiedDate.Text = "Modified Date";
+            // 
+            // dtpModifiedDate
+            // 
+            this.dtpModifiedDate.Location = new System.Drawing.Point(838, 304);
+            this.dtpModifiedDate.Name = "dtpModifiedDate";
+            this.dtpModifiedDate.Size = new System.Drawing.Size(245, 22);
+            this.dtpModifiedDate.TabIndex = 73;
+            // 
+            // txtModifiedBy
+            // 
+            this.txtModifiedBy.Location = new System.Drawing.Point(838, 251);
+            this.txtModifiedBy.Name = "txtModifiedBy";
+            this.txtModifiedBy.ReadOnly = true;
+            this.txtModifiedBy.Size = new System.Drawing.Size(128, 22);
+            this.txtModifiedBy.TabIndex = 72;
+            // 
+            // lblModifiedBy
+            // 
+            this.lblModifiedBy.AutoSize = true;
+            this.lblModifiedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModifiedBy.Location = new System.Drawing.Point(640, 252);
+            this.lblModifiedBy.Name = "lblModifiedBy";
+            this.lblModifiedBy.Size = new System.Drawing.Size(92, 17);
+            this.lblModifiedBy.TabIndex = 71;
+            this.lblModifiedBy.Text = "Modified By";
+            // 
             // FrmManageSupplies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1100, 757);
+            this.Controls.Add(this.lblModifiedDate);
+            this.Controls.Add(this.dtpModifiedDate);
+            this.Controls.Add(this.txtModifiedBy);
+            this.Controls.Add(this.lblModifiedBy);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picRefresh);
             this.Controls.Add(this.picDelete);
@@ -415,5 +472,9 @@
         private System.Windows.Forms.PictureBox picDelete;
         private System.Windows.Forms.PictureBox picUpdate;
         private System.Windows.Forms.PictureBox picAdd;
+        private System.Windows.Forms.Label lblModifiedDate;
+        private System.Windows.Forms.DateTimePicker dtpModifiedDate;
+        private System.Windows.Forms.TextBox txtModifiedBy;
+        private System.Windows.Forms.Label lblModifiedBy;
     }
 }
