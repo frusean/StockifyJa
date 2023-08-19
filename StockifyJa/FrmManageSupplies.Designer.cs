@@ -130,7 +130,7 @@
             // 
             // txtCost
             // 
-            this.txtCost.Location = new System.Drawing.Point(304, 333);
+            this.txtCost.Location = new System.Drawing.Point(366, 333);
             this.txtCost.Name = "txtCost";
             this.txtCost.Size = new System.Drawing.Size(247, 22);
             this.txtCost.TabIndex = 6;
@@ -157,7 +157,7 @@
             // 
             // dtpSupplyDate
             // 
-            this.dtpSupplyDate.Location = new System.Drawing.Point(304, 399);
+            this.dtpSupplyDate.Location = new System.Drawing.Point(366, 399);
             this.dtpSupplyDate.Name = "dtpSupplyDate";
             this.dtpSupplyDate.Size = new System.Drawing.Size(247, 22);
             this.dtpSupplyDate.TabIndex = 8;

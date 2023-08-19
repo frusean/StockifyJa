@@ -226,7 +226,7 @@
             this.lblManageProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblManageProducts.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManageProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
-            this.lblManageProducts.Location = new System.Drawing.Point(514, 35);
+            this.lblManageProducts.Location = new System.Drawing.Point(532, 21);
             this.lblManageProducts.Name = "lblManageProducts";
             this.lblManageProducts.Size = new System.Drawing.Size(205, 32);
             this.lblManageProducts.TabIndex = 51;
@@ -307,6 +307,7 @@
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblManageProducts);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManageOrders";
             this.Text = "Manage Orders";
             this.Load += new System.EventHandler(this.FrmManageOrders_Load);
