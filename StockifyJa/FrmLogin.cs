@@ -159,16 +159,18 @@ namespace StockifyJa
                     notifyLoginSuccess.ShowBalloonTip(5000, "Admininstrator Login Success", "You have successfully logged in as an Administrator!", ToolTipIcon.Info);
                     FrmAdminMDI adminForm = new FrmAdminMDI();
                     adminForm.Show();
+
+                    // Check if any product's stock is 10 or below
+                    var lowStockItems = _db.Stocks.Where(s => s.QuantityInStock <= 10).ToList();
+                    if (lowStockItems.Count > 0)
+                    {
+                        var notifyLowStock = new NotifyIcon();
+                        notifyLowStock.Icon = SystemIcons.Exclamation;
+                        notifyLowStock.Visible = true;
+                        notifyLowStock.ShowBalloonTip(5000, "Low Stock Warning", "Some products have low stock. Please check inventory!", ToolTipIcon.Warning);
+                    }
                 }
-                // Check if any product's stock is 10 or below
-                var lowStockItems = _db.Stocks.Where(s => s.QuantityInStock <= 10).ToList();
-                if (lowStockItems.Count > 0)
-                {
-                    var notifyLowStock = new NotifyIcon();
-                    notifyLowStock.Icon = SystemIcons.Exclamation;
-                    notifyLowStock.Visible = true;
-                    notifyLowStock.ShowBalloonTip(5000, "Low Stock Warning", "Some products have low stock. Please check inventory!", ToolTipIcon.Warning);
-                }
+               
 
                 else if (role == "customer")
                 {
