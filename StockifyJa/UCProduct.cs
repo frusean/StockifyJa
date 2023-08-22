@@ -19,13 +19,13 @@ namespace StockifyJa
         public string ProductName
         {
             get { return lblProductName.Text; }
-            set { lblProductName.Text = "Name: " + value; }
+            set { lblProductName.Text =  value; }
         }
 
         public decimal ProductPrice
         {
             get { return decimal.Parse(lblProductPrice.Text); }
-            set { lblProductPrice.Text = "Price: $" + value.ToString(); }
+            set { lblProductPrice.Text = " $" + value.ToString(); }
         }
 
         public Image ProductImage

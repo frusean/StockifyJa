@@ -80,9 +80,9 @@
             this.flpProductDetails.SetFlowBreak(this.lblCategory, true);
             this.lblCategory.Location = new System.Drawing.Point(3, 91);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(62, 16);
+            this.lblCategory.Size = new System.Drawing.Size(104, 16);
             this.lblCategory.TabIndex = 5;
-            this.lblCategory.Text = "Category";
+            this.lblCategory.Text = "Category              ";
             this.lblCategory.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblProductName
@@ -91,9 +91,9 @@
             this.flpProductDetails.SetFlowBreak(this.lblProductName, true);
             this.lblProductName.Location = new System.Drawing.Point(3, 107);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(93, 16);
+            this.lblProductName.Size = new System.Drawing.Size(192, 16);
             this.lblProductName.TabIndex = 1;
-            this.lblProductName.Text = "Product Name";
+            this.lblProductName.Text = "Product                                  Name";
             this.lblProductName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblProductPrice
@@ -102,9 +102,9 @@
             this.flpProductDetails.SetFlowBreak(this.lblProductPrice, true);
             this.lblProductPrice.Location = new System.Drawing.Point(3, 123);
             this.lblProductPrice.Name = "lblProductPrice";
-            this.lblProductPrice.Size = new System.Drawing.Size(87, 16);
+            this.lblProductPrice.Size = new System.Drawing.Size(120, 16);
             this.lblProductPrice.TabIndex = 2;
-            this.lblProductPrice.Text = "Product Price";
+            this.lblProductPrice.Text = "Product            Price";
             this.lblProductPrice.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblStock
@@ -123,9 +123,10 @@
             this.flpProductDetails.SetFlowBreak(this.lblDescription, true);
             this.lblDescription.Location = new System.Drawing.Point(3, 155);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(75, 16);
+            this.lblDescription.Size = new System.Drawing.Size(342, 16);
             this.lblDescription.TabIndex = 6;
-            this.lblDescription.Text = "Description";
+            this.lblDescription.Text = "Description                                                                      " +
+    "                   ";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // UCProductDetails
