@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminMDI));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.manageUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mangeOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,6 +37,7 @@
             this.chatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,69 +51,78 @@
             this.manageSuppliesToolStripMenuItem,
             this.chatToolStripMenuItem,
             this.settingsToolStripMenuItem,
-            this.reportsToolStripMenuItem});
+            this.reportsToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(921, 28);
             this.menuStrip2.TabIndex = 4;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // manageUsersToolStripMenuItem
             // 
             this.manageUsersToolStripMenuItem.Name = "manageUsersToolStripMenuItem";
-            this.manageUsersToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
+            this.manageUsersToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
             this.manageUsersToolStripMenuItem.Text = "Manage Users";
             this.manageUsersToolStripMenuItem.Click += new System.EventHandler(this.manageUsersToolStripMenuItem_Click);
             // 
             // mangeOrdersToolStripMenuItem
             // 
             this.mangeOrdersToolStripMenuItem.Name = "mangeOrdersToolStripMenuItem";
-            this.mangeOrdersToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
+            this.mangeOrdersToolStripMenuItem.Size = new System.Drawing.Size(117, 26);
             this.mangeOrdersToolStripMenuItem.Text = "Mange Orders";
             this.mangeOrdersToolStripMenuItem.Click += new System.EventHandler(this.mangeOrdersToolStripMenuItem_Click);
             // 
             // manageProductsToolStripMenuItem
             // 
             this.manageProductsToolStripMenuItem.Name = "manageProductsToolStripMenuItem";
-            this.manageProductsToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.manageProductsToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
             this.manageProductsToolStripMenuItem.Text = "Manage Products";
             this.manageProductsToolStripMenuItem.Click += new System.EventHandler(this.manageProductsToolStripMenuItem_Click);
             // 
             // manageSuppliesToolStripMenuItem
             // 
             this.manageSuppliesToolStripMenuItem.Name = "manageSuppliesToolStripMenuItem";
-            this.manageSuppliesToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.manageSuppliesToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.manageSuppliesToolStripMenuItem.Text = "Manage Supplies";
             this.manageSuppliesToolStripMenuItem.Click += new System.EventHandler(this.manageSuppliesToolStripMenuItem_Click);
             // 
             // chatToolStripMenuItem
             // 
             this.chatToolStripMenuItem.Name = "chatToolStripMenuItem";
-            this.chatToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.chatToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
             this.chatToolStripMenuItem.Text = "Chat";
             this.chatToolStripMenuItem.Click += new System.EventHandler(this.chatToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(74, 26);
             this.reportsToolStripMenuItem.Text = "Reports";
             this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
+            this.logoutToolStripMenuItem.Text = "Log Out";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // FrmAdminMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(921, 450);
             this.Controls.Add(this.menuStrip2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmAdminMDI";
@@ -134,5 +145,6 @@
         private System.Windows.Forms.ToolStripMenuItem manageSuppliesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

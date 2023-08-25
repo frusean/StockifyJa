@@ -87,7 +87,7 @@
             // flpProducts
             // 
             this.flpProducts.AutoScroll = true;
-            this.flpProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
+            this.flpProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.flpProducts.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flpProducts.Location = new System.Drawing.Point(0, 221);
             this.flpProducts.Name = "flpProducts";
@@ -141,7 +141,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1040, 723);
             this.Controls.Add(this.picRefresh);
             this.Controls.Add(this.pnlSearch);

@@ -121,7 +121,7 @@
   <data name="picAddUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACt2SURBVHhe7d0H
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACt2SURBVHhe7d0H
         tG1Vfe/xQ5NqRUApFlAhWBCJMYmKIqiosRBFIlaCELA8iaBg7CWKYHwx0ZeICWokShyRokajiKCCgIJS
         BAWCJQqIGJAOUl6+P++9cLn8772n7LVX+37H+Izn8BmYZ+195tllzTlnzMzMzMzMzMzMzMzMzMzMzMzM
         zMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMwG1trYGs/Cn+ONOBSH
@@ -313,7 +313,7 @@
   <data name="picUpdateUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD44SURBVHhe7d0J
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD44SURBVHhe7d0J
         3HVT/f//O/OQeR4yJnPGKMmcRIaUMWOGqEwpKopmMqeEQpQGSX1DZhJSZjIl85B5yMxNv9/7HRf38Lmu
         +xrOXnuttV+vx+P5+P/+fbndZ++zz9ln77XXGkVERERERERERERERERERERERERERERERERERERERERE
         RERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERENFZT
@@ -585,7 +585,7 @@
   <data name="picDeleteUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACmPSURBVHhe7d0H
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACmPSURBVHhe7d0H
         uGZVfe/xoQmIBUXBghUUxYKosYEtEEUMMcaCYkFUjDUmijW51ogoYkJy471iA7HFKIKaxMSCYEVBQUUF
         a6wggiIIAwL3fn+EIYP8Z+acM+9591p7f7/P83mSGJW133POetvaa60wMzMzMzMzMzMzMzMzMzMzMzMz
         MzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM5txm2NHPBRPxgtxMN6O
