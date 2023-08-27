@@ -234,6 +234,29 @@ namespace StockifyJa
             }
         }
 
-        
+        private void picAddStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picUpdateStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picSaveStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picRefreshStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picDeleteStatus_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
