@@ -150,7 +150,7 @@ namespace StockifyJa
 
                 string role = user.Role.Trim();
 
-                if (role == "administrator")
+                if (role == "Administrator")
                 {
                     
                     var notifyLoginSuccess = new NotifyIcon();
@@ -172,7 +172,7 @@ namespace StockifyJa
                 }
                
 
-                else if (role == "customer")
+                else if (role == "Customer")
                 {
                     var notifyLoginSuccess = new NotifyIcon();
                     notifyLoginSuccess.Icon = SystemIcons.Information;

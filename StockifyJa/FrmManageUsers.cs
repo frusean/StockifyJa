@@ -30,7 +30,7 @@ namespace StockifyJa
         {
             PopulateUsersGridView();
         }
-
+        /*
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (ValidateUserData())
@@ -63,6 +63,7 @@ namespace StockifyJa
                 StockifyEntities.SaveChanges();
 
                 PopulateUsersGridView();
+                MessageBox.Show("User Successfully Created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -130,6 +131,7 @@ namespace StockifyJa
 
                 StockifyEntities.SaveChanges();
                 PopulateUsersGridView();
+                MessageBox.Show("User Successfully Updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -157,9 +159,10 @@ namespace StockifyJa
 
                     StockifyEntities.SaveChanges();
                     PopulateUsersGridView();
+                    MessageBox.Show("User Successfully Deleted!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-        }
+        }*/
 
         private bool ValidateUserData()
         {
@@ -226,6 +229,7 @@ namespace StockifyJa
                 StockifyEntities.SaveChanges();
 
                 PopulateUsersGridView();
+                MessageBox.Show("User Successfully Created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -259,6 +263,7 @@ namespace StockifyJa
 
                 StockifyEntities.SaveChanges();
                 PopulateUsersGridView();
+                MessageBox.Show("User Successfully Updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -286,6 +291,7 @@ namespace StockifyJa
 
                     StockifyEntities.SaveChanges();
                     PopulateUsersGridView();
+                    MessageBox.Show("User Successfully Deleted!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -299,13 +305,30 @@ namespace StockifyJa
                 var contact = StockifyEntities.ContactDetails.FirstOrDefault(c => c.UserID == userId);
 
                 if (user != null)
+                
                 {
-                    txtUserID.Text = user.UserID.ToString();
+                   txtUserID.Text = user.UserID.ToString();
                     txtUsername.Text = user.Username;
                     txtUserPassword.Text = user.Password;
-                    rbuttonAdministrator.Checked = user.Role == "Administrator";
-                    rbuttonCustomer.Checked = user.Role == "Customer";
+
+                    var roleMessage = $"User Role: {user.Role}";
+                    MessageBox.Show($"User Role: {user.Role}","Role Information",MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                    if (roleMessage.Contains("Administrator"))
+                    {
+                        rbuttonAdministrator.Checked = true;
+                        rbuttonCustomer.Checked = false;
+                    }
+                    else if (roleMessage.Contains("Customer"))
+                    {
+                        rbuttonAdministrator.Checked = false;
+                        rbuttonCustomer.Checked = true;
+                    }
+
                 }
+
+
 
                 if (contact != null)
                 {
@@ -331,7 +354,7 @@ namespace StockifyJa
             txtUsername.Text = string.Empty;
             txtUserPassword.Text = string.Empty;
             rbuttonAdministrator.Checked = false;
-            rbuttonCustomer.Checked = false;
+           rbuttonCustomer.Checked = false;
             // Clear Contact Fields
             txtContactID.Text = string.Empty;
             txtFkeyUserID.Text = string.Empty;
@@ -344,6 +367,10 @@ namespace StockifyJa
             txtZipCode.Text = string.Empty;
             txtTelephone.Text = string.Empty;
             txtEmail.Text = string.Empty;
+
+            //rbuttonAdministrator.Refresh();
+           // rbuttonCustomer.Refresh();
+
         }
     }
 }
