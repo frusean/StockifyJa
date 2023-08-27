@@ -42,9 +42,9 @@
             // 
             this.pbxContinueToPayment.BackColor = System.Drawing.Color.Transparent;
             this.pbxContinueToPayment.Image = ((System.Drawing.Image)(resources.GetObject("pbxContinueToPayment.Image")));
-            this.pbxContinueToPayment.Location = new System.Drawing.Point(1079, 479);
+            this.pbxContinueToPayment.Location = new System.Drawing.Point(1102, 479);
             this.pbxContinueToPayment.Name = "pbxContinueToPayment";
-            this.pbxContinueToPayment.Size = new System.Drawing.Size(76, 53);
+            this.pbxContinueToPayment.Size = new System.Drawing.Size(53, 53);
             this.pbxContinueToPayment.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxContinueToPayment.TabIndex = 11;
             this.pbxContinueToPayment.TabStop = false;
@@ -109,6 +109,7 @@
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblGCT);
             this.Controls.Add(this.lbxOrderSummary);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmOrderSummary";
             this.Text = "OrderSummary";
             this.Load += new System.EventHandler(this.FrmOrderSummary_Load);

@@ -41,7 +41,7 @@ namespace StockifyJa
             nudQuantity.ValueChanged += nudQuantity_ValueChanged;
             nudQuantity.ReadOnly = true;
             nudQuantity.KeyPress += new KeyPressEventHandler(nudQuantity_KeyPress);
-            btnRemoveFromOrder.Click += new System.EventHandler(this.btnRemoveFromOrder_Click);
+            //btnRemoveFromOrder.Click += new System.EventHandler(this.btnRemoveFromOrder_Click);
 
             // Load AppState.CartItems into the lbxCart ListBox
             foreach (var item in AppState.CartItems)
@@ -107,7 +107,7 @@ namespace StockifyJa
             }
         }
 
-
+        /*
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             if (cbProduct.SelectedItem is Product selectedProduct && selectedProduct.ProductID != 0)
@@ -169,7 +169,7 @@ namespace StockifyJa
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
             }
-        }
+        }*/
 
 
 
@@ -189,7 +189,7 @@ namespace StockifyJa
         }
 
         
-
+        /*
         private void btnRemoveFromOrder_Click(object sender, EventArgs e)
         {
             if (lbxCart.SelectedItem != null)
@@ -242,7 +242,8 @@ namespace StockifyJa
                         }
                     }
                 }
-        }
+        }*/
+
 
         private void picAdd_Click(object sender, EventArgs e)
         {
