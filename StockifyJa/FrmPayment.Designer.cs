@@ -76,7 +76,7 @@
             this.txtTotalPay.ReadOnly = true;
             this.txtTotalPay.Size = new System.Drawing.Size(139, 22);
             this.txtTotalPay.TabIndex = 36;
-            this.txtTotalPay.TextChanged += new System.EventHandler(this.txtTotalPay_TextChanged);
+            
             // 
             // lbltotalpay
             // 
@@ -119,7 +119,7 @@
             this.txtCardNumber.Name = "txtCardNumber";
             this.txtCardNumber.Size = new System.Drawing.Size(223, 22);
             this.txtCardNumber.TabIndex = 31;
-            this.txtCardNumber.TextChanged += new System.EventHandler(this.txtCardNumber_TextChanged);
+         
             // 
             // label3
             // 

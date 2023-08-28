@@ -1,4 +1,6 @@
-﻿using StockifyjaLib;
+﻿using MigraDoc.DocumentObjectModel;
+using MigraDoc.Rendering;
+using StockifyjaLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +16,12 @@ namespace StockifyJa
 {
     public partial class FrmOrderSummary : Form
     {
+        private stockifydBEntities _db = new stockifydBEntities();
+
         private List<ItemDetails> _cartItems;
+        private decimal _totalAmount;
+        private decimal _gctAmount;
+
         public FrmOrderSummary(List<ItemDetails> cartItems)
         {
             InitializeComponent();
@@ -31,27 +38,24 @@ namespace StockifyJa
                 total += quantity * price;
             }
 
-            decimal gct = total * 0.15m;
-            lblGCT.Text = $"GCT (15%): {gct:C}";
-            lblTotal.Text = $"Total: {(total + gct):C}";
+            _totalAmount = total;
+            _gctAmount = total * 0.15m;
+            lblGCT.Text = $"GCT (15%): {_gctAmount:C}";
+            lblTotal.Text = $"Total: {_totalAmount + _gctAmount:C}";
+
         }
 
         private void pbxContinueToPayment_Click(object sender, EventArgs e)
         {
-            // Extract the numeric part of the string
-            string totalText = lblTotal.Text.Replace("Total: ", "").Trim();
+          
+            FrmPayment frmPayment = new FrmPayment(_cartItems, _gctAmount, _totalAmount + _gctAmount);
+            frmPayment.Show();
 
-            if (Decimal.TryParse(totalText, NumberStyles.Currency, CultureInfo.CurrentCulture, out decimal total))
-            {
-                FrmPayment frmPayment = new FrmPayment(_cartItems);
-                frmPayment.TotalAmount = total;
-                frmPayment.Show();
-            }
-            else
-            {
-                MessageBox.Show("Could not parse the total amount.");
-            }
+            frmPayment.Show();
         }
+
+
+
 
         private void FrmOrderSummary_Load(object sender, EventArgs e)
         {
@@ -62,6 +66,9 @@ namespace StockifyJa
         {
 
         }
+
+
+       
     }
-    }
+}
 

@@ -152,7 +152,7 @@ namespace StockifyJa
                 var productsQuery = from p in context.Products
                                     join i in context.ProductImages on p.ProductID equals i.ProductID
                                     join s in context.Stocks on p.ProductID equals s.ProductID
-                                    join r in context.Rates on p.RateID equals r.ID // Join on RateID
+                                    join r in context.Rates on p.RateID equals r.ID 
                                     select new
                                     {
                                         ProductId = p.ProductID,
@@ -223,14 +223,14 @@ namespace StockifyJa
 
         private void refreshTimer_Tick(object sender, EventArgs e)
         {
-            // Call the Load method to refresh the data
            FrmViewAllProducts_Load(sender, e);
         }
 
         private void picRefresh_Click(object sender, EventArgs e)
         {
             {
-              //  await LoadProducts();
+                FrmViewAllProducts_Load(sender, e);
+                
             }
         }
     }

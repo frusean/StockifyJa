@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StockifyjaLib;
 
 namespace StockifyJa
 {
@@ -72,6 +73,17 @@ namespace StockifyJa
             frmReports.MdiParent = this;
             frmReports.Show();
 
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+            // Close the current form
+            this.Close();
+
+            // Show the login form
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.Show();
         }
     }
 }

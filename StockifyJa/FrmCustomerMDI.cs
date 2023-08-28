@@ -54,5 +54,19 @@ namespace StockifyJa
             frmLogin.Show();
         }
 
+       
+        private void logoutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            // Clear the AppState.CartItems and lbxCart.Items
+            AppState.CartItems.Clear();
+
+
+            // Close the current form
+            this.Close();
+
+            // Show the login form
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.Show();
+        }
     }
 }

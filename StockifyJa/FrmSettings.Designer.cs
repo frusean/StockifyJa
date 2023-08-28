@@ -48,12 +48,16 @@
             this.picDelete = new System.Windows.Forms.PictureBox();
             this.picUpdate = new System.Windows.Forms.PictureBox();
             this.picAdd = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.picSaveStatus = new System.Windows.Forms.PictureBox();
+            this.picRefreshStatus = new System.Windows.Forms.PictureBox();
+            this.picDeleteStatus = new System.Windows.Forms.PictureBox();
+            this.picUpdateStatus = new System.Windows.Forms.PictureBox();
+            this.picAddStatus = new System.Windows.Forms.PictureBox();
             this.dgvStatus = new System.Windows.Forms.DataGridView();
+            this.StatusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modified_By = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modified_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtModifiedBy = new System.Windows.Forms.TextBox();
             this.lblModifiedBy = new System.Windows.Forms.Label();
             this.gboxStatusID = new System.Windows.Forms.GroupBox();
@@ -62,10 +66,6 @@
             this.lblStatusName = new System.Windows.Forms.Label();
             this.dtpModifiedDate = new System.Windows.Forms.DateTimePicker();
             this.lblModifiedDate = new System.Windows.Forms.Label();
-            this.StatusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modified_By = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modified_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gboxRateID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
@@ -74,11 +74,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSaveStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRefreshStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeleteStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUpdateStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAddStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatus)).BeginInit();
             this.gboxStatusID.SuspendLayout();
             this.SuspendLayout();
@@ -269,55 +269,60 @@
             this.picAdd.TabStop = false;
             this.picAdd.Click += new System.EventHandler(this.picAdd_Click);
             // 
-            // pictureBox1
+            // picSaveStatus
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1203, 342);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(43, 42);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
+            this.picSaveStatus.Image = ((System.Drawing.Image)(resources.GetObject("picSaveStatus.Image")));
+            this.picSaveStatus.Location = new System.Drawing.Point(1203, 342);
+            this.picSaveStatus.Name = "picSaveStatus";
+            this.picSaveStatus.Size = new System.Drawing.Size(43, 42);
+            this.picSaveStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSaveStatus.TabIndex = 37;
+            this.picSaveStatus.TabStop = false;
+            this.picSaveStatus.Click += new System.EventHandler(this.picSaveStatus_Click);
             // 
-            // pictureBox2
+            // picRefreshStatus
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1141, 342);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(43, 42);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 36;
-            this.pictureBox2.TabStop = false;
+            this.picRefreshStatus.Image = ((System.Drawing.Image)(resources.GetObject("picRefreshStatus.Image")));
+            this.picRefreshStatus.Location = new System.Drawing.Point(1141, 342);
+            this.picRefreshStatus.Name = "picRefreshStatus";
+            this.picRefreshStatus.Size = new System.Drawing.Size(43, 42);
+            this.picRefreshStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picRefreshStatus.TabIndex = 36;
+            this.picRefreshStatus.TabStop = false;
+            this.picRefreshStatus.Click += new System.EventHandler(this.picRefreshStatus_Click);
             // 
-            // pictureBox3
+            // picDeleteStatus
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1077, 342);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(43, 42);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 35;
-            this.pictureBox3.TabStop = false;
+            this.picDeleteStatus.Image = ((System.Drawing.Image)(resources.GetObject("picDeleteStatus.Image")));
+            this.picDeleteStatus.Location = new System.Drawing.Point(1077, 342);
+            this.picDeleteStatus.Name = "picDeleteStatus";
+            this.picDeleteStatus.Size = new System.Drawing.Size(43, 42);
+            this.picDeleteStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDeleteStatus.TabIndex = 35;
+            this.picDeleteStatus.TabStop = false;
+            this.picDeleteStatus.Click += new System.EventHandler(this.picDeleteStatus_Click);
             // 
-            // pictureBox4
+            // picUpdateStatus
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1017, 342);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(43, 42);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 34;
-            this.pictureBox4.TabStop = false;
+            this.picUpdateStatus.Image = ((System.Drawing.Image)(resources.GetObject("picUpdateStatus.Image")));
+            this.picUpdateStatus.Location = new System.Drawing.Point(1017, 342);
+            this.picUpdateStatus.Name = "picUpdateStatus";
+            this.picUpdateStatus.Size = new System.Drawing.Size(43, 42);
+            this.picUpdateStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUpdateStatus.TabIndex = 34;
+            this.picUpdateStatus.TabStop = false;
+            this.picUpdateStatus.Click += new System.EventHandler(this.picUpdateStatus_Click);
             // 
-            // pictureBox5
+            // picAddStatus
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(958, 342);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(43, 42);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 33;
-            this.pictureBox5.TabStop = false;
+            this.picAddStatus.Image = ((System.Drawing.Image)(resources.GetObject("picAddStatus.Image")));
+            this.picAddStatus.Location = new System.Drawing.Point(958, 342);
+            this.picAddStatus.Name = "picAddStatus";
+            this.picAddStatus.Size = new System.Drawing.Size(43, 42);
+            this.picAddStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAddStatus.TabIndex = 33;
+            this.picAddStatus.TabStop = false;
+            this.picAddStatus.Click += new System.EventHandler(this.picAddStatus_Click);
             // 
             // dgvStatus
             // 
@@ -333,6 +338,34 @@
             this.dgvStatus.RowTemplate.Height = 24;
             this.dgvStatus.Size = new System.Drawing.Size(568, 136);
             this.dgvStatus.TabIndex = 32;
+            // 
+            // StatusID
+            // 
+            this.StatusID.HeaderText = "Staus ID";
+            this.StatusID.MinimumWidth = 6;
+            this.StatusID.Name = "StatusID";
+            this.StatusID.Width = 125;
+            // 
+            // StatusName
+            // 
+            this.StatusName.HeaderText = "Status Name";
+            this.StatusName.MinimumWidth = 6;
+            this.StatusName.Name = "StatusName";
+            this.StatusName.Width = 125;
+            // 
+            // Modified_By
+            // 
+            this.Modified_By.HeaderText = "Modified By";
+            this.Modified_By.MinimumWidth = 6;
+            this.Modified_By.Name = "Modified_By";
+            this.Modified_By.Width = 125;
+            // 
+            // Modified_Date
+            // 
+            this.Modified_Date.HeaderText = "Modified Date";
+            this.Modified_Date.MinimumWidth = 6;
+            this.Modified_Date.Name = "Modified_Date";
+            this.Modified_Date.Width = 125;
             // 
             // txtModifiedBy
             // 
@@ -406,34 +439,6 @@
             this.lblModifiedDate.TabIndex = 39;
             this.lblModifiedDate.Text = "Modified Date";
             // 
-            // StatusID
-            // 
-            this.StatusID.HeaderText = "Staus ID";
-            this.StatusID.MinimumWidth = 6;
-            this.StatusID.Name = "StatusID";
-            this.StatusID.Width = 125;
-            // 
-            // StatusName
-            // 
-            this.StatusName.HeaderText = "Status Name";
-            this.StatusName.MinimumWidth = 6;
-            this.StatusName.Name = "StatusName";
-            this.StatusName.Width = 125;
-            // 
-            // Modified_By
-            // 
-            this.Modified_By.HeaderText = "Modified By";
-            this.Modified_By.MinimumWidth = 6;
-            this.Modified_By.Name = "Modified_By";
-            this.Modified_By.Width = 125;
-            // 
-            // Modified_Date
-            // 
-            this.Modified_Date.HeaderText = "Modified Date";
-            this.Modified_Date.MinimumWidth = 6;
-            this.Modified_Date.Name = "Modified_Date";
-            this.Modified_Date.Width = 125;
-            // 
             // FrmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -442,11 +447,11 @@
             this.ClientSize = new System.Drawing.Size(1500, 624);
             this.Controls.Add(this.lblModifiedDate);
             this.Controls.Add(this.dtpModifiedDate);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.picSaveStatus);
+            this.Controls.Add(this.picRefreshStatus);
+            this.Controls.Add(this.picDeleteStatus);
+            this.Controls.Add(this.picUpdateStatus);
+            this.Controls.Add(this.picAddStatus);
             this.Controls.Add(this.dgvStatus);
             this.Controls.Add(this.txtModifiedBy);
             this.Controls.Add(this.lblModifiedBy);
@@ -479,11 +484,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSaveStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRefreshStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeleteStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUpdateStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAddStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatus)).EndInit();
             this.gboxStatusID.ResumeLayout(false);
             this.gboxStatusID.PerformLayout();
@@ -511,11 +516,11 @@
         private System.Windows.Forms.PictureBox picDelete;
         private System.Windows.Forms.PictureBox picUpdate;
         private System.Windows.Forms.PictureBox picAdd;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox picSaveStatus;
+        private System.Windows.Forms.PictureBox picRefreshStatus;
+        private System.Windows.Forms.PictureBox picDeleteStatus;
+        private System.Windows.Forms.PictureBox picUpdateStatus;
+        private System.Windows.Forms.PictureBox picAddStatus;
         private System.Windows.Forms.DataGridView dgvStatus;
         private System.Windows.Forms.TextBox txtModifiedBy;
         private System.Windows.Forms.Label lblModifiedBy;

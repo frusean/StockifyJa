@@ -41,10 +41,6 @@
             this.lblUserID = new System.Windows.Forms.Label();
             this.txtStreet = new System.Windows.Forms.TextBox();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnView = new System.Windows.Forms.Button();
             this.txtUserPassword = new System.Windows.Forms.TextBox();
             this.lblUserPassword = new System.Windows.Forms.Label();
             this.lblContactDetails = new System.Windows.Forms.Label();
@@ -65,9 +61,6 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtTelephone = new System.Windows.Forms.TextBox();
             this.lblTelephone = new System.Windows.Forms.Label();
-            this.rbuttonAdministrator = new System.Windows.Forms.RadioButton();
-            this.rbuttonCustomer = new System.Windows.Forms.RadioButton();
-            this.gboxRole = new System.Windows.Forms.GroupBox();
             this.lblModifiedDate = new System.Windows.Forms.Label();
             this.dtpModifiedDate = new System.Windows.Forms.DateTimePicker();
             this.txtModifiedBy = new System.Windows.Forms.TextBox();
@@ -77,13 +70,16 @@
             this.picDeleteUser = new System.Windows.Forms.PictureBox();
             this.picViewUser = new System.Windows.Forms.PictureBox();
             this.picRefresh = new System.Windows.Forms.PictureBox();
+            this.gboxRole = new System.Windows.Forms.GroupBox();
+            this.rbuttonCustomer = new System.Windows.Forms.RadioButton();
+            this.rbuttonAdministrator = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
-            this.gboxRole.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAddUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdateUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDeleteUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picViewUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).BeginInit();
+            this.gboxRole.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblManageUsers
@@ -197,50 +193,6 @@
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.Size = new System.Drawing.Size(842, 299);
             this.dgvUsers.TabIndex = 25;
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(675, 377);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(100, 28);
-            this.btnCreate.TabIndex = 26;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(804, 377);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 28);
-            this.btnUpdate.TabIndex = 27;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(939, 377);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 28);
-            this.btnDelete.TabIndex = 28;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnView
-            // 
-            this.btnView.Location = new System.Drawing.Point(1081, 377);
-            this.btnView.Margin = new System.Windows.Forms.Padding(4);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(100, 28);
-            this.btnView.TabIndex = 29;
-            this.btnView.Text = "View";
-            this.btnView.UseVisualStyleBackColor = true;
-            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // txtUserPassword
             // 
@@ -424,44 +376,6 @@
             this.lblTelephone.TabIndex = 49;
             this.lblTelephone.Text = "Telephone";
             // 
-            // rbuttonAdministrator
-            // 
-            this.rbuttonAdministrator.AutoSize = true;
-            this.rbuttonAdministrator.Location = new System.Drawing.Point(19, 23);
-            this.rbuttonAdministrator.Margin = new System.Windows.Forms.Padding(4);
-            this.rbuttonAdministrator.Name = "rbuttonAdministrator";
-            this.rbuttonAdministrator.Size = new System.Drawing.Size(119, 20);
-            this.rbuttonAdministrator.TabIndex = 51;
-            this.rbuttonAdministrator.TabStop = true;
-            this.rbuttonAdministrator.Text = "Administrator";
-            this.rbuttonAdministrator.UseVisualStyleBackColor = true;
-            // 
-            // rbuttonCustomer
-            // 
-            this.rbuttonCustomer.AutoSize = true;
-            this.rbuttonCustomer.Location = new System.Drawing.Point(175, 23);
-            this.rbuttonCustomer.Margin = new System.Windows.Forms.Padding(4);
-            this.rbuttonCustomer.Name = "rbuttonCustomer";
-            this.rbuttonCustomer.Size = new System.Drawing.Size(93, 20);
-            this.rbuttonCustomer.TabIndex = 52;
-            this.rbuttonCustomer.TabStop = true;
-            this.rbuttonCustomer.Text = "Customer";
-            this.rbuttonCustomer.UseVisualStyleBackColor = true;
-            // 
-            // gboxRole
-            // 
-            this.gboxRole.Controls.Add(this.rbuttonCustomer);
-            this.gboxRole.Controls.Add(this.rbuttonAdministrator);
-            this.gboxRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxRole.Location = new System.Drawing.Point(125, 175);
-            this.gboxRole.Margin = new System.Windows.Forms.Padding(4);
-            this.gboxRole.Name = "gboxRole";
-            this.gboxRole.Padding = new System.Windows.Forms.Padding(4);
-            this.gboxRole.Size = new System.Drawing.Size(292, 48);
-            this.gboxRole.TabIndex = 53;
-            this.gboxRole.TabStop = false;
-            this.gboxRole.Text = "Role";
-            // 
             // lblModifiedDate
             // 
             this.lblModifiedDate.AutoSize = true;
@@ -552,12 +466,49 @@
             this.picRefresh.TabStop = false;
             this.picRefresh.Click += new System.EventHandler(this.picRefresh_Click);
             // 
+            // gboxRole
+            // 
+            this.gboxRole.Controls.Add(this.rbuttonCustomer);
+            this.gboxRole.Controls.Add(this.rbuttonAdministrator);
+            this.gboxRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboxRole.Location = new System.Drawing.Point(90, 182);
+            this.gboxRole.Name = "gboxRole";
+            this.gboxRole.Size = new System.Drawing.Size(487, 60);
+            this.gboxRole.TabIndex = 80;
+            this.gboxRole.TabStop = false;
+            this.gboxRole.Text = "Role";
+            // 
+            // rbuttonCustomer
+            // 
+            this.rbuttonCustomer.AutoSize = true;
+            this.rbuttonCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbuttonCustomer.Location = new System.Drawing.Point(359, 21);
+            this.rbuttonCustomer.Name = "rbuttonCustomer";
+            this.rbuttonCustomer.Size = new System.Drawing.Size(93, 20);
+            this.rbuttonCustomer.TabIndex = 1;
+            this.rbuttonCustomer.TabStop = true;
+            this.rbuttonCustomer.Text = "Customer";
+            this.rbuttonCustomer.UseVisualStyleBackColor = true;
+            // 
+            // rbuttonAdministrator
+            // 
+            this.rbuttonAdministrator.AutoSize = true;
+            this.rbuttonAdministrator.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbuttonAdministrator.Location = new System.Drawing.Point(94, 21);
+            this.rbuttonAdministrator.Name = "rbuttonAdministrator";
+            this.rbuttonAdministrator.Size = new System.Drawing.Size(115, 20);
+            this.rbuttonAdministrator.TabIndex = 0;
+            this.rbuttonAdministrator.TabStop = true;
+            this.rbuttonAdministrator.Text = "Adminstrator";
+            this.rbuttonAdministrator.UseVisualStyleBackColor = true;
+            // 
             // FrmManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1518, 738);
+            this.Controls.Add(this.gboxRole);
             this.Controls.Add(this.picRefresh);
             this.Controls.Add(this.picViewUser);
             this.Controls.Add(this.picDeleteUser);
@@ -567,7 +518,6 @@
             this.Controls.Add(this.dtpModifiedDate);
             this.Controls.Add(this.txtModifiedBy);
             this.Controls.Add(this.lblModifiedBy);
-            this.Controls.Add(this.gboxRole);
             this.Controls.Add(this.txtTelephone);
             this.Controls.Add(this.lblTelephone);
             this.Controls.Add(this.txtEmail);
@@ -588,10 +538,6 @@
             this.Controls.Add(this.lblContactDetails);
             this.Controls.Add(this.txtUserPassword);
             this.Controls.Add(this.lblUserPassword);
-            this.Controls.Add(this.btnView);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.txtStreet);
             this.Controls.Add(this.txtUserID);
@@ -610,13 +556,13 @@
             this.Text = "Manage Users";
             this.Load += new System.EventHandler(this.FrmManageUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
-            this.gboxRole.ResumeLayout(false);
-            this.gboxRole.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAddUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdateUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDeleteUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picViewUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).EndInit();
+            this.gboxRole.ResumeLayout(false);
+            this.gboxRole.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -636,10 +582,6 @@
         private System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.TextBox txtStreet;
         private System.Windows.Forms.DataGridView dgvUsers;
-        private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.TextBox txtUserPassword;
         private System.Windows.Forms.Label lblUserPassword;
         private System.Windows.Forms.Label lblContactDetails;
@@ -660,9 +602,6 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.Label lblTelephone;
-        private System.Windows.Forms.RadioButton rbuttonAdministrator;
-        private System.Windows.Forms.RadioButton rbuttonCustomer;
-        private System.Windows.Forms.GroupBox gboxRole;
         private System.Windows.Forms.Label lblModifiedDate;
         private System.Windows.Forms.DateTimePicker dtpModifiedDate;
         private System.Windows.Forms.TextBox txtModifiedBy;
@@ -672,5 +611,8 @@
         private System.Windows.Forms.PictureBox picDeleteUser;
         private System.Windows.Forms.PictureBox picViewUser;
         private System.Windows.Forms.PictureBox picRefresh;
+        private System.Windows.Forms.GroupBox gboxRole;
+        private System.Windows.Forms.RadioButton rbuttonCustomer;
+        private System.Windows.Forms.RadioButton rbuttonAdministrator;
     }
 }

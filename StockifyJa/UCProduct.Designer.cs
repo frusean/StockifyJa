@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblDiscount = new System.Windows.Forms.Label();
             this.picProduct = new System.Windows.Forms.PictureBox();
+            this.lblDiscount = new System.Windows.Forms.Label();
             this.lblProductPrice = new System.Windows.Forms.Label();
             this.lblStock = new System.Windows.Forms.Label();
             this.btnViewDetails = new System.Windows.Forms.Button();
@@ -41,8 +41,8 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.picProduct);
             this.flowLayoutPanel1.Controls.Add(this.lblDiscount);
+            this.flowLayoutPanel1.Controls.Add(this.picProduct);
             this.flowLayoutPanel1.Controls.Add(this.lblProductName);
             this.flowLayoutPanel1.Controls.Add(this.lblProductPrice);
             this.flowLayoutPanel1.Controls.Add(this.lblStock);
@@ -52,25 +52,25 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(230, 494);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // lblDiscount
-            // 
-            this.lblDiscount.AutoSize = true;
-            this.lblDiscount.Location = new System.Drawing.Point(3, 112);
-            this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(59, 16);
-            this.lblDiscount.TabIndex = 5;
-            this.lblDiscount.Text = "Discount";
-            // 
             // picProduct
             // 
             this.flowLayoutPanel1.SetFlowBreak(this.picProduct, true);
             this.picProduct.ImageLocation = "";
-            this.picProduct.Location = new System.Drawing.Point(3, 3);
+            this.picProduct.Location = new System.Drawing.Point(77, 3);
             this.picProduct.Name = "picProduct";
             this.picProduct.Size = new System.Drawing.Size(110, 106);
             this.picProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picProduct.TabIndex = 0;
             this.picProduct.TabStop = false;
+            // 
+            // lblDiscount
+            // 
+            this.lblDiscount.AutoSize = true;
+            this.lblDiscount.Location = new System.Drawing.Point(3, 0);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(68, 16);
+            this.lblDiscount.TabIndex = 5;
+            this.lblDiscount.Text = "Discount   ";
             // 
             // lblProductPrice
             // 
@@ -78,9 +78,9 @@
             this.flowLayoutPanel1.SetFlowBreak(this.lblProductPrice, true);
             this.lblProductPrice.Location = new System.Drawing.Point(3, 128);
             this.lblProductPrice.Name = "lblProductPrice";
-            this.lblProductPrice.Size = new System.Drawing.Size(87, 16);
+            this.lblProductPrice.Size = new System.Drawing.Size(135, 16);
             this.lblProductPrice.TabIndex = 2;
-            this.lblProductPrice.Text = "Product Price";
+            this.lblProductPrice.Text = "Product                 Price";
             this.lblProductPrice.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblStock
@@ -89,9 +89,9 @@
             this.flowLayoutPanel1.SetFlowBreak(this.lblStock, true);
             this.lblStock.Location = new System.Drawing.Point(3, 144);
             this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(41, 16);
+            this.lblStock.Size = new System.Drawing.Size(62, 16);
             this.lblStock.TabIndex = 4;
-            this.lblStock.Text = "Stock";
+            this.lblStock.Text = "Stock       ";
             // 
             // btnViewDetails
             // 
@@ -108,11 +108,11 @@
             // 
             this.lblProductName.AutoSize = true;
             this.flowLayoutPanel1.SetFlowBreak(this.lblProductName, true);
-            this.lblProductName.Location = new System.Drawing.Point(68, 112);
+            this.lblProductName.Location = new System.Drawing.Point(3, 112);
             this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(93, 16);
+            this.lblProductName.Size = new System.Drawing.Size(174, 16);
             this.lblProductName.TabIndex = 1;
-            this.lblProductName.Text = "Product Name";
+            this.lblProductName.Text = "Product                            Name";
             this.lblProductName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // UCProduct
