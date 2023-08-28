@@ -65,10 +65,6 @@
             this.picRefresh = new System.Windows.Forms.PictureBox();
             this.picSave = new System.Windows.Forms.PictureBox();
             this.picImage = new System.Windows.Forms.PictureBox();
-            this.lblModifiedDate = new System.Windows.Forms.Label();
-            this.dtpModifiedDate = new System.Windows.Forms.DateTimePicker();
-            this.txtModifiedBy = new System.Windows.Forms.TextBox();
-            this.lblModifiedBy = new System.Windows.Forms.Label();
             this.gboxProductID.SuspendLayout();
             this.gboxRateID.SuspendLayout();
             this.gboxImageID.SuspendLayout();
@@ -420,47 +416,12 @@
             // 
             // picImage
             // 
-            this.picImage.Location = new System.Drawing.Point(972, 398);
+            this.picImage.Location = new System.Drawing.Point(943, 321);
             this.picImage.Name = "picImage";
             this.picImage.Size = new System.Drawing.Size(152, 166);
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picImage.TabIndex = 22;
             this.picImage.TabStop = false;
-            // 
-            // lblModifiedDate
-            // 
-            this.lblModifiedDate.AutoSize = true;
-            this.lblModifiedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModifiedDate.Location = new System.Drawing.Point(776, 354);
-            this.lblModifiedDate.Name = "lblModifiedDate";
-            this.lblModifiedDate.Size = new System.Drawing.Size(112, 18);
-            this.lblModifiedDate.TabIndex = 74;
-            this.lblModifiedDate.Text = "Modified Date";
-            // 
-            // dtpModifiedDate
-            // 
-            this.dtpModifiedDate.Location = new System.Drawing.Point(894, 350);
-            this.dtpModifiedDate.Name = "dtpModifiedDate";
-            this.dtpModifiedDate.Size = new System.Drawing.Size(245, 22);
-            this.dtpModifiedDate.TabIndex = 73;
-            // 
-            // txtModifiedBy
-            // 
-            this.txtModifiedBy.Location = new System.Drawing.Point(894, 283);
-            this.txtModifiedBy.Name = "txtModifiedBy";
-            this.txtModifiedBy.ReadOnly = true;
-            this.txtModifiedBy.Size = new System.Drawing.Size(128, 22);
-            this.txtModifiedBy.TabIndex = 72;
-            // 
-            // lblModifiedBy
-            // 
-            this.lblModifiedBy.AutoSize = true;
-            this.lblModifiedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModifiedBy.Location = new System.Drawing.Point(776, 283);
-            this.lblModifiedBy.Name = "lblModifiedBy";
-            this.lblModifiedBy.Size = new System.Drawing.Size(96, 18);
-            this.lblModifiedBy.TabIndex = 71;
-            this.lblModifiedBy.Text = "Modified By";
             // 
             // FrmManageProducts
             // 
@@ -468,10 +429,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1241, 778);
-            this.Controls.Add(this.lblModifiedDate);
-            this.Controls.Add(this.dtpModifiedDate);
-            this.Controls.Add(this.txtModifiedBy);
-            this.Controls.Add(this.lblModifiedBy);
             this.Controls.Add(this.picImage);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picRefresh);
@@ -552,9 +509,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ImageURL;
         private System.Windows.Forms.DataGridViewTextBoxColumn RateID;
         private System.Windows.Forms.PictureBox picImage;
-        private System.Windows.Forms.Label lblModifiedDate;
-        private System.Windows.Forms.DateTimePicker dtpModifiedDate;
-        private System.Windows.Forms.TextBox txtModifiedBy;
-        private System.Windows.Forms.Label lblModifiedBy;
     }
 }
