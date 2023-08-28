@@ -46,10 +46,6 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblManageProducts = new System.Windows.Forms.Label();
-            this.lblModifiedDate = new System.Windows.Forms.Label();
-            this.dtpModifiedDate = new System.Windows.Forms.DateTimePicker();
-            this.txtModifiedBy = new System.Windows.Forms.TextBox();
-            this.lblModifiedBy = new System.Windows.Forms.Label();
             this.picExit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
@@ -73,7 +69,7 @@
             // picSave
             // 
             this.picSave.Image = ((System.Drawing.Image)(resources.GetObject("picSave.Image")));
-            this.picSave.Location = new System.Drawing.Point(1135, 465);
+            this.picSave.Location = new System.Drawing.Point(1152, 367);
             this.picSave.Name = "picSave";
             this.picSave.Size = new System.Drawing.Size(43, 42);
             this.picSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -84,7 +80,7 @@
             // picDelete
             // 
             this.picDelete.Image = ((System.Drawing.Image)(resources.GetObject("picDelete.Image")));
-            this.picDelete.Location = new System.Drawing.Point(1016, 465);
+            this.picDelete.Location = new System.Drawing.Point(1033, 367);
             this.picDelete.Name = "picDelete";
             this.picDelete.Size = new System.Drawing.Size(43, 42);
             this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -95,7 +91,7 @@
             // picRefresh
             // 
             this.picRefresh.Image = ((System.Drawing.Image)(resources.GetObject("picRefresh.Image")));
-            this.picRefresh.Location = new System.Drawing.Point(1065, 465);
+            this.picRefresh.Location = new System.Drawing.Point(1082, 367);
             this.picRefresh.Name = "picRefresh";
             this.picRefresh.Size = new System.Drawing.Size(43, 42);
             this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,7 +102,7 @@
             // picAdd
             // 
             this.picAdd.Image = ((System.Drawing.Image)(resources.GetObject("picAdd.Image")));
-            this.picAdd.Location = new System.Drawing.Point(883, 465);
+            this.picAdd.Location = new System.Drawing.Point(900, 367);
             this.picAdd.Name = "picAdd";
             this.picAdd.Size = new System.Drawing.Size(43, 42);
             this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,7 +113,7 @@
             // picUpdate
             // 
             this.picUpdate.Image = ((System.Drawing.Image)(resources.GetObject("picUpdate.Image")));
-            this.picUpdate.Location = new System.Drawing.Point(953, 465);
+            this.picUpdate.Location = new System.Drawing.Point(970, 367);
             this.picUpdate.Name = "picUpdate";
             this.picUpdate.Size = new System.Drawing.Size(43, 42);
             this.picUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -156,11 +152,11 @@
             // dgvOrders
             // 
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.Location = new System.Drawing.Point(37, 513);
+            this.dgvOrders.Location = new System.Drawing.Point(37, 415);
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.RowHeadersWidth = 51;
             this.dgvOrders.RowTemplate.Height = 24;
-            this.dgvOrders.Size = new System.Drawing.Size(1141, 164);
+            this.dgvOrders.Size = new System.Drawing.Size(1141, 233);
             this.dgvOrders.TabIndex = 58;
             // 
             // lblTotal
@@ -233,41 +229,6 @@
             this.lblManageProducts.Text = "Manage Orders";
             this.lblManageProducts.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblModifiedDate
-            // 
-            this.lblModifiedDate.AutoSize = true;
-            this.lblModifiedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModifiedDate.Location = new System.Drawing.Point(461, 444);
-            this.lblModifiedDate.Name = "lblModifiedDate";
-            this.lblModifiedDate.Size = new System.Drawing.Size(104, 16);
-            this.lblModifiedDate.TabIndex = 70;
-            this.lblModifiedDate.Text = "Modified Date";
-            // 
-            // dtpModifiedDate
-            // 
-            this.dtpModifiedDate.Location = new System.Drawing.Point(579, 440);
-            this.dtpModifiedDate.Name = "dtpModifiedDate";
-            this.dtpModifiedDate.Size = new System.Drawing.Size(245, 22);
-            this.dtpModifiedDate.TabIndex = 69;
-            // 
-            // txtModifiedBy
-            // 
-            this.txtModifiedBy.Location = new System.Drawing.Point(579, 373);
-            this.txtModifiedBy.Name = "txtModifiedBy";
-            this.txtModifiedBy.ReadOnly = true;
-            this.txtModifiedBy.Size = new System.Drawing.Size(128, 22);
-            this.txtModifiedBy.TabIndex = 68;
-            // 
-            // lblModifiedBy
-            // 
-            this.lblModifiedBy.AutoSize = true;
-            this.lblModifiedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModifiedBy.Location = new System.Drawing.Point(461, 373);
-            this.lblModifiedBy.Name = "lblModifiedBy";
-            this.lblModifiedBy.Size = new System.Drawing.Size(89, 16);
-            this.lblModifiedBy.TabIndex = 67;
-            this.lblModifiedBy.Text = "Modified By";
-            // 
             // picExit
             // 
             this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -287,10 +248,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1234, 689);
             this.Controls.Add(this.picExit);
-            this.Controls.Add(this.lblModifiedDate);
-            this.Controls.Add(this.dtpModifiedDate);
-            this.Controls.Add(this.txtModifiedBy);
-            this.Controls.Add(this.lblModifiedBy);
             this.Controls.Add(this.cmbProductID);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picDelete);
@@ -345,10 +302,6 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblManageProducts;
-        private System.Windows.Forms.Label lblModifiedDate;
-        private System.Windows.Forms.DateTimePicker dtpModifiedDate;
-        private System.Windows.Forms.TextBox txtModifiedBy;
-        private System.Windows.Forms.Label lblModifiedBy;
         private System.Windows.Forms.PictureBox picExit;
     }
 }
