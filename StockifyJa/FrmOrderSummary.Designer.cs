@@ -35,7 +35,9 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblGCT = new System.Windows.Forms.Label();
             this.lbxOrderSummary = new System.Windows.Forms.ListBox();
+            this.picReceipt = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxContinueToPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picReceipt)).BeginInit();
             this.SuspendLayout();
             // 
             // pbxContinueToPayment
@@ -97,12 +99,25 @@
             this.lbxOrderSummary.TabIndex = 6;
             this.lbxOrderSummary.SelectedIndexChanged += new System.EventHandler(this.lbxOrderSummary_SelectedIndexChanged);
             // 
+            // picReceipt
+            // 
+            this.picReceipt.BackColor = System.Drawing.Color.Transparent;
+            this.picReceipt.Image = ((System.Drawing.Image)(resources.GetObject("picReceipt.Image")));
+            this.picReceipt.Location = new System.Drawing.Point(1025, 479);
+            this.picReceipt.Name = "picReceipt";
+            this.picReceipt.Size = new System.Drawing.Size(53, 53);
+            this.picReceipt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picReceipt.TabIndex = 12;
+            this.picReceipt.TabStop = false;
+            this.picReceipt.Click += new System.EventHandler(this.picReceipt_Click);
+            // 
             // FrmOrderSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1241, 572);
+            this.Controls.Add(this.picReceipt);
             this.Controls.Add(this.pbxContinueToPayment);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -114,6 +129,7 @@
             this.Text = "OrderSummary";
             this.Load += new System.EventHandler(this.FrmOrderSummary_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxContinueToPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picReceipt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +143,6 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblGCT;
         private System.Windows.Forms.ListBox lbxOrderSummary;
+        private System.Windows.Forms.PictureBox picReceipt;
     }
 }
