@@ -37,7 +37,7 @@ namespace StockifyJa
                 switch (AppState.UserRole)
                 {
                     case "Administrator":
-                        FrmAdminMDI adminForm = new FrmAdminMDI();
+                        FrmAdmin adminForm = new FrmAdmin();
                         adminForm.Show();
                         break;
                     case "Customer":
@@ -93,5 +93,7 @@ namespace StockifyJa
             this.Hide(); // Hide the login form
             */
         }
+
+        
     }
 }

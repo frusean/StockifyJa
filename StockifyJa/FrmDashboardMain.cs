@@ -21,63 +21,54 @@ namespace StockifyJa
         {
 
             FrmAdminChat frmAdminChat = new FrmAdminChat();
-            frmAdminChat.MdiParent = this;
-            frmAdminChat.Show();
+           frmAdminChat.Show();
         }
 
         private void lblDetails_Click(object sender, EventArgs e)
         {
             FrmReports frmReports = new FrmReports();
-            frmReports.MdiParent = this;
             frmReports.Show();
         }
 
         private void picManageSupplies_Click(object sender, EventArgs e)
         {
             FrmManageSupplies frmManageSupplies = new FrmManageSupplies();
-            frmManageSupplies.MdiParent = this;
             frmManageSupplies.Show();
         }
 
         private void picManageOrders_Click(object sender, EventArgs e)
         {
             FrmManageOrders frmManageOrders = new FrmManageOrders();
-            frmManageOrders.MdiParent = this;
             frmManageOrders.Show();
         }
 
         private void picManageProducts_Click(object sender, EventArgs e)
         {
             FrmManageProducts frmManageProducts = new FrmManageProducts();
-            frmManageProducts.MdiParent = this;
             frmManageProducts.Show();
         }
 
         private void picManageUser_Click(object sender, EventArgs e)
         {
             FrmManageUsers frmManageUsers = new FrmManageUsers();
-            frmManageUsers.MdiParent = this;
-            frmManageUsers.Show();
+             frmManageUsers.Show();
         }
 
         private void picSettings_Click(object sender, EventArgs e)
         {
             FrmSettings frmSettings = new FrmSettings();
-            frmSettings.MdiParent = this;
             frmSettings.Show();
         }
 
         private void picReports_Click(object sender, EventArgs e)
         {
             FrmReports frmReports = new FrmReports();
-            frmReports.MdiParent = this;
             frmReports.Show();
         }
 
         private void lblReports_Click(object sender, EventArgs e)
         {
             FrmReports frmReports = new FrmReports();
-            frmReports.MdiParent = this;
             frmReports.Show();
         }
     }

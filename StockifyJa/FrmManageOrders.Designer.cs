@@ -69,7 +69,7 @@
             // picSave
             // 
             this.picSave.Image = ((System.Drawing.Image)(resources.GetObject("picSave.Image")));
-            this.picSave.Location = new System.Drawing.Point(1152, 367);
+            this.picSave.Location = new System.Drawing.Point(1144, 367);
             this.picSave.Name = "picSave";
             this.picSave.Size = new System.Drawing.Size(43, 42);
             this.picSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -80,7 +80,7 @@
             // picDelete
             // 
             this.picDelete.Image = ((System.Drawing.Image)(resources.GetObject("picDelete.Image")));
-            this.picDelete.Location = new System.Drawing.Point(1033, 367);
+            this.picDelete.Location = new System.Drawing.Point(1023, 367);
             this.picDelete.Name = "picDelete";
             this.picDelete.Size = new System.Drawing.Size(43, 42);
             this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -113,7 +113,7 @@
             // picUpdate
             // 
             this.picUpdate.Image = ((System.Drawing.Image)(resources.GetObject("picUpdate.Image")));
-            this.picUpdate.Location = new System.Drawing.Point(970, 367);
+            this.picUpdate.Location = new System.Drawing.Point(963, 367);
             this.picUpdate.Name = "picUpdate";
             this.picUpdate.Size = new System.Drawing.Size(43, 42);
             this.picUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -156,7 +156,7 @@
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.RowHeadersWidth = 51;
             this.dgvOrders.RowTemplate.Height = 24;
-            this.dgvOrders.Size = new System.Drawing.Size(1141, 233);
+            this.dgvOrders.Size = new System.Drawing.Size(1158, 233);
             this.dgvOrders.TabIndex = 58;
             // 
             // lblTotal
@@ -222,7 +222,7 @@
             this.lblManageProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblManageProducts.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManageProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
-            this.lblManageProducts.Location = new System.Drawing.Point(532, 21);
+            this.lblManageProducts.Location = new System.Drawing.Point(565, 21);
             this.lblManageProducts.Name = "lblManageProducts";
             this.lblManageProducts.Size = new System.Drawing.Size(205, 32);
             this.lblManageProducts.TabIndex = 51;
@@ -233,7 +233,7 @@
             // 
             this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(1184, 630);
+            this.picExit.Location = new System.Drawing.Point(1235, 489);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(53, 47);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -245,8 +245,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
-            this.ClientSize = new System.Drawing.Size(1234, 689);
+            this.ClientSize = new System.Drawing.Size(1300, 692);
             this.Controls.Add(this.picExit);
             this.Controls.Add(this.cmbProductID);
             this.Controls.Add(this.picSave);

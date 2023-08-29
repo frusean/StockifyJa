@@ -40,9 +40,11 @@
             this.picRemove = new System.Windows.Forms.PictureBox();
             this.TxtCartID = new System.Windows.Forms.TextBox();
             this.BtnDelete = new System.Windows.Forms.Button();
+            this.picExit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRemove)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // btnViewOrder
@@ -172,12 +174,24 @@
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(1308, 614);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(61, 47);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 46;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
+            // 
             // FrmPlaceOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1381, 673);
+            this.Controls.Add(this.picExit);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.TxtCartID);
             this.Controls.Add(this.picRemove);
@@ -198,6 +212,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRemove)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,6 +230,7 @@
         private System.Windows.Forms.PictureBox picRemove;
         private System.Windows.Forms.TextBox TxtCartID;
         private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.PictureBox picExit;
     }
 }
 

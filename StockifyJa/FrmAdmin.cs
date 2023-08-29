@@ -90,34 +90,18 @@ namespace StockifyJa
 
             private void btnManageUsers_Click(object sender, EventArgs e)
             {
-                pnlNav.Height = btnManageUsers.Height;
-                pnlNav.Top = btnManageUsers.Top;
-                pnlNav.Left = btnManageUsers.Left;
-                //  btnManageUsers.BackColor = Color.FromArgb(141, 153, 174);
+            pnlNav.Height = btnManageProducts.Height;
+            pnlNav.Top = btnManageProducts.Top;
+            pnlNav.Left = btnManageProducts.Left;
+            //  btnManageUsers.BackColor = Color.FromArgb(141, 153, 174);
 
-                lblTitle.Text = "Manage Users";
-                this.pnlFormLoader.Controls.Clear();
+
+            lblTitle.Text = "Manage Users";
+            this.pnlFormLoader.Controls.Clear();
             FrmManageUsers frmDashboard = new FrmManageUsers() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             frmDashboard.FormBorderStyle = FormBorderStyle.None;
-
-            // Subscribe to the SizeChanged event to resize pnlFormLoader
-            frmDashboard.SizeChanged += (s, ev) =>
-            {
-                pnlFormLoader.Width = frmDashboard.Width;
-                pnlFormLoader.Height = frmDashboard.Height;
-            };
-
             this.pnlFormLoader.Controls.Add(frmDashboard);
-
-            // Initial setting of pnlFormLoader dimensions to match the form's dimensions
-            pnlFormLoader.Width = frmDashboard.Width;
-            pnlFormLoader.Height = frmDashboard.Height;
-
             frmDashboard.Show();
-            /* FrmManageUsers frmDashboard = new FrmManageUsers() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-             frmDashboard.FormBorderStyle = FormBorderStyle.None;
-             this.pnlFormLoader.Controls.Add(frmDashboard);
-             frmDashboard.Show();*/
         }
 
             private void btnManageProducts_Click(object sender, EventArgs e)
@@ -185,7 +169,7 @@ namespace StockifyJa
             private void LoginTimer_Tick(object sender, EventArgs e)
             {
                // loginTime = DateTime.Now;
-            //                LoginTimer.Start();
+            //   LoginTimer.Start();
             loginTime = DateTime.Now;
             lblUsertext.Text = loginTime.ToString("HH:mm:ss");  // Set the time to lblUsertext
             LoginTimer.Start();
@@ -194,7 +178,13 @@ namespace StockifyJa
             private void btnLogout_Click(object sender, EventArgs e)
             {
                 LoginTimer.Stop();
-            }
+            // Close the current form
+            this.Close();
+
+            // Show the login form
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.Show();
+        }
 
             private void btnManageSupplies_Click(object sender, EventArgs e)
             {

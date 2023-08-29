@@ -34,7 +34,6 @@
             this.pnlMenuIcon = new System.Windows.Forms.Panel();
             this.lblMenu = new System.Windows.Forms.Label();
             this.picMenuIcon = new System.Windows.Forms.PictureBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlUserInfo = new System.Windows.Forms.Panel();
             this.lblUsertext = new System.Windows.Forms.Label();
@@ -114,23 +113,12 @@
             this.picMenuIcon.TabStop = false;
             this.picMenuIcon.Click += new System.EventHandler(this.picMenuIcon_Click);
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtSearch.Location = new System.Drawing.Point(1049, 36);
-            this.txtSearch.Multiline = true;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(292, 30);
-            this.txtSearch.TabIndex = 11;
-            this.txtSearch.Text = "Search here";
-            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblTitle.Location = new System.Drawing.Point(661, 31);
+            this.lblTitle.Location = new System.Drawing.Point(944, 28);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(78, 38);
             this.lblTitle.TabIndex = 10;
@@ -385,7 +373,7 @@
             this.pnlFormLoader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.pnlFormLoader.Location = new System.Drawing.Point(357, 82);
             this.pnlFormLoader.Name = "pnlFormLoader";
-            this.pnlFormLoader.Size = new System.Drawing.Size(904, 673);
+            this.pnlFormLoader.Size = new System.Drawing.Size(1453, 690);
             this.pnlFormLoader.TabIndex = 12;
             this.pnlFormLoader.SizeChanged += new System.EventHandler(this.pnlFormLoader_SizeChanged);
             // 
@@ -463,14 +451,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1458, 746);
-            this.Controls.Add(this.txtSearch);
+            this.ClientSize = new System.Drawing.Size(1836, 897);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pnlFormLoader);
             this.Controls.Add(this.flSideBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "FrmAdmin";
-            this.Text = "FrmAdmin";
+            this.Text = "Administrator";
             this.Load += new System.EventHandler(this.FrmAdmin_Load);
             this.pnlMenuIcon.ResumeLayout(false);
             this.pnlMenuIcon.PerformLayout();
@@ -500,7 +488,6 @@
         private System.Windows.Forms.Panel pnlMenuIcon;
         private System.Windows.Forms.Label lblMenu;
         private System.Windows.Forms.PictureBox picMenuIcon;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlUserInfo;
         private System.Windows.Forms.Label lblUsertext;
