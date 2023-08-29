@@ -454,6 +454,7 @@
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.gboxProductID);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManageProducts";
             this.Text = "Manage Products";

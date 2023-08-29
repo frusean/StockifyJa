@@ -78,6 +78,8 @@
             this.Controls.Add(this.picExit);
             this.Controls.Add(this.picSalesReport);
             this.Controls.Add(this.axWMPSalesReport);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReports";
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.FrmReports_Load);

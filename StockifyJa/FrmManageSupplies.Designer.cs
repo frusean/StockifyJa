@@ -378,6 +378,7 @@
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.gboxSupplyID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManageSupplies";
             this.Text = "Manage Supplies";

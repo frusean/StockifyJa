@@ -36,6 +36,9 @@
             this.txtGCT = new System.Windows.Forms.TextBox();
             this.lblGCT = new System.Windows.Forms.Label();
             this.dgvRates = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.lblSettings = new System.Windows.Forms.Label();
             this.picSave = new System.Windows.Forms.PictureBox();
@@ -55,9 +58,6 @@
             this.txtStatusID = new System.Windows.Forms.TextBox();
             this.txtStatusName = new System.Windows.Forms.TextBox();
             this.lblStatusName = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gboxRateID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
@@ -142,6 +142,27 @@
             this.dgvRates.RowTemplate.Height = 24;
             this.dgvRates.Size = new System.Drawing.Size(495, 136);
             this.dgvRates.TabIndex = 15;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "Rate ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.Width = 125;
+            // 
+            // Discount
+            // 
+            this.Discount.HeaderText = "Discount";
+            this.Discount.MinimumWidth = 6;
+            this.Discount.Name = "Discount";
+            this.Discount.Width = 125;
+            // 
+            // GCT
+            // 
+            this.GCT.HeaderText = "GCT";
+            this.GCT.MinimumWidth = 6;
+            this.GCT.Name = "GCT";
+            this.GCT.Width = 125;
             // 
             // picExit
             // 
@@ -343,27 +364,6 @@
             this.lblStatusName.TabIndex = 27;
             this.lblStatusName.Text = "Status Name";
             // 
-            // ID
-            // 
-            this.ID.HeaderText = "Rate ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.Width = 125;
-            // 
-            // Discount
-            // 
-            this.Discount.HeaderText = "Discount";
-            this.Discount.MinimumWidth = 6;
-            this.Discount.Name = "Discount";
-            this.Discount.Width = 125;
-            // 
-            // GCT
-            // 
-            this.GCT.HeaderText = "GCT";
-            this.GCT.MinimumWidth = 6;
-            this.GCT.Name = "GCT";
-            this.GCT.Width = 125;
-            // 
             // FrmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -394,6 +394,7 @@
             this.Controls.Add(this.gboxRateID);
             this.Controls.Add(this.txtDiscount);
             this.Controls.Add(this.lblDiscount);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmSettings";
             this.Text = "Settings";

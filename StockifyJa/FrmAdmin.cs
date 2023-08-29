@@ -12,21 +12,24 @@ namespace StockifyJa
 {
     public partial class FrmAdmin : Form
     {
+
         public FrmAdmin()
         {
             InitializeComponent();
-                pnlNav.Height = btnHome.Height;
-                pnlNav.Top = btnHome.Top;
-                pnlNav.Left = btnHome.Left;
-                // btnHome.BackColor = Color.FromArgb(141, 153, 174);
-                lblTitle.Text = "Dashboard";
-                this.pnlFormLoader.Controls.Clear();
-                FrmDashboardMain frmDashboard = new FrmDashboardMain() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frmDashboard.FormBorderStyle = FormBorderStyle.None;
-                this.pnlFormLoader.Controls.Add(frmDashboard);
-                frmDashboard.Show();
+            pnlNav.Height = btnHome.Height;
+            pnlNav.Top = btnHome.Top;
+            pnlNav.Left = btnHome.Left;
+            lblTitle.Text = "Dashboard";
+            this.pnlFormLoader.Controls.Clear();
 
-                this.Resize += new EventHandler(FrmMainAdmin_Resize);
+            // This is the updated line
+            FrmDashboardMain frmDashboard = new FrmDashboardMain(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+
+            frmDashboard.FormBorderStyle = FormBorderStyle.None;
+            this.pnlFormLoader.Controls.Add(frmDashboard);
+            frmDashboard.Show();
+
+            this.Resize += new EventHandler(FrmMainAdmin_Resize);
 
 
 
@@ -82,8 +85,8 @@ namespace StockifyJa
                 // btnHome.BackColor = Color.FromArgb(141, 153, 174);
                 lblTitle.Text = "Dashboard";
                 this.pnlFormLoader.Controls.Clear();
-                FrmDashboardMain frmDashboard = new FrmDashboardMain() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frmDashboard.FormBorderStyle = FormBorderStyle.None;
+            FrmDashboardMain frmDashboard = new FrmDashboardMain(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmDashboard.FormBorderStyle = FormBorderStyle.None;
                 this.pnlFormLoader.Controls.Add(frmDashboard);
                 frmDashboard.Show();
             }
@@ -236,6 +239,15 @@ namespace StockifyJa
         private void pnlFormLoader_SizeChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void LoadFormInPanel(Form childForm)
+        {
+            pnlFormLoader.Controls.Clear();
+            childForm.TopLevel = false;
+            childForm.Dock = DockStyle.Fill;
+            pnlFormLoader.Controls.Add(childForm);
+            childForm.Show();
         }
     }
 }

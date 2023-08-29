@@ -210,7 +210,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(147, 56);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(88, 74);
+            this.groupBox1.Size = new System.Drawing.Size(103, 74);
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Order ID";
@@ -266,6 +266,7 @@
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblManageProducts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManageOrders";
             this.Text = "Manage Orders";

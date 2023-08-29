@@ -149,6 +149,7 @@
             // pnlManageSupplies
             // 
             this.pnlManageSupplies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
+            this.pnlManageSupplies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlManageSupplies.Controls.Add(this.lblManageSupplies);
             this.pnlManageSupplies.Controls.Add(this.picManageSupplies);
             this.pnlManageSupplies.Location = new System.Drawing.Point(415, 284);
@@ -235,6 +236,7 @@
             // 
             this.lblDetails.AutoSize = true;
             this.lblDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
             this.lblDetails.Location = new System.Drawing.Point(61, 107);
             this.lblDetails.Name = "lblDetails";
             this.lblDetails.Size = new System.Drawing.Size(65, 24);
@@ -287,8 +289,9 @@
             this.Controls.Add(this.picSettings);
             this.Controls.Add(this.pnlManageProducts);
             this.Controls.Add(this.pnlReports);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDashboardMain";
-            this.Text = "FrmDashboardMain";
+            this.Text = "Dashboard";
             this.pnlManageUsers.ResumeLayout(false);
             this.pnlManageUsers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picManageUser)).EndInit();

@@ -12,64 +12,66 @@ namespace StockifyJa
 {
     public partial class FrmDashboardMain : Form
     {
-        public FrmDashboardMain()
+        FrmAdmin parentAdminForm;
+        public FrmDashboardMain(FrmAdmin parentAdminForm)
         {
             InitializeComponent();
+            this.parentAdminForm = parentAdminForm;
         }
 
         private void picChat_Click(object sender, EventArgs e)
         {
 
-            FrmAdminChat frmAdminChat = new FrmAdminChat();
-           frmAdminChat.Show();
+            FrmAdminChat frmChat = new FrmAdminChat();
+            parentAdminForm.LoadFormInPanel(frmChat);
         }
 
         private void lblDetails_Click(object sender, EventArgs e)
         {
-            FrmReports frmReports = new FrmReports();
-            frmReports.Show();
+            FrmReports frmReport = new FrmReports();
+            parentAdminForm.LoadFormInPanel(frmReport);
         }
 
         private void picManageSupplies_Click(object sender, EventArgs e)
         {
-            FrmManageSupplies frmManageSupplies = new FrmManageSupplies();
-            frmManageSupplies.Show();
+            FrmManageSupplies frmManageSupply = new FrmManageSupplies();
+            parentAdminForm.LoadFormInPanel(frmManageSupply);
         }
 
         private void picManageOrders_Click(object sender, EventArgs e)
         {
-            FrmManageOrders frmManageOrders = new FrmManageOrders();
-            frmManageOrders.Show();
+            FrmManageOrders frmManageOrder = new FrmManageOrders();
+            parentAdminForm.LoadFormInPanel(frmManageOrder);
         }
 
         private void picManageProducts_Click(object sender, EventArgs e)
         {
-            FrmManageProducts frmManageProducts = new FrmManageProducts();
-            frmManageProducts.Show();
+            FrmManageProducts frmManageProduct = new FrmManageProducts();
+            parentAdminForm.LoadFormInPanel(frmManageProduct);
         }
 
         private void picManageUser_Click(object sender, EventArgs e)
         {
-            FrmManageUsers frmManageUsers = new FrmManageUsers();
-             frmManageUsers.Show();
+            FrmManageUsers frmManageUser = new FrmManageUsers();
+            parentAdminForm.LoadFormInPanel(frmManageUser);
         }
 
         private void picSettings_Click(object sender, EventArgs e)
         {
             FrmSettings frmSettings = new FrmSettings();
-            frmSettings.Show();
+            parentAdminForm.LoadFormInPanel(frmSettings);
         }
 
         private void picReports_Click(object sender, EventArgs e)
         {
-            FrmReports frmReports = new FrmReports();
-            frmReports.Show();
+            FrmReports frmReport = new FrmReports();
+            parentAdminForm.LoadFormInPanel(frmReport);
         }
 
         private void lblReports_Click(object sender, EventArgs e)
         {
-            FrmReports frmReports = new FrmReports();
-            frmReports.Show();
+            FrmReports frmReport = new FrmReports();
+            parentAdminForm.LoadFormInPanel(frmReport);
         }
     }
 }
