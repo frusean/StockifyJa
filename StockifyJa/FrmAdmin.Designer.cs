@@ -387,6 +387,7 @@
             this.pnlFormLoader.Name = "pnlFormLoader";
             this.pnlFormLoader.Size = new System.Drawing.Size(904, 673);
             this.pnlFormLoader.TabIndex = 12;
+            this.pnlFormLoader.SizeChanged += new System.EventHandler(this.pnlFormLoader_SizeChanged);
             // 
             // pnlManageProducts
             // 
@@ -467,6 +468,7 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pnlFormLoader);
             this.Controls.Add(this.flSideBar);
+            this.IsMdiContainer = true;
             this.Name = "FrmAdmin";
             this.Text = "FrmAdmin";
             this.Load += new System.EventHandler(this.FrmAdmin_Load);

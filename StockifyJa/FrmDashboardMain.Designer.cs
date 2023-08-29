@@ -31,37 +31,37 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDashboardMain));
             this.lblManageProducts = new System.Windows.Forms.Label();
             this.lblUsers = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.picUser = new System.Windows.Forms.PictureBox();
+            this.pnlManageUsers = new System.Windows.Forms.Panel();
+            this.picManageUser = new System.Windows.Forms.PictureBox();
             this.lblManageOrders = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pnlmanageOrders = new System.Windows.Forms.Panel();
+            this.picManageOrders = new System.Windows.Forms.PictureBox();
             this.lblManageSupplies = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pnlManageSupplies = new System.Windows.Forms.Panel();
+            this.picManageSupplies = new System.Windows.Forms.PictureBox();
             this.lblChat = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pnlChat = new System.Windows.Forms.Panel();
+            this.picChat = new System.Windows.Forms.PictureBox();
+            this.picManageProducts = new System.Windows.Forms.PictureBox();
+            this.picSettings = new System.Windows.Forms.PictureBox();
             this.picReports = new System.Windows.Forms.PictureBox();
             this.lblDetails = new System.Windows.Forms.Label();
             this.lblReports = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picUser)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.pnlManageProducts = new System.Windows.Forms.Panel();
+            this.pnlReports = new System.Windows.Forms.Panel();
+            this.pnlManageUsers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageUser)).BeginInit();
+            this.pnlmanageOrders.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageOrders)).BeginInit();
+            this.pnlManageSupplies.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageSupplies)).BeginInit();
+            this.pnlChat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picChat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReports)).BeginInit();
-            this.panel7.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlManageProducts.SuspendLayout();
+            this.pnlReports.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblManageProducts
@@ -84,25 +84,26 @@
             this.lblUsers.TabIndex = 9;
             this.lblUsers.Text = "Manage Users";
             // 
-            // panel6
+            // pnlManageUsers
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
-            this.panel6.Controls.Add(this.lblUsers);
-            this.panel6.Controls.Add(this.picUser);
-            this.panel6.Location = new System.Drawing.Point(300, 82);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(157, 142);
-            this.panel6.TabIndex = 24;
+            this.pnlManageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
+            this.pnlManageUsers.Controls.Add(this.lblUsers);
+            this.pnlManageUsers.Controls.Add(this.picManageUser);
+            this.pnlManageUsers.Location = new System.Drawing.Point(300, 82);
+            this.pnlManageUsers.Name = "pnlManageUsers";
+            this.pnlManageUsers.Size = new System.Drawing.Size(157, 142);
+            this.pnlManageUsers.TabIndex = 24;
             // 
-            // picUser
+            // picManageUser
             // 
-            this.picUser.Image = ((System.Drawing.Image)(resources.GetObject("picUser.Image")));
-            this.picUser.Location = new System.Drawing.Point(28, 12);
-            this.picUser.Name = "picUser";
-            this.picUser.Size = new System.Drawing.Size(95, 84);
-            this.picUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picUser.TabIndex = 7;
-            this.picUser.TabStop = false;
+            this.picManageUser.Image = ((System.Drawing.Image)(resources.GetObject("picManageUser.Image")));
+            this.picManageUser.Location = new System.Drawing.Point(28, 12);
+            this.picManageUser.Name = "picManageUser";
+            this.picManageUser.Size = new System.Drawing.Size(95, 84);
+            this.picManageUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picManageUser.TabIndex = 7;
+            this.picManageUser.TabStop = false;
+            this.picManageUser.Click += new System.EventHandler(this.picManageUser_Click);
             // 
             // lblManageOrders
             // 
@@ -114,25 +115,26 @@
             this.lblManageOrders.TabIndex = 3;
             this.lblManageOrders.Text = "Manage Orders";
             // 
-            // panel5
+            // pnlmanageOrders
             // 
-            this.panel5.BackColor = System.Drawing.Color.Silver;
-            this.panel5.Controls.Add(this.lblManageOrders);
-            this.panel5.Controls.Add(this.pictureBox8);
-            this.panel5.Location = new System.Drawing.Point(108, 284);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(157, 142);
-            this.panel5.TabIndex = 23;
+            this.pnlmanageOrders.BackColor = System.Drawing.Color.Silver;
+            this.pnlmanageOrders.Controls.Add(this.lblManageOrders);
+            this.pnlmanageOrders.Controls.Add(this.picManageOrders);
+            this.pnlmanageOrders.Location = new System.Drawing.Point(108, 284);
+            this.pnlmanageOrders.Name = "pnlmanageOrders";
+            this.pnlmanageOrders.Size = new System.Drawing.Size(157, 142);
+            this.pnlmanageOrders.TabIndex = 23;
             // 
-            // pictureBox8
+            // picManageOrders
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(29, 12);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(102, 89);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 8;
-            this.pictureBox8.TabStop = false;
+            this.picManageOrders.Image = ((System.Drawing.Image)(resources.GetObject("picManageOrders.Image")));
+            this.picManageOrders.Location = new System.Drawing.Point(29, 12);
+            this.picManageOrders.Name = "picManageOrders";
+            this.picManageOrders.Size = new System.Drawing.Size(102, 89);
+            this.picManageOrders.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picManageOrders.TabIndex = 8;
+            this.picManageOrders.TabStop = false;
+            this.picManageOrders.Click += new System.EventHandler(this.picManageOrders_Click);
             // 
             // lblManageSupplies
             // 
@@ -144,25 +146,26 @@
             this.lblManageSupplies.TabIndex = 14;
             this.lblManageSupplies.Text = "Manage Supplies";
             // 
-            // panel4
+            // pnlManageSupplies
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
-            this.panel4.Controls.Add(this.lblManageSupplies);
-            this.panel4.Controls.Add(this.pictureBox6);
-            this.panel4.Location = new System.Drawing.Point(415, 284);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(157, 142);
-            this.panel4.TabIndex = 22;
+            this.pnlManageSupplies.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
+            this.pnlManageSupplies.Controls.Add(this.lblManageSupplies);
+            this.pnlManageSupplies.Controls.Add(this.picManageSupplies);
+            this.pnlManageSupplies.Location = new System.Drawing.Point(415, 284);
+            this.pnlManageSupplies.Name = "pnlManageSupplies";
+            this.pnlManageSupplies.Size = new System.Drawing.Size(157, 142);
+            this.pnlManageSupplies.TabIndex = 22;
             // 
-            // pictureBox6
+            // picManageSupplies
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(30, 7);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(102, 89);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 13;
-            this.pictureBox6.TabStop = false;
+            this.picManageSupplies.Image = ((System.Drawing.Image)(resources.GetObject("picManageSupplies.Image")));
+            this.picManageSupplies.Location = new System.Drawing.Point(30, 7);
+            this.picManageSupplies.Name = "picManageSupplies";
+            this.picManageSupplies.Size = new System.Drawing.Size(102, 89);
+            this.picManageSupplies.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picManageSupplies.TabIndex = 13;
+            this.picManageSupplies.TabStop = false;
+            this.picManageSupplies.Click += new System.EventHandler(this.picManageSupplies_Click);
             // 
             // lblChat
             // 
@@ -174,45 +177,48 @@
             this.lblChat.TabIndex = 11;
             this.lblChat.Text = "Chat";
             // 
-            // panel1
+            // pnlChat
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
-            this.panel1.Controls.Add(this.lblChat);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(704, 284);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(157, 142);
-            this.panel1.TabIndex = 21;
+            this.pnlChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(35)))), ((int)(((byte)(60)))));
+            this.pnlChat.Controls.Add(this.lblChat);
+            this.pnlChat.Controls.Add(this.picChat);
+            this.pnlChat.Location = new System.Drawing.Point(704, 284);
+            this.pnlChat.Name = "pnlChat";
+            this.pnlChat.Size = new System.Drawing.Size(157, 142);
+            this.pnlChat.TabIndex = 21;
             // 
-            // pictureBox1
+            // picChat
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(35, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(95, 84);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.picChat.Image = ((System.Drawing.Image)(resources.GetObject("picChat.Image")));
+            this.picChat.Location = new System.Drawing.Point(35, 17);
+            this.picChat.Name = "picChat";
+            this.picChat.Size = new System.Drawing.Size(95, 84);
+            this.picChat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picChat.TabIndex = 10;
+            this.picChat.TabStop = false;
+            this.picChat.Click += new System.EventHandler(this.picChat_Click);
             // 
-            // pictureBox7
+            // picManageProducts
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(35, 12);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(95, 84);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 9;
-            this.pictureBox7.TabStop = false;
+            this.picManageProducts.Image = ((System.Drawing.Image)(resources.GetObject("picManageProducts.Image")));
+            this.picManageProducts.Location = new System.Drawing.Point(35, 12);
+            this.picManageProducts.Name = "picManageProducts";
+            this.picManageProducts.Size = new System.Drawing.Size(95, 84);
+            this.picManageProducts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picManageProducts.TabIndex = 9;
+            this.picManageProducts.TabStop = false;
+            this.picManageProducts.Click += new System.EventHandler(this.picManageProducts_Click);
             // 
-            // pictureBox5
+            // picSettings
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(85, 611);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(47, 42);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 20;
-            this.pictureBox5.TabStop = false;
+            this.picSettings.Image = ((System.Drawing.Image)(resources.GetObject("picSettings.Image")));
+            this.picSettings.Location = new System.Drawing.Point(85, 611);
+            this.picSettings.Name = "picSettings";
+            this.picSettings.Size = new System.Drawing.Size(47, 42);
+            this.picSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSettings.TabIndex = 20;
+            this.picSettings.TabStop = false;
+            this.picSettings.Click += new System.EventHandler(this.picSettings_Click);
             // 
             // picReports
             // 
@@ -223,6 +229,7 @@
             this.picReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picReports.TabIndex = 2;
             this.picReports.TabStop = false;
+            this.picReports.Click += new System.EventHandler(this.picReports_Click);
             // 
             // lblDetails
             // 
@@ -233,6 +240,7 @@
             this.lblDetails.Size = new System.Drawing.Size(65, 24);
             this.lblDetails.TabIndex = 1;
             this.lblDetails.Text = "Details";
+            this.lblDetails.Click += new System.EventHandler(this.lblDetails_Click);
             // 
             // lblReports
             // 
@@ -243,61 +251,63 @@
             this.lblReports.Size = new System.Drawing.Size(153, 29);
             this.lblReports.TabIndex = 0;
             this.lblReports.Text = "Sales Report";
+            this.lblReports.Click += new System.EventHandler(this.lblReports_Click);
             // 
-            // panel7
+            // pnlManageProducts
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
-            this.panel7.Controls.Add(this.lblManageProducts);
-            this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Location = new System.Drawing.Point(602, 82);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(159, 142);
-            this.panel7.TabIndex = 25;
+            this.pnlManageProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
+            this.pnlManageProducts.Controls.Add(this.lblManageProducts);
+            this.pnlManageProducts.Controls.Add(this.picManageProducts);
+            this.pnlManageProducts.Location = new System.Drawing.Point(602, 82);
+            this.pnlManageProducts.Name = "pnlManageProducts";
+            this.pnlManageProducts.Size = new System.Drawing.Size(159, 142);
+            this.pnlManageProducts.TabIndex = 25;
             // 
-            // panel2
+            // pnlReports
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel2.Controls.Add(this.picReports);
-            this.panel2.Controls.Add(this.lblDetails);
-            this.panel2.Controls.Add(this.lblReports);
-            this.panel2.Location = new System.Drawing.Point(151, 450);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(737, 213);
-            this.panel2.TabIndex = 19;
+            this.pnlReports.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pnlReports.Controls.Add(this.picReports);
+            this.pnlReports.Controls.Add(this.lblDetails);
+            this.pnlReports.Controls.Add(this.lblReports);
+            this.pnlReports.Location = new System.Drawing.Point(151, 450);
+            this.pnlReports.Name = "pnlReports";
+            this.pnlReports.Size = new System.Drawing.Size(737, 213);
+            this.pnlReports.TabIndex = 19;
             // 
             // FrmDashboardMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(973, 744);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlManageUsers);
+            this.Controls.Add(this.pnlmanageOrders);
+            this.Controls.Add(this.pnlManageSupplies);
+            this.Controls.Add(this.pnlChat);
+            this.Controls.Add(this.picSettings);
+            this.Controls.Add(this.pnlManageProducts);
+            this.Controls.Add(this.pnlReports);
             this.Name = "FrmDashboardMain";
             this.Text = "FrmDashboardMain";
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picUser)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.pnlManageUsers.ResumeLayout(false);
+            this.pnlManageUsers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageUser)).EndInit();
+            this.pnlmanageOrders.ResumeLayout(false);
+            this.pnlmanageOrders.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageOrders)).EndInit();
+            this.pnlManageSupplies.ResumeLayout(false);
+            this.pnlManageSupplies.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageSupplies)).EndInit();
+            this.pnlChat.ResumeLayout(false);
+            this.pnlChat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picChat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picManageProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picReports)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlManageProducts.ResumeLayout(false);
+            this.pnlManageProducts.PerformLayout();
+            this.pnlReports.ResumeLayout(false);
+            this.pnlReports.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -306,23 +316,23 @@
 
         private System.Windows.Forms.Label lblManageProducts;
         private System.Windows.Forms.Label lblUsers;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.PictureBox picUser;
+        private System.Windows.Forms.Panel pnlManageUsers;
+        private System.Windows.Forms.PictureBox picManageUser;
         private System.Windows.Forms.Label lblManageOrders;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Panel pnlmanageOrders;
+        private System.Windows.Forms.PictureBox picManageOrders;
         private System.Windows.Forms.Label lblManageSupplies;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Panel pnlManageSupplies;
+        private System.Windows.Forms.PictureBox picManageSupplies;
         private System.Windows.Forms.Label lblChat;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel pnlChat;
+        private System.Windows.Forms.PictureBox picChat;
+        private System.Windows.Forms.PictureBox picManageProducts;
+        private System.Windows.Forms.PictureBox picSettings;
         private System.Windows.Forms.PictureBox picReports;
         private System.Windows.Forms.Label lblDetails;
         private System.Windows.Forms.Label lblReports;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlManageProducts;
+        private System.Windows.Forms.Panel pnlReports;
     }
 }

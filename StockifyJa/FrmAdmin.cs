@@ -97,11 +97,28 @@ namespace StockifyJa
 
                 lblTitle.Text = "Manage Users";
                 this.pnlFormLoader.Controls.Clear();
-                FrmManageUsers frmDashboard = new FrmManageUsers() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frmDashboard.FormBorderStyle = FormBorderStyle.None;
-                this.pnlFormLoader.Controls.Add(frmDashboard);
-                frmDashboard.Show();
-            }
+            FrmManageUsers frmDashboard = new FrmManageUsers() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmDashboard.FormBorderStyle = FormBorderStyle.None;
+
+            // Subscribe to the SizeChanged event to resize pnlFormLoader
+            frmDashboard.SizeChanged += (s, ev) =>
+            {
+                pnlFormLoader.Width = frmDashboard.Width;
+                pnlFormLoader.Height = frmDashboard.Height;
+            };
+
+            this.pnlFormLoader.Controls.Add(frmDashboard);
+
+            // Initial setting of pnlFormLoader dimensions to match the form's dimensions
+            pnlFormLoader.Width = frmDashboard.Width;
+            pnlFormLoader.Height = frmDashboard.Height;
+
+            frmDashboard.Show();
+            /* FrmManageUsers frmDashboard = new FrmManageUsers() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+             frmDashboard.FormBorderStyle = FormBorderStyle.None;
+             this.pnlFormLoader.Controls.Add(frmDashboard);
+             frmDashboard.Show();*/
+        }
 
             private void btnManageProducts_Click(object sender, EventArgs e)
             {
@@ -225,6 +242,11 @@ namespace StockifyJa
                 this.pnlFormLoader.Controls.Add(frmDashboard);
                 frmDashboard.Show();
             }
+
+        private void pnlFormLoader_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
