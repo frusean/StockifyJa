@@ -11,6 +11,7 @@ namespace StockifyjaLib
         public static List<ItemDetails> CartItems { get; set; } = new List<ItemDetails>();
 
         public static int CurrentUserID { get; set; }
+        public static string UserRole { get; set; }
     }
 
 }

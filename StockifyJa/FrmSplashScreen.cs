@@ -26,6 +26,33 @@ namespace StockifyJa
 
         private void Loadtimer_Tick(object sender, EventArgs e)
         {
+
+            LoginProgressBar.Value += 1;
+            LoginProgressBar.Text = LoginProgressBar.Value.ToString() + "%";
+
+            if (LoginProgressBar.Value == 100)
+            {
+                Loadtimer.Enabled = false;
+
+                switch (AppState.UserRole)
+                {
+                    case "Administrator":
+                        FrmAdminMDI adminForm = new FrmAdminMDI();
+                        adminForm.Show();
+                        break;
+                    case "Customer":
+                        FrmCustomerMDI customerForm = new FrmCustomerMDI();
+                        customerForm.Show();
+                        break;
+                    default:
+                        MessageBox.Show($"Invalid User Role: {AppState.UserRole}!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+
+                this.Hide();
+            }
+
+
             /* LoginProgressBar.Value += 1;
             LoginProgressBar.Text = LoginProgressBar.Value.ToString() + "%";
              if (ProgressBar1.Value == 100)

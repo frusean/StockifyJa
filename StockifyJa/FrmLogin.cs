@@ -152,12 +152,13 @@ namespace StockifyJa
 
                 if (role == "Administrator")
                 {
-                    
+
                     var notifyLoginSuccess = new NotifyIcon();
                     notifyLoginSuccess.Icon = SystemIcons.Information;
                     notifyLoginSuccess.Visible = true;
                     notifyLoginSuccess.ShowBalloonTip(5000, "Admininstrator Login Success", "You have successfully logged in as an Administrator!", ToolTipIcon.Info);
-                    FrmAdminMDI adminForm = new FrmAdminMDI();
+                    FrmAdmin adminForm = new FrmAdmin();  // Change this line to instantiate FrmAdmin instead of FrmAdminMDI
+                    adminForm.UserName = username;  // Pass the username
                     adminForm.Show();
 
                     // Check if any product's stock is 10 or below
@@ -178,8 +179,20 @@ namespace StockifyJa
                     notifyLoginSuccess.Icon = SystemIcons.Information;
                     notifyLoginSuccess.Visible = true;
                     notifyLoginSuccess.ShowBalloonTip(5000, " Customer Login Success", "You have successfully logged in Customer!", ToolTipIcon.Info);
-                    FrmCustomerMDI customerForm = new FrmCustomerMDI();
-                    customerForm.Show();
+                   // FrmCustomerMDI customerForm = new FrmCustomerMDI();
+                   // customerForm.Show();
+
+
+                    AppState.UserRole = "Customer"; // Set the user role
+
+                    FrmSplashScreen splashScreen = new FrmSplashScreen();
+                    splashScreen.Show();
+                    this.Hide(); // Hide the login form
+
+                    // You can start the timer here if it's not already started
+                    // splashScreen.Loadtimer.Enabled = true;
+
+
                 }
                 else
                 {
