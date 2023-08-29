@@ -121,7 +121,7 @@
   <data name="picExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADcpSURBVHhe7d0H
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADcpSURBVHhe7d0H
         1GxZWebx22SaICIiOZklSJMdEGVYOigKtCBJQAEbzKQWhEFougGJCjPMMi2XGHEEJbWY0yggkhpBkmSa
         BiRIhoamZ553Xb/p7tvP/e6ur/Y+td/3/P9r/dbMUvvus+/du6rOqapTh4iIiIiIiIiIiIiIiIiIiIiI
         iIiIiIiIiKh415Pvk5Pl1+Tv5A3yTvm4nC3/F8DWYi/Fnoq9FXss9lrsuUfIHSX2IhHRsK4l95ffljPF
@@ -363,7 +363,7 @@
   <data name="picUserIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFPgSURBVHhe7Z0H
+        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFPgSURBVHhe7Z0H
         lCZF9bdXSSIZlIwIiEiQHJQgIkkEFJEoiAqCmDCLGBDBgP7NgSQiKgqCioiigEQRBUEQJGdUcpYs+n2/
         Z3Fg2L27874zVdXV3b/nnOecPbMz79uhurq76ta9k4wx1TOjXEiuKDeW28o95Efk5+RB8sfyBHmqPFde
         IK+R18t7pvBx+f+mkJ9N+Xv87dWSz+Iz+Wy+g+/iO/lutoFtYZvYNraRbZ1BGmOMMWYazCu5aW4h3ym5
@@ -2670,7 +2670,7 @@
   <data name="picUsername.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0QAADdEBwivf4wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACjmSURBVHhe7d17
+        0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACjmSURBVHhe7d17
         3K5jnffxtbGWlf1mFZKVVUJISVJookbbIZVGlKgHTYw0lfLQYqQpJE+PWkJGrWwaSltSk10JUU1KG1GR
         Tco2u2W3aL7Hy3m//Fy+931f931fm+M4j8/39Xr/833N63lynsdm3dd1ncc57e9//zuAgihPl3+Q/yMf
         lsPkaDlBTpVvyrnyY7lSrpVbZLEskbvlZrlGrpAfyffkTPmSHCuflEPkA/JW2VRWdP97AJTJlgCGS4mb

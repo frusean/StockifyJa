@@ -514,7 +514,7 @@
   <data name="picSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0QAADdEBwivf4wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADFlSURBVHhe7d0L
+        0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADFlSURBVHhe7d0L
         tGR1defx23YDTZMGBIcMvh8ILqISQQbQxGDQgAKJAWfIiA8SAQMEZnQSlpKkFVCMjySCRImP4DgGRSWR
         GIKdoCFEJSEBs5wFcYlR1Im8AoIC8nZ+2/tv77/O/VXVqapzqs7ju9f6rJVsm3tv/ff+n31u1f9WLf3w
         hz8EMCeKtfIcOV7Okc/JLRL/Y5/EY47HHmsQaxFrstatGYB62CSA6ikOl2slH4RYEWtzuFs7ANWzSQDV
@@ -748,7 +748,7 @@
   <data name="btnReports.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        rQAAAK0BVE7WMAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJRSURBVEhLrdXN
+        rAAAAKwBhgk01AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJRSURBVEhLrdXN
         i05RAMfx610KG5MZjRpEZKYxmRpWM0lpwtLGSCMbFlbeaqbkZeEl4y0aCjNZEDtKSJMwpLzGwsrGwtLf
         4Pu9c890nvvc58Xwq0/Pvfc5L88595zzJDVyDDfQkd5Vjt+fxWVsxzTUlXEcxh4swxLk04cnsNwtXMI1
         1JUX6MdNfMBPxJmHd5iFHhyHGcGGicvyHIGNPUbowApW9j6OjVyYuEx2wHpO6XM4osLYkL/Gxmp1sAJ3
@@ -765,7 +765,7 @@
   <data name="btnManageSupplies.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qgAAAKoBBgpwTwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJFSURBVEhLrdZZ
+        qQAAAKkBq7NRIgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJFSURBVEhLrdZZ
         qE1RHMfxk3l2keHBA4VSShnLHArlSXgxhShXyoMSImXImFKS+UEUKRkyREiZX8QLZcqD8O7Bm+/3rL1O
         69r76Ox7/epT65577vmfvfZ//fetFKQd5mIXTuAwZuC/pCfuYz++YAOm4TR2oM3ZhFWYiKO+kOQ2+odl
         63MGwzAZ07Eez3AP7/AbL3AJ3VE65zAkLCsbcRYdMBSfYEHTjDVhWS4HsBN78APr4Ic+x0rcgr9/iXEo
