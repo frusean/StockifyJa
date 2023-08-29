@@ -61,7 +61,7 @@
             // picUserIcon
             // 
             this.picUserIcon.Image = ((System.Drawing.Image)(resources.GetObject("picUserIcon.Image")));
-            this.picUserIcon.Location = new System.Drawing.Point(396, 88);
+            this.picUserIcon.Location = new System.Drawing.Point(366, 88);
             this.picUserIcon.Name = "picUserIcon";
             this.picUserIcon.Size = new System.Drawing.Size(105, 95);
             this.picUserIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -70,7 +70,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(396, 377);
+            this.btnLogin.Location = new System.Drawing.Point(366, 376);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 29);
             this.btnLogin.TabIndex = 16;
@@ -119,7 +119,7 @@
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Georgia", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
-            this.lblLogin.Location = new System.Drawing.Point(389, 9);
+            this.lblLogin.Location = new System.Drawing.Point(359, 9);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(128, 38);
             this.lblLogin.TabIndex = 11;

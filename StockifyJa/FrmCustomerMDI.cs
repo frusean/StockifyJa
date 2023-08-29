@@ -16,6 +16,7 @@ namespace StockifyJa
         public FrmCustomerMDI()
         {
             InitializeComponent();
+            
         }
 
         private void chatToolStripMenuItem_Click(object sender, EventArgs e)
@@ -23,7 +24,7 @@ namespace StockifyJa
             FrmCustomerChat frmCustomerChat = new FrmCustomerChat();
             frmCustomerChat.MdiParent = this;
             frmCustomerChat.Show();
-
+           
         }
 
         private void viewProductsInventoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,6 +32,7 @@ namespace StockifyJa
             FrmViewAllProducts frmViewAllProducts = new FrmViewAllProducts();
             frmViewAllProducts.MdiParent = this;
             frmViewAllProducts.Show();
+            
         }
 
         private void placeOrderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,6 +40,7 @@ namespace StockifyJa
             FrmPlaceOrder frmPlaceOrder = new FrmPlaceOrder();
             frmPlaceOrder.MdiParent = this;
             frmPlaceOrder.Show();
+          
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

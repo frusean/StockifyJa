@@ -69,6 +69,7 @@
             this.gboxRole = new System.Windows.Forms.GroupBox();
             this.rbuttonCustomer = new System.Windows.Forms.RadioButton();
             this.rbuttonAdministrator = new System.Windows.Forms.RadioButton();
+            this.picExit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAddUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUpdateUser)).BeginInit();
@@ -76,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picViewUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).BeginInit();
             this.gboxRole.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // lblManageUsers
@@ -463,12 +465,26 @@
             this.rbuttonAdministrator.Text = "Adminstrator";
             this.rbuttonAdministrator.UseVisualStyleBackColor = true;
             // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(1445, 679);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(61, 47);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 81;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
+            // 
             // FrmManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1518, 738);
+            this.Controls.Add(this.picExit);
             this.Controls.Add(this.gboxRole);
             this.Controls.Add(this.picRefresh);
             this.Controls.Add(this.picViewUser);
@@ -507,6 +523,7 @@
             this.Controls.Add(this.txtCompanyName);
             this.Controls.Add(this.lblCompanyName);
             this.Controls.Add(this.lblManageUsers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmManageUsers";
@@ -520,6 +537,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).EndInit();
             this.gboxRole.ResumeLayout(false);
             this.gboxRole.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,5 +585,6 @@
         private System.Windows.Forms.GroupBox gboxRole;
         private System.Windows.Forms.RadioButton rbuttonCustomer;
         private System.Windows.Forms.RadioButton rbuttonAdministrator;
+        private System.Windows.Forms.PictureBox picExit;
     }
 }

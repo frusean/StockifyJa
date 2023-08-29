@@ -34,7 +34,9 @@
             this.btnCustomerMessageSendButton = new System.Windows.Forms.Button();
             this.lblLiveChat = new System.Windows.Forms.Label();
             this.picSend = new System.Windows.Forms.PictureBox();
+            this.picExit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picSend)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCustomerMessageInput
@@ -84,12 +86,24 @@
             this.picSend.TabIndex = 50;
             this.picSend.TabStop = false;
             // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(1006, 496);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(61, 47);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 51;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
+            // 
             // FrmCustomerChat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1066, 543);
+            this.Controls.Add(this.picExit);
             this.Controls.Add(this.picSend);
             this.Controls.Add(this.txtCustomerMessageInput);
             this.Controls.Add(this.lbxCustomerMessageView);
@@ -100,6 +114,7 @@
             this.Text = "Customer Chat";
             this.Load += new System.EventHandler(this.FrmCustomerChat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picSend)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,5 +127,6 @@
         private System.Windows.Forms.Button btnCustomerMessageSendButton;
         private System.Windows.Forms.Label lblLiveChat;
         private System.Windows.Forms.PictureBox picSend;
+        private System.Windows.Forms.PictureBox picExit;
     }
 }

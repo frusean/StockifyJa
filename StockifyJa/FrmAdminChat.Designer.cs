@@ -33,7 +33,9 @@
             this.lbxAdminMessageView = new System.Windows.Forms.ListBox();
             this.btnAdminMessageSendButton = new System.Windows.Forms.Button();
             this.picSend = new System.Windows.Forms.PictureBox();
+            this.picExit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picSend)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAdminMessageInput
@@ -75,12 +77,26 @@
             this.picSend.TabIndex = 51;
             this.picSend.TabStop = false;
             // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(987, 576);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(61, 47);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 52;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
+            // 
             // FrmAdminChat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1060, 635);
+            this.Controls.Add(this.picExit);
             this.Controls.Add(this.picSend);
             this.Controls.Add(this.txtAdminMessageInput);
             this.Controls.Add(this.lbxAdminMessageView);
@@ -90,6 +106,7 @@
             this.Text = "Administrator Chat";
             this.Load += new System.EventHandler(this.FrmAdminChat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picSend)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,5 +118,6 @@
         private System.Windows.Forms.ListBox lbxAdminMessageView;
         private System.Windows.Forms.Button btnAdminMessageSendButton;
         private System.Windows.Forms.PictureBox picSend;
+        private System.Windows.Forms.PictureBox picExit;
     }
 }

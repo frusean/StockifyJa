@@ -36,6 +36,9 @@
             this.txtGCT = new System.Windows.Forms.TextBox();
             this.lblGCT = new System.Windows.Forms.Label();
             this.dgvRates = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.lblSettings = new System.Windows.Forms.Label();
             this.picSave = new System.Windows.Forms.PictureBox();
@@ -49,15 +52,12 @@
             this.picUpdateStatus = new System.Windows.Forms.PictureBox();
             this.picAddStatus = new System.Windows.Forms.PictureBox();
             this.dgvStatus = new System.Windows.Forms.DataGridView();
+            this.StatusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gboxStatusID = new System.Windows.Forms.GroupBox();
             this.txtStatusID = new System.Windows.Forms.TextBox();
             this.txtStatusName = new System.Windows.Forms.TextBox();
             this.lblStatusName = new System.Windows.Forms.Label();
-            this.StatusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RateID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gboxRateID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
@@ -133,7 +133,7 @@
             // 
             this.dgvRates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRates.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RateID,
+            this.ID,
             this.Discount,
             this.GCT});
             this.dgvRates.Location = new System.Drawing.Point(90, 402);
@@ -143,11 +143,32 @@
             this.dgvRates.Size = new System.Drawing.Size(495, 136);
             this.dgvRates.TabIndex = 15;
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "Rate ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.Width = 125;
+            // 
+            // Discount
+            // 
+            this.Discount.HeaderText = "Discount";
+            this.Discount.MinimumWidth = 6;
+            this.Discount.Name = "Discount";
+            this.Discount.Width = 125;
+            // 
+            // GCT
+            // 
+            this.GCT.HeaderText = "GCT";
+            this.GCT.MinimumWidth = 6;
+            this.GCT.Name = "GCT";
+            this.GCT.Width = 125;
+            // 
             // picExit
             // 
             this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(1345, 565);
+            this.picExit.Location = new System.Drawing.Point(1361, 356);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(53, 47);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -292,6 +313,20 @@
             this.dgvStatus.Size = new System.Drawing.Size(465, 136);
             this.dgvStatus.TabIndex = 32;
             // 
+            // StatusID
+            // 
+            this.StatusID.HeaderText = "Staus ID";
+            this.StatusID.MinimumWidth = 6;
+            this.StatusID.Name = "StatusID";
+            this.StatusID.Width = 125;
+            // 
+            // StatusName
+            // 
+            this.StatusName.HeaderText = "Status Name";
+            this.StatusName.MinimumWidth = 6;
+            this.StatusName.Name = "StatusName";
+            this.StatusName.Width = 125;
+            // 
             // gboxStatusID
             // 
             this.gboxStatusID.Controls.Add(this.txtStatusID);
@@ -329,45 +364,12 @@
             this.lblStatusName.TabIndex = 27;
             this.lblStatusName.Text = "Status Name";
             // 
-            // StatusID
-            // 
-            this.StatusID.HeaderText = "Staus ID";
-            this.StatusID.MinimumWidth = 6;
-            this.StatusID.Name = "StatusID";
-            this.StatusID.Width = 125;
-            // 
-            // StatusName
-            // 
-            this.StatusName.HeaderText = "Status Name";
-            this.StatusName.MinimumWidth = 6;
-            this.StatusName.Name = "StatusName";
-            this.StatusName.Width = 125;
-            // 
-            // RateID
-            // 
-            this.RateID.HeaderText = "Rate ID";
-            this.RateID.MinimumWidth = 6;
-            this.RateID.Name = "RateID";
-            this.RateID.Width = 125;
-            // 
-            // Discount
-            // 
-            this.Discount.HeaderText = "Discount";
-            this.Discount.MinimumWidth = 6;
-            this.Discount.Name = "Discount";
-            this.Discount.Width = 125;
-            // 
-            // GCT
-            // 
-            this.GCT.HeaderText = "GCT";
-            this.GCT.MinimumWidth = 6;
-            this.GCT.Name = "GCT";
-            this.GCT.Width = 125;
-            // 
             // FrmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1426, 624);
             this.Controls.Add(this.picSaveStatus);
@@ -392,6 +394,7 @@
             this.Controls.Add(this.gboxRateID);
             this.Controls.Add(this.txtDiscount);
             this.Controls.Add(this.lblDiscount);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmSettings";
             this.Text = "Settings";
@@ -444,10 +447,10 @@
         private System.Windows.Forms.TextBox txtStatusID;
         private System.Windows.Forms.TextBox txtStatusName;
         private System.Windows.Forms.Label lblStatusName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RateID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GCT;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GCT;
     }
 }

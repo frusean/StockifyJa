@@ -80,7 +80,7 @@
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(366, 187);
+            this.txtProductName.Location = new System.Drawing.Point(366, 157);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(285, 22);
             this.txtProductName.TabIndex = 5;
@@ -89,7 +89,7 @@
             // 
             this.lblProductName.AutoSize = true;
             this.lblProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductName.Location = new System.Drawing.Point(169, 187);
+            this.lblProductName.Location = new System.Drawing.Point(169, 157);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(109, 16);
             this.lblProductName.TabIndex = 4;
@@ -99,7 +99,7 @@
             // 
             this.gboxProductID.Controls.Add(this.txtProductID);
             this.gboxProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxProductID.Location = new System.Drawing.Point(439, 109);
+            this.gboxProductID.Location = new System.Drawing.Point(439, 79);
             this.gboxProductID.Name = "gboxProductID";
             this.gboxProductID.Size = new System.Drawing.Size(104, 50);
             this.gboxProductID.TabIndex = 3;
@@ -117,7 +117,7 @@
             // 
             // txtCategory
             // 
-            this.txtCategory.Location = new System.Drawing.Point(366, 240);
+            this.txtCategory.Location = new System.Drawing.Point(366, 210);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(285, 22);
             this.txtCategory.TabIndex = 7;
@@ -126,7 +126,7 @@
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(169, 240);
+            this.lblCategory.Location = new System.Drawing.Point(169, 210);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(70, 16);
             this.lblCategory.TabIndex = 6;
@@ -134,7 +134,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(366, 283);
+            this.txtDescription.Location = new System.Drawing.Point(366, 253);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(285, 56);
@@ -144,7 +144,7 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(169, 305);
+            this.lblDescription.Location = new System.Drawing.Point(169, 275);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(86, 16);
             this.lblDescription.TabIndex = 8;
@@ -152,7 +152,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(366, 364);
+            this.txtPrice.Location = new System.Drawing.Point(366, 334);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(285, 22);
             this.txtPrice.TabIndex = 11;
@@ -161,7 +161,7 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(169, 364);
+            this.lblPrice.Location = new System.Drawing.Point(169, 334);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(43, 16);
             this.lblPrice.TabIndex = 10;
@@ -171,7 +171,7 @@
             // 
             this.gboxRateID.Controls.Add(this.cboRates);
             this.gboxRateID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxRateID.Location = new System.Drawing.Point(172, 425);
+            this.gboxRateID.Location = new System.Drawing.Point(172, 395);
             this.gboxRateID.Name = "gboxRateID";
             this.gboxRateID.Size = new System.Drawing.Size(479, 62);
             this.gboxRateID.TabIndex = 4;
@@ -191,7 +191,7 @@
             // 
             this.gboxImageID.Controls.Add(this.txtImageID);
             this.gboxImageID.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gboxImageID.Location = new System.Drawing.Point(955, 109);
+            this.gboxImageID.Location = new System.Drawing.Point(955, 79);
             this.gboxImageID.Name = "gboxImageID";
             this.gboxImageID.Size = new System.Drawing.Size(104, 50);
             this.gboxImageID.TabIndex = 4;
@@ -209,7 +209,7 @@
             // 
             // txtImageURL
             // 
-            this.txtImageURL.Location = new System.Drawing.Point(894, 186);
+            this.txtImageURL.Location = new System.Drawing.Point(894, 156);
             this.txtImageURL.Multiline = true;
             this.txtImageURL.Name = "txtImageURL";
             this.txtImageURL.Size = new System.Drawing.Size(285, 63);
@@ -219,7 +219,7 @@
             // 
             this.lblImageURL.AutoSize = true;
             this.lblImageURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImageURL.Location = new System.Drawing.Point(780, 210);
+            this.lblImageURL.Location = new System.Drawing.Point(780, 180);
             this.lblImageURL.Name = "lblImageURL";
             this.lblImageURL.Size = new System.Drawing.Size(84, 16);
             this.lblImageURL.TabIndex = 12;
@@ -253,7 +253,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProducts.Location = new System.Drawing.Point(50, 592);
+            this.dgvProducts.Location = new System.Drawing.Point(62, 531);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -337,7 +337,7 @@
             // 
             this.picExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(1167, 678);
+            this.picExit.Location = new System.Drawing.Point(1159, 655);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(53, 47);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -352,7 +352,7 @@
             this.lblManageProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblManageProducts.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManageProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(167)))));
-            this.lblManageProducts.Location = new System.Drawing.Point(517, 30);
+            this.lblManageProducts.Location = new System.Drawing.Point(595, 18);
             this.lblManageProducts.Name = "lblManageProducts";
             this.lblManageProducts.Size = new System.Drawing.Size(231, 32);
             this.lblManageProducts.TabIndex = 16;
@@ -362,7 +362,7 @@
             // picAdd
             // 
             this.picAdd.Image = ((System.Drawing.Image)(resources.GetObject("picAdd.Image")));
-            this.picAdd.Location = new System.Drawing.Point(544, 534);
+            this.picAdd.Location = new System.Drawing.Point(606, 483);
             this.picAdd.Name = "picAdd";
             this.picAdd.Size = new System.Drawing.Size(43, 42);
             this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -373,7 +373,7 @@
             // picUpdate
             // 
             this.picUpdate.Image = ((System.Drawing.Image)(resources.GetObject("picUpdate.Image")));
-            this.picUpdate.Location = new System.Drawing.Point(603, 534);
+            this.picUpdate.Location = new System.Drawing.Point(665, 483);
             this.picUpdate.Name = "picUpdate";
             this.picUpdate.Size = new System.Drawing.Size(43, 42);
             this.picUpdate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -384,7 +384,7 @@
             // picDelete
             // 
             this.picDelete.Image = ((System.Drawing.Image)(resources.GetObject("picDelete.Image")));
-            this.picDelete.Location = new System.Drawing.Point(663, 534);
+            this.picDelete.Location = new System.Drawing.Point(725, 483);
             this.picDelete.Name = "picDelete";
             this.picDelete.Size = new System.Drawing.Size(43, 42);
             this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -395,7 +395,7 @@
             // picRefresh
             // 
             this.picRefresh.Image = ((System.Drawing.Image)(resources.GetObject("picRefresh.Image")));
-            this.picRefresh.Location = new System.Drawing.Point(727, 534);
+            this.picRefresh.Location = new System.Drawing.Point(789, 483);
             this.picRefresh.Name = "picRefresh";
             this.picRefresh.Size = new System.Drawing.Size(43, 42);
             this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -406,7 +406,7 @@
             // picSave
             // 
             this.picSave.Image = ((System.Drawing.Image)(resources.GetObject("picSave.Image")));
-            this.picSave.Location = new System.Drawing.Point(789, 534);
+            this.picSave.Location = new System.Drawing.Point(851, 483);
             this.picSave.Name = "picSave";
             this.picSave.Size = new System.Drawing.Size(43, 42);
             this.picSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -416,7 +416,7 @@
             // 
             // picImage
             // 
-            this.picImage.Location = new System.Drawing.Point(943, 321);
+            this.picImage.Location = new System.Drawing.Point(943, 291);
             this.picImage.Name = "picImage";
             this.picImage.Size = new System.Drawing.Size(152, 166);
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -427,8 +427,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
-            this.ClientSize = new System.Drawing.Size(1241, 778);
+            this.ClientSize = new System.Drawing.Size(1325, 819);
             this.Controls.Add(this.picImage);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picRefresh);
@@ -452,6 +454,7 @@
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.gboxProductID);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManageProducts";
             this.Text = "Manage Products";

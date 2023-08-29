@@ -20,7 +20,7 @@ namespace StockifyJa
             StockifydBEntities = new stockifydBEntities();
         }
 
-       
+
 
         private void FrmSettings_Load(object sender, EventArgs e)
         {
@@ -53,12 +53,15 @@ namespace StockifyJa
                 txtDiscount.Focus();
             }
 
+
             if (isValid)
             {
                 try
                 {
+                    int lastRateID = StockifydBEntities.Rates.Any() ? StockifydBEntities.Rates.Max(r => r.ID) : 0;
                     var rate = new Rate
                     {
+                        ID = lastRateID + 1,
                         GCT = decimal.Parse(GCT),
                         Discount = decimal.Parse(Discount)
                     };
@@ -86,10 +89,9 @@ namespace StockifyJa
 
         private void picUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvRates.SelectedRows.Count > 0)  // Check if a row is selected
+            if (dgvRates.SelectedRows.Count > 0)
             {
-                int rateID = Convert.ToInt32(dgvRates.SelectedRows[0].Cells["ID"].Value);  // Fetch the RateID of the selected row
-
+                int rateID = Convert.ToInt32(dgvRates.SelectedRows[0].Cells["ID"].Value);
                 var rateToUpdate = StockifydBEntities.Rates.Find(rateID);
                 if (rateToUpdate != null)
                 {
@@ -108,7 +110,9 @@ namespace StockifyJa
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+
+
+        private void picSave_Click(object sender, EventArgs e)
         {
             string GCT = txtGCT.Text;
             string Discount = txtDiscount.Text;
@@ -175,11 +179,6 @@ namespace StockifyJa
             }
         }
 
-        private void picSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void picDelete_Click(object sender, EventArgs e)
         {
             if (dgvRates.SelectedRows.Count == 0)
@@ -198,13 +197,43 @@ namespace StockifyJa
                 return;
             }
 
-            var confirmResult = MessageBox.Show("Are you sure you want to delete this rate?", "Confirm Deletion!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            if (confirmResult != DialogResult.Yes) return;
+            // Check for dependent Products
+            var dependentProducts = StockifydBEntities.Products.Where(p => p.RateID == selectedRateID).ToList();
 
-            StockifydBEntities.Rates.Remove(rateToDelete);
-            StockifydBEntities.SaveChanges();
-            RefreshDataGridView();
-            MessageBox.Show("Rate deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (dependentProducts.Count > 0)
+            {
+                var confirmResult = MessageBox.Show($"There are {dependentProducts.Count} Products dependent on this Rate. Do you want to set them to NULL and continue?",
+                                                    "Confirm Deletion!",
+                                                    MessageBoxButtons.YesNo,
+                                                    MessageBoxIcon.Exclamation);
+
+                if (confirmResult != DialogResult.Yes) return;
+
+                // Set RateID to NULL for dependent Products
+                foreach (var product in dependentProducts)
+                {
+                    product.RateID = null;
+                }
+            }
+
+            var confirmDelete = MessageBox.Show($"Are you sure you want to delete this rate?\nGCT: {rateToDelete.GCT}\nDiscount: {rateToDelete.Discount}",
+                                                "Confirm Deletion!",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Exclamation);
+
+            if (confirmDelete != DialogResult.Yes) return;
+
+            try
+            {
+                StockifydBEntities.Rates.Remove(rateToDelete);
+                StockifydBEntities.SaveChanges();
+                RefreshDataGridView();
+                MessageBox.Show("Rate deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while deleting the rate: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void picRefresh_Click(object sender, EventArgs e)
@@ -216,7 +245,6 @@ namespace StockifyJa
         private void RefreshDataGridView()
         {
             dgvRates.Rows.Clear();
-
             if (StockifydBEntities != null && StockifydBEntities.Rates != null)
             {
                 foreach (var rate in StockifydBEntities.Rates.ToList())
@@ -232,30 +260,186 @@ namespace StockifyJa
             {
                 MessageBox.Show("Error: Database not connected properly. Please check your connection and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            dgvStatus.Rows.Clear();
+            if (StockifydBEntities != null && StockifydBEntities.Status != null)
+            {
+                foreach (var status in StockifydBEntities.Status.ToList())
+                {
+                    dgvStatus.Rows.Add(
+                        status.StatusID,
+                        status.StatusName
+                    );
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: Database not connected properly. Please check your connection and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void picAddStatus_Click(object sender, EventArgs e)
         {
+            string StatusName = txtStatusName.Text;
 
+            if (string.IsNullOrWhiteSpace(StatusName))
+            {
+                MessageBox.Show("Enter a valid Status Name!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtStatusName.Focus();
+                return;
+            }
+
+            try
+            {
+                int lastStatusID = StockifydBEntities.Status.Any() ? StockifydBEntities.Status.Max(s => s.StatusID) : 0;
+                var status = new Status
+                {
+                    StatusID = lastStatusID + 1,
+                    StatusName = StatusName
+                };
+
+                StockifydBEntities.Status.Add(status);
+                StockifydBEntities.SaveChanges();
+
+                txtStatusID.Text = status.StatusID.ToString();
+                RefreshDataGridView();
+
+                MessageBox.Show("Status Successfully Added!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void picUpdateStatus_Click(object sender, EventArgs e)
         {
-
+            if (dgvStatus.SelectedRows.Count > 0)
+            {
+                int StatusID = Convert.ToInt32(dgvStatus.SelectedRows[0].Cells["StatusID"].Value);
+                var statusToUpdate = StockifydBEntities.Status.Find(StatusID);
+                if (statusToUpdate != null)
+                {
+                    txtStatusID.Text = statusToUpdate.StatusID.ToString();
+                    txtStatusName.Text = statusToUpdate.StatusName;
+                }
+                else
+                {
+                    MessageBox.Show("Status ID was NOT FOUND!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a status from the grid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void picSaveStatus_Click(object sender, EventArgs e)
         {
+            string StatusName = txtStatusName.Text;
+            if (string.IsNullOrWhiteSpace(StatusName))
+            {
+                MessageBox.Show("Enter a valid Status Name!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtStatusName.Focus();
+                return;
+            }
 
+            try
+            {
+                Status status;
+                int StatusID;
+                if (int.TryParse(txtStatusID.Text, out StatusID))
+                {
+                    // Update existing status
+                    status = StockifydBEntities.Status.Find(StatusID);
+                    if (status == null)
+                    {
+                        MessageBox.Show("Status ID was NOT FOUND!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    // Add new status
+                    status = new Status();
+                    StockifydBEntities.Status.Add(status);
+                }
+
+                status.StatusName = StatusName;
+                StockifydBEntities.SaveChanges();
+
+                RefreshDataGridView();
+
+                MessageBox.Show("Status Successfully Saved!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void picRefreshStatus_Click(object sender, EventArgs e)
         {
-
+            txtStatusID.Text = string.Empty;
+            txtStatusName.Text = string.Empty;
         }
 
         private void picDeleteStatus_Click(object sender, EventArgs e)
         {
+            if (dgvStatus.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No status selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var selectedStatusID = (int)dgvStatus.SelectedRows[0].Cells["StatusID"].Value;
+
+            var statusToDelete = StockifydBEntities.Status.Find(selectedStatusID);
+
+            if (statusToDelete == null)
+            {
+                MessageBox.Show("Status not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Check for dependent Orders
+            var dependentOrders = StockifydBEntities.Orders.Where(o => o.StatusID == selectedStatusID).ToList();
+
+            if (dependentOrders.Count > 0)
+            {
+                var confirmResult = MessageBox.Show($"There are {dependentOrders.Count} Orders dependent on this Status. Do you want to set them to NULL and continue?",
+                                                    "Confirm Deletion!",
+                                                    MessageBoxButtons.YesNo,
+                                                    MessageBoxIcon.Exclamation);
+
+                if (confirmResult != DialogResult.Yes) return;
+
+                // Set StatusID to NULL for dependent Orders
+                foreach (var order in dependentOrders)
+                {
+                    order.StatusID = null;
+                }
+            }
+
+            var confirmDelete = MessageBox.Show($"Are you sure you want to delete this status?\nStatus Name: {statusToDelete.StatusName}",
+                                                "Confirm Deletion!",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Exclamation);
+
+            if (confirmDelete != DialogResult.Yes) return;
+
+            try
+            {
+                StockifydBEntities.Status.Remove(statusToDelete);
+                StockifydBEntities.SaveChanges();
+                RefreshDataGridView();
+                MessageBox.Show("Status deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while deleting the status: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

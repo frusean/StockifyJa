@@ -228,6 +228,18 @@
     <Compile Include="ContactDetail.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="FrmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdmin.Designer.cs">
+      <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDashboardMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDashboardMain.Designer.cs">
+      <DependentUpon>FrmDashboardMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmManageOrders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +410,9 @@
     <Compile Include="User.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmAdmin.resx">
+      <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAdminChat.resx">
       <DependentUpon>FrmAdminChat.cs</DependentUpon>
     </EmbeddedResource>
@@ -409,6 +424,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCustomerMDI.resx">
       <DependentUpon>FrmCustomerMDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDashboardMain.resx">
+      <DependentUpon>FrmDashboardMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

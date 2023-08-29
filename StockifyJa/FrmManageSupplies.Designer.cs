@@ -355,6 +355,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1100, 757);
             this.Controls.Add(this.picSave);
@@ -377,6 +378,7 @@
             this.Controls.Add(this.txtProductID);
             this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.gboxSupplyID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmManageSupplies";
             this.Text = "Manage Supplies";

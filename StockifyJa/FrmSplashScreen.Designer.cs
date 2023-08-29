@@ -65,7 +65,7 @@
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(25, 35);
+            this.lblWelcome.Location = new System.Drawing.Point(12, 42);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(213, 20);
             this.lblWelcome.TabIndex = 5;
@@ -81,7 +81,7 @@
             this.LoginProgressBar.InnerColor = System.Drawing.Color.OldLace;
             this.LoginProgressBar.InnerMargin = 2;
             this.LoginProgressBar.InnerWidth = -1;
-            this.LoginProgressBar.Location = new System.Drawing.Point(76, 111);
+            this.LoginProgressBar.Location = new System.Drawing.Point(88, 119);
             this.LoginProgressBar.MarqueeAnimationSpeed = 2000;
             this.LoginProgressBar.Name = "LoginProgressBar";
             this.LoginProgressBar.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(115)))), ((int)(((byte)(153)))));
