@@ -76,6 +76,7 @@
             this.picSend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSend.TabIndex = 51;
             this.picSend.TabStop = false;
+            this.picSend.Click += new System.EventHandler(this.picSend_Click);
             // 
             // picExit
             // 

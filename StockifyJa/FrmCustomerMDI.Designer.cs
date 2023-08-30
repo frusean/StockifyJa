@@ -50,7 +50,7 @@
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(40, 505);
+            this.menuStrip1.Size = new System.Drawing.Size(158, 505);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -58,8 +58,10 @@
             // 
             this.viewProductsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewProductsToolStripMenuItem.Image")));
             this.viewProductsToolStripMenuItem.Name = "viewProductsToolStripMenuItem";
-            this.viewProductsToolStripMenuItem.Size = new System.Drawing.Size(27, 126);
-            this.viewProductsToolStripMenuItem.Text = "View Products";
+            this.viewProductsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+            this.viewProductsToolStripMenuItem.Size = new System.Drawing.Size(143, 126);
+            this.viewProductsToolStripMenuItem.Text = "View &Products";
             this.viewProductsToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical270;
             this.viewProductsToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.viewProductsToolStripMenuItem.Click += new System.EventHandler(this.viewProductsInventoryToolStripMenuItem_Click);
@@ -68,8 +70,10 @@
             // 
             this.placeOrderToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("placeOrderToolStripMenuItem.Image")));
             this.placeOrderToolStripMenuItem.Name = "placeOrderToolStripMenuItem";
-            this.placeOrderToolStripMenuItem.Size = new System.Drawing.Size(27, 110);
-            this.placeOrderToolStripMenuItem.Text = "Place Order";
+            this.placeOrderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.O)));
+            this.placeOrderToolStripMenuItem.Size = new System.Drawing.Size(143, 110);
+            this.placeOrderToolStripMenuItem.Text = "Place &Order";
             this.placeOrderToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical270;
             this.placeOrderToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.placeOrderToolStripMenuItem.Click += new System.EventHandler(this.placeOrderToolStripMenuItem_Click);
@@ -78,8 +82,10 @@
             // 
             this.chatToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("chatToolStripMenuItem.Image")));
             this.chatToolStripMenuItem.Name = "chatToolStripMenuItem";
-            this.chatToolStripMenuItem.Size = new System.Drawing.Size(27, 93);
-            this.chatToolStripMenuItem.Text = "Live Chat";
+            this.chatToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.C)));
+            this.chatToolStripMenuItem.Size = new System.Drawing.Size(143, 93);
+            this.chatToolStripMenuItem.Text = "Live &Chat";
             this.chatToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical270;
             this.chatToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.chatToolStripMenuItem.Click += new System.EventHandler(this.chatToolStripMenuItem_Click);
@@ -88,7 +94,7 @@
             // 
             this.logoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logoutToolStripMenuItem.Image")));
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(27, 86);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(143, 86);
             this.logoutToolStripMenuItem.Text = "Log Out";
             this.logoutToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Vertical270;
             this.logoutToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;

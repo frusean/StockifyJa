@@ -164,5 +164,30 @@ namespace StockifyJa
         {
             this.Close();
         }
+
+        private async void picSend_Click(object sender, EventArgs e)
+        {
+            string message = txtAdminMessageInput.Text;
+
+            FirestoreDb db = FirestoreDb.Create("stockify-34d8d"); // create a new instance every time
+            CollectionReference collectionReference = db.Collection("conversations");
+
+            Dictionary<string, object> docData = new Dictionary<string, object>
+    {
+        { "Author", "Admin" },
+        { "Message", message },
+        { "Timestamp", Timestamp.GetCurrentTimestamp() }
+    };
+            await collectionReference.AddAsync(docData);
+
+            txtAdminMessageInput.Clear();
+
+            // Check the customer chat instance and re-create it if necessary
+            if (FrmCustomerChat.frmCustomerChatInstance == null || FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
+            {
+                FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
+                FrmCustomerChat.frmCustomerChatInstance.Show();
+            }
+        }
     }
 }
