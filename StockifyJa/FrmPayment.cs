@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Google.Cloud.Firestore.V1.StructuredQuery.Types;
 
 namespace StockifyJa
 {
@@ -23,7 +24,8 @@ namespace StockifyJa
         private List<ItemDetails> _cartItems;
         private stockifydBEntities _db;
 
-        public FrmPayment(List<ItemDetails> cartItems, decimal gct, decimal total)
+        public FrmPayment(List<ItemDetails> cartItems, decimal gct, decimal total, int latestOrderId)
+       
         {
             InitializeComponent();
             _cartItems = cartItems;
@@ -32,6 +34,7 @@ namespace StockifyJa
             _db = new stockifydBEntities();
             _db.Database.CommandTimeout = 180;
             StripeConfiguration.ApiKey = "sk_test_51NDiUAH4zO9awdaeS7UqsirCvNEBr42gC4oZTRD0V9Idd2djlMcv17M256OIjwlSpGSbcB6r9YJ8P8nfIHEAwJvY00A4N70Joa";
+            lblOrderID.Text = $" {latestOrderId}";
         }
 
         
@@ -57,6 +60,7 @@ namespace StockifyJa
             cmbExpYear.Enabled = false;
             txtCvc.Enabled = false;
             btnPay.Enabled = false;
+            cmbCardType.Enabled = false;
 
             // disable the PayOnDropOff button initially
             btnPayOnDelivery.Enabled = false;
@@ -66,10 +70,18 @@ namespace StockifyJa
       
         private async void btnPay_Click(object sender, EventArgs e)
         {
+           
+            string selectedCardType = cmbCardType.SelectedItem.ToString();
             string cardNumber = txtCardNumber.Text;
             string expMonth = cmbExpMonth.Text;
             string expYear = cmbExpYear.Text;
             string cvc = txtCvc.Text;
+
+            if (cmbCardType.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a card type.");
+                return;
+            }
 
             if (string.IsNullOrEmpty(cardNumber) || cardNumber.Length != 16)
             {
@@ -131,9 +143,26 @@ namespace StockifyJa
                     {
                         RetailerID = AppState.CurrentUserID,
                         OrderDate = DateTime.Now,
-                        Total = _total
+                        Total = _total,
+                        StatusID=8
                     };
                     _db.Orders.Add(newOrder);
+                    await _db.SaveChangesAsync();
+
+                    int savedOrderId = newOrder.OrderID;
+
+                    // Create a new PaymentDetail object and populate its fields
+                    PaymentDetail paymentDetail = new PaymentDetail
+                    {
+                        PaymentMethod = selectedCardType,  
+                        TransactionDate = DateTime.Now,
+                        Amount = _total,
+                        StatusID = 1,  
+                        OrderID = savedOrderId  
+                    };
+
+                    // Add the new PaymentDetail object to the database
+                    _db.PaymentDetails.Add(paymentDetail);
                     await _db.SaveChangesAsync();
 
                     foreach (var item in _cartItems)
@@ -193,6 +222,7 @@ namespace StockifyJa
             cmbExpYear.Enabled = isChecked;
             txtCvc.Enabled = isChecked;
             btnPay.Enabled = isChecked;
+            cmbCardType.Enabled = isChecked;
 
             // If PayNow is selected, disable the PayOnDropOff button
             if (isChecked)
@@ -260,32 +290,36 @@ namespace StockifyJa
     DialogResult confirmation = MessageBox.Show($"Are you sure you would like to pay with {chosenMethod}?", "Confirm Payment Method", MessageBoxButtons.YesNo);
 
     if (confirmation == DialogResult.No) return;
+            // Step 3: Add the order to Orders and OrderDetails tables
+            Order newOrder = new Order
+            {
+                RetailerID = AppState.CurrentUserID,
+                OrderDate = DateTime.Now,
+                Total = _total,
+                StatusID = 7
+            };
 
-    // Step 3: Save the payment details
-    PaymentDetail paymentDetail = new PaymentDetail
+            _db.Orders.Add(newOrder);
+            _db.SaveChanges();
+
+            int savedOrderId = newOrder.OrderID;
+
+            // Step 4: Save the payment details
+            PaymentDetail paymentDetail = new PaymentDetail
     {
         PaymentMethod = chosenMethod,
         TransactionDate = DateTime.Now,
         Amount = _total,
-        StatusID = 1 // Assuming 1 is the default status. Adjust as needed.
+        StatusID = 1, // Assuming 1 is the default status. Adjust as needed.
+        OrderID = savedOrderId
     };
 
     _db.PaymentDetails.Add(paymentDetail);
     _db.SaveChanges();
 
-    // Step 4: Add the order to Orders and OrderDetails tables
-    Order newOrder = new Order
-    {
-        RetailerID = AppState.CurrentUserID,
-        OrderDate = DateTime.Now,
-        Total = _total,
-        StatusID = 1 // Assuming 1 is the default status. Adjust as needed.
-    };
+   
 
-    _db.Orders.Add(newOrder);
-    _db.SaveChanges();
-
-    foreach (var item in _cartItems)
+            foreach (var item in _cartItems)
     {
         OrderDetail orderDetail = new OrderDetail
         {
@@ -364,29 +398,33 @@ namespace StockifyJa
 
             if (confirmation == DialogResult.No) return;
 
-            // Step 3: Save the payment details
-            PaymentDetail paymentDetail = new PaymentDetail
-            {
-                PaymentMethod = chosenMethod,
-                TransactionDate = DateTime.Now,
-                Amount = _total,
-                StatusID = 1 // Assuming 1 is the default status. Adjust as needed.
-            };
-
-            _db.PaymentDetails.Add(paymentDetail);
-            _db.SaveChanges();
-
-            // Step 4: Add the order to Orders and OrderDetails tables
+            // Step 3: Add the order to Orders and OrderDetails tables
             Order newOrder = new Order
             {
                 RetailerID = AppState.CurrentUserID,
                 OrderDate = DateTime.Now,
                 Total = _total,
-                StatusID = 9 
+                StatusID = 9
             };
 
             _db.Orders.Add(newOrder);
             _db.SaveChanges();
+            int savedOrderId = newOrder.OrderID;
+
+            // Step 4: Save the payment details
+            PaymentDetail paymentDetail = new PaymentDetail
+            {
+                PaymentMethod = chosenMethod,
+                TransactionDate = DateTime.Now,
+                Amount = _total,
+                StatusID = 7,
+                OrderID = savedOrderId
+            };
+
+            _db.PaymentDetails.Add(paymentDetail);
+            _db.SaveChanges();
+
+           
 
             foreach (var item in _cartItems)
             {
@@ -449,7 +487,7 @@ namespace StockifyJa
             heading.Format.SpaceAfter = "0.5cm";
             // Logo
             string logoPath = @"C:\Users\demet\Downloads\StockifyJa\StockifyJa\StockifyJa\AppleNova.png";
-            section.AddImage(logoPath).Width = "3cm";
+            section.AddImage(logoPath).Width = "2cm";
 
               section.AddParagraph("\n");
 
@@ -468,7 +506,21 @@ namespace StockifyJa
             section.AddParagraph("\n"); // Adding a space
                                         // Display cart items
 
-            foreach (var item in _cartItems)
+                // Add first separator
+                Paragraph separator1 = section.AddParagraph("*************************************************************************************");
+                separator1.Format.Font.Size = 14;
+                separator1.Format.Alignment = ParagraphAlignment.Center;  // Changed from Left to Center
+
+                // Add Items heading
+                section.AddParagraph("Items").Format.Alignment = ParagraphAlignment.Center;
+
+                // Add second separator
+                Paragraph separator2 = section.AddParagraph("*************************************************************************************");
+                separator2.Format.Font.Size = 14;
+                separator2.Format.Alignment = ParagraphAlignment.Center;  // Changed from Left to Center
+
+
+                foreach (var item in _cartItems)
             {
 
 
@@ -550,6 +602,9 @@ namespace StockifyJa
             return _db.Orders.OrderByDescending(o => o.OrderDate).FirstOrDefault()?.OrderID ?? 0;
         }
 
-        
+        private void picExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

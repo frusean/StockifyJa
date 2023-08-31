@@ -49,10 +49,12 @@ namespace StockifyJa
 
         private void pbxContinueToPayment_Click(object sender, EventArgs e)
         {
-          
-            FrmPayment frmPayment = new FrmPayment(_cartItems, _gctAmount, _totalAmount + _gctAmount);
-            frmPayment.Show();
 
+            /*FrmPayment frmPayment = new FrmPayment(_cartItems, _gctAmount, _totalAmount + _gctAmount);
+            frmPayment.Show();*/
+
+            int latestOrderId = GetLatestOrderID();
+            FrmPayment frmPayment = new FrmPayment(_cartItems, _gctAmount, _totalAmount + _gctAmount, latestOrderId);
             frmPayment.Show();
         }
 
@@ -71,35 +73,52 @@ namespace StockifyJa
 
         private void GenerateReceipt()
         {
-            Document receipt = new Document();
-            Section section = receipt.AddSection();
 
+            Document receipt = new Document();
+
+            Section section = receipt.AddSection();
             var receiptHeading = section.AddParagraph("Receipt");
             receiptHeading.Format.Font.Size = 14;
             receiptHeading.Format.Alignment = ParagraphAlignment.Center;
+            section.AddParagraph("\n");
 
-            // Add the logo
+            // Add the logo on the top left corner
             string imagePath = @"C:\Users\demet\Downloads\StockifyJa\StockifyJa\StockifyJa\AppleNova.png";
             var image = section.Headers.Primary.AddImage(imagePath);
             image.Width = "2cm";
             image.LockAspectRatio = true;
+            image.Left = ShapePosition.Left;
 
-           
-            section.AddParagraph("\n");
+            // Add address on the top right corner
             section.AddParagraph("Apple Nova").Format.Alignment = ParagraphAlignment.Right;
             section.AddParagraph("Bridgeport, Portmore, St.Catherine").Format.Alignment = ParagraphAlignment.Right;
+            section.AddParagraph("\n");
+
+            // Add Order # and Date
             section.AddParagraph($"Order #: {GetLatestOrderID()}").Format.Alignment = ParagraphAlignment.Left;
             section.AddParagraph($"Date: {DateTime.Now:d}").Format.Alignment = ParagraphAlignment.Left;
-            // Spacer
             section.AddParagraph("\n");
+
+            // Add first separator
+            Paragraph separator1 = section.AddParagraph("*************************************************************************************");
+            separator1.Format.Font.Size = 14;
+            separator1.Format.Alignment = ParagraphAlignment.Left;
+
+            // Add Items heading
+            section.AddParagraph("Items").Format.Alignment = ParagraphAlignment.Center;
+
+            // Add second separator
+            Paragraph separator2 = section.AddParagraph("*************************************************************************************");
+            separator2.Format.Font.Size = 14;
+            separator2.Format.Alignment = ParagraphAlignment.Left;
+
 
             // Display cart items with spaces
             foreach (var item in _cartItems)
             {
-                section.AddParagraph($"{item.ProductName} x{item.Quantity}  ${item.Price:0.00} each");
+                section.AddParagraph($"{item.ProductName} x{item.Quantity}  ${item.Price:0.00} each\n\n");
             }
 
-            // Spacer
             section.AddParagraph("\n");
 
             // Display totals on the right side
@@ -138,8 +157,7 @@ namespace StockifyJa
         private int GetLatestOrderID()
         {
             // This function queries the database to get the most recent order ID.
-            // This is an example, and you should ensure your actual database query is correct.
-            return _db.Orders.OrderByDescending(o => o.OrderDate).FirstOrDefault()?.OrderID ?? 0;
+             return _db.Orders.OrderByDescending(o => o.OrderDate).FirstOrDefault()?.OrderID ?? 0;
         }
 
         private void picReceipt_Click(object sender, EventArgs e)

@@ -20,7 +20,7 @@ namespace StockifyJa
     {
         private stockifydBEntities _db;
         private List<ItemDetails> _cartItems;
-
+        
         public FrmPlaceOrder()
         {
             InitializeComponent();
@@ -301,10 +301,7 @@ namespace StockifyJa
             }
             else
             {
-                MessageBox.Show("Please select a product before proceeding.",
-                                "No Product Selected",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                MessageBox.Show("Please select a product before proceeding.", "No Product Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
 
