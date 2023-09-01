@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminChat));
             this.txtAdminMessageInput = new System.Windows.Forms.TextBox();
             this.lbxAdminMessageView = new System.Windows.Forms.ListBox();
-            this.btnAdminMessageSendButton = new System.Windows.Forms.Button();
             this.picSend = new System.Windows.Forms.PictureBox();
             this.picExit = new System.Windows.Forms.PictureBox();
+            this.lblManageUsers = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picSend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAdminMessageInput
             // 
-            this.txtAdminMessageInput.Location = new System.Drawing.Point(25, 463);
+            this.txtAdminMessageInput.Location = new System.Drawing.Point(235, 484);
             this.txtAdminMessageInput.Multiline = true;
             this.txtAdminMessageInput.Name = "txtAdminMessageInput";
             this.txtAdminMessageInput.Size = new System.Drawing.Size(585, 53);
@@ -51,26 +51,16 @@
             // 
             this.lbxAdminMessageView.FormattingEnabled = true;
             this.lbxAdminMessageView.ItemHeight = 16;
-            this.lbxAdminMessageView.Location = new System.Drawing.Point(43, 58);
+            this.lbxAdminMessageView.Location = new System.Drawing.Point(244, 78);
             this.lbxAdminMessageView.Name = "lbxAdminMessageView";
             this.lbxAdminMessageView.Size = new System.Drawing.Size(567, 372);
             this.lbxAdminMessageView.TabIndex = 43;
             this.lbxAdminMessageView.SelectedIndexChanged += new System.EventHandler(this.lbxAdminMessageView_SelectedIndexChanged);
             // 
-            // btnAdminMessageSendButton
-            // 
-            this.btnAdminMessageSendButton.Location = new System.Drawing.Point(660, 480);
-            this.btnAdminMessageSendButton.Name = "btnAdminMessageSendButton";
-            this.btnAdminMessageSendButton.Size = new System.Drawing.Size(75, 23);
-            this.btnAdminMessageSendButton.TabIndex = 42;
-            this.btnAdminMessageSendButton.Text = "Send";
-            this.btnAdminMessageSendButton.UseVisualStyleBackColor = true;
-            this.btnAdminMessageSendButton.Click += new System.EventHandler(this.btnAdminMessageSendButton_Click);
-            // 
             // picSend
             // 
             this.picSend.Image = ((System.Drawing.Image)(resources.GetObject("picSend.Image")));
-            this.picSend.Location = new System.Drawing.Point(774, 470);
+            this.picSend.Location = new System.Drawing.Point(848, 495);
             this.picSend.Name = "picSend";
             this.picSend.Size = new System.Drawing.Size(37, 33);
             this.picSend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -89,6 +79,18 @@
             this.picExit.TabStop = false;
             this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
+            // lblManageUsers
+            // 
+            this.lblManageUsers.AutoSize = true;
+            this.lblManageUsers.Font = new System.Drawing.Font("Georgia", 16.2F);
+            this.lblManageUsers.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblManageUsers.Location = new System.Drawing.Point(497, 9);
+            this.lblManageUsers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblManageUsers.Name = "lblManageUsers";
+            this.lblManageUsers.Size = new System.Drawing.Size(73, 32);
+            this.lblManageUsers.TabIndex = 53;
+            this.lblManageUsers.Text = "Chat";
+            // 
             // FrmAdminChat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -97,11 +99,11 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(153)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(1060, 635);
+            this.Controls.Add(this.lblManageUsers);
             this.Controls.Add(this.picExit);
             this.Controls.Add(this.picSend);
             this.Controls.Add(this.txtAdminMessageInput);
             this.Controls.Add(this.lbxAdminMessageView);
-            this.Controls.Add(this.btnAdminMessageSendButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminChat";
             this.Text = "Administrator Chat";
@@ -117,8 +119,8 @@
 
         private System.Windows.Forms.TextBox txtAdminMessageInput;
         private System.Windows.Forms.ListBox lbxAdminMessageView;
-        private System.Windows.Forms.Button btnAdminMessageSendButton;
         private System.Windows.Forms.PictureBox picSend;
         private System.Windows.Forms.PictureBox picExit;
+        private System.Windows.Forms.Label lblManageUsers;
     }
 }
