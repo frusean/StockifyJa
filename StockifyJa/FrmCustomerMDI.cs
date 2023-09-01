@@ -13,6 +13,10 @@ namespace StockifyJa
 {
     public partial class FrmCustomerMDI : Form
     {
+        // Member variables to store single instances of each form
+        private FrmCustomerChat frmCustomerChat;
+        private FrmViewAllProducts frmViewAllProducts;
+        private FrmPlaceOrder frmPlaceOrder;
         public FrmCustomerMDI()
         {
             InitializeComponent();
@@ -21,26 +25,38 @@ namespace StockifyJa
 
         private void chatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCustomerChat frmCustomerChat = new FrmCustomerChat();
-            frmCustomerChat.MdiParent = this;
+            if (frmCustomerChat == null || frmCustomerChat.IsDisposed)
+            {
+                frmCustomerChat = new FrmCustomerChat();
+                frmCustomerChat.MdiParent = this;
+            }
             frmCustomerChat.Show();
-           
+            frmCustomerChat.Focus(); // Bring the form to the front
+
         }
 
         private void viewProductsInventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmViewAllProducts frmViewAllProducts = new FrmViewAllProducts();
-            frmViewAllProducts.MdiParent = this;
+            if (frmViewAllProducts == null || frmViewAllProducts.IsDisposed)
+            {
+                frmViewAllProducts = new FrmViewAllProducts();
+                frmViewAllProducts.MdiParent = this;
+            }
             frmViewAllProducts.Show();
-            
+            frmViewAllProducts.Focus(); // Bring the form to the front
+
         }
 
         private void placeOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmPlaceOrder frmPlaceOrder = new FrmPlaceOrder();
-            frmPlaceOrder.MdiParent = this;
+            if (frmPlaceOrder == null || frmPlaceOrder.IsDisposed)
+            {
+                frmPlaceOrder = new FrmPlaceOrder();
+                frmPlaceOrder.MdiParent = this;
+            }
             frmPlaceOrder.Show();
-          
+            frmPlaceOrder.Focus(); // Bring the form to the front
+
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

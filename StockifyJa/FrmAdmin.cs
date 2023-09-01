@@ -12,6 +12,14 @@ namespace StockifyJa
 {
     public partial class FrmAdmin : Form
     {
+        private FrmDashboardMain frmDashboardMain;
+        private FrmManageUsers frmManageUsers;
+        private FrmManageProducts frmManageProducts;
+        private FrmManageOrders frmManageOrders;
+        private FrmAdminChat frmAdminChat;
+        private FrmManageSupplies frmManageSupplies;
+        private FrmReports frmReports;
+        private FrmSettings frmSettings;
 
         public FrmAdmin()
         {
@@ -79,82 +87,137 @@ namespace StockifyJa
 
             private void btnHome_Click(object sender, EventArgs e)
             {
-                pnlNav.Height = btnHome.Height;
-                pnlNav.Top = btnHome.Top;
-                pnlNav.Left = btnHome.Left;
-                // btnHome.BackColor = Color.FromArgb(141, 153, 174);
-                lblTitle.Text = "Dashboard";
-                this.pnlFormLoader.Controls.Clear();
-            FrmDashboardMain frmDashboard = new FrmDashboardMain(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmDashboard.FormBorderStyle = FormBorderStyle.None;
-                this.pnlFormLoader.Controls.Add(frmDashboard);
-                frmDashboard.Show();
+            pnlNav.Height = btnHome.Height;
+            pnlNav.Top = btnHome.Top;
+            pnlNav.Left = btnHome.Left;
+            lblTitle.Text = "Dashboard";
+            this.pnlFormLoader.Controls.Clear();
+
+            // Check if form is null or disposed before creating a new instance
+            if (frmDashboardMain == null || frmDashboardMain.IsDisposed)
+            {
+                frmDashboardMain = new FrmDashboardMain(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmDashboardMain.FormBorderStyle = FormBorderStyle.None;
             }
+
+            // This will either load a new form or bring the existing one to the front
+            LoadFormInPanel(frmDashboardMain);
+        }
 
             private void btnManageUsers_Click(object sender, EventArgs e)
             {
-            pnlNav.Height = btnManageProducts.Height;
-            pnlNav.Top = btnManageProducts.Top;
-            pnlNav.Left = btnManageProducts.Left;
-            //  btnManageUsers.BackColor = Color.FromArgb(141, 153, 174);
-
-
+            pnlNav.Height = btnManageUsers.Height;
+            pnlNav.Top = btnManageUsers.Top;
+            pnlNav.Left = btnManageUsers.Left;
             lblTitle.Text = "Manage Users";
             this.pnlFormLoader.Controls.Clear();
-            FrmManageUsers frmDashboard = new FrmManageUsers() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmDashboard.FormBorderStyle = FormBorderStyle.None;
-            this.pnlFormLoader.Controls.Add(frmDashboard);
-            frmDashboard.Show();
+
+            if (frmManageUsers == null || frmManageUsers.IsDisposed)
+            {
+                frmManageUsers = new FrmManageUsers() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmManageUsers.FormBorderStyle = FormBorderStyle.None;
+            }
+            LoadFormInPanel(frmManageUsers);
+
         }
 
             private void btnManageProducts_Click(object sender, EventArgs e)
             {
-                pnlNav.Height = btnManageProducts.Height;
-                pnlNav.Top = btnManageProducts.Top;
-                pnlNav.Left = btnManageProducts.Left;
-                //  btnManageProducts.BackColor = Color.FromArgb(141, 153, 174);
+            pnlNav.Height = btnManageProducts.Height;
+            pnlNav.Top = btnManageProducts.Top;
+            pnlNav.Left = btnManageProducts.Left;
+            lblTitle.Text = "Manage Products";
+            this.pnlFormLoader.Controls.Clear();
 
-
-                lblTitle.Text = "Manage Products";
-                this.pnlFormLoader.Controls.Clear();
-                FrmManageProducts frmDashboard = new FrmManageProducts() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frmDashboard.FormBorderStyle = FormBorderStyle.None;
-                this.pnlFormLoader.Controls.Add(frmDashboard);
-                frmDashboard.Show();
+            if (frmManageProducts == null || frmManageProducts.IsDisposed)
+            {
+                frmManageProducts = new FrmManageProducts() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmManageProducts.FormBorderStyle = FormBorderStyle.None;
             }
+            LoadFormInPanel(frmManageProducts);
+        }
 
             private void btnManageOrders_Click(object sender, EventArgs e)
             {
-                pnlNav.Height = btnManageOrders.Height;
-                pnlNav.Top = btnManageOrders.Top;
-                pnlNav.Left = btnManageOrders.Left;
-                //   btnManageOrders.BackColor = Color.FromArgb(141, 153, 174);
+            pnlNav.Height = btnManageOrders.Height;
+            pnlNav.Top = btnManageOrders.Top;
+            pnlNav.Left = btnManageOrders.Left;
+            lblTitle.Text = "Manage Orders";
+            this.pnlFormLoader.Controls.Clear();
 
-                lblTitle.Text = "Manage Orders";
-                this.pnlFormLoader.Controls.Clear();
-                FrmManageOrders frmDashboard = new FrmManageOrders() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frmDashboard.FormBorderStyle = FormBorderStyle.None;
-                this.pnlFormLoader.Controls.Add(frmDashboard);
-                frmDashboard.Show();
+            if (frmManageOrders == null || frmManageOrders.IsDisposed)
+            {
+                frmManageOrders = new FrmManageOrders() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmManageOrders.FormBorderStyle = FormBorderStyle.None;
             }
+            LoadFormInPanel(frmManageOrders);
+        }
 
             private void btnChat_Click(object sender, EventArgs e)
             {
-                pnlNav.Height = btnChat.Height;
+            pnlNav.Height = btnChat.Height;
+            pnlNav.Top = btnChat.Top;
+            pnlNav.Left = btnChat.Left;
+            lblTitle.Text = "Chat";
+            this.pnlFormLoader.Controls.Clear();
 
-                pnlNav.Top = btnChat.Top;
-                pnlNav.Left = btnChat.Left;
-                // btnChat.BackColor = Color.FromArgb(141, 153, 174);
-
-                lblTitle.Text = "Chat";
-                this.pnlFormLoader.Controls.Clear();
-                FrmAdminChat frmDashboard = new FrmAdminChat() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frmDashboard.FormBorderStyle = FormBorderStyle.None;
-                this.pnlFormLoader.Controls.Add(frmDashboard);
-                frmDashboard.Show();
+            if (frmAdminChat == null || frmAdminChat.IsDisposed)
+            {
+                frmAdminChat = new FrmAdminChat() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmAdminChat.FormBorderStyle = FormBorderStyle.None;
             }
+            LoadFormInPanel(frmAdminChat);
+        }
 
-            private void FrmMainAdmin_Resize(object sender, EventArgs e)
+        private void btnManageSupplies_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnManageSupplies.Height;
+            pnlNav.Top = btnManageSupplies.Top;
+            pnlNav.Left = btnManageSupplies.Left;
+            lblTitle.Text = "Manage Supplies";
+            this.pnlFormLoader.Controls.Clear();
+
+            if (frmManageSupplies == null || frmManageSupplies.IsDisposed)
+            {
+                frmManageSupplies = new FrmManageSupplies() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmManageSupplies.FormBorderStyle = FormBorderStyle.None;
+            }
+            LoadFormInPanel(frmManageSupplies);
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnReports.Height;
+            pnlNav.Top = btnReports.Top;
+            pnlNav.Left = btnReports.Left;
+            lblTitle.Text = "Reports";
+            this.pnlFormLoader.Controls.Clear();
+
+            if (frmReports == null || frmReports.IsDisposed)
+            {
+                frmReports = new FrmReports() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmReports.FormBorderStyle = FormBorderStyle.None;
+            }
+            LoadFormInPanel(frmReports);
+        }
+
+        private void picSettings_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = picSettings.Height;
+            pnlNav.Top = picSettings.Top;
+            pnlNav.Left = picSettings.Left;
+            lblTitle.Text = "Settings";
+            this.pnlFormLoader.Controls.Clear();
+
+            if (frmSettings == null || frmSettings.IsDisposed)
+            {
+                frmSettings = new FrmSettings() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmSettings.FormBorderStyle = FormBorderStyle.None;
+            }
+            LoadFormInPanel(frmSettings);
+        }
+
+        private void FrmMainAdmin_Resize(object sender, EventArgs e)
             {
                 // Adjust the height of flSideBar and pnlFormLoader to match the height of the form.
                 flSideBar.Height = this.Height;
@@ -189,53 +252,7 @@ namespace StockifyJa
             frmLogin.Show();
         }
 
-            private void btnManageSupplies_Click(object sender, EventArgs e)
-            {
-                pnlNav.Height = btnChat.Height;
-
-                pnlNav.Top = btnChat.Top;
-                pnlNav.Left = btnChat.Left;
-                // btnChat.BackColor = Color.FromArgb(141, 153, 174);
-
-                lblTitle.Text = "Manage Supplies";
-                this.pnlFormLoader.Controls.Clear();
-                FrmManageSupplies frmDashboard = new FrmManageSupplies() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frmDashboard.FormBorderStyle = FormBorderStyle.None;
-                this.pnlFormLoader.Controls.Add(frmDashboard);
-                frmDashboard.Show();
-            }
-
-            private void btnReports_Click(object sender, EventArgs e)
-            {
-                pnlNav.Height = btnReports.Height;
-
-                pnlNav.Top = btnReports.Top;
-                pnlNav.Left = btnReports.Left;
-                // btnChat.BackColor = Color.FromArgb(141, 153, 174);
-
-                lblTitle.Text = "Reports";
-                this.pnlFormLoader.Controls.Clear();
-                FrmReports frmDashboard = new FrmReports() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frmDashboard.FormBorderStyle = FormBorderStyle.None;
-                this.pnlFormLoader.Controls.Add(frmDashboard);
-                frmDashboard.Show();
-            }
-
-            private void picSettings_Click(object sender, EventArgs e)
-            {
-                pnlNav.Height = picSettings.Height;
-                pnlNav.Top = picSettings.Top;
-                pnlNav.Left = picSettings.Left;
-                // btnChat.BackColor = Color.FromArgb(141, 153, 174);
-
-                lblTitle.Text = "Settings";
-                this.pnlFormLoader.Controls.Clear();
-                FrmSettings frmDashboard = new FrmSettings() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                frmDashboard.FormBorderStyle = FormBorderStyle.None;
-                this.pnlFormLoader.Controls.Add(frmDashboard);
-                frmDashboard.Show();
-            }
-
+          
         private void pnlFormLoader_SizeChanged(object sender, EventArgs e)
         {
 

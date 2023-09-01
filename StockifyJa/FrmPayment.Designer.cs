@@ -45,14 +45,21 @@
             this.rdbPayNow = new System.Windows.Forms.RadioButton();
             this.btnPayOnDelivery = new System.Windows.Forms.Button();
             this.btnInStorePickUp = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblOrderID = new System.Windows.Forms.Label();
+            this.cmbCardType = new System.Windows.Forms.ComboBox();
+            this.lblCardType = new System.Windows.Forms.Label();
+            this.picExit = new System.Windows.Forms.PictureBox();
             this.gbxPaymentPreference.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPay
             // 
-            this.btnPay.Location = new System.Drawing.Point(346, 359);
+            this.btnPay.Location = new System.Drawing.Point(311, 414);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(75, 23);
+            this.btnPay.Size = new System.Drawing.Size(75, 33);
             this.btnPay.TabIndex = 38;
             this.btnPay.Text = "Pay";
             this.btnPay.UseVisualStyleBackColor = true;
@@ -71,18 +78,17 @@
             // 
             // txtTotalPay
             // 
-            this.txtTotalPay.Location = new System.Drawing.Point(589, 471);
+            this.txtTotalPay.Location = new System.Drawing.Point(609, 510);
             this.txtTotalPay.Name = "txtTotalPay";
             this.txtTotalPay.ReadOnly = true;
             this.txtTotalPay.Size = new System.Drawing.Size(139, 22);
             this.txtTotalPay.TabIndex = 36;
-            
             // 
             // lbltotalpay
             // 
             this.lbltotalpay.AutoSize = true;
             this.lbltotalpay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalpay.Location = new System.Drawing.Point(502, 471);
+            this.lbltotalpay.Location = new System.Drawing.Point(522, 510);
             this.lbltotalpay.Name = "lbltotalpay";
             this.lbltotalpay.Size = new System.Drawing.Size(62, 22);
             this.lbltotalpay.TabIndex = 35;
@@ -90,7 +96,7 @@
             // 
             // txtCvc
             // 
-            this.txtCvc.Location = new System.Drawing.Point(320, 271);
+            this.txtCvc.Location = new System.Drawing.Point(285, 348);
             this.txtCvc.Name = "txtCvc";
             this.txtCvc.Size = new System.Drawing.Size(62, 22);
             this.txtCvc.TabIndex = 34;
@@ -98,34 +104,35 @@
             // cmbExpYear
             // 
             this.cmbExpYear.FormattingEnabled = true;
-            this.cmbExpYear.Location = new System.Drawing.Point(459, 188);
+            this.cmbExpYear.Location = new System.Drawing.Point(424, 265);
             this.cmbExpYear.Name = "cmbExpYear";
             this.cmbExpYear.Size = new System.Drawing.Size(76, 24);
             this.cmbExpYear.TabIndex = 33;
+            this.cmbExpYear.TabStop = false;
             this.cmbExpYear.Text = "Year";
             // 
             // cmbExpMonth
             // 
             this.cmbExpMonth.FormattingEnabled = true;
-            this.cmbExpMonth.Location = new System.Drawing.Point(320, 188);
+            this.cmbExpMonth.Location = new System.Drawing.Point(285, 265);
             this.cmbExpMonth.Name = "cmbExpMonth";
             this.cmbExpMonth.Size = new System.Drawing.Size(71, 24);
             this.cmbExpMonth.TabIndex = 32;
+            this.cmbExpMonth.TabStop = false;
             this.cmbExpMonth.Text = "Month";
             // 
             // txtCardNumber
             // 
-            this.txtCardNumber.Location = new System.Drawing.Point(320, 115);
+            this.txtCardNumber.Location = new System.Drawing.Point(285, 192);
             this.txtCardNumber.Name = "txtCardNumber";
             this.txtCardNumber.Size = new System.Drawing.Size(223, 22);
             this.txtCardNumber.TabIndex = 31;
-         
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(151, 274);
+            this.label3.Location = new System.Drawing.Point(116, 351);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 18);
             this.label3.TabIndex = 30;
@@ -135,7 +142,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(139, 188);
+            this.label2.Location = new System.Drawing.Point(104, 265);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 18);
             this.label2.TabIndex = 29;
@@ -145,7 +152,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(139, 115);
+            this.label1.Location = new System.Drawing.Point(104, 192);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 18);
             this.label1.TabIndex = 28;
@@ -156,7 +163,7 @@
             this.gbxPaymentPreference.Controls.Add(this.rdbCashOnDelivery);
             this.gbxPaymentPreference.Controls.Add(this.rdbPayNow);
             this.gbxPaymentPreference.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxPaymentPreference.Location = new System.Drawing.Point(885, 115);
+            this.gbxPaymentPreference.Location = new System.Drawing.Point(850, 149);
             this.gbxPaymentPreference.Name = "gbxPaymentPreference";
             this.gbxPaymentPreference.Size = new System.Drawing.Size(361, 100);
             this.gbxPaymentPreference.TabIndex = 39;
@@ -189,9 +196,9 @@
             // 
             // btnPayOnDelivery
             // 
-            this.btnPayOnDelivery.Location = new System.Drawing.Point(919, 287);
+            this.btnPayOnDelivery.Location = new System.Drawing.Point(871, 321);
             this.btnPayOnDelivery.Name = "btnPayOnDelivery";
-            this.btnPayOnDelivery.Size = new System.Drawing.Size(112, 29);
+            this.btnPayOnDelivery.Size = new System.Drawing.Size(125, 29);
             this.btnPayOnDelivery.TabIndex = 40;
             this.btnPayOnDelivery.Text = "Pay On Delivery";
             this.btnPayOnDelivery.UseVisualStyleBackColor = true;
@@ -199,7 +206,7 @@
             // 
             // btnInStorePickUp
             // 
-            this.btnInStorePickUp.Location = new System.Drawing.Point(1122, 287);
+            this.btnInStorePickUp.Location = new System.Drawing.Point(1087, 321);
             this.btnInStorePickUp.Name = "btnInStorePickUp";
             this.btnInStorePickUp.Size = new System.Drawing.Size(117, 29);
             this.btnInStorePickUp.TabIndex = 41;
@@ -207,12 +214,70 @@
             this.btnInStorePickUp.UseVisualStyleBackColor = true;
             this.btnInStorePickUp.Click += new System.EventHandler(this.btnInStorePickUp_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblOrderID);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(30, 39);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(103, 58);
+            this.groupBox1.TabIndex = 53;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Order ID";
+            // 
+            // lblOrderID
+            // 
+            this.lblOrderID.AutoSize = true;
+            this.lblOrderID.Location = new System.Drawing.Point(19, 28);
+            this.lblOrderID.Name = "lblOrderID";
+            this.lblOrderID.Size = new System.Drawing.Size(27, 16);
+            this.lblOrderID.TabIndex = 0;
+            this.lblOrderID.Text = "     ";
+            // 
+            // cmbCardType
+            // 
+            this.cmbCardType.FormattingEnabled = true;
+            this.cmbCardType.Items.AddRange(new object[] {
+            "Debit Card",
+            "Credit Card"});
+            this.cmbCardType.Location = new System.Drawing.Point(285, 133);
+            this.cmbCardType.Name = "cmbCardType";
+            this.cmbCardType.Size = new System.Drawing.Size(223, 24);
+            this.cmbCardType.TabIndex = 54;
+            this.cmbCardType.TabStop = false;
+            this.cmbCardType.Text = "Select Card Type";
+            // 
+            // lblCardType
+            // 
+            this.lblCardType.AutoSize = true;
+            this.lblCardType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardType.Location = new System.Drawing.Point(104, 134);
+            this.lblCardType.Name = "lblCardType";
+            this.lblCardType.Size = new System.Drawing.Size(90, 18);
+            this.lblCardType.TabIndex = 55;
+            this.lblCardType.Text = "Card Type:";
+            // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(1208, 565);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(61, 47);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 47;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
+            // 
             // FrmPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1298, 636);
+            this.Controls.Add(this.picExit);
+            this.Controls.Add(this.lblCardType);
+            this.Controls.Add(this.cmbCardType);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnInStorePickUp);
             this.Controls.Add(this.btnPayOnDelivery);
             this.Controls.Add(this.gbxPaymentPreference);
@@ -233,6 +298,9 @@
             this.Load += new System.EventHandler(this.FrmPayment_Load);
             this.gbxPaymentPreference.ResumeLayout(false);
             this.gbxPaymentPreference.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,5 +324,10 @@
         private System.Windows.Forms.RadioButton rdbPayNow;
         private System.Windows.Forms.Button btnPayOnDelivery;
         private System.Windows.Forms.Button btnInStorePickUp;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblOrderID;
+        private System.Windows.Forms.ComboBox cmbCardType;
+        private System.Windows.Forms.Label lblCardType;
+        private System.Windows.Forms.PictureBox picExit;
     }
 }

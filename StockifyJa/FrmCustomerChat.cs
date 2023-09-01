@@ -104,8 +104,9 @@ namespace StockifyJa
                 FrmAdminChat.frmAdminChatInstance = new FrmAdminChat();
             }
 
-               FrmAdminChat.frmAdminChatInstance.Show(); // Show the Admin Chat form
+            FrmAdminChat.frmAdminChatInstance.Show(); // Show the Admin Chat form
         }
+    
 
 
         private void FrmCustomerChat_Load(object sender, EventArgs e)
@@ -122,6 +123,28 @@ namespace StockifyJa
         private void picExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void picSend_Click(object sender, EventArgs e)
+        {
+            string message = txtCustomerMessageInput.Text;
+
+            Dictionary<string, object> docData = new Dictionary<string, object>
+        {
+            { "Author", "Customer" },
+            { "Message", message },
+            { "Timestamp", Timestamp.GetCurrentTimestamp() }
+        };
+            await collectionReference.AddAsync(docData);
+
+            txtCustomerMessageInput.Clear();
+
+            if (FrmAdminChat.frmAdminChatInstance.IsDisposed)
+            {
+                FrmAdminChat.frmAdminChatInstance = new FrmAdminChat();
+            }
+
+            FrmAdminChat.frmAdminChatInstance.Show(); // Show the Admin Chat form
         }
     }
 }
