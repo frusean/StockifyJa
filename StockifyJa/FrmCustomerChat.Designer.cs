@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCustomerChat));
             this.txtCustomerMessageInput = new System.Windows.Forms.TextBox();
             this.lbxCustomerMessageView = new System.Windows.Forms.ListBox();
-            this.btnCustomerMessageSendButton = new System.Windows.Forms.Button();
             this.lblLiveChat = new System.Windows.Forms.Label();
             this.picSend = new System.Windows.Forms.PictureBox();
             this.picExit = new System.Windows.Forms.PictureBox();
+            this.lblManageUsers = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picSend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCustomerMessageInput
             // 
-            this.txtCustomerMessageInput.Location = new System.Drawing.Point(53, 433);
+            this.txtCustomerMessageInput.Location = new System.Drawing.Point(213, 458);
             this.txtCustomerMessageInput.Multiline = true;
             this.txtCustomerMessageInput.Name = "txtCustomerMessageInput";
             this.txtCustomerMessageInput.Size = new System.Drawing.Size(578, 53);
@@ -51,20 +51,10 @@
             // 
             this.lbxCustomerMessageView.FormattingEnabled = true;
             this.lbxCustomerMessageView.ItemHeight = 16;
-            this.lbxCustomerMessageView.Location = new System.Drawing.Point(53, 36);
+            this.lbxCustomerMessageView.Location = new System.Drawing.Point(213, 61);
             this.lbxCustomerMessageView.Name = "lbxCustomerMessageView";
             this.lbxCustomerMessageView.Size = new System.Drawing.Size(578, 372);
             this.lbxCustomerMessageView.TabIndex = 48;
-            // 
-            // btnCustomerMessageSendButton
-            // 
-            this.btnCustomerMessageSendButton.Location = new System.Drawing.Point(672, 448);
-            this.btnCustomerMessageSendButton.Name = "btnCustomerMessageSendButton";
-            this.btnCustomerMessageSendButton.Size = new System.Drawing.Size(75, 23);
-            this.btnCustomerMessageSendButton.TabIndex = 47;
-            this.btnCustomerMessageSendButton.Text = "Send";
-            this.btnCustomerMessageSendButton.UseVisualStyleBackColor = true;
-            this.btnCustomerMessageSendButton.Click += new System.EventHandler(this.btnCustomerMessageSendButton_Click);
             // 
             // lblLiveChat
             // 
@@ -79,7 +69,7 @@
             // picSend
             // 
             this.picSend.Image = ((System.Drawing.Image)(resources.GetObject("picSend.Image")));
-            this.picSend.Location = new System.Drawing.Point(753, 438);
+            this.picSend.Location = new System.Drawing.Point(816, 467);
             this.picSend.Name = "picSend";
             this.picSend.Size = new System.Drawing.Size(37, 33);
             this.picSend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,17 +88,29 @@
             this.picExit.TabStop = false;
             this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
+            // lblManageUsers
+            // 
+            this.lblManageUsers.AutoSize = true;
+            this.lblManageUsers.Font = new System.Drawing.Font("Georgia", 16.2F);
+            this.lblManageUsers.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblManageUsers.Location = new System.Drawing.Point(489, 9);
+            this.lblManageUsers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblManageUsers.Name = "lblManageUsers";
+            this.lblManageUsers.Size = new System.Drawing.Size(73, 32);
+            this.lblManageUsers.TabIndex = 52;
+            this.lblManageUsers.Text = "Chat";
+            // 
             // FrmCustomerChat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(219)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1066, 543);
+            this.Controls.Add(this.lblManageUsers);
             this.Controls.Add(this.picExit);
             this.Controls.Add(this.picSend);
             this.Controls.Add(this.txtCustomerMessageInput);
             this.Controls.Add(this.lbxCustomerMessageView);
-            this.Controls.Add(this.btnCustomerMessageSendButton);
             this.Controls.Add(this.lblLiveChat);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCustomerChat";
@@ -125,9 +127,9 @@
 
         private System.Windows.Forms.TextBox txtCustomerMessageInput;
         private System.Windows.Forms.ListBox lbxCustomerMessageView;
-        private System.Windows.Forms.Button btnCustomerMessageSendButton;
         private System.Windows.Forms.Label lblLiveChat;
         private System.Windows.Forms.PictureBox picSend;
         private System.Windows.Forms.PictureBox picExit;
+        private System.Windows.Forms.Label lblManageUsers;
     }
 }
