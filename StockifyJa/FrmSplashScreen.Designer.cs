@@ -81,7 +81,7 @@
             this.LoginProgressBar.InnerColor = System.Drawing.Color.OldLace;
             this.LoginProgressBar.InnerMargin = 2;
             this.LoginProgressBar.InnerWidth = -1;
-            this.LoginProgressBar.Location = new System.Drawing.Point(88, 119);
+            this.LoginProgressBar.Location = new System.Drawing.Point(88, 129);
             this.LoginProgressBar.MarqueeAnimationSpeed = 2000;
             this.LoginProgressBar.Name = "LoginProgressBar";
             this.LoginProgressBar.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(115)))), ((int)(((byte)(153)))));

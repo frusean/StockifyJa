@@ -36,9 +36,6 @@
             this.txtGCT = new System.Windows.Forms.TextBox();
             this.lblGCT = new System.Windows.Forms.Label();
             this.dgvRates = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.lblSettings = new System.Windows.Forms.Label();
             this.picSave = new System.Windows.Forms.PictureBox();
@@ -58,6 +55,9 @@
             this.txtStatusID = new System.Windows.Forms.TextBox();
             this.txtStatusName = new System.Windows.Forms.TextBox();
             this.lblStatusName = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gboxRateID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
@@ -134,35 +134,15 @@
             this.dgvRates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRates.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.Discount,
-            this.GCT});
+            this.GCT,
+            this.Discount});
             this.dgvRates.Location = new System.Drawing.Point(90, 402);
             this.dgvRates.Name = "dgvRates";
+            this.dgvRates.ReadOnly = true;
             this.dgvRates.RowHeadersWidth = 51;
             this.dgvRates.RowTemplate.Height = 24;
             this.dgvRates.Size = new System.Drawing.Size(495, 136);
             this.dgvRates.TabIndex = 15;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "Rate ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.Width = 125;
-            // 
-            // Discount
-            // 
-            this.Discount.HeaderText = "Discount";
-            this.Discount.MinimumWidth = 6;
-            this.Discount.Name = "Discount";
-            this.Discount.Width = 125;
-            // 
-            // GCT
-            // 
-            this.GCT.HeaderText = "GCT";
-            this.GCT.MinimumWidth = 6;
-            this.GCT.Name = "GCT";
-            this.GCT.Width = 125;
             // 
             // picExit
             // 
@@ -308,6 +288,7 @@
             this.StatusName});
             this.dgvStatus.Location = new System.Drawing.Point(859, 402);
             this.dgvStatus.Name = "dgvStatus";
+            this.dgvStatus.ReadOnly = true;
             this.dgvStatus.RowHeadersWidth = 51;
             this.dgvStatus.RowTemplate.Height = 24;
             this.dgvStatus.Size = new System.Drawing.Size(465, 136);
@@ -318,6 +299,7 @@
             this.StatusID.HeaderText = "Staus ID";
             this.StatusID.MinimumWidth = 6;
             this.StatusID.Name = "StatusID";
+            this.StatusID.ReadOnly = true;
             this.StatusID.Width = 125;
             // 
             // StatusName
@@ -325,6 +307,7 @@
             this.StatusName.HeaderText = "Status Name";
             this.StatusName.MinimumWidth = 6;
             this.StatusName.Name = "StatusName";
+            this.StatusName.ReadOnly = true;
             this.StatusName.Width = 125;
             // 
             // gboxStatusID
@@ -363,6 +346,30 @@
             this.lblStatusName.Size = new System.Drawing.Size(105, 18);
             this.lblStatusName.TabIndex = 27;
             this.lblStatusName.Text = "Status Name";
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "Rate ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 125;
+            // 
+            // GCT
+            // 
+            this.GCT.HeaderText = "GCT";
+            this.GCT.MinimumWidth = 6;
+            this.GCT.Name = "GCT";
+            this.GCT.ReadOnly = true;
+            this.GCT.Width = 125;
+            // 
+            // Discount
+            // 
+            this.Discount.HeaderText = "Discount";
+            this.Discount.MinimumWidth = 6;
+            this.Discount.Name = "Discount";
+            this.Discount.ReadOnly = true;
+            this.Discount.Width = 125;
             // 
             // FrmSettings
             // 
@@ -450,7 +457,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn GCT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
     }
 }
