@@ -310,7 +310,7 @@ namespace StockifyJa
         PaymentMethod = chosenMethod,
         TransactionDate = DateTime.Now,
         Amount = _total,
-        StatusID = 1, // Assuming 1 is the default status. Adjust as needed.
+        StatusID = 1,
         OrderID = savedOrderId
     };
 
@@ -337,7 +337,6 @@ namespace StockifyJa
                     stock.QuantityInStock -= item.Quantity;
                 }
 
-                // Remove the corresponding entry from the Cart table
                 var cartItem = _db.Carts.FirstOrDefault(c => c.CartID == item.CartItemID);
         if (cartItem != null)
         {
@@ -347,7 +346,7 @@ namespace StockifyJa
 
     _db.SaveChanges();
 
-    // Clear the AppState.CartItems
+    
     AppState.CartItems.Clear();
 
     MessageBox.Show("Order placed successfully with Pay On Delivery method Shipment will occur in 4 Business Days.","Order Success!",MessageBoxButtons.OK);
@@ -444,7 +443,7 @@ namespace StockifyJa
                     stock.QuantityInStock -= item.Quantity;
                 }
 
-                // Remove the corresponding entry from the Cart table
+                
                 var cartItem = _db.Carts.FirstOrDefault(c => c.CartID == item.CartItemID);
                 if (cartItem != null)
                 {
@@ -455,7 +454,6 @@ namespace StockifyJa
 
             _db.SaveChanges();
 
-            // Clear the AppState.CartItems
             AppState.CartItems.Clear();
 
             MessageBox.Show("Order placed successfully you may pickup your order in 2 business days .", "Order Success!", MessageBoxButtons.OK);
@@ -467,7 +465,7 @@ namespace StockifyJa
         {
             try
             { 
-            // Fetch the latest Order ID from the database
+           
             int orderID = GetLatestOrderID();
 
             Document receipt = new Document();
@@ -486,8 +484,8 @@ namespace StockifyJa
             heading.Format.Font.Bold = true;
             heading.Format.SpaceAfter = "0.5cm";
             // Logo
-            string logoPath = @"C:\Users\demet\Downloads\StockifyJa\StockifyJa\StockifyJa\AppleNova.png";
-            section.AddImage(logoPath).Width = "2cm";
+            string logoPath = @"C:\Users\demet\Downloads\StockifyJa\StockifyJa\StockifyJa\AppleNova.png";// Replace with your actual file path
+                section.AddImage(logoPath).Width = "2cm";
 
               section.AddParagraph("\n");
 
@@ -509,15 +507,14 @@ namespace StockifyJa
                 // Add first separator
                 Paragraph separator1 = section.AddParagraph("*************************************************************************************");
                 separator1.Format.Font.Size = 14;
-                separator1.Format.Alignment = ParagraphAlignment.Center;  // Changed from Left to Center
-
+                separator1.Format.Alignment = ParagraphAlignment.Center;  
                 // Add Items heading
                 section.AddParagraph("Items").Format.Alignment = ParagraphAlignment.Center;
 
                 // Add second separator
                 Paragraph separator2 = section.AddParagraph("*************************************************************************************");
                 separator2.Format.Font.Size = 14;
-                separator2.Format.Alignment = ParagraphAlignment.Center;  // Changed from Left to Center
+                separator2.Format.Alignment = ParagraphAlignment.Center; 
 
 
                 foreach (var item in _cartItems)
@@ -536,7 +533,7 @@ namespace StockifyJa
             string gctText = "GCT: " + _gct.ToString("C");
 
             // Adding space before the totals
-            section.AddParagraph().Format.SpaceBefore = "1cm";  // Adjust the value as needed
+            section.AddParagraph().Format.SpaceBefore = "1cm"; 
 
             var subtotalParagraph = section.AddParagraph($"Subtotal: {totalText}");
             subtotalParagraph.Format.Alignment = ParagraphAlignment.Right;
@@ -597,9 +594,7 @@ namespace StockifyJa
 
         private int GetLatestOrderID()
         {
-            // This function queries the database to get the most recent order ID.
-            // This is an example, and you should ensure your actual database query is correct.
-            return _db.Orders.OrderByDescending(o => o.OrderDate).FirstOrDefault()?.OrderID ?? 0;
+           return _db.Orders.OrderByDescending(o => o.OrderDate).FirstOrDefault()?.OrderID ?? 0;
         }
 
         private void picExit_Click(object sender, EventArgs e)

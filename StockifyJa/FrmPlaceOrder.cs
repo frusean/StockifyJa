@@ -41,7 +41,7 @@ namespace StockifyJa
             nudQuantity.ValueChanged += nudQuantity_ValueChanged;
             nudQuantity.ReadOnly = true;
             nudQuantity.KeyPress += new KeyPressEventHandler(nudQuantity_KeyPress);
-            //btnRemoveFromOrder.Click += new System.EventHandler(this.btnRemoveFromOrder_Click);
+            
 
             // Load AppState.CartItems into the lbxCart ListBox
             foreach (var item in AppState.CartItems)
@@ -76,7 +76,6 @@ namespace StockifyJa
                 }
                 catch (Exception ex)
                 {
-                    // Handle exception as necessary
                     Console.WriteLine(ex.ToString());
                 }
 
@@ -107,69 +106,7 @@ namespace StockifyJa
             }
         }
 
-        /*
-        private void btnAddToOrder_Click(object sender, EventArgs e)
-        {
-            if (cbProduct.SelectedItem is Product selectedProduct && selectedProduct.ProductID != 0)
-            {
-                var stock = _db.Stocks.FirstOrDefault(s => s.ProductID == selectedProduct.ProductID);
-                if (stock != null)
-                {
-                    if (nudQuantity.Value > (decimal)stock.QuantityInStock.GetValueOrDefault())
-                    {
-                        MessageBox.Show($"The selected quantity exceeds the available stock. \n\n" +
-                                        $"Product: {selectedProduct.ProductName}\n" +
-                                        $"Maximum available quantity: {stock.QuantityInStock}",
-                                        "Quantity Exceeds Stock",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Warning);
-                        return;
-                    }
-                    else
-                    {
-                        ItemDetails itemDetails = new ItemDetails
-                        {
-                            ProductName = selectedProduct.ProductName,
-                            Quantity = (int)nudQuantity.Value,
-                            Price = selectedProduct.Price.GetValueOrDefault(),
-                            ProductID = selectedProduct.ProductID
-                        };
-
-                        AppState.CartItems.Add(itemDetails);
-                        lbxCart.Items.Add(itemDetails.ToString());
-
-                        MessageBox.Show($"The product has been successfully added to your cart. \n\n" +
-                                        $"Product: {itemDetails.ProductName}\n" +
-                                        $"Quantity: {itemDetails.Quantity}\n" +
-                                        $"Price per unit: {itemDetails.Price:C}",
-                                        "Product Added to Cart",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Information);
-                        btnViewOrder.Enabled = true;
-
-                        Cart newCartItem = new Cart
-                        {
-                            UserID = AppState.CurrentUserID,
-                            ProductID = selectedProduct.ProductID,
-                            Quantity = (int)nudQuantity.Value
-                        };
-
-                        _db.Carts.Add(newCartItem);
-                        _db.SaveChanges();
-
-                        // After saving, set the CartItemID
-                        itemDetails.CartItemID = newCartItem.CartID;
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a product before proceeding.",
-                                "No Product Selected",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-            }
-        }*/
+       
 
 
 
@@ -185,66 +122,11 @@ namespace StockifyJa
        
         private void FrmPlaceOrder_Load(object sender, EventArgs e)
         {
-            // Code to execute when the form loads
+           
         }
 
         
-        /*
-        private void btnRemoveFromOrder_Click(object sender, EventArgs e)
-        {
-            if (lbxCart.SelectedItem != null)
-                
-
-                if (lbxCart.SelectedItem != null)
-                {
-                    string selectedItemString = lbxCart.SelectedItem.ToString();
-
-                    // Find the corresponding CartItem in AppState.CartItems
-                    ItemDetails selectedItem = AppState.CartItems.FirstOrDefault(ci => ci.ToString() == selectedItemString);
-
-                    if (selectedItem != null)
-                    {
-                        // Remove from AppState.CartItems
-                        AppState.CartItems.Remove(selectedItem);
-
-                        // Remove from ListBox
-                        lbxCart.Items.Remove(lbxCart.SelectedItem);
-
-                        // If cart is empty, disable View Order button
-                        if (lbxCart.Items.Count == 0)
-                        {
-                            btnViewOrder.Enabled = false;
-                        }
-
-                        // Try to remove the item from the database
-                        try
-                        {
-                            var cartItem = _db.Carts.FirstOrDefault(c => c.CartID == selectedItem.CartItemID);
-
-                            if (cartItem != null)
-                            {
-                                _db.Entry(cartItem).State = EntityState.Deleted;
-                                _db.SaveChanges();
-                            }
-                        }
-                        catch (DbUpdateConcurrencyException)
-                        {
-                            // A concurrency error occurred. Reload the context and retry the save.
-                            _db = new stockifydBEntities();
-
-                            var cartItem = _db.Carts.FirstOrDefault(c => c.CartID == selectedItem.CartItemID);
-
-                            if (cartItem != null)
-                            {
-                                _db.Entry(cartItem).State = EntityState.Deleted;
-                                _db.SaveChanges();
-                            }
-                        }
-                    }
-                }
-        }*/
-
-
+      
         private void picAdd_Click(object sender, EventArgs e)
         {
             if (cbProduct.SelectedItem is Product selectedProduct && selectedProduct.ProductID != 0)

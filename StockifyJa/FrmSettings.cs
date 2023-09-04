@@ -24,7 +24,7 @@ namespace StockifyJa
 
         private void FrmSettings_Load(object sender, EventArgs e)
         {
-            // Populate the DataGridView with the current list of rates
+        
             RefreshDataGridView();
         }
         private void picExit_Click(object sender, EventArgs e)
@@ -351,7 +351,7 @@ namespace StockifyJa
                 int StatusID;
                 if (int.TryParse(txtStatusID.Text, out StatusID))
                 {
-                    // Update existing status
+                    
                     status = StockifydBEntities.Status.Find(StatusID);
                     if (status == null)
                     {

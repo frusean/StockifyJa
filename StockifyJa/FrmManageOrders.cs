@@ -39,26 +39,14 @@ namespace StockifyJa
             dgvOrders.DataSource = orderData.ToList();
         }
 
-        private void dgvOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void dtpDateOrdered_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtQuantityOrdred_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void picUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -123,7 +111,7 @@ namespace StockifyJa
                 }
             }
 
-            // Enable the "Add Order" button if the quantity is 1 or more, otherwise disable it.
+            
             picAdd.Enabled = nudQuantityOrdered.Value >= 1;
         }
 
@@ -337,11 +325,7 @@ namespace StockifyJa
             }
         }
 
-        private void cmbProductID_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void picExit_Click(object sender, EventArgs e)
         {
             this.Close();

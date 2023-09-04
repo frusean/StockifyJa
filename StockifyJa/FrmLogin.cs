@@ -26,83 +26,7 @@ namespace StockifyJa
         }
 
 
-        //private void btnLogin_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        string username = txtUserName.Text;
-        //        string password = txtPassword.Text;
-
-        //        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-        //        {
-        //            MessageBox.Show("Please enter BOTH Username and Password!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            txtUserName.Focus();
-        //            return;
-        //        }
-
-        //        var user = _db.Users.SingleOrDefault(u => u.Username == username && u.Password == password);
-
-        //        if (user == null)
-        //        {
-        //            MessageBox.Show("Invalid username or password!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            txtUserName.Focus();
-        //            return;
-        //        }
-
-        //        AppState.CurrentUserID = user.UserID; // set current user ID
-
-        //        var cartItems = _db.Carts.Where(c => c.UserID == AppState.CurrentUserID).ToList();
-
-        //        foreach (var cartItem in cartItems)
-        //        {
-        //            var product = _db.Products.FirstOrDefault(p => p.ProductID == cartItem.ProductID);
-
-        //            if (product != null)
-        //            {
-        //                ItemDetails itemDetails = new ItemDetails
-        //                {
-        //                    ProductName = product.ProductName,
-        //                    Quantity = cartItem.Quantity.GetValueOrDefault(),
-        //                    Price = product.Price.GetValueOrDefault(),
-        //                    ProductID = product.ProductID
-        //                };
-
-        //                AppState.CartItems.Add(itemDetails);
-        //            }
-        //        }
-
-        //        string role = user.Role.Trim();
-        //        if (role == "administrator")
-        //        {
-        //            var notifyLoginSuccess = new NotifyIcon();
-        //            notifyLoginSuccess.Icon = SystemIcons.Information;
-        //            notifyLoginSuccess.Visible = true;
-        //            notifyLoginSuccess.ShowBalloonTip(5000, "Admininstrator Login Success", "You have successfully logged in as an Administrator!", ToolTipIcon.Info);
-        //            FrmAdminMDI adminForm = new FrmAdminMDI();
-        //            adminForm.Show();
-        //        }
-        //        else if (role == "customer")
-        //        {
-        //            var notifyLoginSuccess = new NotifyIcon();
-        //            notifyLoginSuccess.Icon = SystemIcons.Information;
-        //            notifyLoginSuccess.Visible = true;
-        //            notifyLoginSuccess.ShowBalloonTip(5000, " Customer Login Success", "You have successfully logged in Customer!", ToolTipIcon.Info);
-        //            FrmCustomerMDI customerForm = new FrmCustomerMDI();
-        //            customerForm.Show();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show($"Invalid user role: {role}!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-
-        //        this.Hide(); // Hide the login form
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"An error occurred: {ex.Message}");
-        //    }
-        //}
-
+      
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -126,7 +50,7 @@ namespace StockifyJa
                     return;
                 }
 
-                AppState.CurrentUserID = user.UserID; // set current user ID
+                AppState.CurrentUserID = user.UserID; 
 
                 var cartItems = _db.Carts.Where(c => c.UserID == AppState.CurrentUserID).ToList();
 
@@ -157,8 +81,8 @@ namespace StockifyJa
                     notifyLoginSuccess.Icon = SystemIcons.Information;
                     notifyLoginSuccess.Visible = true;
                     notifyLoginSuccess.ShowBalloonTip(5000, "Admininstrator Login Success", "You have successfully logged in as an Administrator!", ToolTipIcon.Info);
-                    FrmAdmin adminForm = new FrmAdmin();  // Change this line to instantiate FrmAdmin instead of FrmAdminMDI
-                    adminForm.UserName = username;  // Pass the username
+                    FrmAdmin adminForm = new FrmAdmin();  
+                    adminForm.UserName = username;  
                     adminForm.Show();
 
                     // Check if any product's stock is 10 or below
@@ -179,18 +103,14 @@ namespace StockifyJa
                     notifyLoginSuccess.Icon = SystemIcons.Information;
                     notifyLoginSuccess.Visible = true;
                     notifyLoginSuccess.ShowBalloonTip(5000, " Customer Login Success", "You have successfully logged in Customer!", ToolTipIcon.Info);
-                   // FrmCustomerMDI customerForm = new FrmCustomerMDI();
-                   // customerForm.Show();
+                  
 
 
-                    AppState.UserRole = "Customer"; // Set the user role
+                    AppState.UserRole = "Customer"; 
 
                     FrmSplashScreen splashScreen = new FrmSplashScreen();
                     splashScreen.Show();
-                    this.Hide(); // Hide the login form
-
-                    // You can start the timer here if it's not already started
-                    // splashScreen.Loadtimer.Enabled = true;
+                    this.Hide(); 
 
 
                 }
@@ -199,7 +119,7 @@ namespace StockifyJa
                     MessageBox.Show($"Invalid user role: {role}!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                this.Hide(); // Hide the login form
+                this.Hide(); 
             }
             catch (Exception ex)
             {

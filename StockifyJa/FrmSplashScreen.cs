@@ -53,46 +53,7 @@ namespace StockifyJa
             }
 
 
-            /* LoginProgressBar.Value += 1;
-            LoginProgressBar.Text = LoginProgressBar.Value.ToString() + "%";
-             if (ProgressBar1.Value == 100)
-             {
-                 Loadtimer.Enabled = false;
-
-                 switch (AppState.UserRole)
-                 {
-                     case "administrator":
-                         FrmAdminMDI adminForm = new FrmAdminMDI();
-                         adminForm.Show();
-                         break;
-                     case "customer":
-                         FrmCustomerMDI customerForm = new FrmCustomerMDI();
-                         customerForm.Show();
-                         break;
-                     default:
-                         MessageBox.Show($"Invalid user role: {AppState.UserRole}!", "Try Again", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                         break;
-                 }
-
-                 this.Hide();
-             }*/
-
-
-            //PUT IN FRM LOG IN
-            /*// after successful login
-            if (role == "administrator")
-            {
-            AppState.UserRole = "administrator";
-            }
-            else if (role == "customer")
-            {
-            AppState.UserRole = "customer";
-            }
-
-            Loadtimer.Enabled = true;
-            this.Hide(); // Hide the login form
-            */
-        }
+         }
 
         
     }

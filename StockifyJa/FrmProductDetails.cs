@@ -28,7 +28,7 @@ namespace StockifyJa
                 var product = await (from p in context.Products
                                      join i in context.ProductImages on p.ProductID equals i.ProductID
                                      join s in context.Stocks on p.ProductID equals s.ProductID
-                                     join r in context.Rates on p.RateID equals r.ID // Join on RateID
+                                     join r in context.Rates on p.RateID equals r.ID 
                                      where p.ProductID == this.ProductId
                                      select new
                                      {
@@ -38,7 +38,7 @@ namespace StockifyJa
                                          Category = p.Category,
                                          ImageUrl = i.ImageURL,
                                          Price = p.Price,
-                                         Discount = r.Discount, // Select Discount from Rate table
+                                         Discount = r.Discount, 
                                          Stock = s.QuantityInStock
                                      }).FirstOrDefaultAsync();
 

@@ -234,8 +234,7 @@ namespace StockifyJa
 
             private void LoginTimer_Tick(object sender, EventArgs e)
             {
-               // loginTime = DateTime.Now;
-            //   LoginTimer.Start();
+              
             loginTime = DateTime.Now;
             lblUsertext.Text = loginTime.ToString("HH:mm:ss");  // Set the time to lblUsertext
             LoginTimer.Start();

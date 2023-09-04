@@ -37,25 +37,6 @@ namespace StockifyJa
             }
         }
 
-        //private void FrmManageSupplies_Load(object sender, EventArgs e)
-        //{
-        //    RefreshDataGridView();
-        //    var lowStocks = CheckLowStock();
-
-        //    if (lowStocks.Count > 0)
-        //    {
-        //        // Show a message box.
-        //        MessageBox.Show("Warning: Some products have low stock!", "Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-        //        // Show a notify icon.
-        //        NotifyIcon notifyIcon = new NotifyIcon();
-        //        notifyIcon.Visible = true;
-        //        notifyIcon.Icon = SystemIcons.Warning;
-        //        notifyIcon.BalloonTipTitle = "Stock Warning";
-        //        notifyIcon.BalloonTipText = "Some products have low stock!";
-        //        notifyIcon.ShowBalloonTip(3000);
-        //    }
-        //}
         private void FrmManageSupplies_Load(object sender, EventArgs e)
         {
             RefreshDataGridView();
@@ -255,7 +236,7 @@ namespace StockifyJa
             txtStockID.Text = string.Empty;
             txtQuantityInStock.Text = string.Empty;
 
-            currentSupply = null; // reset current supply
+            currentSupply = null; 
         }
 
         private void picSave_Click(object sender, EventArgs e)
@@ -365,7 +346,7 @@ namespace StockifyJa
     }
     else
     {
-        // Handle null StockifydBEntities or StockifydBEntities.Supplies here
+        
         MessageBox.Show("Error: Database not connected properly. Please check your connection and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
     }
         }

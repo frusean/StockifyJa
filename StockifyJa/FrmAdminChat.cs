@@ -27,7 +27,7 @@ namespace StockifyJa
             InitializeComponent();
             chatOpenedAt = DateTime.UtcNow;
 
-            string path = @"C:\Users\fruse\Downloads\StockifyJa\StockifyJa\stockify-34d8d-firebase-adminsdk-xrgx1-2368fde9a0.json";
+            string path = @"C:\Users\fruse\Downloads\StockifyJa\StockifyJa\stockify-34d8d-firebase-adminsdk-xrgx1-2368fde9a0.json";// Replace with your actual file path
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             db = FirestoreDb.Create("stockify-34d8d");
             collectionReference = db.Collection("conversations");
@@ -60,34 +60,7 @@ namespace StockifyJa
             });
         }
 
-        //private void StartListening()
-        //{
-        //    Query query = collectionReference.OrderBy("Timestamp");
-        //    listener = query.Listen(snapshot =>
-        //    {
-        //        BeginInvoke((Action)(() =>
-        //        {
-        //            foreach (DocumentChange change in snapshot.Changes)
-        //            {
-        //                // if (change.Type == DocumentChange.Type.Added)
-        //                {
-        //                    Dictionary<string, object> data = change.Document.ToDictionary();
-        //                    string author = data["Author"].ToString();
-        //                    string message = data["Message"].ToString();
-        //                    DateTime timestamp = ((Timestamp)data["Timestamp"]).ToDateTime();
-
-        //                    if (timestamp.ToUniversalTime() <= chatOpenedAt)
-        //                    {
-        //                        continue;
-        //                    }
-
-        //                    lbxAdminMessageView.Items.Add($"[{timestamp.ToString("hh:mm tt")}] {author}: {message}");
-        //                }
-        //            }
-        //        }));
-        //    });
-        //}
-
+      
         private void lbxAdminMessageView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -100,59 +73,8 @@ namespace StockifyJa
 
 
 
-        //    private async void btnAdminMessageSendButton_Click(object sender, EventArgs e)
-        //    {
-        //        string message = txtAdminMessageInput.Text;
-
-        //        FirestoreDb db = FirestoreDb.Create("stockify-34d8d"); // create a new instance every time
-        //        CollectionReference collectionReference = db.Collection("conversations");
-
-        //        Dictionary<string, object> docData = new Dictionary<string, object>
-        //{
-        //    { "Author", "Admin" },
-        //    { "Message", message },
-        //    { "Timestamp", Timestamp.GetCurrentTimestamp() }
-        //};
-        //        await collectionReference.AddAsync(docData);
-
-        //        txtAdminMessageInput.Clear();
-
-        //        //if (FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
-        //        //{
-        //        //    FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
-
-        //        //}
-        //        if (FrmCustomerChat.frmCustomerChatInstance == null || FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
-        //        {
-        //            FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
-        //        }
-
-        //    }
-        private async void btnAdminMessageSendButton_Click(object sender, EventArgs e)
-        {
-            string message = txtAdminMessageInput.Text;
-
-            FirestoreDb db = FirestoreDb.Create("stockify-34d8d"); // create a new instance every time
-            CollectionReference collectionReference = db.Collection("conversations");
-
-            Dictionary<string, object> docData = new Dictionary<string, object>
-    {
-        { "Author", "Admin" },
-        { "Message", message },
-        { "Timestamp", Timestamp.GetCurrentTimestamp() }
-    };
-            await collectionReference.AddAsync(docData);
-
-            txtAdminMessageInput.Clear();
-
-            // Check the customer chat instance and re-create it if necessary
-            if (FrmCustomerChat.frmCustomerChatInstance == null || FrmCustomerChat.frmCustomerChatInstance.IsDisposed)
-            {
-                FrmCustomerChat.frmCustomerChatInstance = new FrmCustomerChat();
-                FrmCustomerChat.frmCustomerChatInstance.Show();
-            }
-        }
-
+       
+       
 
         private void FrmAdminChat_Load(object sender, EventArgs e)
         {
