@@ -24,38 +24,7 @@ namespace StockifyJa
 
         private async void FrmViewAllProducts_Load(object sender, EventArgs e)
         {
-            /*
-            using (var context = new stockifydBEntities())
-            {
-                var products = from p in context.Products
-                               join i in context.ProductImages on p.ProductID equals i.ProductID
-                               join s in context.Stocks on p.ProductID equals s.ProductID
-                               join r in context.Rates on p.RateID equals r.ID // Join on RateID
-                               select new
-                               {
-                                   ProductId = p.ProductID,
-                                   ProductName = p.ProductName,
-                                   ImageUrl = i.ImageURL,
-                                   Price = p.Price,
-                                   Stock = s.QuantityInStock,
-                                   Discount = r.Discount
-                               };
-
-                foreach (var product in products)
-                {
-                    UCProduct productControl = new UCProduct();
-                    productControl.ProductId = product.ProductId;
-                    productControl.ProductName = product.ProductName;
-                    productControl.ProductPrice = (decimal)product.Price;
-                    productControl.Stock = product.Stock.HasValue ? product.Stock.Value : 0;
-                    productControl.Discount = (decimal)product.Discount;
-                    productControl.Width = flpProducts.Width / 4;
-
-                    productControl.ProductImage = await LoadImageAsync(product.ImageUrl);
-                    flpProducts.Controls.Add(productControl);
-                    originalProductControls.Add(productControl);
-                }
-            }*/
+          
             try
             {
                 // Stop the timer while refreshing the data

@@ -27,7 +27,7 @@ namespace StockifyJa
             InitializeComponent();
             chatOpenedAt = DateTime.UtcNow;
 
-            string path = @"C:\Users\fruse\Downloads\StockifyJa\StockifyJa\stockify-34d8d-firebase-adminsdk-xrgx1-2368fde9a0.json";
+            string path = @"C:\Users\fruse\Downloads\StockifyJa\StockifyJa\stockify-34d8d-firebase-adminsdk-xrgx1-2368fde9a0.json";// Replace with your actual file path
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             db = FirestoreDb.Create("stockify-34d8d");
             collectionReference = db.Collection("conversations");
@@ -76,49 +76,11 @@ namespace StockifyJa
 
 
 
-
-        private void txtCustomerMessageInput_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
-        private async void btnCustomerMessageSendButton_Click(object sender, EventArgs e)
-        {
-            string message = txtCustomerMessageInput.Text;
-
-            Dictionary<string, object> docData = new Dictionary<string, object>
-        {
-            { "Author", "Customer" },
-            { "Message", message },
-            { "Timestamp", Timestamp.GetCurrentTimestamp() }
-        };
-            await collectionReference.AddAsync(docData);
-
-            txtCustomerMessageInput.Clear();
-
-            if (FrmAdminChat.frmAdminChatInstance.IsDisposed)
-            {
-                FrmAdminChat.frmAdminChatInstance = new FrmAdminChat();
-            }
-
-            FrmAdminChat.frmAdminChatInstance.Show(); // Show the Admin Chat form
-        }
-    
-
-
         private void FrmCustomerChat_Load(object sender, EventArgs e)
         {
             StartListening();
         }
 
-
-        private void lbxCustomerMessageView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void picExit_Click(object sender, EventArgs e)
         {

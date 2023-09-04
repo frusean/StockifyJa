@@ -104,11 +104,10 @@ namespace StockifyJa
                     StockifydBEntities.ProductImages.Add(productImage);
                     StockifydBEntities.SaveChanges();
 
-                    // Display the new IDs in the textboxes
                     txtProductID.Text = product.ProductID.ToString();
                     txtImageID.Text = productImage.ImageID.ToString();
                     UpdateImage();
-                    // Refresh DataGridView
+                   
                     RefreshDataGridView();
 
                     MessageBox.Show("Product Item Successfully Added!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,10 +128,9 @@ namespace StockifyJa
         private void picUpdate_Click(object sender, EventArgs e)
         {
                       
-            if (dgvProducts.SelectedRows.Count > 0)  // Check if a row is selected
+            if (dgvProducts.SelectedRows.Count > 0)  
             {
-                int productID = Convert.ToInt32(dgvProducts.SelectedRows[0].Cells["ProductID"].Value);  // Fetch the ProductID of the selected row
-
+                int productID = Convert.ToInt32(dgvProducts.SelectedRows[0].Cells["ProductID"].Value); 
                 var productToUpdate = StockifydBEntities.Products.Find(productID);
                 if (productToUpdate != null)
                 {
@@ -169,7 +167,7 @@ namespace StockifyJa
        
         private void UpdateImage()
         {
-            string imageUrl = txtImageURL.Text; // This is the URL of the image you want to display
+            string imageUrl = txtImageURL.Text; 
 
             try
             {
@@ -178,12 +176,12 @@ namespace StockifyJa
                 using (var response = request.GetResponse()) // Send the web request and get the response
                 using (var stream = response.GetResponseStream()) // Get a stream to read the image data from the response
                 {
-                    picImage.Image = Bitmap.FromStream(stream); // Create an image from the stream and display it in the PictureBox
+                    picImage.Image = Bitmap.FromStream(stream); 
                 }
             }
-            catch (Exception ex) // Catch any exceptions that might occur (invalid URL, server error, etc.)
+            catch (Exception ex) 
             {
-                MessageBox.Show("Could not load image: " + ex.Message); // Display an error message
+                MessageBox.Show("Could not load image: " + ex.Message);
             }
         }
 
@@ -306,13 +304,13 @@ namespace StockifyJa
 
         private void RefreshDataGridView()
         {
-            // Clear DataGridView
+        
             dgvProducts.Rows.Clear();
 
-            // Ensure StockifydBEntities and StockifydBEntities.Products are not null
+            
             if (StockifydBEntities != null && StockifydBEntities.Products != null)
             {
-                // Load data from database and add to DataGridView
+                
                 foreach (var product in StockifydBEntities.Products.ToList())
                 {
                     var productImage = StockifydBEntities.ProductImages.FirstOrDefault(i => i.ProductID == product.ProductID);
@@ -326,21 +324,19 @@ namespace StockifyJa
                         productImage?.ImageURL,
                         product.RateID
                     );
-                    //UpdateImage();
+                 
                 }
             }
             else
             {
-                // Handle null StockifydBEntities or StockifydBEntities.Products here
+               
                 MessageBox.Show("Error: Database not connected properly. Please check your connection and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void picRefresh_Click(object sender, EventArgs e)
         {
-            // Refresh DataGridView
-           // RefreshDataGridView();
-            // Clear the text fields
+           // Clear the text fields
             txtProductID.Text = string.Empty;
             txtCategory.Text = string.Empty;
             txtProductName.Text = string.Empty;
@@ -357,51 +353,16 @@ namespace StockifyJa
 
         {
 
-            /* if (dgvProducts.SelectedRows.Count == 0)
-              {
-                  MessageBox.Show("No product selected!", "Error");
-                  return;
-              }
-
-              // Get product ID from the selected row. Replace "ProductID" with the name of the column holding the product ID.
-              var selectedProductID = (int)dgvProducts.SelectedRows[0].Cells["ProductID"].Value;
-
-              try
-              {
-                  var productToDelete = StockifydBEntities.Products.Find(selectedProductID);
-                  UpdateImage();
-                  if (productToDelete == null)
-                  {
-                      MessageBox.Show("Product not found!", "Error");
-                      return;
-                  }
-
-                  var confirmResult = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Deletion!", MessageBoxButtons.YesNo);
-                  if (confirmResult != DialogResult.Yes) return;
-
-                  DeleteProductWithImages(productToDelete);
-
-                  this.Invoke(new Action(() =>
-                  {
-                      RefreshDataGridView();
-                      MessageBox.Show("Product deleted successfully!", "Success");
-                  }));
-              }
-              catch (Exception ex)
-              {
-                  // Log the exception details as per your logging strategy
-                  MessageBox.Show("An error occurred while deleting the product.", "Error");
-              }*/
             if (dgvProducts.SelectedRows.Count == 0)
             {
                 MessageBox.Show("No product selected!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Get product ID from the selected row. Replace "ProductID" with the name of the column holding the product ID.
+           
             var selectedProductID = (int)dgvProducts.SelectedRows[0].Cells["ProductID"].Value;
 
-            // Fetch the product and its associated image from the database
+           
             var productToDelete = StockifydBEntities.Products.Find(selectedProductID);
             var productImage = StockifydBEntities.ProductImages.FirstOrDefault(i => i.ProductID == productToDelete.ProductID);
 
@@ -462,7 +423,7 @@ namespace StockifyJa
 
         private void DeleteProductWithImages(Product productToDelete)
         {
-            // This should be run in a transaction so that the operation is atomic.
+           
             using (var dbContextTransaction = StockifydBEntities.Database.BeginTransaction())
             {
                 try
@@ -489,12 +450,12 @@ namespace StockifyJa
             private void FrmManageProducts_Load(object sender, EventArgs e)
         {
 
-             // Populate the DataGridView with the current list of products
+            
      RefreshDataGridView();
 
-    // Populate the rates ComboBox with the current list of rates
+ 
     var rates = StockifydBEntities.Rates
-        .ToList() // Materialize the query here
+        .ToList() 
         .Select(r => new
         {
             r.ID,
@@ -502,14 +463,14 @@ namespace StockifyJa
         })
         .ToList();
 
-    // Insert a dummy rate at the beginning
+    
     rates.Insert(0, new { ID = 0, DisplayValue = "" });
 
     cboRates.DataSource = rates;
     cboRates.DisplayMember = "DisplayValue";
     cboRates.ValueMember = "ID";
 
-    cboRates.SelectedIndex = 0; // Set "" as the default selected item
+    cboRates.SelectedIndex = 0; 
         }
 
         private void picExit_Click(object sender, EventArgs e)

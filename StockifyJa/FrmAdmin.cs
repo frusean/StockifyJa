@@ -30,7 +30,7 @@ namespace StockifyJa
             lblTitle.Text = "Dashboard";
             this.pnlFormLoader.Controls.Clear();
 
-            // This is the updated line
+            
             FrmDashboardMain frmDashboard = new FrmDashboardMain(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
 
             frmDashboard.FormBorderStyle = FormBorderStyle.None;
@@ -100,7 +100,7 @@ namespace StockifyJa
                 frmDashboardMain.FormBorderStyle = FormBorderStyle.None;
             }
 
-            // This will either load a new form or bring the existing one to the front
+            
             LoadFormInPanel(frmDashboardMain);
         }
 
@@ -219,14 +219,14 @@ namespace StockifyJa
 
         private void FrmMainAdmin_Resize(object sender, EventArgs e)
             {
-                // Adjust the height of flSideBar and pnlFormLoader to match the height of the form.
+               
                 flSideBar.Height = this.Height;
                 pnlFormLoader.Height = this.Height;
 
-                // Adjust the width of pnlFormLoader to take up the rest of the form width minus the width of flSideBar.
+               
                 pnlFormLoader.Width = this.Width - flSideBar.Width;
 
-                // You might also want to reposition pnlFormLoader to always be next to flSideBar.
+               
                 pnlFormLoader.Left = flSideBar.Width;
             }
 
@@ -234,20 +234,19 @@ namespace StockifyJa
 
             private void LoginTimer_Tick(object sender, EventArgs e)
             {
-               // loginTime = DateTime.Now;
-            //   LoginTimer.Start();
+              
             loginTime = DateTime.Now;
-            lblUsertext.Text = loginTime.ToString("HH:mm:ss");  // Set the time to lblUsertext
+            lblUsertext.Text = loginTime.ToString("HH:mm:ss");  
             LoginTimer.Start();
         }
 
             private void btnLogout_Click(object sender, EventArgs e)
             {
                 LoginTimer.Stop();
-            // Close the current form
+           
             this.Close();
 
-            // Show the login form
+            
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();
         }

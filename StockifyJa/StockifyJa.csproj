@@ -276,12 +276,6 @@
     <Compile Include="FrmAdminChat.Designer.cs">
       <DependentUpon>FrmAdminChat.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAdminMDI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAdminMDI.Designer.cs">
-      <DependentUpon>FrmAdminMDI.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmCustomerChat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -415,9 +409,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAdminChat.resx">
       <DependentUpon>FrmAdminChat.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmAdminMDI.resx">
-      <DependentUpon>FrmAdminMDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCustomerChat.resx">
       <DependentUpon>FrmCustomerChat.cs</DependentUpon>

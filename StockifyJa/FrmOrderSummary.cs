@@ -50,9 +50,6 @@ namespace StockifyJa
         private void pbxContinueToPayment_Click(object sender, EventArgs e)
         {
 
-            /*FrmPayment frmPayment = new FrmPayment(_cartItems, _gctAmount, _totalAmount + _gctAmount);
-            frmPayment.Show();*/
-
             int latestOrderId = GetLatestOrderID();
             FrmPayment frmPayment = new FrmPayment(_cartItems, _gctAmount, _totalAmount + _gctAmount, latestOrderId);
             frmPayment.Show();
@@ -83,7 +80,7 @@ namespace StockifyJa
             section.AddParagraph("\n");
 
             // Add the logo on the top left corner
-            string imagePath = @"C:\Users\demet\Downloads\StockifyJa\StockifyJa\StockifyJa\AppleNova.png";
+            string imagePath = @"C:\Users\demet\Downloads\StockifyJa\StockifyJa\StockifyJa\AppleNova.png";// Replace with your actual file path
             var image = section.Headers.Primary.AddImage(imagePath);
             image.Width = "2cm";
             image.LockAspectRatio = true;
@@ -156,7 +153,7 @@ namespace StockifyJa
 
         private int GetLatestOrderID()
         {
-            // This function queries the database to get the most recent order ID.
+            
              return _db.Orders.OrderByDescending(o => o.OrderDate).FirstOrDefault()?.OrderID ?? 0;
         }
 
