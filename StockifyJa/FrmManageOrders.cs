@@ -10,12 +10,12 @@ namespace StockifyJa
 {
     public partial class FrmManageOrders : Form
     {
-        private stockifydBEntities _db;
+        private sTockifyJaEntities _db;
 
         public FrmManageOrders()
         {
             InitializeComponent();
-            _db = new stockifydBEntities();
+            _db = new sTockifyJaEntities();
             LoadDataGrid();
         }
 

@@ -223,10 +223,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cart.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="ContactDetail.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="FrmAdmin.cs">
       <SubType>Form</SubType>
@@ -337,27 +337,27 @@
       <DependentUpon>FrmViewAllProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderDetail.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="PaymentDetail.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductImage.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rate.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="ShippingDetail.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="spReadProduct_Result.cs">
       <DependentUpon>StockifyDB.tt</DependentUpon>
@@ -366,10 +366,10 @@
       <DependentUpon>StockifyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Status.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="Stock.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="StockifyDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -386,8 +386,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StockifyDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="StockifyTest.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockifyTest.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockifyTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockifyTest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockifyTest.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Supply.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <Compile Include="UCProduct.cs">
       <SubType>UserControl</SubType>
@@ -402,7 +420,7 @@
       <DependentUpon>UCProductDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>StockifyDB.tt</DependentUpon>
+      <DependentUpon>StockifyTest.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
@@ -491,6 +509,13 @@
     <None Include="StockifyDB.edmx.diagram">
       <DependentUpon>StockifyDB.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="StockifyTest.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StockifyTest.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="StockifyTest.edmx.diagram">
+      <DependentUpon>StockifyTest.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -507,6 +532,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>StockifyDB.edmx</DependentUpon>
       <LastGenOutput>StockifyDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="StockifyTest.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StockifyTest.edmx</DependentUpon>
+      <LastGenOutput>StockifyTest.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="StockifyTest.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StockifyTest.edmx</DependentUpon>
+      <LastGenOutput>StockifyTest.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

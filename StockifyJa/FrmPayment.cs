@@ -22,7 +22,7 @@ namespace StockifyJa
         private decimal _total;
         private decimal _gct;
         private List<ItemDetails> _cartItems;
-        private stockifydBEntities _db;
+        private sTockifyJaEntities _db;
 
         public FrmPayment(List<ItemDetails> cartItems, decimal gct, decimal total, int latestOrderId)
        
@@ -31,7 +31,7 @@ namespace StockifyJa
             _cartItems = cartItems;
             _gct = gct;
             _total = total;
-            _db = new stockifydBEntities();
+            _db = new sTockifyJaEntities();
             _db.Database.CommandTimeout = 180;
             StripeConfiguration.ApiKey = "sk_test_51NDiUAH4zO9awdaeS7UqsirCvNEBr42gC4oZTRD0V9Idd2djlMcv17M256OIjwlSpGSbcB6r9YJ8P8nfIHEAwJvY00A4N70Joa";
             lblOrderID.Text = $" {latestOrderId}";

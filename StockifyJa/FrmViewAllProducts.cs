@@ -30,7 +30,7 @@ namespace StockifyJa
                 // Stop the timer while refreshing the data
                 refreshTimer.Stop();
 
-                using (var context = new stockifydBEntities())
+                using (var context = new sTockifyJaEntities())
                 {
                     // Clear originalProductControls list
                     originalProductControls.Clear();

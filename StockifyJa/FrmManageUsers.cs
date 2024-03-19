@@ -18,12 +18,12 @@ namespace StockifyJa
 {
     public partial class FrmManageUsers : Form
     {
-        private readonly stockifydBEntities StockifyEntities;
+        private readonly sTockifyJaEntities StockifyEntities;
 
         public FrmManageUsers()
         {
             InitializeComponent();
-            StockifyEntities = new stockifydBEntities();
+            StockifyEntities = new sTockifyJaEntities();
         }
 
         private void FrmManageUsers_Load(object sender, EventArgs e)

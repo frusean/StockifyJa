@@ -13,11 +13,11 @@ namespace StockifyJa
 {
     public partial class FrmLogin : Form
     {
-        private readonly stockifydBEntities _db;
+        private readonly sTockifyJaEntities _db;
         public FrmLogin()
         {
             InitializeComponent();
-            _db = new stockifydBEntities();
+            _db = new sTockifyJaEntities();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)

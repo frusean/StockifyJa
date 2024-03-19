@@ -18,7 +18,7 @@ namespace StockifyJa
 {
     public partial class FrmOrderSummary : Form
     {
-        private stockifydBEntities _db = new stockifydBEntities();
+        private sTockifyJaEntities _db = new sTockifyJaEntities();
 
         private List<ItemDetails> _cartItems;
         private decimal _totalAmount;

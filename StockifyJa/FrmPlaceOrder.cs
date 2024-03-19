@@ -18,13 +18,13 @@ namespace StockifyJa
 
     public partial class FrmPlaceOrder : Form
     {
-        private stockifydBEntities _db;
+        private sTockifyJaEntities _db;
         private List<ItemDetails> _cartItems;
         
         public FrmPlaceOrder()
         {
             InitializeComponent();
-            _db = new stockifydBEntities();
+            _db = new sTockifyJaEntities();
             _db.Database.CommandTimeout = 180;
             btnViewOrder.Enabled = false;
             _cartItems = new List<ItemDetails>();

@@ -13,12 +13,12 @@ namespace StockifyJa
 {
     public partial class FrmManageSupplies : Form
     {
-        private stockifydBEntities StockifydBEntities;
+        private sTockifyJaEntities StockifydBEntities;
         private Supply currentSupply = null;
         public FrmManageSupplies()
         {
             InitializeComponent();
-            StockifydBEntities = new stockifydBEntities();
+            StockifydBEntities = new sTockifyJaEntities();
         }
 
         private void picExit_Click(object sender, EventArgs e)

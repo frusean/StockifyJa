@@ -26,8 +26,8 @@ namespace StockifyJa
         public string PersonName { get; set; }
         public string ContactType { get; set; }
         public string Street { get; set; }
-        public string City { get; set; }
         public string Parish { get; set; }
+        public string City { get; set; }
         public string ZipCode { get; set; }
         public string Telephone { get; set; }
         public string Email { get; set; }

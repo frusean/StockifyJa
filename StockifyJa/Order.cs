@@ -23,15 +23,16 @@ namespace StockifyJa
         }
     
         public int OrderID { get; set; }
+        public Nullable<int> UserID { get; set; }
         public Nullable<int> RetailerID { get; set; }
         public Nullable<System.DateTime> OrderDate { get; set; }
         public Nullable<decimal> Total { get; set; }
         public Nullable<int> StatusID { get; set; }
     
+        public virtual Status Status { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual User User { get; set; }
-        public virtual Status Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PaymentDetail> PaymentDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

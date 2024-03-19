@@ -23,7 +23,7 @@ namespace StockifyJa
         }
         private async void FrmProductDetails_Load(object sender, EventArgs e)
         {
-            using (var context = new stockifydBEntities())
+            using (var context = new sTockifyJaEntities())
             {
                 var product = await (from p in context.Products
                                      join i in context.ProductImages on p.ProductID equals i.ProductID

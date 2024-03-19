@@ -19,11 +19,11 @@ namespace StockifyJa
 {
     public partial class FrmManageProducts : Form
     {
-        private stockifydBEntities StockifydBEntities;
+        private sTockifyJaEntities StockifydBEntities;
         public FrmManageProducts()
         {
             InitializeComponent();
-            StockifydBEntities = new stockifydBEntities();
+            StockifydBEntities = new sTockifyJaEntities();
         }
 
 

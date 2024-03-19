@@ -13,11 +13,11 @@ namespace StockifyJa
 {
     public partial class FrmSettings : Form
     {
-        private stockifydBEntities StockifydBEntities;
+        private sTockifyJaEntities StockifydBEntities;
         public FrmSettings()
         {
             InitializeComponent();
-            StockifydBEntities = new stockifydBEntities();
+            StockifydBEntities = new sTockifyJaEntities();
         }
 
 
