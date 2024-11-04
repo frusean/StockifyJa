@@ -27,7 +27,7 @@ namespace StockifyJa
             InitializeComponent();
             chatOpenedAt = DateTime.UtcNow;
 
-            string path = @"C:\Users\fruse\Downloads\StockifyJa\StockifyJa\stockify-34d8d-firebase-adminsdk-xrgx1-2368fde9a0.json";// Replace with your actual file path
+            string path = @"";// Replace with your actual file path
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
             db = FirestoreDb.Create("stockify-34d8d");
             collectionReference = db.Collection("conversations");
