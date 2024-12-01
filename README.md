@@ -1,4 +1,4 @@
-# Generate a README file based on the provided description for StockifyJa
+
 readme_content = """
 # StockifyJa
 
