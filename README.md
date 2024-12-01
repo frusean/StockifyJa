@@ -1,5 +1,4 @@
 
-readme_content = """
 # StockifyJa
 
 StockifyJa is a desktop-based inventory management system tailored for **Apple Nova**, a B2B supplier of Apple electronics in Jamaica. This system streamlines inventory tracking, order management, and real-time support for administrators and retailer partners.
